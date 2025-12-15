@@ -11,10 +11,19 @@
     :root {
       --primary: #1a1a2e;
       --secondary: #16213e;
-      --accent: #e94560;
-      --gold: #c5a572;
+      --award-gold: #FF9F1C;
       --white: #ffffff;
       --grey: #f5f5f5;
+
+      /* CLC Brand */
+      --clc-teal: #1a5f5a;
+      --clc-teal-dark: #134845;
+      --clc-gold: #c9a962;
+
+      /* Brighton College Brand */
+      --bc-navy: #1E3A5F;
+      --bc-navy-dark: #152D4A;
+      --bc-gold: #C5A572;
     }
 
     * {
@@ -44,7 +53,7 @@
     .logo {
       font-size: 1.5rem;
       font-weight: 700;
-      color: var(--gold);
+      color: var(--award-gold);
       letter-spacing: 0.1em;
     }
 
@@ -154,6 +163,70 @@
       background: rgba(255, 255, 255, 0.1);
     }
 
+    /* CLC Branded Card */
+    .school-card--clc {
+      border-color: var(--clc-teal);
+    }
+
+    .school-card--clc .school-card__content {
+      background: linear-gradient(135deg, var(--clc-teal-dark) 0%, var(--clc-teal) 100%);
+    }
+
+    .school-card--clc .school-card__location {
+      color: var(--clc-gold);
+    }
+
+    .school-card--clc .btn--primary {
+      background: var(--clc-gold);
+      color: var(--clc-teal-dark);
+    }
+
+    .school-card--clc .btn--primary:hover {
+      background: #d4b872;
+    }
+
+    .school-card--clc .btn--secondary {
+      border-color: var(--clc-gold);
+      color: var(--clc-gold);
+    }
+
+    .school-card--clc .btn--secondary:hover {
+      background: var(--clc-gold);
+      color: var(--clc-teal-dark);
+    }
+
+    /* Brighton College Branded Card */
+    .school-card--brighton {
+      border-color: var(--bc-navy);
+    }
+
+    .school-card--brighton .school-card__content {
+      background: linear-gradient(135deg, var(--bc-navy-dark) 0%, var(--bc-navy) 100%);
+    }
+
+    .school-card--brighton .school-card__location {
+      color: var(--bc-gold);
+    }
+
+    .school-card--brighton .btn--primary {
+      background: var(--bc-gold);
+      color: var(--bc-navy-dark);
+    }
+
+    .school-card--brighton .btn--primary:hover {
+      background: #d4bc92;
+    }
+
+    .school-card--brighton .btn--secondary {
+      border-color: var(--bc-gold);
+      color: var(--bc-gold);
+    }
+
+    .school-card--brighton .btn--secondary:hover {
+      background: var(--bc-gold);
+      color: var(--bc-navy-dark);
+    }
+
     footer {
       text-align: center;
       padding: 3rem 0;
@@ -199,7 +272,7 @@
       <div class="container">
         <div class="schools-grid">
           <!-- Cheltenham Ladies' College -->
-          <div class="school-card">
+          <div class="school-card school-card--clc">
             <img src="clc/scraped-content/images/first-week-back-2022-14.jpg" alt="Cheltenham Ladies' College" class="school-card__image" onerror="this.src='https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=600'">
             <div class="school-card__content">
               <h2 class="school-card__name">Cheltenham Ladies' College</h2>
@@ -213,7 +286,7 @@
           </div>
 
           <!-- Brighton College -->
-          <div class="school-card">
+          <div class="school-card school-card--brighton">
             <img src="brighton-college/assets/images/open-morning-block-v2.png" alt="Brighton College" class="school-card__image" onerror="this.src='https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=600'">
             <div class="school-card__content">
               <h2 class="school-card__name">Brighton College</h2>
