@@ -1,0 +1,465 @@
+/* Brighton College Prep Kensington - Form Styles */
+/* Using OFFICIAL brand colours from website */
+@import url('bcpk-variables.css');
+
+/* Form Container */
+.bcpk-form-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--bcpk-dark-blue) 0%, var(--bcpk-blue-light) 50%, var(--bcpk-dark-blue) 100%);
+  padding: var(--space-xl) var(--space-md);
+}
+
+.bcpk-form-container {
+  max-width: 700px;
+  margin: 0 auto;
+  background: var(--bcpk-white);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-xl);
+  overflow: hidden;
+}
+
+/* Form Header */
+.bcpk-form-header {
+  background: var(--bcpk-dark-blue);
+  color: var(--bcpk-white);
+  padding: var(--space-2xl);
+  text-align: center;
+}
+
+.bcpk-form-header__logo {
+  width: 180px;
+  height: auto;
+  margin: 0 auto var(--space-lg);
+  background: var(--bcpk-white);
+  padding: var(--space-sm);
+  border-radius: var(--radius-md);
+}
+
+.bcpk-form-header__title {
+  font-family: var(--font-serif);
+  font-size: var(--fs-2xl);
+  margin-bottom: var(--space-sm);
+  color: var(--bcpk-white);
+}
+
+.bcpk-form-header__subtitle {
+  color: var(--bcpk-magenta-light);
+  font-size: var(--fs-sm);
+}
+
+/* Progress Indicator */
+.bcpk-form-progress {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-xs);
+  padding: var(--space-lg) var(--space-xl);
+  background: var(--bcpk-light-grey);
+}
+
+.bcpk-form-progress__step {
+  width: 50px;
+  height: 4px;
+  background: var(--bcpk-mid-grey);
+  border-radius: var(--radius-full);
+  transition: background var(--transition-normal);
+}
+
+.bcpk-form-progress__step.active {
+  background: var(--bcpk-magenta);
+}
+
+.bcpk-form-progress__step.completed {
+  background: var(--bcpk-dark-blue);
+}
+
+.bcpk-form-progress__text {
+  text-align: center;
+  font-size: var(--fs-sm);
+  color: var(--bcpk-dark-grey);
+  margin-top: var(--space-sm);
+}
+
+/* Garden Icons Decoration */
+.bcpk-garden-icons {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-md);
+  padding: var(--space-md);
+  background: var(--bcpk-cream);
+}
+
+.bcpk-garden-icon {
+  font-size: 1.5rem;
+}
+
+/* Form Sections */
+.bcpk-form-section {
+  padding: var(--space-2xl);
+  display: none;
+}
+
+.bcpk-form-section.active {
+  display: block;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.bcpk-form-section__title {
+  font-family: var(--font-serif);
+  font-size: var(--fs-xl);
+  color: var(--bcpk-dark-blue);
+  margin-bottom: var(--space-xs);
+}
+
+.bcpk-form-section__description {
+  color: var(--bcpk-dark-grey);
+  font-size: var(--fs-sm);
+  margin-bottom: var(--space-xl);
+}
+
+/* Form Groups */
+.bcpk-form-group {
+  margin-bottom: var(--space-lg);
+}
+
+.bcpk-form-group label {
+  display: block;
+  font-weight: var(--fw-medium);
+  color: var(--bcpk-charcoal);
+  margin-bottom: var(--space-sm);
+  font-size: var(--fs-sm);
+}
+
+.bcpk-form-group label .required {
+  color: var(--bcpk-magenta);
+  margin-left: var(--space-xs);
+}
+
+/* Input Styles */
+.bcpk-input,
+.bcpk-select,
+.bcpk-textarea {
+  width: 100%;
+  padding: var(--space-md);
+  border: 2px solid var(--bcpk-mid-grey);
+  border-radius: var(--radius-md);
+  font-family: var(--font-sans);
+  font-size: var(--fs-base);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  background: var(--bcpk-white);
+}
+
+.bcpk-input:focus,
+.bcpk-select:focus,
+.bcpk-textarea:focus {
+  outline: none;
+  border-color: var(--bcpk-magenta);
+  box-shadow: 0 0 0 3px rgba(172, 18, 96, 0.1);
+}
+
+.bcpk-input.error,
+.bcpk-select.error {
+  border-color: var(--bcpk-error);
+}
+
+.bcpk-input::placeholder {
+  color: var(--bcpk-hover-grey);
+}
+
+.bcpk-textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.bcpk-select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%231C2B33' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right var(--space-md) center;
+  background-size: 16px;
+  padding-right: var(--space-3xl);
+}
+
+/* Row Layout */
+.bcpk-form-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-lg);
+}
+
+@media (max-width: 600px) {
+  .bcpk-form-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Checkbox and Radio Styles */
+.bcpk-checkbox-group,
+.bcpk-radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.bcpk-checkbox-group--inline,
+.bcpk-radio-group--inline {
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.bcpk-checkbox,
+.bcpk-radio {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  cursor: pointer;
+  padding: var(--space-sm) var(--space-md);
+  border: 2px solid var(--bcpk-mid-grey);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+}
+
+.bcpk-checkbox:hover,
+.bcpk-radio:hover {
+  border-color: var(--bcpk-magenta);
+  background: var(--bcpk-cream);
+}
+
+.bcpk-checkbox input,
+.bcpk-radio input {
+  width: 20px;
+  height: 20px;
+  accent-color: var(--bcpk-magenta);
+}
+
+.bcpk-checkbox.selected,
+.bcpk-radio.selected {
+  border-color: var(--bcpk-magenta);
+  background: rgba(172, 18, 96, 0.05);
+}
+
+/* Multi-Select Grid */
+.bcpk-multiselect-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: var(--space-md);
+}
+
+.bcpk-multiselect-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  padding: var(--space-md);
+  border: 2px solid var(--bcpk-mid-grey);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  text-align: center;
+  font-size: var(--fs-sm);
+  transition: all var(--transition-fast);
+}
+
+.bcpk-multiselect-item:hover {
+  border-color: var(--bcpk-magenta);
+}
+
+.bcpk-multiselect-item.selected {
+  border-color: var(--bcpk-magenta);
+  background: var(--bcpk-magenta);
+  color: var(--bcpk-white);
+}
+
+.bcpk-multiselect-item input {
+  display: none;
+}
+
+/* Error Messages */
+.bcpk-error-message {
+  color: var(--bcpk-error);
+  font-size: var(--fs-sm);
+  margin-top: var(--space-xs);
+  display: none;
+}
+
+.bcpk-form-group.has-error .bcpk-error-message {
+  display: block;
+}
+
+/* Form Navigation */
+.bcpk-form-nav {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--space-xl) var(--space-2xl);
+  border-top: 1px solid var(--bcpk-light-grey);
+  background: var(--bcpk-cream);
+}
+
+.bcpk-form-btn {
+  padding: var(--space-md) var(--space-2xl);
+  border: none;
+  border-radius: var(--radius-md);
+  font-family: var(--font-sans);
+  font-size: var(--fs-base);
+  font-weight: var(--fw-semibold);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.bcpk-form-btn--primary {
+  background: var(--bcpk-magenta);
+  color: var(--bcpk-white);
+}
+
+.bcpk-form-btn--primary:hover {
+  background: var(--bcpk-magenta-dark);
+}
+
+.bcpk-form-btn--secondary {
+  background: transparent;
+  color: var(--bcpk-dark-blue);
+  border: 2px solid var(--bcpk-dark-blue);
+}
+
+.bcpk-form-btn--secondary:hover {
+  background: var(--bcpk-dark-blue);
+  color: var(--bcpk-white);
+}
+
+.bcpk-form-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Preview Panel */
+.bcpk-form-preview {
+  background: var(--bcpk-magenta);
+  color: var(--bcpk-white);
+  padding: var(--space-lg);
+  margin: var(--space-lg);
+  border-radius: var(--radius-md);
+}
+
+.bcpk-form-preview__title {
+  font-family: var(--font-serif);
+  font-size: var(--fs-lg);
+  margin-bottom: var(--space-sm);
+}
+
+.bcpk-form-preview__item {
+  font-size: var(--fs-sm);
+  margin-bottom: var(--space-xs);
+}
+
+.bcpk-form-preview__item strong {
+  font-weight: var(--fw-semibold);
+}
+
+/* Conditional Fields */
+.bcpk-conditional {
+  display: none;
+  margin-top: var(--space-md);
+  padding: var(--space-md);
+  background: var(--bcpk-cream);
+  border-radius: var(--radius-md);
+}
+
+.bcpk-conditional.visible {
+  display: block;
+  animation: fadeIn 0.3s ease;
+}
+
+/* Success State */
+.bcpk-form-success {
+  text-align: center;
+  padding: var(--space-4xl) var(--space-2xl);
+}
+
+.bcpk-form-success__icon {
+  width: 80px;
+  height: 80px;
+  background: var(--bcpk-success);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto var(--space-xl);
+  color: var(--bcpk-white);
+  font-size: var(--fs-4xl);
+}
+
+.bcpk-form-success__title {
+  font-family: var(--font-serif);
+  font-size: var(--fs-2xl);
+  color: var(--bcpk-dark-blue);
+  margin-bottom: var(--space-md);
+}
+
+.bcpk-form-success__message {
+  color: var(--bcpk-dark-grey);
+  margin-bottom: var(--space-xl);
+}
+
+/* Loading State */
+.bcpk-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-4xl);
+}
+
+.bcpk-loading__spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid var(--bcpk-light-grey);
+  border-top-color: var(--bcpk-magenta);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.bcpk-loading__text {
+  margin-top: var(--space-lg);
+  color: var(--bcpk-dark-grey);
+}
+
+/* Mobile Optimisation */
+@media (max-width: 600px) {
+  .bcpk-form-page {
+    padding: var(--space-md);
+  }
+
+  .bcpk-form-container {
+    border-radius: var(--radius-lg);
+  }
+
+  .bcpk-form-header {
+    padding: var(--space-xl);
+  }
+
+  .bcpk-form-section {
+    padding: var(--space-xl);
+  }
+
+  .bcpk-form-nav {
+    padding: var(--space-md);
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .bcpk-form-btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .bcpk-multiselect-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

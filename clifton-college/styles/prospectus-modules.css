@@ -1,0 +1,1102 @@
+/* ==========================================================================
+   Clifton College Prospectus Modules - Additional Styles
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Reading Progress Bar
+   -------------------------------------------------------------------------- */
+.reading-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: var(--clifton-white);
+    box-shadow: var(--shadow-sm);
+}
+
+.reading-progress__bar {
+    height: 4px;
+    background: linear-gradient(90deg, var(--clifton-brown), var(--clifton-gold));
+    width: 0%;
+    transition: width 100ms ease;
+}
+
+.reading-progress__info {
+    display: flex;
+    justify-content: space-between;
+    padding: var(--space-sm) var(--space-lg);
+    font-size: 0.8rem;
+}
+
+.reading-progress__family {
+    font-weight: 600;
+    color: var(--clifton-brown);
+}
+
+.reading-progress__percent {
+    color: var(--text-secondary);
+}
+
+/* --------------------------------------------------------------------------
+   Prospectus Page Layout
+   -------------------------------------------------------------------------- */
+.prospectus-page {
+    padding-top: 60px; /* Account for progress bar */
+}
+
+.prospectus-page .header {
+    position: relative;
+    top: 0;
+}
+
+.prospectus-content {
+    min-height: 100vh;
+}
+
+/* --------------------------------------------------------------------------
+   Module Base Styles
+   -------------------------------------------------------------------------- */
+.module {
+    padding: var(--space-3xl) 0;
+}
+
+.module--hero {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    background: linear-gradient(135deg, var(--clifton-brown-dark) 0%, var(--clifton-brown) 100%);
+    color: var(--text-inverse);
+    padding: var(--space-3xl) 0;
+}
+
+.hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=1600');
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(92, 64, 51, 0.9) 0%, rgba(61, 42, 34, 0.95) 100%);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero-badge {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.15);
+    color: var(--clifton-white);
+    padding: var(--space-sm) var(--space-lg);
+    border-radius: var(--radius-full);
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: var(--space-xl);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    color: var(--clifton-white);
+    margin-bottom: var(--space-md);
+    line-height: 1.1;
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    color: var(--clifton-gold-light);
+    margin-bottom: var(--space-lg);
+    font-family: var(--font-serif);
+}
+
+.hero-lead {
+    font-size: 1.25rem;
+    opacity: 0.9;
+    margin-bottom: var(--space-2xl);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* --------------------------------------------------------------------------
+   Section Titles & Badges
+   -------------------------------------------------------------------------- */
+.section-title {
+    font-size: 2.25rem;
+    text-align: center;
+    margin-bottom: var(--space-md);
+}
+
+.section-intro {
+    font-size: 1.15rem;
+    color: var(--text-secondary);
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto var(--space-2xl);
+}
+
+.section-badge {
+    display: inline-block;
+    background: var(--clifton-brown-pale);
+    color: var(--clifton-brown);
+    padding: var(--space-xs) var(--space-md);
+    border-radius: var(--radius-full);
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: var(--space-md);
+}
+
+/* --------------------------------------------------------------------------
+   Video Sections
+   -------------------------------------------------------------------------- */
+.module--video {
+    background: var(--clifton-brown-pale);
+}
+
+.video-section {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.video-embed {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-xl);
+    margin: var(--space-xl) 0;
+}
+
+.video-embed iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.video-embed--featured {
+    padding-bottom: 56.25%;
+}
+
+.video-caption {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    font-style: italic;
+    margin-top: var(--space-md);
+}
+
+/* --------------------------------------------------------------------------
+   Welcome Card
+   -------------------------------------------------------------------------- */
+.module--welcome {
+    background: var(--clifton-white);
+}
+
+.welcome-card {
+    background: var(--clifton-cream);
+    padding: var(--space-2xl);
+    border-radius: var(--radius-xl);
+    border-left: 4px solid var(--clifton-brown);
+}
+
+.welcome-card h2 {
+    margin-bottom: var(--space-lg);
+}
+
+.welcome-signature {
+    margin-top: var(--space-xl);
+    padding-top: var(--space-lg);
+    border-top: 1px solid #ddd;
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+}
+
+/* --------------------------------------------------------------------------
+   Heritage Section
+   -------------------------------------------------------------------------- */
+.module--heritage {
+    background: var(--clifton-brown);
+    color: var(--text-inverse);
+}
+
+.module--heritage h2 {
+    color: var(--clifton-white);
+}
+
+.heritage-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-2xl);
+    align-items: center;
+}
+
+.heritage-content {
+    padding-right: var(--space-xl);
+}
+
+.heritage-stats {
+    display: grid;
+    gap: var(--space-lg);
+}
+
+.stat-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: var(--space-xl);
+    border-radius: var(--radius-lg);
+    text-align: center;
+}
+
+.stat-number {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--clifton-gold);
+    font-family: var(--font-serif);
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    margin-top: var(--space-sm);
+}
+
+@media (max-width: 768px) {
+    .heritage-grid {
+        grid-template-columns: 1fr;
+    }
+    .heritage-content {
+        padding-right: 0;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   Day in Life Timeline
+   -------------------------------------------------------------------------- */
+.timeline {
+    max-width: 600px;
+    margin: 0 auto var(--space-2xl);
+}
+
+.timeline-item {
+    display: flex;
+    gap: var(--space-lg);
+    padding: var(--space-md) 0;
+    border-bottom: 1px solid #eee;
+}
+
+.timeline-time {
+    width: 80px;
+    font-weight: 700;
+    color: var(--clifton-brown);
+    flex-shrink: 0;
+}
+
+.timeline-content h4 {
+    margin-bottom: var(--space-xs);
+    font-size: 1rem;
+}
+
+.timeline-content p {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+/* Highlight Box */
+.highlight-box {
+    background: var(--clifton-brown-pale);
+    padding: var(--space-xl);
+    border-radius: var(--radius-lg);
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.highlight-box--preprep {
+    background: var(--preprep-green-light);
+    border-left: 4px solid var(--preprep-green);
+}
+
+.highlight-box--prep {
+    background: var(--prep-blue-light);
+    border-left: 4px solid var(--prep-blue);
+}
+
+.highlight-box--upper {
+    background: var(--upper-burgundy-light);
+    border-left: 4px solid var(--upper-burgundy);
+}
+
+.highlight-box h4 {
+    margin-bottom: var(--space-sm);
+}
+
+.highlight-box p {
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+/* --------------------------------------------------------------------------
+   Feature Split Layout
+   -------------------------------------------------------------------------- */
+.module--forest {
+    background: var(--preprep-green-light);
+}
+
+.feature-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-2xl);
+    align-items: center;
+}
+
+.feature-content {
+    padding-right: var(--space-xl);
+}
+
+.feature-list {
+    list-style: none;
+    padding: 0;
+    margin: var(--space-lg) 0;
+}
+
+.feature-list li {
+    padding: var(--space-sm) 0;
+    padding-left: var(--space-lg);
+    position: relative;
+}
+
+.feature-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--preprep-green);
+    font-weight: bold;
+}
+
+.feature-media {
+    position: relative;
+}
+
+.feature-image-placeholder {
+    background: #ddd;
+    padding-bottom: 75%;
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.feature-image-placeholder span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--text-secondary);
+}
+
+@media (max-width: 768px) {
+    .feature-split {
+        grid-template-columns: 1fr;
+    }
+    .feature-content {
+        padding-right: 0;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   Curriculum Grid
+   -------------------------------------------------------------------------- */
+.curriculum-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: var(--space-lg);
+    margin-bottom: var(--space-2xl);
+}
+
+.curriculum-card {
+    background: var(--clifton-white);
+    padding: var(--space-xl);
+    border-radius: var(--radius-lg);
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.curriculum-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+.curriculum-icon {
+    font-size: 2.5rem;
+    margin-bottom: var(--space-md);
+}
+
+.curriculum-card h4 {
+    margin-bottom: var(--space-sm);
+    color: var(--clifton-brown);
+}
+
+.curriculum-card p {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+/* Teaching Approach */
+.teaching-approach {
+    background: var(--clifton-white);
+    padding: var(--space-2xl);
+    border-radius: var(--radius-lg);
+}
+
+.teaching-approach h3 {
+    text-align: center;
+    margin-bottom: var(--space-xl);
+}
+
+.approach-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-lg);
+}
+
+.approach-item {
+    text-align: center;
+}
+
+.approach-item strong {
+    display: block;
+    margin-bottom: var(--space-sm);
+    color: var(--clifton-brown);
+}
+
+.approach-item p {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Facilities Grid
+   -------------------------------------------------------------------------- */
+.module--facilities {
+    background: var(--clifton-cream);
+}
+
+.facilities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-lg);
+    margin-bottom: var(--space-2xl);
+}
+
+.facility-card {
+    background: var(--clifton-white);
+    padding: var(--space-xl);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+}
+
+.facility-card h4 {
+    color: var(--clifton-brown);
+    margin-bottom: var(--space-sm);
+}
+
+.facility-card p {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Pastoral Section
+   -------------------------------------------------------------------------- */
+.quote-featured {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    color: var(--clifton-brown);
+    text-align: center;
+    font-style: italic;
+    padding: var(--space-xl);
+    border-left: 4px solid var(--clifton-gold);
+    background: var(--clifton-brown-pale);
+    border-radius: var(--radius-lg);
+    margin-bottom: var(--space-2xl);
+}
+
+.pastoral-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-lg);
+}
+
+.pastoral-item {
+    text-align: center;
+    padding: var(--space-lg);
+}
+
+.pastoral-item h4 {
+    color: var(--clifton-brown);
+    margin-bottom: var(--space-sm);
+}
+
+.pastoral-item p {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Journey Timeline
+   -------------------------------------------------------------------------- */
+.journey-timeline {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 0;
+    flex-wrap: wrap;
+    margin-bottom: var(--space-2xl);
+}
+
+.journey-stage {
+    text-align: center;
+    padding: var(--space-lg);
+    flex: 1;
+    min-width: 200px;
+    max-width: 280px;
+}
+
+.journey-stage--active {
+    background: var(--clifton-brown-pale);
+    border-radius: var(--radius-lg);
+}
+
+.journey-marker {
+    display: inline-block;
+    background: var(--clifton-brown);
+    color: var(--clifton-white);
+    padding: var(--space-xs) var(--space-md);
+    border-radius: var(--radius-full);
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: var(--space-md);
+}
+
+.journey-stage--active .journey-marker {
+    background: var(--preprep-green);
+}
+
+.journey-stage h4 {
+    margin-bottom: var(--space-xs);
+}
+
+.journey-stage p {
+    font-size: 0.9rem;
+    margin-bottom: var(--space-xs);
+}
+
+.journey-stage .small {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.journey-connector {
+    width: 60px;
+    height: 2px;
+    background: var(--clifton-brown-pale);
+    margin-top: 50px;
+}
+
+.journey-quote {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+    font-style: italic;
+    color: var(--text-secondary);
+    padding: var(--space-xl);
+    background: var(--clifton-cream);
+    border-radius: var(--radius-lg);
+}
+
+/* --------------------------------------------------------------------------
+   Alumni Section
+   -------------------------------------------------------------------------- */
+.module--alumni {
+    background: var(--clifton-brown-pale);
+}
+
+.alumni-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-lg);
+    margin-bottom: var(--space-xl);
+}
+
+.alumni-card {
+    background: var(--clifton-white);
+    padding: var(--space-lg);
+    border-radius: var(--radius-md);
+    text-align: center;
+}
+
+.alumni-card h4 {
+    color: var(--clifton-brown);
+    margin-bottom: var(--space-xs);
+}
+
+.alumni-card p {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+.alumni-footer {
+    text-align: center;
+    color: var(--text-secondary);
+    font-style: italic;
+}
+
+/* --------------------------------------------------------------------------
+   Location Section
+   -------------------------------------------------------------------------- */
+.location-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-2xl);
+    align-items: center;
+}
+
+.location-features {
+    list-style: none;
+    padding: 0;
+    margin: var(--space-lg) 0;
+}
+
+.location-features li {
+    padding: var(--space-sm) 0;
+    padding-left: var(--space-lg);
+    position: relative;
+}
+
+.location-features li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--clifton-brown);
+    font-weight: bold;
+}
+
+.address-card {
+    background: var(--clifton-brown-pale);
+    padding: var(--space-lg);
+    border-radius: var(--radius-md);
+    font-size: 0.95rem;
+}
+
+.map-placeholder {
+    background: #ddd;
+    padding-bottom: 75%;
+    border-radius: var(--radius-lg);
+    position: relative;
+}
+
+.map-placeholder span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--text-secondary);
+}
+
+@media (max-width: 768px) {
+    .location-split {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   Fees Section
+   -------------------------------------------------------------------------- */
+.module--fees {
+    background: var(--clifton-white);
+}
+
+.fees-highlight {
+    background: var(--clifton-brown-pale);
+    padding: var(--space-lg);
+    border-radius: var(--radius-lg);
+    text-align: center;
+    margin-bottom: var(--space-xl);
+}
+
+.fees-table {
+    margin: var(--space-xl) 0;
+}
+
+.fees-row {
+    display: flex;
+    justify-content: space-between;
+    padding: var(--space-md);
+    border-bottom: 1px solid #eee;
+}
+
+.fees-label {
+    font-weight: 600;
+}
+
+.fees-value {
+    color: var(--clifton-brown);
+}
+
+.included-list {
+    columns: 2;
+    column-gap: var(--space-xl);
+}
+
+.included-list li {
+    padding: var(--space-sm) 0;
+}
+
+.fees-note {
+    margin-top: var(--space-xl);
+    padding: var(--space-lg);
+    background: var(--clifton-cream);
+    border-radius: var(--radius-md);
+    font-size: 0.95rem;
+}
+
+/* --------------------------------------------------------------------------
+   CTA Section
+   -------------------------------------------------------------------------- */
+.module--cta {
+    background: linear-gradient(135deg, var(--clifton-brown) 0%, var(--clifton-brown-dark) 100%);
+    color: var(--text-inverse);
+}
+
+.cta-card {
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.cta-card h2 {
+    color: var(--clifton-white);
+}
+
+.cta-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: var(--space-lg);
+    margin: var(--space-2xl) 0;
+}
+
+.cta-step {
+    background: rgba(255, 255, 255, 0.1);
+    padding: var(--space-xl);
+    border-radius: var(--radius-lg);
+}
+
+.cta-step-number {
+    width: 40px;
+    height: 40px;
+    background: var(--clifton-gold);
+    color: var(--clifton-brown-dark);
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    margin: 0 auto var(--space-md);
+}
+
+.cta-step h4 {
+    color: var(--clifton-white);
+    margin-bottom: var(--space-sm);
+}
+
+.cta-step p {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    margin: 0;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: var(--space-md);
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: var(--space-2xl) 0;
+}
+
+.cta-buttons .btn--secondary {
+    background: rgba(255, 255, 255, 0.15);
+    color: var(--clifton-white);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.cta-buttons .btn--secondary:hover {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+.cta-contact {
+    padding-top: var(--space-xl);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.cta-contact a {
+    color: var(--clifton-gold-light);
+}
+
+/* --------------------------------------------------------------------------
+   Closing Section
+   -------------------------------------------------------------------------- */
+.module--closing {
+    background: var(--clifton-cream);
+    text-align: center;
+}
+
+.quote-closing {
+    font-family: var(--font-serif);
+    font-size: 1.75rem;
+    color: var(--clifton-brown);
+    font-style: italic;
+    margin-bottom: var(--space-xl);
+}
+
+.closing-motto {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    color: var(--clifton-gold-dark);
+    font-weight: 600;
+}
+
+/* --------------------------------------------------------------------------
+   Footer Prospectus
+   -------------------------------------------------------------------------- */
+.footer--prospectus {
+    background: var(--clifton-brown);
+    color: var(--text-inverse);
+}
+
+.footer--prospectus a {
+    color: var(--clifton-gold-light);
+}
+
+/* --------------------------------------------------------------------------
+   Sport Section
+   -------------------------------------------------------------------------- */
+.module--sport {
+    background: var(--clifton-white);
+}
+
+.sport-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: var(--space-md);
+    margin-bottom: var(--space-2xl);
+}
+
+.sport-card {
+    background: var(--clifton-cream);
+    padding: var(--space-lg);
+    border-radius: var(--radius-md);
+    text-align: center;
+}
+
+.sport-card h4 {
+    font-size: 1rem;
+    margin-bottom: var(--space-xs);
+}
+
+.sport-card p {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+/* Rugby Excellence */
+.rugby-highlight {
+    background: linear-gradient(135deg, var(--clifton-brown-pale) 0%, var(--clifton-cream) 100%);
+    padding: var(--space-2xl);
+    border-radius: var(--radius-lg);
+    margin-top: var(--space-2xl);
+}
+
+.rugby-players {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-lg);
+    margin-top: var(--space-xl);
+}
+
+.player-card {
+    background: var(--clifton-white);
+    padding: var(--space-lg);
+    border-radius: var(--radius-md);
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+}
+
+.player-card h4 {
+    color: var(--clifton-brown);
+    margin-bottom: var(--space-xs);
+}
+
+/* --------------------------------------------------------------------------
+   Drama Section
+   -------------------------------------------------------------------------- */
+.module--drama {
+    background: var(--clifton-brown-pale);
+}
+
+.theatre-feature {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-2xl);
+    align-items: center;
+}
+
+.productions-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    margin-top: var(--space-lg);
+}
+
+.production-tag {
+    background: var(--clifton-white);
+    padding: var(--space-xs) var(--space-md);
+    border-radius: var(--radius-full);
+    font-size: 0.85rem;
+}
+
+@media (max-width: 768px) {
+    .theatre-feature {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   Boarding Section
+   -------------------------------------------------------------------------- */
+.module--boarding {
+    background: var(--clifton-cream);
+}
+
+.boarding-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: var(--space-lg);
+    margin-bottom: var(--space-2xl);
+}
+
+.boarding-card {
+    background: var(--clifton-white);
+    padding: var(--space-xl);
+    border-radius: var(--radius-lg);
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+}
+
+.boarding-card h4 {
+    color: var(--clifton-brown);
+    margin-bottom: var(--space-sm);
+}
+
+/* --------------------------------------------------------------------------
+   Sixth Form Section
+   -------------------------------------------------------------------------- */
+.module--sixthform {
+    background: linear-gradient(135deg, var(--upper-burgundy) 0%, var(--clifton-brown-dark) 100%);
+    color: var(--text-inverse);
+}
+
+.module--sixthform h2,
+.module--sixthform h3,
+.module--sixthform h4 {
+    color: var(--clifton-white);
+}
+
+.sixthform-badge {
+    background: var(--clifton-gold);
+    color: var(--clifton-brown-dark);
+    padding: var(--space-sm) var(--space-lg);
+    border-radius: var(--radius-full);
+    font-weight: 700;
+    display: inline-block;
+    margin-bottom: var(--space-lg);
+}
+
+/* --------------------------------------------------------------------------
+   Conditional Modules
+   -------------------------------------------------------------------------- */
+.conditional-module {
+    display: none;
+}
+
+.conditional-module.visible {
+    display: block;
+}
+
+/* --------------------------------------------------------------------------
+   Responsive Adjustments
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.25rem;
+    }
+
+    .module {
+        padding: var(--space-2xl) 0;
+    }
+
+    .section-title {
+        font-size: 1.75rem;
+    }
+
+    .quote-featured,
+    .quote-closing {
+        font-size: 1.25rem;
+    }
+
+    .journey-timeline {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .journey-connector {
+        width: 2px;
+        height: 40px;
+        margin: 0;
+    }
+
+    .included-list {
+        columns: 1;
+    }
+}

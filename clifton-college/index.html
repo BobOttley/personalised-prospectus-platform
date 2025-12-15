@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clifton College | Personalised Prospectus System</title>
+    <meta name="description" content="Experience Clifton College through our personalised prospectus system. Pre-Prep, Prep School, and Upper School - ages 3 to 18.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles/clifton-prospectus.css">
+
+    <style>
+        .landing-page {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .landing-hero {
+            background: linear-gradient(135deg, var(--clifton-brown-dark) 0%, var(--clifton-brown) 100%);
+            color: white;
+            padding: var(--space-3xl) 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .landing-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=1600') center/cover;
+            opacity: 0.15;
+        }
+
+        .landing-hero .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .landing-hero h1 {
+            color: white;
+            font-size: 3rem;
+            margin-bottom: var(--space-md);
+        }
+
+        .landing-hero .lead {
+            color: rgba(255,255,255,0.9);
+            font-size: 1.25rem;
+            max-width: 600px;
+            margin: 0 auto var(--space-xl);
+        }
+
+        .landing-badge {
+            display: inline-block;
+            background: var(--clifton-gold);
+            color: var(--clifton-brown-dark);
+            padding: var(--space-xs) var(--space-md);
+            border-radius: var(--radius-full);
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: var(--space-lg);
+        }
+
+        .landing-schools {
+            padding: var(--space-3xl) 0;
+            background: var(--clifton-cream);
+        }
+
+        .schools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-xl);
+            margin-top: var(--space-2xl);
+        }
+
+        .school-tile {
+            background: white;
+            border-radius: var(--radius-xl);
+            padding: var(--space-2xl);
+            text-align: center;
+            box-shadow: var(--shadow-lg);
+            transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+            border-top: 4px solid transparent;
+        }
+
+        .school-tile:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .school-tile--preprep {
+            border-top-color: var(--preprep-green);
+        }
+
+        .school-tile--prep {
+            border-top-color: var(--prep-blue);
+        }
+
+        .school-tile--upper {
+            border-top-color: var(--upper-burgundy);
+        }
+
+        .school-tile__ages {
+            display: inline-block;
+            padding: var(--space-xs) var(--space-md);
+            border-radius: var(--radius-full);
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: var(--space-md);
+        }
+
+        .school-tile--preprep .school-tile__ages {
+            background: var(--preprep-green-light);
+            color: var(--preprep-green);
+        }
+
+        .school-tile--prep .school-tile__ages {
+            background: var(--prep-blue-light);
+            color: var(--prep-blue);
+        }
+
+        .school-tile--upper .school-tile__ages {
+            background: var(--upper-burgundy-light);
+            color: var(--upper-burgundy);
+        }
+
+        .school-tile h3 {
+            margin-bottom: var(--space-md);
+        }
+
+        .school-tile p {
+            color: var(--text-secondary);
+            margin-bottom: var(--space-xl);
+        }
+
+        /* Full-width video section - breaks out of container */
+        .video-fullwidth {
+            position: relative;
+            width: 100vw;
+            margin-left: calc(-50vw + 50%);
+            background: var(--clifton-stone-dark, #0C0A09);
+            padding: 0;
+        }
+
+        .video-fullwidth__title {
+            text-align: center;
+            color: #fff;
+            padding: var(--space-xl) var(--space-lg) var(--space-md);
+            margin: 0;
+            font-family: var(--font-serif);
+            font-size: 2rem;
+        }
+
+        .video-fullwidth__subtitle {
+            text-align: center;
+            color: rgba(255,255,255,0.7);
+            padding: 0 var(--space-lg) var(--space-lg);
+            margin: 0;
+            font-size: 1.1rem;
+        }
+
+        .video-fullwidth__container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 */
+            height: 0;
+            overflow: hidden;
+        }
+
+        .video-fullwidth__container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* Sound enable button */
+        .video-sound-btn {
+            position: absolute;
+            top: var(--space-lg);
+            right: var(--space-lg);
+            background: rgba(255,255,255,0.95);
+            color: var(--clifton-stone, #1C1917);
+            border: none;
+            padding: var(--space-sm) var(--space-md);
+            border-radius: var(--radius-full);
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: var(--space-xs);
+            box-shadow: var(--shadow-lg);
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+
+        .video-sound-btn:hover {
+            background: #fff;
+            transform: scale(1.05);
+        }
+
+        .video-sound-btn--active {
+            background: var(--clifton-blue, #0EA5E9);
+            color: #fff;
+        }
+
+        .landing-cta {
+            padding: var(--space-3xl) 0;
+            background: var(--clifton-cream);
+            text-align: center;
+        }
+
+        .cta-box {
+            background: white;
+            padding: var(--space-2xl);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-lg);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .cta-box h2 {
+            margin-bottom: var(--space-md);
+        }
+
+        .cta-box p {
+            color: var(--text-secondary);
+            margin-bottom: var(--space-xl);
+        }
+
+        .landing-stats {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-2xl);
+            flex-wrap: wrap;
+            margin: var(--space-2xl) 0 0;
+            padding-top: var(--space-xl);
+            border-top: 1px solid #eee;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-item__number {
+            font-family: var(--font-serif);
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--clifton-brown);
+        }
+
+        .stat-item__label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .demo-links {
+            margin-top: var(--space-2xl);
+            padding-top: var(--space-xl);
+            border-top: 1px solid #eee;
+        }
+
+        .demo-links h4 {
+            margin-bottom: var(--space-md);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .demo-grid {
+            display: flex;
+            gap: var(--space-md);
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .demo-link {
+            padding: var(--space-sm) var(--space-lg);
+            background: var(--clifton-brown-pale);
+            color: var(--clifton-brown);
+            border-radius: var(--radius-md);
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all var(--transition-fast);
+        }
+
+        .demo-link:hover {
+            background: var(--clifton-brown);
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .landing-hero h1 {
+                font-size: 2rem;
+            }
+
+            .schools-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .landing-stats {
+                gap: var(--space-lg);
+            }
+
+            .stat-item__number {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .landing-hero {
+                padding: var(--space-2xl) var(--space-md);
+            }
+
+            .landing-badge {
+                font-size: 0.75rem;
+                padding: var(--space-xs) var(--space-sm);
+            }
+
+            .landing-hero h1 {
+                font-size: 1.6rem;
+                margin-bottom: var(--space-sm);
+            }
+
+            .landing-hero .lead {
+                font-size: 1rem;
+                margin-bottom: var(--space-lg);
+            }
+
+            .landing-schools {
+                padding: var(--space-2xl) var(--space-md);
+            }
+
+            .schools-grid {
+                gap: var(--space-lg);
+                margin-top: var(--space-xl);
+            }
+
+            .school-tile {
+                padding: var(--space-xl);
+            }
+
+            .school-tile h3 {
+                font-size: 1.25rem;
+            }
+
+            .video-fullwidth__title {
+                font-size: 1.5rem;
+                padding: var(--space-lg) var(--space-md) var(--space-sm);
+            }
+
+            .video-fullwidth__subtitle {
+                font-size: 1rem;
+                padding: 0 var(--space-md) var(--space-md);
+            }
+
+            .video-sound-btn {
+                top: var(--space-sm);
+                right: var(--space-sm);
+                padding: var(--space-xs) var(--space-sm);
+                font-size: 0.8rem;
+            }
+
+            .landing-cta {
+                padding: var(--space-2xl) var(--space-md);
+            }
+
+            .cta-box {
+                padding: var(--space-xl);
+            }
+
+            .cta-box h2 {
+                font-size: 1.4rem;
+            }
+
+            .landing-stats {
+                flex-direction: column;
+                gap: var(--space-md);
+            }
+
+            .stat-item__number {
+                font-size: 1.75rem;
+            }
+
+            .demo-grid {
+                flex-direction: column;
+                gap: var(--space-sm);
+            }
+
+            .demo-link {
+                width: 100%;
+                text-align: center;
+            }
+
+            .header__inner {
+                flex-direction: column;
+                gap: var(--space-sm);
+                text-align: center;
+            }
+
+            .header__contact {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .landing-hero h1 {
+                font-size: 1.4rem;
+            }
+
+            .school-tile h3 {
+                font-size: 1.1rem;
+            }
+
+            .stat-item__number {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body class="landing-page">
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header__inner">
+                <div class="header__logo">
+                    <div>
+                        <div class="header__title">Clifton College</div>
+                        <div class="header__subtitle">Aim high, stay grounded</div>
+                    </div>
+                </div>
+                <div class="header__contact">
+                    <a href="tel:+441173157000">+44 (0)117 315 7000</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="landing-hero">
+        <div class="container">
+            <span class="landing-badge">Personalised Prospectus System</span>
+            <h1>Experience Clifton College</h1>
+            <p class="lead">
+                Discover what makes Clifton extraordinary through a prospectus created just for your family - showcasing the areas that matter most to you.
+            </p>
+            <a href="forms/enquiry-form.html" class="btn btn--primary btn--large">
+                Create Your Personalised Prospectus
+            </a>
+        </div>
+    </section>
+
+    <!-- Schools Section -->
+    <section class="landing-schools">
+        <div class="container">
+            <h2 style="text-align: center;">One College, Three Schools</h2>
+            <p style="text-align: center; color: var(--text-secondary); max-width: 600px; margin: 0 auto;">
+                A seamless educational journey from age 3 to 18, with each school building on the last.
+            </p>
+
+            <div class="schools-grid">
+                <div class="school-tile school-tile--preprep">
+                    <span class="school-tile__ages">Ages 3-8</span>
+                    <h3>Pre-Prep School</h3>
+                    <p>Where the love of learning begins. Forest School, nurturing environment, and the foundation for lifelong success.</p>
+                    <a href="prospectus/preprep-prospectus.html" class="btn btn--secondary">View Demo Prospectus</a>
+                </div>
+
+                <div class="school-tile school-tile--prep">
+                    <span class="school-tile__ages">Ages 8-13</span>
+                    <h3>Prep School</h3>
+                    <p>"The Pre" - where academic rigour meets extraordinary opportunity. Day and boarding options available.</p>
+                    <a href="prospectus/prep-prospectus.html" class="btn btn--secondary">View Demo Prospectus</a>
+                </div>
+
+                <div class="school-tile school-tile--upper">
+                    <span class="school-tile__ages">Ages 13-18</span>
+                    <h3>Upper School & Sixth Form</h3>
+                    <p>One of Britain's original 26 public schools. Named Best Sixth Form in Britain 2025 by The Week.</p>
+                    <a href="prospectus/upper-prospectus.html" class="btn btn--secondary">View Demo Prospectus</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Section - Full Width with Autoplay on Scroll -->
+    <section class="video-fullwidth" id="spiritWithinSection" data-video-section>
+        <h2 class="video-fullwidth__title">The Spirit Within</h2>
+        <p class="video-fullwidth__subtitle">Experience what makes Clifton College special</p>
+        <div class="video-fullwidth__container">
+            <video
+                id="spiritWithinVideo"
+                muted
+                loop
+                playsinline
+                controls
+                poster="https://a.storyblok.com/f/341818/1920x1080/a5c9d7e8b4/clifton-hero.jpg"
+                style="width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0;">
+                <source src="https://a.storyblok.com/f/341818/x/8d47460d26/the_spirit_within_trailer-1080p.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <button class="video-sound-btn" id="soundBtn">
+            <span class="sound-icon">🔇</span> Enable Sound
+        </button>
+    </section>
+
+    <!-- Video Autoplay Script -->
+    <script>
+        // Setup video autoplay when scrolling into view
+        function setupVideoAutoplay() {
+            const videoSections = document.querySelectorAll('[data-video-section]');
+
+            if (!('IntersectionObserver' in window)) return;
+
+            videoSections.forEach(section => {
+                const videoObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        const video = entry.target.querySelector('video');
+                        if (!video) return;
+
+                        if (entry.isIntersecting) {
+                            // Autoplay when in view
+                            video.play().catch(e => console.log('Autoplay prevented:', e));
+                        } else {
+                            // Pause when out of view
+                            video.pause();
+                        }
+                    });
+                }, {
+                    root: null,
+                    rootMargin: '0px',
+                    threshold: 0.3
+                });
+
+                videoObserver.observe(section);
+            });
+        }
+
+        // Enable/disable sound for HTML5 video
+        document.addEventListener('DOMContentLoaded', function() {
+            setupVideoAutoplay();
+
+            const soundBtn = document.getElementById('soundBtn');
+            const video = document.getElementById('spiritWithinVideo');
+
+            if (soundBtn && video) {
+                soundBtn.addEventListener('click', function() {
+                    if (video.muted) {
+                        video.muted = false;
+                        soundBtn.innerHTML = '<span class="sound-icon">🔊</span> Sound On';
+                        soundBtn.classList.add('video-sound-btn--active');
+                    } else {
+                        video.muted = true;
+                        soundBtn.innerHTML = '<span class="sound-icon">🔇</span> Enable Sound';
+                        soundBtn.classList.remove('video-sound-btn--active');
+                    }
+                });
+            }
+        });
+    </script>
+
+    <!-- CTA Section -->
+    <section class="landing-cta">
+        <div class="container">
+            <div class="cta-box">
+                <h2>Request Your Personalised Prospectus</h2>
+                <p>
+                    Tell us about your child and their interests, and we'll create a prospectus tailored specifically for your family - highlighting the areas that matter most to you.
+                </p>
+                <a href="forms/enquiry-form.html" class="btn btn--primary btn--large">
+                    Get Started
+                </a>
+
+                <div class="landing-stats">
+                    <div class="stat-item">
+                        <div class="stat-item__number">160+</div>
+                        <div class="stat-item__label">Years of Excellence</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-item__number">3</div>
+                        <div class="stat-item__label">Nobel Prize Winners</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-item__number">#1</div>
+                        <div class="stat-item__label">Best Sixth Form 2025</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-item__number">3-18</div>
+                        <div class="stat-item__label">Ages | Seamless Journey</div>
+                    </div>
+                </div>
+
+                <div class="demo-links">
+                    <h4>Quick Demo Links</h4>
+                    <div class="demo-grid">
+                        <a href="forms/enquiry-form.html" class="demo-link">Enquiry Form</a>
+                        <a href="prospectus/preprep-prospectus.html" class="demo-link">Pre-Prep Prospectus</a>
+                        <a href="prospectus/prep-prospectus.html" class="demo-link">Prep Prospectus</a>
+                        <a href="prospectus/upper-prospectus.html" class="demo-link">Upper School Prospectus</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>
+                Clifton College, 32 College Road, Clifton, Bristol BS8 3JH
+                <br>
+                <a href="tel:+441173157000">+44 (0)117 315 7000</a> |
+                <a href="https://www.cliftoncollege.com">www.cliftoncollege.com</a>
+            </p>
+            <p style="margin-top: var(--space-md); font-size: 0.85rem; color: var(--text-light);">
+                Personalised Prospectus System by bSMART ai
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>

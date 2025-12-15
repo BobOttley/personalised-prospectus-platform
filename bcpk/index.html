@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brighton College Prep Kensington - Personalised Prospectus</title>
+  <meta name="description" content="Request your personalised prospectus for Brighton College Prep Kensington - Award-winning education in the heart of London">
+  <link rel="stylesheet" href="styles/bcpk-prospectus.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    .landing-hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background: linear-gradient(135deg, var(--bcpk-dark-blue) 0%, var(--bcpk-blue-light) 50%, var(--bcpk-dark-blue) 100%);
+      color: var(--bcpk-white);
+      padding: var(--space-4xl) var(--space-xl);
+      position: relative;
+    }
+
+    .landing-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('assets/images/hero-main.png') center/cover no-repeat;
+      opacity: 0.15;
+    }
+
+    .landing-content {
+      position: relative;
+      z-index: 1;
+      max-width: 900px;
+    }
+
+    .landing-logo {
+      width: 200px;
+      height: auto;
+      margin: 0 auto var(--space-2xl);
+      display: block;
+      background: #FFFFFF;
+      padding: 1rem;
+      border-radius: 8px;
+    }
+
+    .landing-badge {
+      display: inline-block;
+      background: var(--bcpk-magenta);
+      color: var(--bcpk-white);
+      padding: var(--space-xs) var(--space-lg);
+      border-radius: var(--radius-full);
+      font-size: var(--fs-xs);
+      font-weight: var(--fw-semibold);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: var(--space-lg);
+    }
+
+    .landing-title {
+      font-size: var(--fs-6xl);
+      font-weight: var(--fw-bold);
+      margin-bottom: var(--space-md);
+      color: var(--bcpk-white);
+    }
+
+    .landing-subtitle {
+      font-size: var(--fs-2xl);
+      color: var(--bcpk-magenta-light);
+      margin-bottom: var(--space-lg);
+      font-family: var(--font-serif);
+    }
+
+    .landing-description {
+      font-size: var(--fs-lg);
+      opacity: 0.9;
+      max-width: 600px;
+      margin: 0 auto var(--space-3xl);
+      line-height: var(--lh-relaxed);
+    }
+
+    .landing-cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-2xl);
+      margin-top: var(--space-3xl);
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    @media (max-width: 700px) {
+      .landing-cards {
+        grid-template-columns: 1fr;
+        gap: var(--space-xl);
+      }
+    }
+
+    .landing-card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: var(--radius-xl);
+      padding: var(--space-2xl);
+      text-align: left;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: transform var(--transition-normal), background var(--transition-normal);
+      min-height: 380px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .landing-card:hover {
+      transform: translateY(-4px);
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    .landing-card__badge {
+      display: inline-block;
+      background: var(--bcpk-magenta);
+      color: var(--bcpk-white);
+      padding: var(--space-xs) var(--space-md);
+      border-radius: var(--radius-full);
+      font-size: var(--fs-xs);
+      font-weight: var(--fw-semibold);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: var(--space-md);
+    }
+
+    .landing-card__title {
+      font-size: var(--fs-2xl);
+      color: var(--bcpk-white);
+      margin-bottom: var(--space-sm);
+    }
+
+    .landing-card__subtitle {
+      color: var(--bcpk-magenta-light);
+      font-size: var(--fs-sm);
+      margin-bottom: var(--space-lg);
+    }
+
+    .landing-card__features {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 var(--space-xl);
+      flex-grow: 1;
+    }
+
+    .landing-card__features li {
+      padding: var(--space-xs) 0;
+      font-size: var(--fs-sm);
+      opacity: 0.9;
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+    }
+
+    .landing-card__features li::before {
+      content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23AC1260' stroke-width='3'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
+    }
+
+    .landing-card__btn {
+      display: block;
+      width: 100%;
+      padding: var(--space-md);
+      background: var(--bcpk-magenta);
+      color: var(--bcpk-white);
+      text-align: center;
+      border-radius: var(--radius-md);
+      font-weight: var(--fw-semibold);
+      text-decoration: none;
+      transition: background var(--transition-fast);
+    }
+
+    .landing-card__btn:hover {
+      background: var(--bcpk-magenta-dark);
+      color: var(--bcpk-white);
+    }
+
+    .landing-stats {
+      display: flex;
+      justify-content: center;
+      gap: var(--space-3xl);
+      margin-top: var(--space-4xl);
+      flex-wrap: wrap;
+    }
+
+    .landing-stat {
+      text-align: center;
+    }
+
+    .landing-stat__number {
+      font-family: var(--font-serif);
+      font-size: var(--fs-4xl);
+      font-weight: var(--fw-bold);
+      color: var(--bcpk-magenta-light);
+    }
+
+    .landing-stat__label {
+      font-size: var(--fs-sm);
+      opacity: 0.8;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .garden-icons {
+      display: flex;
+      justify-content: center;
+      gap: var(--space-md);
+      margin-top: var(--space-4xl);
+      font-size: 2rem;
+    }
+
+    .landing-footer {
+      text-align: center;
+      padding: var(--space-2xl);
+      background: var(--bcpk-blue-dark);
+    }
+
+    .landing-footer p {
+      color: var(--bcpk-white);
+      opacity: 0.7;
+      font-size: var(--fs-sm);
+    }
+
+    .landing-footer a {
+      color: var(--bcpk-magenta-light);
+    }
+
+    /* Features Section */
+    .features-section {
+      background: var(--bcpk-white);
+      padding: var(--space-4xl) var(--space-xl);
+    }
+
+    .features-section__grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: var(--space-xl);
+      max-width: var(--container-lg);
+      margin: 0 auto;
+    }
+
+    .features-section__item {
+      text-align: center;
+      padding: var(--space-xl);
+    }
+
+    .features-section__icon {
+      font-size: 3rem;
+      margin-bottom: var(--space-md);
+    }
+
+    .features-section__title {
+      font-size: var(--fs-xl);
+      margin-bottom: var(--space-sm);
+      color: var(--bcpk-dark-blue);
+    }
+
+    .features-section__text {
+      color: var(--bcpk-dark-grey);
+      font-size: var(--fs-sm);
+    }
+
+    /* Demo Section */
+    .demo-section {
+      background: var(--bcpk-light-grey);
+      padding: var(--space-4xl) var(--space-xl);
+      text-align: center;
+    }
+
+    .demo-section h2 {
+      margin-bottom: var(--space-md);
+      color: var(--bcpk-dark-blue);
+    }
+
+    .demo-section p {
+      max-width: 600px;
+      margin: 0 auto var(--space-xl);
+      color: var(--bcpk-dark-grey);
+    }
+
+    .demo-card {
+      background: var(--bcpk-white);
+      border-radius: var(--radius-xl);
+      padding: var(--space-2xl);
+      max-width: 500px;
+      margin: 0 auto;
+      box-shadow: var(--shadow-lg);
+      text-align: left;
+    }
+
+    .demo-card__title {
+      font-family: var(--font-serif);
+      font-size: var(--fs-xl);
+      color: var(--bcpk-magenta);
+      margin-bottom: var(--space-sm);
+    }
+
+    .demo-card__details {
+      color: var(--bcpk-dark-grey);
+      margin-bottom: var(--space-lg);
+      list-style: none;
+      padding: 0;
+    }
+
+    .demo-card__details li {
+      padding: var(--space-xs) 0;
+      font-size: var(--fs-sm);
+    }
+
+    @media (max-width: 768px) {
+      .landing-title {
+        font-size: var(--fs-4xl);
+      }
+
+      .landing-subtitle {
+        font-size: var(--fs-xl);
+      }
+
+      .landing-stats {
+        gap: var(--space-xl);
+      }
+
+      .landing-stat__number {
+        font-size: var(--fs-3xl);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .landing-hero {
+        padding: var(--space-2xl) var(--space-md);
+      }
+
+      .landing-logo {
+        width: 150px;
+        margin-bottom: var(--space-xl);
+        padding: 0.75rem;
+      }
+
+      .landing-badge {
+        font-size: 0.65rem;
+        padding: var(--space-xs) var(--space-md);
+      }
+
+      .landing-title {
+        font-size: var(--fs-3xl);
+      }
+
+      .landing-subtitle {
+        font-size: var(--fs-lg);
+        margin-bottom: var(--space-md);
+      }
+
+      .landing-description {
+        font-size: var(--fs-base);
+        margin-bottom: var(--space-2xl);
+      }
+
+      .landing-card {
+        padding: var(--space-xl);
+        min-height: auto;
+      }
+
+      .landing-card__title {
+        font-size: var(--fs-xl);
+      }
+
+      .landing-card__btn {
+        padding: var(--space-md);
+        font-size: var(--fs-base);
+      }
+
+      .landing-stats {
+        gap: var(--space-lg);
+        margin-top: var(--space-2xl);
+      }
+
+      .landing-stat__number {
+        font-size: var(--fs-2xl);
+      }
+
+      .landing-stat__label {
+        font-size: var(--fs-xs);
+      }
+
+      .garden-icons {
+        margin-top: var(--space-2xl);
+        font-size: 1.5rem;
+      }
+
+      .features-section {
+        padding: var(--space-2xl) var(--space-md);
+      }
+
+      .features-section__item {
+        padding: var(--space-md);
+      }
+
+      .features-section__icon {
+        font-size: 2.5rem;
+      }
+
+      .features-section__title {
+        font-size: var(--fs-lg);
+      }
+
+      .demo-section {
+        padding: var(--space-2xl) var(--space-md);
+      }
+
+      .demo-card {
+        padding: var(--space-xl);
+      }
+
+      .landing-footer {
+        padding: var(--space-xl);
+      }
+    }
+
+    @media (max-width: 400px) {
+      .landing-title {
+        font-size: var(--fs-2xl);
+      }
+
+      .landing-stats {
+        flex-direction: column;
+        gap: var(--space-md);
+      }
+
+      .features-section__icon {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <section class="landing-hero">
+    <div class="landing-content">
+      <img src="assets/logo/bcpk-logo.png" alt="Brighton College Prep Kensington" class="landing-logo" onerror="this.style.display='none'; this.parentElement.insertAdjacentHTML('afterbegin', '<div style=\'font-family: var(--font-serif); font-size: 1.5rem; color: var(--bcpk-magenta-light); margin-bottom: 2rem;\'>Brighton College Prep Kensington</div>')">
+
+      <span class="landing-badge">Part of the Brighton College Family</span>
+
+      <h1 class="landing-title">Brighton College Prep Kensington</h1>
+      <p class="landing-subtitle">Award-Winning Education in the Heart of London</p>
+
+      <p class="landing-description">
+        Discover what Brighton College Prep Kensington could offer your child with a personalised prospectus - created just for your family, featuring your child's name throughout, and tailored to their interests and aspirations.
+      </p>
+
+      <div class="landing-cards">
+        <!-- Nursery & Early Years Card -->
+        <div class="landing-card">
+          <span class="landing-card__badge">Ages 2-4</span>
+          <h2 class="landing-card__title">Nursery</h2>
+          <p class="landing-card__subtitle">Where curiosity begins</p>
+          <ul class="landing-card__features">
+            <li>Two-acre Secret Garden</li>
+            <li>Forest School programme</li>
+            <li>Small class sizes</li>
+            <li>Personalised for your child</li>
+            <li>Specialist teaching from Reception</li>
+          </ul>
+          <a href="forms/enquiry-nursery.html" class="landing-card__btn">Request Nursery Prospectus</a>
+        </div>
+
+        <!-- Prep School Card -->
+        <div class="landing-card">
+          <span class="landing-card__badge">Ages 4-13</span>
+          <h2 class="landing-card__title">Prep School</h2>
+          <p class="landing-card__subtitle">Reception to Year 8</p>
+          <ul class="landing-card__features">
+            <li>50+ personalised name instances</li>
+            <li>Gender-appropriate content</li>
+            <li>Tailored to their interests</li>
+            <li>Senior school destinations</li>
+            <li>London as the classroom</li>
+          </ul>
+          <a href="forms/enquiry-prep.html" class="landing-card__btn">Request Prep Prospectus</a>
+        </div>
+      </div>
+
+      <div class="landing-stats">
+        <div class="landing-stat">
+          <div class="landing-stat__number">2-13</div>
+          <div class="landing-stat__label">Age Range</div>
+        </div>
+        <div class="landing-stat">
+          <div class="landing-stat__number">2</div>
+          <div class="landing-stat__label">Acre Secret Garden</div>
+        </div>
+        <div class="landing-stat">
+          <div class="landing-stat__number">174+</div>
+          <div class="landing-stat__label">Museums Nearby</div>
+        </div>
+        <div class="landing-stat">
+          <div class="landing-stat__number">#1</div>
+          <div class="landing-stat__label">UK School Family</div>
+        </div>
+      </div>
+
+      <div class="garden-icons">
+        <span>&#127793;</span>
+        <span>&#127795;</span>
+        <span>&#127807;</span>
+        <span>&#127795;</span>
+        <span>&#127793;</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features-section">
+    <div class="features-section__grid">
+      <div class="features-section__item">
+        <div class="features-section__icon">&#127795;</div>
+        <h3 class="features-section__title">The Secret Garden</h3>
+        <p class="features-section__text">Two acres of outdoor learning space in central London - the largest garden of any prep school in the city. Forest School, nature walks, and outdoor classrooms.</p>
+      </div>
+      <div class="features-section__item">
+        <div class="features-section__icon">&#127963;</div>
+        <h3 class="features-section__title">London as Classroom</h3>
+        <p class="features-section__text">Steps from the Natural History Museum, V&A, and Science Museum. Your child will learn in one of the world's greatest cities.</p>
+      </div>
+      <div class="features-section__item">
+        <div class="features-section__icon">&#128161;</div>
+        <h3 class="features-section__title">The Makerspace</h3>
+        <p class="features-section__text">3D printers, laser cutters, green screens, and traditional craft. Innovation and creativity at the heart of learning.</p>
+      </div>
+      <div class="features-section__item">
+        <div class="features-section__icon">&#128150;</div>
+        <h3 class="features-section__title">Culture of Kindness</h3>
+        <p class="features-section__text">The same values that made Brighton College the UK School of the Decade. Where kindness is the currency.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Demo Section -->
+  <section class="demo-section">
+    <h2>See It In Action</h2>
+    <p>View a demo prospectus created for a fictional family to see how personalisation works.</p>
+
+    <div class="demo-card">
+      <div class="demo-card__title">The Thompson Family</div>
+      <ul class="demo-card__details">
+        <li><strong>Child:</strong> Oliver Thompson, age 4</li>
+        <li><strong>Entry Point:</strong> Reception (September 2025)</li>
+        <li><strong>Interests:</strong> Science, Football, Swimming, Music</li>
+        <li><strong>Important:</strong> Secret Garden, Outdoor Learning, Culture of Kindness</li>
+      </ul>
+      <a href="prospectus/demo.html" class="btn btn--primary btn--full">
+        View Oliver's Prospectus
+      </a>
+    </div>
+  </section>
+
+  <footer class="landing-footer">
+    <p>
+      Brighton College Prep Kensington | 10-13 Prince's Gardens, London SW7 1ND<br>
+      <a href="https://www.brightoncollegeprepkensington.co.uk" target="_blank">www.brightoncollegeprepkensington.co.uk</a> | +44 (0)207 591 4622
+    </p>
+    <p style="margin-top: var(--space-md);">
+      Personalised Prospectus System powered by <strong>bSMART ai</strong>
+    </p>
+  </footer>
+</body>
+</html>

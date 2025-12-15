@@ -24,6 +24,12 @@
       --bc-navy: #1E3A5F;
       --bc-navy-dark: #152D4A;
       --bc-gold: #C5A572;
+
+      /* Brighton College Prep Kensington Brand - OFFICIAL */
+      --bcpk-dark-blue: #1C2B33;
+      --bcpk-dark-blue-dark: #141F25;
+      --bcpk-magenta: #AC1260;
+      --bcpk-magenta-light: #C4347A;
     }
 
     * {
@@ -80,9 +86,11 @@
 
     .schools-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      grid-template-columns: repeat(2, 1fr);
       gap: 2rem;
       padding: 2rem 0 4rem;
+      max-width: 1000px;
+      margin: 0 auto;
     }
 
     .school-card {
@@ -227,6 +235,38 @@
       color: var(--bc-navy-dark);
     }
 
+    /* Brighton College Prep Kensington Branded Card */
+    .school-card--bcpk {
+      border-color: var(--bcpk-magenta);
+    }
+
+    .school-card--bcpk .school-card__content {
+      background: linear-gradient(135deg, var(--bcpk-dark-blue-dark) 0%, var(--bcpk-dark-blue) 100%);
+    }
+
+    .school-card--bcpk .school-card__location {
+      color: var(--bcpk-magenta-light);
+    }
+
+    .school-card--bcpk .btn--primary {
+      background: var(--bcpk-magenta);
+      color: #FFFFFF;
+    }
+
+    .school-card--bcpk .btn--primary:hover {
+      background: var(--bcpk-magenta-light);
+    }
+
+    .school-card--bcpk .btn--secondary {
+      border-color: var(--bcpk-magenta-light);
+      color: var(--bcpk-magenta-light);
+    }
+
+    .school-card--bcpk .btn--secondary:hover {
+      background: var(--bcpk-magenta);
+      color: #FFFFFF;
+    }
+
     footer {
       text-align: center;
       padding: 3rem 0;
@@ -242,13 +282,85 @@
       color: var(--gold);
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 900px) {
       .hero h1 {
         font-size: 2.5rem;
       }
 
       .schools-grid {
         grid-template-columns: 1fr;
+        max-width: 500px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        padding: 0 1rem;
+      }
+
+      header {
+        padding: 1.5rem 0;
+      }
+
+      .hero {
+        padding: 2rem 0;
+      }
+
+      .hero h1 {
+        font-size: 1.75rem;
+        margin-bottom: 1rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+      }
+
+      .schools-grid {
+        gap: 1.5rem;
+        padding: 1.5rem 0 3rem;
+      }
+
+      .school-card__content {
+        padding: 1.5rem;
+      }
+
+      .school-card__name {
+        font-size: 1.4rem;
+      }
+
+      .school-card__description {
+        font-size: 0.9rem;
+      }
+
+      .school-card__links {
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+
+      .btn {
+        padding: 0.875rem 1.5rem;
+        font-size: 0.95rem;
+        text-align: center;
+        width: 100%;
+      }
+
+      footer {
+        padding: 2rem 0;
+      }
+
+      footer p {
+        font-size: 0.85rem;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .hero h1 {
+        font-size: 1.5rem;
+      }
+
+      .school-card__name {
+        font-size: 1.25rem;
       }
     }
   </style>
@@ -298,6 +410,21 @@
               </div>
             </div>
           </div>
+
+          <!-- Brighton College Prep Kensington -->
+          <div class="school-card school-card--bcpk">
+            <img src="bcpk/assets/images/prep-hero.png" alt="Brighton College Prep Kensington" class="school-card__image" onerror="this.src='https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600'">
+            <div class="school-card__content">
+              <h2 class="school-card__name">Brighton College Prep Kensington</h2>
+              <p class="school-card__location">Kensington, London</p>
+              <p class="school-card__description">Award-winning prep school in the heart of London. Ages 2-13 with a two-acre Secret Garden and London as the classroom.</p>
+              <div class="school-card__links">
+                <a href="bcpk/index.html" class="btn btn--primary">Request Prospectus</a>
+                <a href="bcpk/prospectus/demo.html" class="btn btn--secondary">Preview</a>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>

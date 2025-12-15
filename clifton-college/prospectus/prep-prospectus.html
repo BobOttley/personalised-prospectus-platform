@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Personalised Prospectus | Clifton College Prep School</title>
+    <meta name="description" content="A personalised prospectus prepared exclusively for your family by Clifton College Prep School.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../styles/clifton-prospectus.css">
+
+    <style>
+        :root {
+            --prep-blue: #2196F3;
+            --prep-blue-dark: #1565C0;
+            --prep-blue-light: #BBDEFB;
+            --clifton-stone: #1C1917;
+            --clifton-blue: #0EA5E9;
+        }
+
+        /* Sticky Navigation */
+        .prospectus-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255,255,255,0.98);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(33, 150, 243, 0.1);
+            z-index: 1000;
+            transform: translateY(-100%);
+            transition: transform 0.3s ease;
+        }
+        .prospectus-nav--visible { transform: translateY(0); }
+        .prospectus-nav__inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.75rem 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .prospectus-nav__title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1rem;
+            color: var(--prep-blue-dark);
+        }
+        .prospectus-nav__progress {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .prospectus-nav__progress-bar {
+            width: 150px;
+            height: 4px;
+            background: var(--prep-blue-light);
+            border-radius: 2rem;
+            overflow: hidden;
+        }
+        .prospectus-nav__progress-fill {
+            height: 100%;
+            background: var(--prep-blue);
+            transition: width 0.3s ease;
+        }
+
+        /* Full-screen Video Hero */
+        .video-hero {
+            position: relative;
+            width: 100vw;
+            margin-left: calc(-50vw + 50%);
+            height: 100vh;
+            min-height: 600px;
+            overflow: hidden;
+            background: var(--prep-blue-dark);
+        }
+        .video-hero__video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .video-hero__video video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .video-hero__overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(33,150,243,0.7) 0%, rgba(21,101,192,0.8) 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            color: #fff;
+        }
+        .video-hero__welcome {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #fff;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+        }
+        .video-hero__tagline {
+            font-size: 1.75rem;
+            max-width: 700px;
+            color: #fff;
+            text-shadow: 1px 1px 6px rgba(0,0,0,0.5);
+            margin-bottom: 1rem;
+        }
+        .video-hero__badge {
+            background: rgba(255,255,255,0.2);
+            padding: 0.5rem 1.5rem;
+            border-radius: 2rem;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+        .video-hero__scroll {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #fff;
+            font-size: 0.875rem;
+            animation: bounce 2s infinite;
+        }
+        .video-sound-btn {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: rgba(255,255,255,0.95);
+            color: var(--clifton-stone);
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            z-index: 10;
+        }
+        .video-sound-btn--active { background: var(--prep-blue); color: #fff; }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-10px); }
+            60% { transform: translateX(-50%) translateY(-5px); }
+        }
+
+        /* Module Styles */
+        .module { padding: 5rem 0; }
+        .module--alt { background: #FAF9F6; }
+        .module--blue { background: linear-gradient(135deg, var(--prep-blue) 0%, var(--prep-blue-dark) 100%); color: #fff; }
+        .module--dark { background: linear-gradient(135deg, var(--clifton-stone) 0%, #0C0A09 100%); color: #fff; }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+        .container--narrow { max-width: 800px; }
+
+        .module__header { text-align: center; margin-bottom: 3rem; }
+        .module__eyebrow {
+            display: inline-block;
+            background: var(--prep-blue-light);
+            color: var(--prep-blue-dark);
+            padding: 0.25rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .module--blue .module__eyebrow { background: rgba(255,255,255,0.2); color: #fff; }
+        .module--dark .module__eyebrow { background: var(--clifton-blue); color: #fff; }
+
+        .module__title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--clifton-stone);
+            margin-bottom: 0.5rem;
+        }
+        .module--blue .module__title, .module--dark .module__title { color: #fff; }
+
+        .module__subtitle { color: #666; font-size: 1.1rem; }
+        .module--blue .module__subtitle, .module--dark .module__subtitle { color: rgba(255,255,255,0.8); }
+
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        @media (max-width: 768px) {
+            .two-col { grid-template-columns: 1fr; }
+            .video-hero__welcome { font-size: 2.5rem; }
+            .video-hero__tagline { font-size: 1.25rem; }
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        .stat {
+            text-align: center;
+            padding: 1.5rem;
+            background: #fff;
+            border-radius: 1rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+        .stat__number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--prep-blue);
+        }
+        .stat__label { font-size: 0.9rem; color: #666; }
+        @media (max-width: 768px) {
+            .stats { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        .feature-list { list-style: none; padding: 0; margin: 1.5rem 0; }
+        .feature-list__item {
+            display: flex;
+            gap: 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        .feature-list__icon {
+            width: 40px;
+            height: 40px;
+            background: var(--prep-blue-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            flex-shrink: 0;
+        }
+        .module--blue .feature-list__icon { background: rgba(255,255,255,0.2); }
+        .feature-list__title { font-weight: 600; color: var(--clifton-stone); margin-bottom: 0.25rem; }
+        .module--blue .feature-list__title { color: #fff; }
+        .feature-list__text { font-size: 0.9rem; color: #666; }
+        .module--blue .feature-list__text { color: rgba(255,255,255,0.8); }
+
+        .quote {
+            background: var(--prep-blue-light);
+            border-left: 4px solid var(--prep-blue);
+            padding: 1.5rem 2rem;
+            border-radius: 0 1rem 1rem 0;
+            margin: 2rem 0;
+        }
+        .quote__text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.25rem;
+            font-style: italic;
+            color: var(--clifton-stone);
+            margin: 0;
+        }
+        .quote__author {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: var(--prep-blue-dark);
+        }
+
+        .card {
+            background: #fff;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+        .card__title {
+            font-weight: 600;
+            color: var(--clifton-stone);
+            margin-bottom: 0.5rem;
+        }
+        .card__text { font-size: 0.9rem; color: #666; margin: 0; }
+
+        .grid--3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+        .grid--2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+        @media (max-width: 768px) {
+            .grid--3, .grid--2 { grid-template-columns: 1fr; }
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 1rem;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        .photo-grid img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 0.75rem;
+            transition: transform 0.3s;
+        }
+        .photo-grid img:hover { transform: scale(1.02); }
+        @media (max-width: 768px) {
+            .photo-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        .cta {
+            background: var(--prep-blue);
+            color: #fff;
+            border-radius: 1rem;
+            padding: 2rem;
+            text-align: center;
+        }
+        .cta h4 { color: #fff; margin-bottom: 0.5rem; }
+        .cta p { color: rgba(255,255,255,0.9); margin-bottom: 1.5rem; }
+
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            border-radius: 2rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        .btn--primary { background: #fff; color: var(--prep-blue-dark); }
+        .btn--primary:hover { background: #f5f5f5; transform: translateY(-2px); }
+        .btn--secondary { background: transparent; color: #fff; border: 2px solid #fff; }
+        .btn--large { padding: 1rem 2rem; font-size: 1rem; }
+
+        .timeline { margin: 2rem 0; }
+        .timeline__item {
+            display: flex;
+            gap: 1.5rem;
+            padding: 1.5rem 0;
+            border-left: 3px solid var(--prep-blue-light);
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        .timeline__item::before {
+            content: '';
+            position: absolute;
+            left: -8px;
+            top: 1.5rem;
+            width: 14px;
+            height: 14px;
+            background: var(--prep-blue);
+            border-radius: 50%;
+        }
+        .timeline__time {
+            font-weight: 700;
+            color: var(--prep-blue);
+            min-width: 80px;
+        }
+
+        .lead { font-size: 1.15rem; line-height: 1.7; color: #444; }
+
+        .mt-2 { margin-top: 1rem; }
+        .mt-3 { margin-top: 1.5rem; }
+        .mt-4 { margin-top: 2rem; }
+        .mb-4 { margin-bottom: 2rem; }
+
+        .footer {
+            background: var(--clifton-stone);
+            color: #fff;
+            padding: 3rem 0;
+            text-align: center;
+        }
+        .footer a { color: var(--clifton-blue); }
+        .footer p { margin: 0.5rem 0; opacity: 0.9; }
+    </style>
+</head>
+<body class="prospectus">
+    <!-- Sticky Navigation -->
+    <nav class="prospectus-nav" id="prospectusNav">
+        <div class="prospectus-nav__inner">
+            <span class="prospectus-nav__title">Prepared for the <span class="personalised" data-field="family_name">Family</span> Family</span>
+            <div class="prospectus-nav__progress">
+                <span style="font-size: 0.875rem; color: #666;"><span id="scrollPercent">0</span>% read</span>
+                <div class="prospectus-nav__progress-bar">
+                    <div class="prospectus-nav__progress-fill" id="progressFill" style="width: 0%"></div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- VIDEO HERO -->
+    <section class="video-hero" id="videoHero" data-video-section>
+        <div class="video-hero__video">
+            <video id="heroVideo" muted loop playsinline poster="https://a.storyblok.com/f/341818/1500x1001/3dcced1e97/dpp-best-prep-2024-231-1.jpg">
+                <source src="https://a.storyblok.com/f/341818/x/8d47460d26/the_spirit_within_trailer-1080p.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="video-hero__overlay">
+            <span class="video-hero__badge">Prep School | Ages 8-13</span>
+            <h1 class="video-hero__welcome">Welcome, <span class="personalised" data-field="child_name">Child</span></h1>
+            <p class="video-hero__tagline">"The Pre" - where academic rigour meets extraordinary opportunity</p>
+            <p style="opacity: 0.9;">Prepared exclusively for the <span class="personalised" data-field="family_name">Family</span> Family</p>
+        </div>
+        <button class="video-sound-btn" id="soundBtn">Enable Sound</button>
+        <div class="video-hero__scroll">Scroll to explore your personalised prospectus &#8595;</div>
+    </section>
+
+    <!-- MODULE 1: WELCOME -->
+    <section class="module" id="welcome">
+        <div class="container">
+            <div class="two-col">
+                <div>
+                    <span class="module__eyebrow">Welcome</span>
+                    <h2 class="module__title">Dear <span class="personalised" data-field="family_name">Family</span> Family,</h2>
+                    <p class="lead">Thank you for considering Clifton College Prep School for <span class="personalised" data-field="child_name">your child</span>.</p>
+                    <p>At "The Pre", as our Prep School is affectionately known, <span class="personalised" data-field="child_name">your child</span> will experience an education that balances academic excellence with exceptional co-curricular opportunities. Whether <span class="personalised" data-field="pronoun_subject">they</span> join us as a day pupil or boarder, <span class="personalised" data-field="pronoun_subject">they</span> will be nurtured, challenged, and inspired to discover <span class="personalised" data-field="pronoun_possessive">their</span> passions.</p>
+                    <p>Our dedicated team will know <span class="personalised" data-field="child_name">your child</span> as an individual - <span class="personalised" data-field="pronoun_possessive">their</span> strengths, interests, and the unique qualities <span class="personalised" data-field="pronoun_subject">they</span> bring. Every child here matters, and every child is supported to flourish.</p>
+                    <p>This prospectus has been created specifically to show you what Prep School could look like for <span class="personalised" data-field="child_name">your child</span>. We hope it answers your questions - but nothing compares to visiting in person.</p>
+                    <p style="margin-top: 2rem;">
+                        <img src="https://a.storyblok.com/f/341818/1092x1108/e026166394/jim-walton.png" alt="Head of Prep" style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover; margin-bottom: 0.5rem;"><br>
+                        <strong>Head of Prep School</strong><br>
+                        <span style="color: #666;">Clifton College Prep School</span>
+                    </p>
+                </div>
+                <div>
+                    <img src="https://a.storyblok.com/f/341818/1500x1001/3dcced1e97/dpp-best-prep-2024-231-1.jpg" alt="Prep School life" class="hero-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODULE 2: WHY CLIFTON -->
+    <section class="module module--alt" id="why-clifton">
+        <div class="container">
+            <div class="module__header">
+                <span class="module__eyebrow">Why Clifton for <span class="personalised" data-field="child_name">Your Child</span></span>
+                <h2 class="module__title">A Journey from 8 to 13 (and Beyond)</h2>
+                <p class="module__subtitle">Where <span class="personalised" data-field="child_name">your child</span> will thrive</p>
+            </div>
+            <div class="stats mb-4">
+                <div class="stat"><div class="stat__number">160+</div><div class="stat__label">Years of Excellence</div></div>
+                <div class="stat"><div class="stat__number">3</div><div class="stat__label">Nobel Prize Winners</div></div>
+                <div class="stat"><div class="stat__number">#1</div><div class="stat__label">Best Sixth Form 2025</div></div>
+                <div class="stat"><div class="stat__number">8:1</div><div class="stat__label">Pupil-Staff Ratio</div></div>
+            </div>
+            <div class="quote">
+                <p class="quote__text">"At Clifton Prep, we develop curious, confident, and kind young people who are ready for the challenges ahead."</p>
+            </div>
+            <div class="grid--3 mt-4">
+                <div class="card"><h4 class="card__title">Academic Excellence</h4><p class="card__text">Outstanding Common Entrance and scholarship results, with specialist teachers who inspire a love of learning.</p></div>
+                <div class="card"><h4 class="card__title">Day & Boarding</h4><p class="card__text"><span class="personalised" data-field="child_name">Your child</span> can join as a day pupil or boarder, with flexible options available.</p></div>
+                <div class="card"><h4 class="card__title">Seamless Progression</h4><p class="card__text">Direct pathway to Clifton Upper School - named Best Sixth Form in Britain 2025.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODULE 3: HERITAGE -->
+    <section class="module" id="heritage">
+        <div class="container">
+            <div class="two-col">
+                <div>
+                    <span class="module__eyebrow">Founded 1862</span>
+                    <h2 class="module__title">A Heritage of Excellence</h2>
+                    <p class="lead">Clifton College was founded by Dr John Percival, a Victorian visionary who championed science over classics, the education of girls, and equality for all.</p>
+                    <p>We were the <strong>first traditional boys' public school to become fully co-educational</strong> in 1987, and one of the original 26 English public schools.</p>
+                    <p><span class="personalised" data-field="child_name">Your child</span> will join a school that has produced:</p>
+                    <ul class="feature-list">
+                        <li class="feature-list__item"><span class="feature-list__icon">🏆</span><div class="feature-list__content"><div class="feature-list__title">3 Nobel Prize Winners</div><div class="feature-list__text">Including Geoffrey Hinton - the "Godfather of AI" (2024)</div></div></li>
+                        <li class="feature-list__item"><span class="feature-list__icon">🎭</span><div class="feature-list__content"><div class="feature-list__title">John Cleese</div><div class="feature-list__text">Monty Python founder and comedy legend</div></div></li>
+                        <li class="feature-list__item"><span class="feature-list__icon">🏉</span><div class="feature-list__content"><div class="feature-list__title">Immanuel Feyi-Waboso</div><div class="feature-list__text">Current England Rugby International</div></div></li>
+                        <li class="feature-list__item"><span class="feature-list__icon">🎬</span><div class="feature-list__content"><div class="feature-list__title">Sir Michael Redgrave</div><div class="feature-list__text">Oscar-nominated actor - our theatre bears his name</div></div></li>
+                    </ul>
+                </div>
+                <div><img src="https://a.storyblok.com/f/341818/9992x5145/c8ab39da1a/cc-snow.jpg" alt="Clifton College" class="hero-image"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODULE 4: ACADEMIC EXCELLENCE -->
+    <section class="module module--blue" id="academics">
+        <div class="container">
+            <div class="two-col">
+                <div>
+                    <span class="module__eyebrow">Academic Life</span>
+                    <h2 class="module__title" style="color: #fff;">Academic Excellence</h2>
+                    <p class="lead" style="color: rgba(255,255,255,0.95);">At The Pre, <span class="personalised" data-field="child_name">your child</span> will be intellectually challenged and supported to achieve <span class="personalised" data-field="pronoun_possessive">their</span> potential.</p>
+                    <ul class="feature-list">
+                        <li class="feature-list__item"><span class="feature-list__icon">📚</span><div class="feature-list__content"><div class="feature-list__title" style="color: #fff;">Specialist Teachers</div><div class="feature-list__text">Expert teaching in every subject from Year 4</div></div></li>
+                        <li class="feature-list__item"><span class="feature-list__icon">🌍</span><div class="feature-list__content"><div class="feature-list__title" style="color: #fff;">Languages</div><div class="feature-list__text">French, Spanish, and Latin - preparing for a global future</div></div></li>
+                        <li class="feature-list__item"><span class="feature-list__icon">🔬</span><div class="feature-list__content"><div class="feature-list__title" style="color: #fff;">STEM Excellence</div><div class="feature-list__text">Science labs, coding, robotics, and design technology</div></div></li>
+                        <li class="feature-list__item"><span class="feature-list__icon">🏅</span><div class="feature-list__content"><div class="feature-list__title" style="color: #fff;">Scholarship Success</div><div class="feature-list__text">Dedicated preparation and outstanding results</div></div></li>
+                    </ul>
+                </div>
+                <div><img src="https://a.storyblok.com/f/341818/1500x1125/d22268a6df/img_6732.jpg" alt="Academic life" class="hero-image"></div>
+            </div>
+            <div class="quote mt-4" style="background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.5);">
+                <p class="quote__text" style="color: #fff;">"Our pupils consistently achieve exceptional results in Common Entrance and scholarship examinations to the UK's top senior schools."</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODULE 5: DAY IN THE LIFE -->
+    <section class="module module--alt" id="day-in-life">
+        <div class="container">
+            <div class="module__header">
+                <span class="module__eyebrow">Daily Life</span>
+                <h2 class="module__title">A Day in <span class="personalised" data-field="child_name">Your Child</span>'s Life</h2>
+                <p class="module__subtitle">From morning to evening at The Pre</p>
+            </div>
+            <div class="two-col">
+                <div>
+                    <div class="timeline">
+                        <div class="timeline__item"><div class="timeline__time">7:30am</div><div><strong>Breakfast & Morning Drop-off</strong><p style="margin: 0.25rem 0 0; color: #666; font-size: 0.9rem;">Day pupils can arrive for breakfast; boarders start their day</p></div></div>
+                        <div class="timeline__item"><div class="timeline__time">8:30am</div><div><strong>Morning Lessons</strong><p style="margin: 0.25rem 0 0; color: #666; font-size: 0.9rem;">Core academic lessons with specialist teachers</p></div></div>
+                        <div class="timeline__item"><div class="timeline__time">10:30am</div><div><strong>Break</strong><p style="margin: 0.25rem 0 0; color: #666; font-size: 0.9rem;">Time to socialise and enjoy fresh air</p></div></div>
+                        <div class="timeline__item"><div class="timeline__time">12:45pm</div><div><strong>Lunch</strong><p style="margin: 0.25rem 0 0; color: #666; font-size: 0.9rem;">Nutritious meals in our dining halls</p></div></div>
+                        <div class="timeline__item"><div class="timeline__time">2:00pm</div><div><strong>Afternoon Lessons</strong><p style="margin: 0.25rem 0 0; color: #666; font-size: 0.9rem;">Continued learning and practical subjects</p></div></div>
+                        <div class="timeline__item"><div class="timeline__time">4:00pm</div><div><strong>Activities & Sport</strong><p style="margin: 0.25rem 0 0; color: #666; font-size: 0.9rem;">Clubs, matches, music, and more</p></div></div>
+                        <div class="timeline__item"><div class="timeline__time">6:00pm</div><div><strong>Supper</strong><p style="margin: 0.25rem 0 0; color: #666; font-size: 0.9rem;">Evening meal included for all</p></div></div>
+                        <div class="timeline__item"><div class="timeline__time">7:15pm</div><div><strong>Day Pupil Collection</strong><p style="margin: 0.25rem 0 0; color: #666; font-size: 0.9rem;">Extended day ends; boarders continue their evening</p></div></div>
+                    </div>
+                </div>
+                <div>
+                    <img src="https://a.storyblok.com/f/341818/1500x1025/30840ccccf/dpp-cc-best-prep-332.jpg" alt="Prep life" class="hero-image" style="height: 450px;">
+                    <div class="card mt-3" style="background: var(--prep-blue); color: #fff;">
+                        <h4 style="color: #fff;">Extended Day Included</h4>
+                        <p style="color: rgba(255,255,255,0.9); margin: 0;">7:30am to 7:15pm, with all meals included in your fees. No extra charges for wraparound care.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODULE 6: SPORT -->
+    <section class="module" id="sport">
+        <div class="container">
+            <div class="two-col">
+                <div><img src="https://a.storyblok.com/f/341818/1500x1000/346b3095d9/cc-cricket-on-the-close.jpg" alt="Sport at Clifton" class="hero-image" style="height: 500px;"></div>
+                <div>
+                    <span class="module__eyebrow">Sport</span>
+                    <h2 class="module__title">Outstanding Sport</h2>
+                    <p class="lead">Sport is a way of life at Clifton. <span class="personalised" data-field="child_name">Your child</span> will develop fitness, teamwork, and a love of competition at every level.</p>
+                    <ul class="feature-list">
+                        <li class="feature-list__item"><span class="feature-list__icon">🏉</span><div class="feature-list__content"><div class="feature-list__title">Rugby</div><div class="feature-list__text">Elite coaching with pathway to professional academies</div></div></li>
+                        <li class="feature-list__item"><span class="feature-list__icon">🏑</span><div class="feature-list__content"><div class="feature-list__title">Hockey</div><div class="feature-list__text">Boys' and girls' teams at all levels</div></div></li>
+                        <li class="feature-list__item"><span class="feature-list__icon">🏏</span><div class="feature-list__content"><div class="feature-list__title">Cricket</div><div class="feature-list__text">Historic grounds and professional coaching</div></div></li>
+                        <li class="feature-list__item"><span class="feature-list__icon">🎾</span><div class="feature-list__content"><div class="feature-list__title">Tennis & More</div><div class="feature-list__text">Swimming, athletics, netball, football, cross country</div></div></li>
+                    </ul>
+                    <div class="quote mt-3">
+                        <p class="quote__text">"Sport for all, excellence for those who want it. Every child plays, every child competes."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODULE 7: PHOTO GALLERY -->
+    <section class="module module--alt" id="gallery">
+        <div class="container">
+            <div class="module__header">
+                <span class="module__eyebrow">Life at The Pre</span>
+                <h2 class="module__title">Where <span class="personalised" data-field="child_name">Your Child</span> Will Flourish</h2>
+            </div>
+            <div class="photo-grid">
+                <img src="https://a.storyblok.com/f/341818/1500x1001/3dcced1e97/dpp-best-prep-2024-231-1.jpg" alt="Prep School life">
+                <img src="https://a.storyblok.com/f/341818/1500x1001/2fc1d6a1bd/dpp-best-cc-prep-228.jpg" alt="Learning">
+                <img src="https://a.storyblok.com/f/341818/1500x1000/fb17da5fe5/280425-cc-prep_tennis-u13a-048.jpg" alt="Tennis">
+                <img src="https://a.storyblok.com/f/341818/1500x1001/3a9decc1c1/1-preparatory-school_2.jpg" alt="Grounds">
+                <img src="https://a.storyblok.com/f/341818/1500x1001/1580f28145/prep-teacher.jpg" alt="Teaching">
+                <img src="https://a.storyblok.com/f/341818/1500x1000/134a6f8609/240524-cc-house_dance_finals-1855.jpg" alt="Performance">
+            </div>
+        </div>
+    </section>
+
+    <!-- MODULE 8: PERFORMING ARTS -->
+    <section class="module" id="arts">
+        <div class="container">
+            <div class="two-col">
+                <div>
+                    <span class="module__eyebrow">Performing Arts</span>
+                    <h2 class="module__title">Drama, Music & Creativity</h2>
+                    <p class="lead">The arts flourish at Clifton. <span class="personalised" data-field="child_name">Your child</span> will have opportunities to perform, create, and express themselves.</p>
+                    <ul class="feature-list">
+                        <li class="feature-list__item"><span class="feature-list__icon">🎭</span><div class="feature-list__content"><div class="feature-list__title">Redgrave Theatre</div><div class="feature-list__text">320-seat professional venue for major productions</div></div></li>
+                        <li class="feature-list__item"><span class="feature-list__icon">🎵</span><div class="feature-list__content"><div class="feature-list__title">Music</div><div class="feature-list__text">Orchestra, choirs, bands, and individual tuition in any instrument</div></div></li>
+                        <li class="feature-list__item"><span class="feature-list__icon">🎤</span><div class="feature-list__content"><div class="feature-list__title">LAMDA</div><div class="feature-list__text">Speech and drama coaching with excellent exam results</div></div></li>
+                        <li class="feature-list__item"><span class="feature-list__icon">🎨</span><div class="feature-list__content"><div class="feature-list__title">Art & Design</div><div class="feature-list__text">Dedicated studios for creative expression</div></div></li>
+                    </ul>
+                </div>
+                <div><img src="https://a.storyblok.com/f/341818/1500x1000/134a6f8609/240524-cc-house_dance_finals-1855.jpg" alt="Performing arts" class="hero-image"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODULE 9: BOARDING -->
+    <section class="module module--blue" id="boarding">
+        <div class="container">
+            <div class="module__header">
+                <span class="module__eyebrow">Day & Boarding</span>
+                <h2 class="module__title" style="color: #fff;">A Home from Home</h2>
+                <p class="module__subtitle">Choose the option that works for your family</p>
+            </div>
+            <div class="grid--2 mt-4">
+                <div class="card" style="background: rgba(255,255,255,0.95);">
+                    <h4 class="card__title" style="font-size: 1.25rem;">Day Pupils</h4>
+                    <p class="card__text">Full access from 7:30am to 7:15pm, with all meals included. <span class="personalised" data-field="child_name">Your child</span> will be fully part of the community while coming home each evening.</p>
+                    <ul style="margin-top: 1rem; font-size: 0.9rem; color: #666;">
+                        <li>Breakfast, lunch, and supper included</li>
+                        <li>Full access to after-school activities</li>
+                        <li>Flexible boarding nights available</li>
+                        <li>Saturday school with pickup at 4pm</li>
+                    </ul>
+                </div>
+                <div class="card" style="background: rgba(255,255,255,0.95);">
+                    <h4 class="card__title" style="font-size: 1.25rem;">Boarders</h4>
+                    <p class="card__text">Full, weekly, and flexi-boarding from Year 4. A true home-from-home environment with evening activities and weekend adventures.</p>
+                    <ul style="margin-top: 1rem; font-size: 0.9rem; color: #666;">
+                        <li>Warm, family-style boarding houses</li>
+                        <li>Dedicated houseparents and matrons</li>
+                        <li>Weekend trips and activities</li>
+                        <li>Perfect preparation for senior school</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="photo-grid mt-4">
+                <img src="https://a.storyblok.com/f/341818/1500x2248/83c6f14f10/prep-boys-backs.jpg" alt="Boys boarding" style="height: 280px;">
+                <img src="https://a.storyblok.com/f/341818/1500x2064/b1045130cb/prep-girls-house.jpg" alt="Girls boarding" style="height: 280px;">
+                <img src="https://a.storyblok.com/f/341818/2880x1538/e60b1c4e9e/in-halls.png" alt="Dining" style="height: 280px;">
+            </div>
+        </div>
+    </section>
+
+    <!-- MODULE 10: PASTORAL CARE -->
+    <section class="module" id="pastoral">
+        <div class="container">
+            <div class="two-col">
+                <div>
+                    <span class="module__eyebrow">Wellbeing</span>
+                    <h2 class="module__title">Nurturing Every Child</h2>
+                    <p class="lead">At The Pre, pastoral care is woven into everything we do. <span class="personalised" data-field="child_name">Your child</span> will be known, valued, and supported every step of the way.</p>
+                    <ul class="feature-list">
+                        <li class="feature-list__item"><span class="feature-list__icon">👨‍🏫</span><div class="feature-list__content"><div class="feature-list__title">Form Tutor</div><div class="feature-list__text">Primary contact who knows <span class="personalised" data-field="child_name">your child</span> deeply</div></div></li>
+                        <li class="feature-list__item"><span class="feature-list__icon">🏠</span><div class="feature-list__content"><div class="feature-list__title">House System</div><div class="feature-list__text">Vertical integration builds friendships across year groups</div></div></li>
+                        <li class="feature-list__item"><span class="feature-list__icon">📚</span><div class="feature-list__content"><div class="feature-list__title">Learning Support</div><div class="feature-list__text">Individual support and extension programmes</div></div></li>
+                        <li class="feature-list__item"><span class="feature-list__icon">💬</span><div class="feature-list__content"><div class="feature-list__title">Open Door Policy</div><div class="feature-list__text">Regular communication with parents</div></div></li>
+                    </ul>
+                </div>
+                <div>
+                    <img src="https://a.storyblok.com/f/341818/2040x1154/d2c5bd346d/school-pupils-dog.png" alt="Pastoral care" class="hero-image">
+                    <div class="quote mt-3">
+                        <p class="quote__text">"Our dedicated staff nurture every child's strengths, providing personalised support in a caring environment where pupils feel valued, confident, and ready to achieve their potential."</p>
+                        <p class="quote__author">ISI Inspection Report</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODULE 11: FACILITIES -->
+    <section class="module module--alt" id="facilities">
+        <div class="container">
+            <div class="module__header">
+                <span class="module__eyebrow">Campus</span>
+                <h2 class="module__title">World-Class Facilities</h2>
+                <p class="module__subtitle"><span class="personalised" data-field="child_name">Your child</span> will have access to outstanding resources</p>
+            </div>
+            <div class="photo-grid">
+                <img src="https://a.storyblok.com/f/341818/2880x1538/e60b1c4e9e/in-halls.png" alt="Dining halls">
+                <img src="https://a.storyblok.com/f/341818/1200x630/f5801da398/college-small.jpg" alt="College grounds">
+                <img src="https://a.storyblok.com/f/341818/1500x1000/346b3095d9/cc-cricket-on-the-close.jpg" alt="The Close">
+            </div>
+            <div class="grid--3 mt-4">
+                <div class="card"><h4 class="card__title">Sports Centre</h4><p class="card__text">Modern facilities including 25m indoor swimming pool</p></div>
+                <div class="card"><h4 class="card__title">The Close</h4><p class="card__text">Historic cricket ground at the heart of campus</p></div>
+                <div class="card"><h4 class="card__title">Redgrave Theatre</h4><p class="card__text">320-seat professional performance venue</p></div>
+                <div class="card"><h4 class="card__title">Science Labs</h4><p class="card__text">Modern laboratories for practical experiments</p></div>
+                <div class="card"><h4 class="card__title">Music School</h4><p class="card__text">Practice rooms and performance spaces</p></div>
+                <div class="card"><h4 class="card__title">Library</h4><p class="card__text">Extensive collection and quiet study spaces</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODULE 12: THE JOURNEY AHEAD -->
+    <section class="module" id="journey">
+        <div class="container">
+            <div class="module__header">
+                <span class="module__eyebrow">Future</span>
+                <h2 class="module__title">The Journey Ahead</h2>
+                <p class="module__subtitle">A seamless progression to the Upper School</p>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin: 3rem 0; flex-wrap: wrap; gap: 1rem;">
+                <div style="flex: 1; text-align: center; padding: 2rem; background: #f5f5f5; border-radius: 1rem; min-width: 200px;">
+                    <div style="font-weight: 700; font-size: 0.8rem; text-transform: uppercase; opacity: 0.6;">Previous</div>
+                    <h4 style="margin: 0.5rem 0;">Pre-Prep School</h4>
+                    <p style="margin: 0; color: #666;">Ages 3-8</p>
+                </div>
+                <div style="font-size: 2rem; color: #ccc;">&#8594;</div>
+                <div style="flex: 1; text-align: center; padding: 2rem; background: var(--prep-blue); color: #fff; border-radius: 1rem; min-width: 200px;">
+                    <div style="font-weight: 700; font-size: 0.8rem; text-transform: uppercase; opacity: 0.8;">Now</div>
+                    <h4 style="color: #fff; margin: 0.5rem 0;">Prep School</h4>
+                    <p style="margin: 0;">Ages 8-13</p>
+                </div>
+                <div style="font-size: 2rem; color: #ccc;">&#8594;</div>
+                <div style="flex: 1; text-align: center; padding: 2rem; background: #f5f5f5; border-radius: 1rem; min-width: 200px;">
+                    <div style="font-weight: 700; font-size: 0.8rem; text-transform: uppercase; opacity: 0.6;">Next</div>
+                    <h4 style="margin: 0.5rem 0;">Upper School</h4>
+                    <p style="margin: 0; color: #666;">Ages 13-18</p>
+                </div>
+            </div>
+            <div class="card" style="max-width: 800px; margin: 0 auto; text-align: center;">
+                <h4 class="card__title">Best Sixth Form in Britain 2025</h4>
+                <p class="card__text">When <span class="personalised" data-field="child_name">your child</span> reaches Year 9, <span class="personalised" data-field="pronoun_subject">they</span> will transition seamlessly to our Upper School - one of Britain's original 26 public schools and named Best Sixth Form in Britain 2025 by The Week.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODULE 13: LOCATION -->
+    <section class="module module--alt" id="location">
+        <div class="container">
+            <div class="two-col">
+                <div>
+                    <span class="module__eyebrow">Location</span>
+                    <h2 class="module__title">Bristol & Clifton Village</h2>
+                    <p class="lead">One of Britain's most vibrant cities, with the school at the heart of beautiful Clifton Village.</p>
+                    <ul class="feature-list">
+                        <li class="feature-list__item"><span class="feature-list__icon">🏆</span><div class="feature-list__content"><div class="feature-list__title">UK's Most Liveable City</div><div class="feature-list__text">Multiple awards for quality of life</div></div></li>
+                        <li class="feature-list__item"><span class="feature-list__icon">🚗</span><div class="feature-list__content"><div class="feature-list__title">Excellent Transport</div><div class="feature-list__text">M4, M5, Temple Meads station</div></div></li>
+                        <li class="feature-list__item"><span class="feature-list__icon">🌉</span><div class="feature-list__content"><div class="feature-list__title">Clifton Village</div><div class="feature-list__text">Independent shops, cafes, Suspension Bridge</div></div></li>
+                        <li class="feature-list__item"><span class="feature-list__icon">🏠</span><div class="feature-list__content"><div class="feature-list__title">Safe Neighbourhood</div><div class="feature-list__text">Community-focused, family-friendly</div></div></li>
+                    </ul>
+                    <div class="card mt-3">
+                        <strong>Clifton College Prep School</strong><br>
+                        32 College Road, Clifton<br>
+                        Bristol BS8 3JH
+                    </div>
+                </div>
+                <div><img src="https://a.storyblok.com/f/341818/1200x630/f5801da398/college-small.jpg" alt="Bristol" class="hero-image"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODULE 14: VISIT US -->
+    <section class="module" id="visit">
+        <div class="container">
+            <div class="two-col">
+                <div>
+                    <span class="module__eyebrow">Experience Clifton</span>
+                    <h2 class="module__title">Come and See Us</h2>
+                    <p class="lead">Nothing compares to walking through our campus with <span class="personalised" data-field="child_name">your child</span>, meeting our teachers, and feeling the atmosphere for yourselves.</p>
+                    <ul class="feature-list">
+                        <li class="feature-list__item"><span class="feature-list__icon">📅</span><div class="feature-list__content"><div class="feature-list__title">Open Mornings</div><div class="feature-list__text">Regular open events throughout the year</div></div></li>
+                        <li class="feature-list__item"><span class="feature-list__icon">👤</span><div class="feature-list__content"><div class="feature-list__title">Private Tours</div><div class="feature-list__text">Individual tours arranged to suit your schedule</div></div></li>
+                        <li class="feature-list__item"><span class="feature-list__icon">🎯</span><div class="feature-list__content"><div class="feature-list__title">Taster Days</div><div class="feature-list__text"><span class="personalised" data-field="child_name">Your child</span> can experience a day at The Pre</div></div></li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="cta">
+                        <h4>We'd Love to Meet <span class="personalised" data-field="child_name">Your Child</span></h4>
+                        <p>Book a visit and see what Prep School could mean for <span class="personalised" data-field="pronoun_possessive">their</span> future.</p>
+                        <a href="https://www.cliftoncollege.com/admissions/" class="btn btn--primary" target="_blank">Book a Visit</a>
+                    </div>
+                    <img src="https://a.storyblok.com/f/341818/1500x1001/3dcced1e97/dpp-best-prep-2024-231-1.jpg" alt="Visit us" class="hero-image mt-3">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODULE 15: HOW TO APPLY -->
+    <section class="module module--dark" id="apply">
+        <div class="container">
+            <div class="module__header">
+                <span class="module__eyebrow">Admissions</span>
+                <h2 class="module__title" style="color: #fff;">How <span class="personalised" data-field="child_name">Your Child</span> Can Join Us</h2>
+                <p class="module__subtitle">Your journey to Clifton</p>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin: 2rem 0;">
+                <div style="text-align: center;">
+                    <div style="width: 60px; height: 60px; background: var(--clifton-blue); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; font-weight: 700; font-size: 1.5rem;">1</div>
+                    <h4 style="color: #fff; margin-bottom: 0.5rem;">Visit</h4>
+                    <p style="font-size: 0.9rem; opacity: 0.8;">Book a tour or open morning</p>
+                </div>
+                <div style="text-align: center;">
+                    <div style="width: 60px; height: 60px; background: var(--clifton-blue); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; font-weight: 700; font-size: 1.5rem;">2</div>
+                    <h4 style="color: #fff; margin-bottom: 0.5rem;">Register</h4>
+                    <p style="font-size: 0.9rem; opacity: 0.8;">Complete registration form</p>
+                </div>
+                <div style="text-align: center;">
+                    <div style="width: 60px; height: 60px; background: var(--clifton-blue); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; font-weight: 700; font-size: 1.5rem;">3</div>
+                    <h4 style="color: #fff; margin-bottom: 0.5rem;">Assessment</h4>
+                    <p style="font-size: 0.9rem; opacity: 0.8;">Entrance assessment day</p>
+                </div>
+                <div style="text-align: center;">
+                    <div style="width: 60px; height: 60px; background: var(--clifton-blue); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; font-weight: 700; font-size: 1.5rem;">4</div>
+                    <h4 style="color: #fff; margin-bottom: 0.5rem;">Join Us</h4>
+                    <p style="font-size: 0.9rem; opacity: 0.8;">Welcome to Clifton!</p>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="https://www.cliftoncollege.com/admissions/" class="btn btn--primary btn--large" style="margin: 0.5rem;" target="_blank">Book a Visit</a>
+                <a href="https://www.cliftoncollege.com/admissions/" class="btn btn--secondary btn--large" style="margin: 0.5rem;" target="_blank">Register Interest</a>
+            </div>
+            <div style="text-align: center; margin-top: 2rem; opacity: 0.9;">
+                <p><a href="mailto:prepadmissions@cliftoncollege.com" style="color: var(--clifton-blue);">prepadmissions@cliftoncollege.com</a> | <a href="tel:+441173157000" style="color: var(--clifton-blue);">+44 (0)117 315 7000</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODULE 16: CLOSING -->
+    <section class="module" id="closing" style="text-align: center;">
+        <div class="container container--narrow">
+            <p style="font-family: 'Playfair Display', serif; font-size: 1.75rem; font-style: italic; color: var(--clifton-stone); max-width: 700px; margin: 0 auto;">"At Clifton Prep School, <span class="personalised" data-field="child_name">your child</span> will be challenged to grow academically, personally, and socially - preparing <span class="personalised" data-field="pronoun_object">them</span> for every opportunity that lies ahead."</p>
+            <p style="font-weight: 700; margin-top: 2rem; font-size: 1.5rem; color: var(--prep-blue-dark);">Aim high, stay grounded.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>This personalised prospectus was created for the <span class="personalised" data-field="family_name">Family</span> Family</p>
+            <p style="font-size: 0.85rem; opacity: 0.7;"><span id="prospectusId">Prospectus ID</span> | Generated <span id="prospectusDate">Date</span></p>
+            <p style="margin-top: 1rem;">Clifton College Prep School, 32 College Road, Clifton, Bristol BS8 3JH</p>
+            <p><a href="https://www.cliftoncollege.com">www.cliftoncollege.com</a> | +44 (0)117 315 7000</p>
+        </div>
+    </footer>
+
+    <script src="../scripts/prospectus.js"></script>
+    <script>
+        document.addEventListener('scroll', function() {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollPercent = Math.round((scrollTop / docHeight) * 100);
+            document.getElementById('scrollPercent').textContent = scrollPercent;
+            document.getElementById('progressFill').style.width = scrollPercent + '%';
+            const nav = document.getElementById('prospectusNav');
+            if (scrollTop > window.innerHeight * 0.5) { nav.classList.add('prospectus-nav--visible'); }
+            else { nav.classList.remove('prospectus-nav--visible'); }
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const videoSections = document.querySelectorAll('[data-video-section]');
+            if ('IntersectionObserver' in window) {
+                videoSections.forEach(section => {
+                    const observer = new IntersectionObserver((entries) => {
+                        entries.forEach(entry => {
+                            const video = entry.target.querySelector('video');
+                            if (video) {
+                                if (entry.isIntersecting) { video.play().catch(e => {}); }
+                                else { video.pause(); }
+                            }
+                        });
+                    }, { threshold: 0.3 });
+                    observer.observe(section);
+                });
+            }
+
+            const soundBtn = document.getElementById('soundBtn');
+            const video = document.getElementById('heroVideo');
+            if (soundBtn && video) {
+                soundBtn.addEventListener('click', function() {
+                    video.muted = !video.muted;
+                    soundBtn.textContent = video.muted ? 'Enable Sound' : 'Sound On';
+                    soundBtn.classList.toggle('video-sound-btn--active', !video.muted);
+                });
+            }
+
+            const dateEl = document.getElementById('prospectusDate');
+            if (dateEl) { dateEl.textContent = new Date().toLocaleDateString('en-GB', { month: 'long', year: 'numeric' }); }
+        });
+    </script>
+</body>
+</html>

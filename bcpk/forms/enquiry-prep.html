@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brighton College Prep Kensington - Enquiry Form | Prep School</title>
+  <meta name="description" content="Request your personalised prospectus for Brighton College Prep Kensington">
+  <link rel="stylesheet" href="../styles/bcpk-form.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="bcpk-form-page">
+    <div class="bcpk-form-container">
+      <!-- Header -->
+      <div class="bcpk-form-header">
+        <img src="../assets/logo/bcpk-logo.png" alt="Brighton College Prep Kensington" class="bcpk-form-header__logo" onerror="this.style.display='none'; this.parentElement.insertAdjacentHTML('afterbegin', '<div style=\'font-family: var(--font-serif); color: var(--bcpk-magenta-light); margin-bottom: 1rem;\'>BCPK</div>')">
+        <h1 class="bcpk-form-header__title">Your Personalised Prospectus</h1>
+        <p class="bcpk-form-header__subtitle">Prep School - Reception to Year 8</p>
+      </div>
+
+      <!-- Progress Indicator -->
+      <div class="bcpk-form-progress">
+        <div class="bcpk-form-progress__step active" data-step="1"></div>
+        <div class="bcpk-form-progress__step" data-step="2"></div>
+        <div class="bcpk-form-progress__step" data-step="3"></div>
+        <div class="bcpk-form-progress__step" data-step="4"></div>
+        <div class="bcpk-form-progress__step" data-step="5"></div>
+        <div class="bcpk-form-progress__step" data-step="6"></div>
+        <div class="bcpk-form-progress__step" data-step="7"></div>
+        <div class="bcpk-form-progress__step" data-step="8"></div>
+      </div>
+      <p class="bcpk-form-progress__text">Step <span id="currentStep">1</span> of 8</p>
+
+      <!-- Garden Icons Decoration -->
+      <div class="bcpk-garden-icons">
+        <span class="bcpk-garden-icon">&#127793;</span>
+        <span class="bcpk-garden-icon">&#127795;</span>
+        <span class="bcpk-garden-icon">&#127807;</span>
+        <span class="bcpk-garden-icon">&#127795;</span>
+        <span class="bcpk-garden-icon">&#127793;</span>
+      </div>
+
+      <form id="bcpkEnquiryForm" novalidate>
+        <!-- Section 1: About Your Child -->
+        <div class="bcpk-form-section active" data-section="1">
+          <h2 class="bcpk-form-section__title">About Your Child</h2>
+          <p class="bcpk-form-section__description">Tell us about your child so we can personalise their prospectus.</p>
+
+          <div class="bcpk-form-row">
+            <div class="bcpk-form-group">
+              <label for="childFirstName">Child's First Name <span class="required">*</span></label>
+              <input type="text" id="childFirstName" name="child_first_name" class="bcpk-input" required minlength="2" placeholder="e.g., Oliver">
+              <span class="bcpk-error-message">Please enter your child's first name</span>
+            </div>
+
+            <div class="bcpk-form-group">
+              <label for="childSurname">Child's Surname <span class="required">*</span></label>
+              <input type="text" id="childSurname" name="child_surname" class="bcpk-input" required minlength="2" placeholder="e.g., Thompson">
+              <span class="bcpk-error-message">Please enter your child's surname</span>
+            </div>
+          </div>
+
+          <div class="bcpk-form-group">
+            <label>Child's Gender <span class="required">*</span></label>
+            <div class="bcpk-radio-group bcpk-radio-group--inline">
+              <label class="bcpk-radio">
+                <input type="radio" name="child_gender" value="boy" required>
+                <span>Boy</span>
+              </label>
+              <label class="bcpk-radio">
+                <input type="radio" name="child_gender" value="girl">
+                <span>Girl</span>
+              </label>
+              <label class="bcpk-radio">
+                <input type="radio" name="child_gender" value="prefer_not_to_say">
+                <span>Prefer not to say</span>
+              </label>
+            </div>
+            <span class="bcpk-error-message">Please select an option</span>
+          </div>
+
+          <div class="bcpk-form-row">
+            <div class="bcpk-form-group">
+              <label for="childDob">Date of Birth <span class="required">*</span></label>
+              <input type="date" id="childDob" name="child_dob" class="bcpk-input" required>
+              <span class="bcpk-error-message">Please enter your child's date of birth</span>
+            </div>
+
+            <div class="bcpk-form-group">
+              <label for="currentYearGroup">Current Year Group (if applicable)</label>
+              <select id="currentYearGroup" name="current_year_group" class="bcpk-select">
+                <option value="">Select year group</option>
+                <option value="Pre-Nursery">Pre-Nursery</option>
+                <option value="Nursery">Nursery</option>
+                <option value="Reception">Reception</option>
+                <option value="Year 1">Year 1</option>
+                <option value="Year 2">Year 2</option>
+                <option value="Year 3">Year 3</option>
+                <option value="Year 4">Year 4</option>
+                <option value="Year 5">Year 5</option>
+                <option value="Year 6">Year 6</option>
+                <option value="Year 7">Year 7</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="bcpk-form-group">
+            <label for="currentSchool">Current School (optional)</label>
+            <input type="text" id="currentSchool" name="current_school" class="bcpk-input" placeholder="e.g., Little Acorns Nursery">
+          </div>
+        </div>
+
+        <!-- Section 2: Entry Point -->
+        <div class="bcpk-form-section" data-section="2">
+          <h2 class="bcpk-form-section__title">Entry Point</h2>
+          <p class="bcpk-form-section__description">When would you like your child to join Brighton College Prep Kensington?</p>
+
+          <div class="bcpk-form-group">
+            <label>Intended Entry Point <span class="required">*</span></label>
+            <div class="bcpk-radio-group">
+              <label class="bcpk-radio">
+                <input type="radio" name="entry_point" value="Reception" required>
+                <span>Reception (age 4) - Main entry point</span>
+              </label>
+              <label class="bcpk-radio">
+                <input type="radio" name="entry_point" value="Year 1">
+                <span>Year 1 (age 5)</span>
+              </label>
+              <label class="bcpk-radio">
+                <input type="radio" name="entry_point" value="Year 2">
+                <span>Year 2 (age 6)</span>
+              </label>
+              <label class="bcpk-radio">
+                <input type="radio" name="entry_point" value="Year 3">
+                <span>Year 3 (age 7) - Lower Prep</span>
+              </label>
+              <label class="bcpk-radio">
+                <input type="radio" name="entry_point" value="Year 4">
+                <span>Year 4 (age 8)</span>
+              </label>
+              <label class="bcpk-radio">
+                <input type="radio" name="entry_point" value="Year 5">
+                <span>Year 5 (age 9) - Upper Prep</span>
+              </label>
+              <label class="bcpk-radio">
+                <input type="radio" name="entry_point" value="Year 6">
+                <span>Year 6 (age 10)</span>
+              </label>
+              <label class="bcpk-radio">
+                <input type="radio" name="entry_point" value="Year 7">
+                <span>Year 7 (age 11) - Upper School</span>
+              </label>
+              <label class="bcpk-radio">
+                <input type="radio" name="entry_point" value="Year 8">
+                <span>Year 8 (age 12)</span>
+              </label>
+            </div>
+            <span class="bcpk-error-message">Please select an entry point</span>
+          </div>
+
+          <div class="bcpk-form-group">
+            <label for="entryYear">Intended Entry Year <span class="required">*</span></label>
+            <select id="entryYear" name="entry_year" class="bcpk-select" required>
+              <option value="">Select year</option>
+              <option value="September 2025">September 2025</option>
+              <option value="September 2026">September 2026</option>
+              <option value="September 2027">September 2027</option>
+              <option value="September 2028">September 2028</option>
+            </select>
+            <span class="bcpk-error-message">Please select an entry year</span>
+          </div>
+        </div>
+
+        <!-- Section 3: Academic Interests -->
+        <div class="bcpk-form-section" data-section="3">
+          <h2 class="bcpk-form-section__title">Academic Interests</h2>
+          <p class="bcpk-form-section__description">Which subjects does your child enjoy most?</p>
+
+          <div class="bcpk-form-group">
+            <label>Favourite Subjects (select all that apply)</label>
+            <div class="bcpk-multiselect-grid">
+              <label class="bcpk-multiselect-item">
+                <input type="checkbox" name="favourite_subjects" value="English">
+                English
+              </label>
+              <label class="bcpk-multiselect-item">
+                <input type="checkbox" name="favourite_subjects" value="Mathematics">
+                Mathematics
+              </label>
+              <label class="bcpk-multiselect-item">
+                <input type="checkbox" name="favourite_subjects" value="Science">
+                Science
+              </label>
+              <label class="bcpk-multiselect-item">
+                <input type="checkbox" name="favourite_subjects" value="History">
+                History
+              </label>
+              <label class="bcpk-multiselect-item">
+                <input type="checkbox" name="favourite_subjects" value="Geography">
+                Geography
+              </label>
+              <label class="bcpk-multiselect-item">
+                <input type="checkbox" name="favourite_subjects" value="Art">
+                Art
+              </label>
+              <label class="bcpk-multiselect-item">
+                <input type="checkbox" name="favourite_subjects" value="Music">
+                Music
+              </label>
+              <label class="bcpk-multiselect-item">
+                <input type="checkbox" name="favourite_subjects" value="Drama">
+                Drama
+              </label>
+              <label class="bcpk-multiselect-item">
+                <input type="checkbox" name="favourite_subjects" value="Languages">
+                Languages
+              </label>
+              <label class="bcpk-multiselect-item">
+                <input type="checkbox" name="favourite_subjects" value="Computing">
+                Computing
+              </label>
+              <label class="bcpk-multiselect-item">
+                <input type="checkbox" name="favourite_subjects" value="PE">
+                PE / Sport
+              </label>
+              <label class="bcpk-multiselect-item">
+                <input type="checkbox" name="favourite_subjects" value="DT">
+                Design & Technology
+              </label>
+            </div>
+          </div>
+
+          <div class="bcpk-form-group">
+            <label>Learning Style</label>
+            <div class="bcpk-multiselect-grid">
+              <label class="bcpk-multiselect-item">
+                <input type="checkbox" name="learning_style" value="Hands-on">
+                Hands-on learning
+              </label>
+              <label class="bcpk-multiselect-item">
+                <input type="checkbox" name="learning_style" value="Creative">
+                Creative projects
+              </label>
+              <label class="bcpk-multiselect-item">
+                <input type="checkbox" name="learning_style" value="Outdoor">
+                Outdoor learning
+              </label>
+              <label class="bcpk-multiselect-item">
+                <input type="checkbox" name="learning_style" value="Reading">
+                Reading & research
+              </label>
+              <label class="bcpk-multiselect-item">
+                <input type="checkbox" name="learning_style" value="Problem-solving">
+                Problem-solving
+              </label>
+              <label class="bcpk-multiselect-item">
+                <input type="checkbox" name="learning_style" value="Collaborative">
+                Working with others
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 4: Extracurricular Interests -->
+        <div class="bcpk-form-section" data-section="4">
+          <h2 class="bcpk-form-section__title">Extracurricular Interests</h2>
+          <p class="bcpk-form-section__description">What activities does your child enjoy outside the classroom?</p>
+
+          <div class="bcpk-form-group">
+            <label>Sports Interests</label>
+            <div class="bcpk-multiselect-grid">
+              <label class="bcpk-multiselect-item">
+                <input type="checkbox" name="sports" value="Football">
+                Football
+              </label>
+              <label class="bcpk-multiselect-item">
+                <input type="checkbox" name="sports" value="Swimming">
+                Swimming
+              </label>
+              <label class="bcpk-multiselect-item">
+                <input type="checkbox" name="sports" value="Rugby">
+                Rugby
+              </label>
+              <label class="bcpk-multiselect-item">
+                <input type="checkbox" name="sports" value="Cricket">
+                Cricket
+              </label>
+              <label class="bcpk-multiselect-item">
+                <input type="checkbox" name="sports" value="Hockey">
+                Hockey
+              </label>
+              <label class="bcpk-multiselect-item">
+                <input type="checkbox" name="sports" value="Netball">
+                Netball
+              </label>
+              <label class="bcpk-multiselect-item">
+                <input type="checkbox" name="sports" value="Tennis">
+                Tennis
+              </label>
+              <label class="bcpk-multiselect-item">
+                <input type="checkbox" name="sports" value="Gymnastics">
+                Gymnastics
+              </label>
+              <label class="bcpk-multiselect-item">
+                <input type="checkbox" name="sports" value="Athletics">
+                Athletics
+              </label>
+              <label class="bcpk-multiselect-item">
+                <input type="checkbox" name="sports" value="Basketball">
+                Basketball
+              </label>
+            </div>
+          </div>
+
+          <div class="bcpk-form-group">
+            <label>Arts & Creativity</label>
+            <div class="bcpk-multiselect-grid">
+              <label class="bcpk-multiselect-item">
+                <input type="checkbox" name="arts" value="Music" id="musicInterest">
+                Music
+              </label>
+              <label class="bcpk-multiselect-item">
+                <input type="checkbox" name="arts" value="Drama">
+                Drama / Theatre
+              </label>
+              <label class="bcpk-multiselect-item">
+                <input type="checkbox" name="arts" value="Art">
+                Art / Drawing
+              </label>
+              <label class="bcpk-multiselect-item">
+                <input type="checkbox" name="arts" value="Dance">
+                Dance
+              </label>
+              <label class="bcpk-multiselect-item">
+                <input type="checkbox" name="arts" value="Craft">
+                Craft / Making
+              </label>
+              <label class="bcpk-multiselect-item">
+                <input type="checkbox" name="arts" value="Singing">
+                Singing / Choir
+              </label>
+            </div>
+          </div>
+
+          <div class="bcpk-conditional" id="instrumentField">
+            <div class="bcpk-form-group">
+              <label for="instrument">Which instrument(s)?</label>
+              <input type="text" id="instrument" name="instrument" class="bcpk-input" placeholder="e.g., Piano, Violin">
+            </div>
+          </div>
+
+          <div class="bcpk-form-group">
+            <label>Other Interests</label>
+            <div class="bcpk-multiselect-grid">
+              <label class="bcpk-multiselect-item">
+                <input type="checkbox" name="other_interests" value="Coding">
+                Coding / Technology
+              </label>
+              <label class="bcpk-multiselect-item">
+                <input type="checkbox" name="other_interests" value="Nature">
+                Nature / Wildlife
+              </label>
+              <label class="bcpk-multiselect-item">
+                <input type="checkbox" name="other_interests" value="Chess">
+                Chess
+              </label>
+              <label class="bcpk-multiselect-item">
+                <input type="checkbox" name="other_interests" value="Reading">
+                Reading / Books
+              </label>
+              <label class="bcpk-multiselect-item">
+                <input type="checkbox" name="other_interests" value="Science">
+                Science experiments
+              </label>
+              <label class="bcpk-multiselect-item">
+                <input type="checkbox" name="other_interests" value="Cooking">
+                Cooking / Baking
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 5: What's Important to You -->
+        <div class="bcpk-form-section" data-section="5">
+          <h2 class="bcpk-form-section__title">What's Important to You</h2>
+          <p class="bcpk-form-section__description">What aspects of the school matter most to your family?</p>
+
+          <div class="bcpk-form-group">
+            <label>Key Priorities (select all that apply)</label>
+            <div class="bcpk-multiselect-grid">
+              <label class="bcpk-multiselect-item">
+                <input type="checkbox" name="priorities" value="Secret Garden">
+                Secret Garden / Outdoor Learning
+              </label>
+              <label class="bcpk-multiselect-item">
+                <input type="checkbox" name="priorities" value="Culture of Kindness">
+                Culture of Kindness
+              </label>
+              <label class="bcpk-multiselect-item">
+                <input type="checkbox" name="priorities" value="Academic Excellence">
+                Academic Excellence
+              </label>
+              <label class="bcpk-multiselect-item">
+                <input type="checkbox" name="priorities" value="Creative Arts">
+                Creative Arts & Drama
+              </label>
+              <label class="bcpk-multiselect-item">
+                <input type="checkbox" name="priorities" value="Sport">
+                Sport & Physical Education
+              </label>
+              <label class="bcpk-multiselect-item">
+                <input type="checkbox" name="priorities" value="Music">
+                Music Programme
+              </label>
+              <label class="bcpk-multiselect-item">
+                <input type="checkbox" name="priorities" value="London Location">
+                London Location / Museums
+              </label>
+              <label class="bcpk-multiselect-item">
+                <input type="checkbox" name="priorities" value="Makerspace">
+                Makerspace / Innovation
+              </label>
+              <label class="bcpk-multiselect-item">
+                <input type="checkbox" name="priorities" value="Small Classes">
+                Small Class Sizes
+              </label>
+              <label class="bcpk-multiselect-item">
+                <input type="checkbox" name="priorities" value="Senior Schools">
+                Senior School Destinations
+              </label>
+              <label class="bcpk-multiselect-item">
+                <input type="checkbox" name="priorities" value="Pastoral Care">
+                Pastoral Care / Wellbeing
+              </label>
+              <label class="bcpk-multiselect-item">
+                <input type="checkbox" name="priorities" value="Languages">
+                Languages (Mandarin, Spanish)
+              </label>
+            </div>
+          </div>
+
+          <div class="bcpk-form-group">
+            <label for="additionalInfo">Anything else we should know about your child? (Optional)</label>
+            <textarea id="additionalInfo" name="additional_info" class="bcpk-textarea" placeholder="Tell us about any special achievements, challenges, or things that make your child unique..."></textarea>
+          </div>
+        </div>
+
+        <!-- Section 6: Senior School Destinations (Year 5+ only) -->
+        <div class="bcpk-form-section bcpk-conditional" data-section="6" id="seniorSchoolSection">
+          <h2 class="bcpk-form-section__title">Senior School Aspirations</h2>
+          <p class="bcpk-form-section__description">Which senior schools are you considering for your child?</p>
+
+          <div class="bcpk-form-group">
+            <label>Schools of Interest (select all that apply)</label>
+            <div class="bcpk-multiselect-grid">
+              <label class="bcpk-multiselect-item">
+                <input type="checkbox" name="senior_schools" value="Brighton College">
+                Brighton College
+              </label>
+              <label class="bcpk-multiselect-item">
+                <input type="checkbox" name="senior_schools" value="Westminster">
+                Westminster
+              </label>
+              <label class="bcpk-multiselect-item">
+                <input type="checkbox" name="senior_schools" value="St Pauls">
+                St Paul's
+              </label>
+              <label class="bcpk-multiselect-item">
+                <input type="checkbox" name="senior_schools" value="Dulwich">
+                Dulwich College
+              </label>
+              <label class="bcpk-multiselect-item">
+                <input type="checkbox" name="senior_schools" value="Francis Holland">
+                Francis Holland
+              </label>
+              <label class="bcpk-multiselect-item">
+                <input type="checkbox" name="senior_schools" value="Putney High">
+                Putney High School
+              </label>
+              <label class="bcpk-multiselect-item">
+                <input type="checkbox" name="senior_schools" value="Latymer Upper">
+                Latymer Upper
+              </label>
+              <label class="bcpk-multiselect-item">
+                <input type="checkbox" name="senior_schools" value="Other">
+                Other / Undecided
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 7: Parent/Guardian Details -->
+        <div class="bcpk-form-section" data-section="7">
+          <h2 class="bcpk-form-section__title">Parent/Guardian Details</h2>
+          <p class="bcpk-form-section__description">So we can send you the personalised prospectus.</p>
+
+          <h3 style="font-size: var(--fs-lg); color: var(--bcpk-dark-blue); margin-bottom: var(--space-md);">Parent/Guardian 1</h3>
+
+          <div class="bcpk-form-row">
+            <div class="bcpk-form-group">
+              <label for="parent1Title">Title <span class="required">*</span></label>
+              <select id="parent1Title" name="parent1_title" class="bcpk-select" required>
+                <option value="">Select title</option>
+                <option value="Mr">Mr</option>
+                <option value="Mrs">Mrs</option>
+                <option value="Ms">Ms</option>
+                <option value="Dr">Dr</option>
+                <option value="Professor">Professor</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+
+            <div class="bcpk-form-group">
+              <label for="parent1Relationship">Relationship <span class="required">*</span></label>
+              <select id="parent1Relationship" name="parent1_relationship" class="bcpk-select" required>
+                <option value="">Select relationship</option>
+                <option value="Mother">Mother</option>
+                <option value="Father">Father</option>
+                <option value="Guardian">Guardian</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="bcpk-form-row">
+            <div class="bcpk-form-group">
+              <label for="parent1FirstName">First Name <span class="required">*</span></label>
+              <input type="text" id="parent1FirstName" name="parent1_first_name" class="bcpk-input" required>
+            </div>
+
+            <div class="bcpk-form-group">
+              <label for="parent1Surname">Surname <span class="required">*</span></label>
+              <input type="text" id="parent1Surname" name="parent1_surname" class="bcpk-input" required>
+            </div>
+          </div>
+
+          <div class="bcpk-form-row">
+            <div class="bcpk-form-group">
+              <label for="parent1Email">Email <span class="required">*</span></label>
+              <input type="email" id="parent1Email" name="parent1_email" class="bcpk-input" required placeholder="email@example.com">
+            </div>
+
+            <div class="bcpk-form-group">
+              <label for="parent1Phone">Phone <span class="required">*</span></label>
+              <input type="tel" id="parent1Phone" name="parent1_phone" class="bcpk-input" required placeholder="+44 7700 900123">
+            </div>
+          </div>
+
+          <!-- Parent 2 Toggle -->
+          <div class="bcpk-form-group" style="margin-top: var(--space-xl);">
+            <label class="bcpk-checkbox">
+              <input type="checkbox" id="addParent2" name="add_parent2">
+              <span>Add second parent/guardian</span>
+            </label>
+          </div>
+
+          <div class="bcpk-conditional" id="parent2Fields">
+            <h3 style="font-size: var(--fs-lg); color: var(--bcpk-dark-blue); margin: var(--space-lg) 0 var(--space-md);">Parent/Guardian 2</h3>
+
+            <div class="bcpk-form-row">
+              <div class="bcpk-form-group">
+                <label for="parent2Title">Title</label>
+                <select id="parent2Title" name="parent2_title" class="bcpk-select">
+                  <option value="">Select title</option>
+                  <option value="Mr">Mr</option>
+                  <option value="Mrs">Mrs</option>
+                  <option value="Ms">Ms</option>
+                  <option value="Dr">Dr</option>
+                  <option value="Professor">Professor</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+
+              <div class="bcpk-form-group">
+                <label for="parent2Relationship">Relationship</label>
+                <select id="parent2Relationship" name="parent2_relationship" class="bcpk-select">
+                  <option value="">Select relationship</option>
+                  <option value="Mother">Mother</option>
+                  <option value="Father">Father</option>
+                  <option value="Guardian">Guardian</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="bcpk-form-row">
+              <div class="bcpk-form-group">
+                <label for="parent2FirstName">First Name</label>
+                <input type="text" id="parent2FirstName" name="parent2_first_name" class="bcpk-input">
+              </div>
+
+              <div class="bcpk-form-group">
+                <label for="parent2Surname">Surname</label>
+                <input type="text" id="parent2Surname" name="parent2_surname" class="bcpk-input">
+              </div>
+            </div>
+
+            <div class="bcpk-form-row">
+              <div class="bcpk-form-group">
+                <label for="parent2Email">Email</label>
+                <input type="email" id="parent2Email" name="parent2_email" class="bcpk-input">
+              </div>
+
+              <div class="bcpk-form-group">
+                <label for="parent2Phone">Phone</label>
+                <input type="tel" id="parent2Phone" name="parent2_phone" class="bcpk-input">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 8: Consent & Submission -->
+        <div class="bcpk-form-section" data-section="8">
+          <h2 class="bcpk-form-section__title">Almost There!</h2>
+          <p class="bcpk-form-section__description">Please review and confirm before we create your personalised prospectus.</p>
+
+          <!-- Preview Panel -->
+          <div class="bcpk-form-preview" id="formPreview">
+            <h3 class="bcpk-form-preview__title">Your Prospectus Preview</h3>
+            <div class="bcpk-form-preview__item"><strong>Child:</strong> <span id="previewChildName">-</span></div>
+            <div class="bcpk-form-preview__item"><strong>Entry:</strong> <span id="previewEntry">-</span></div>
+            <div class="bcpk-form-preview__item"><strong>Interests:</strong> <span id="previewInterests">-</span></div>
+            <div class="bcpk-form-preview__item"><strong>Priorities:</strong> <span id="previewPriorities">-</span></div>
+          </div>
+
+          <div class="bcpk-form-group">
+            <label class="bcpk-checkbox">
+              <input type="checkbox" name="privacy_consent" required>
+              <span>I confirm that the information provided is accurate and I consent to Brighton College Prep Kensington processing this data to create a personalised prospectus. <a href="https://www.brightoncollegeprepkensington.co.uk/privacy-policy" target="_blank">View Privacy Policy</a> <span class="required">*</span></span>
+            </label>
+          </div>
+
+          <div class="bcpk-form-group">
+            <label class="bcpk-checkbox">
+              <input type="checkbox" name="marketing_consent">
+              <span>I would like to receive news and updates from Brighton College Prep Kensington</span>
+            </label>
+          </div>
+
+          <div class="bcpk-form-group">
+            <label for="source">How did you hear about us?</label>
+            <select id="source" name="source" class="bcpk-select">
+              <option value="">Select an option</option>
+              <option value="Word of mouth">Word of mouth / Recommendation</option>
+              <option value="School fair">School fair or exhibition</option>
+              <option value="Online search">Online search (Google, etc.)</option>
+              <option value="Social media">Social media</option>
+              <option value="Educational agent">Educational agent / Consultant</option>
+              <option value="Good Schools Guide">Good Schools Guide</option>
+              <option value="Tatler Schools Guide">Tatler Schools Guide</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+        </div>
+      </form>
+
+      <!-- Form Navigation -->
+      <div class="bcpk-form-nav">
+        <button type="button" class="bcpk-form-btn bcpk-form-btn--secondary" id="prevBtn" disabled>Back</button>
+        <button type="button" class="bcpk-form-btn bcpk-form-btn--primary" id="nextBtn">Continue</button>
+      </div>
+
+      <!-- Success State (hidden initially) -->
+      <div class="bcpk-form-success" id="formSuccess" style="display: none;">
+        <div class="bcpk-form-success__icon">&#10003;</div>
+        <h2 class="bcpk-form-success__title">Thank You!</h2>
+        <p class="bcpk-form-success__message">
+          <span id="successChildName">Your child's</span> personalised prospectus is being created now.
+        </p>
+        <div class="bcpk-loading">
+          <div class="bcpk-loading__spinner"></div>
+          <p class="bcpk-loading__text">Generating your prospectus...</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Form Controller for BCPK
+    class BCPKFormController {
+      constructor() {
+        this.form = document.getElementById('bcpkEnquiryForm');
+        this.sections = document.querySelectorAll('.bcpk-form-section:not(.bcpk-conditional)');
+        this.progressSteps = document.querySelectorAll('.bcpk-form-progress__step');
+        this.currentStepText = document.getElementById('currentStep');
+        this.prevBtn = document.getElementById('prevBtn');
+        this.nextBtn = document.getElementById('nextBtn');
+        this.currentStep = 1;
+        this.totalSteps = 8;
+        this.showSeniorSchoolSection = false;
+
+        this.init();
+      }
+
+      init() {
+        this.prevBtn.addEventListener('click', () => this.prevStep());
+        this.nextBtn.addEventListener('click', () => this.nextStep());
+
+        // Multi-select toggle
+        document.querySelectorAll('.bcpk-multiselect-item input[type="checkbox"]').forEach(input => {
+          input.addEventListener('change', () => {
+            const item = input.closest('.bcpk-multiselect-item');
+            item.classList.toggle('selected', input.checked);
+          });
+        });
+
+        // Radio toggle styling
+        document.querySelectorAll('.bcpk-radio input').forEach(radio => {
+          radio.addEventListener('change', () => {
+            const group = radio.closest('.bcpk-radio-group');
+            group.querySelectorAll('.bcpk-radio').forEach(r => r.classList.remove('selected'));
+            radio.closest('.bcpk-radio').classList.add('selected');
+          });
+        });
+
+        // Conditional field handlers
+        this.setupConditionals();
+
+        // Update preview on input change
+        this.form.addEventListener('change', () => this.updatePreview());
+        this.form.addEventListener('input', () => this.updatePreview());
+      }
+
+      setupConditionals() {
+        // Music instrument field
+        document.getElementById('musicInterest')?.addEventListener('change', (e) => {
+          document.getElementById('instrumentField').classList.toggle('visible', e.target.checked);
+        });
+
+        // Parent 2 fields
+        document.getElementById('addParent2')?.addEventListener('change', (e) => {
+          document.getElementById('parent2Fields').classList.toggle('visible', e.target.checked);
+        });
+
+        // Entry point for senior school section (Year 5+)
+        document.querySelectorAll('input[name="entry_point"]').forEach(radio => {
+          radio.addEventListener('change', () => {
+            const value = document.querySelector('input[name="entry_point"]:checked')?.value;
+            const seniorYears = ['Year 5', 'Year 6', 'Year 7', 'Year 8'];
+            this.showSeniorSchoolSection = seniorYears.includes(value);
+            this.updateTotalSteps();
+          });
+        });
+      }
+
+      updateTotalSteps() {
+        // Adjust total steps based on whether senior school section is shown
+        this.totalSteps = this.showSeniorSchoolSection ? 8 : 7;
+
+        // Update progress indicator visibility
+        const step6Indicator = this.progressSteps[5];
+        if (step6Indicator) {
+          step6Indicator.style.display = this.showSeniorSchoolSection ? '' : 'none';
+        }
+      }
+
+      updateProgress() {
+        this.progressSteps.forEach((step, index) => {
+          step.classList.remove('active', 'completed');
+          if (index + 1 === this.currentStep) {
+            step.classList.add('active');
+          } else if (index + 1 < this.currentStep) {
+            step.classList.add('completed');
+          }
+        });
+        this.currentStepText.textContent = this.currentStep;
+        this.prevBtn.disabled = this.currentStep === 1;
+        this.nextBtn.textContent = this.currentStep === this.totalSteps ? 'Create Prospectus' : 'Continue';
+      }
+
+      showSection(step) {
+        // Handle senior school section (step 6) visibility
+        const seniorSection = document.getElementById('seniorSchoolSection');
+
+        // Hide all sections first
+        document.querySelectorAll('.bcpk-form-section').forEach(section => {
+          section.classList.remove('active');
+        });
+
+        // Determine which section to show
+        let targetSectionIndex = step - 1;
+
+        // If we're at step 6 and senior school should be skipped, adjust
+        if (step === 6 && !this.showSeniorSchoolSection) {
+          targetSectionIndex = 6; // Show parent details (section 7 in HTML, index 6)
+        } else if (step > 6 && !this.showSeniorSchoolSection) {
+          targetSectionIndex = step; // Adjust for skipped section
+        }
+
+        // Show the target section
+        const allSections = document.querySelectorAll('.bcpk-form-section');
+        if (allSections[targetSectionIndex]) {
+          allSections[targetSectionIndex].classList.add('active');
+        }
+
+        // Handle senior school section specifically
+        if (step === 6 && this.showSeniorSchoolSection) {
+          seniorSection?.classList.add('visible');
+          seniorSection?.classList.add('active');
+        } else {
+          seniorSection?.classList.remove('visible');
+        }
+
+        this.updateProgress();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+
+      validateCurrentSection() {
+        const activeSection = document.querySelector('.bcpk-form-section.active');
+        if (!activeSection) return true;
+
+        const requiredFields = activeSection.querySelectorAll('[required]');
+        let isValid = true;
+
+        requiredFields.forEach(field => {
+          const formGroup = field.closest('.bcpk-form-group');
+
+          if (field.type === 'radio') {
+            const name = field.name;
+            const checked = activeSection.querySelector(`input[name="${name}"]:checked`);
+            if (!checked) {
+              isValid = false;
+              formGroup?.classList.add('has-error');
+            } else {
+              formGroup?.classList.remove('has-error');
+            }
+          } else if (!field.value.trim()) {
+            isValid = false;
+            field.classList.add('error');
+            formGroup?.classList.add('has-error');
+          } else {
+            field.classList.remove('error');
+            formGroup?.classList.remove('has-error');
+          }
+        });
+
+        return isValid;
+      }
+
+      nextStep() {
+        if (!this.validateCurrentSection()) {
+          return;
+        }
+
+        // Skip senior school section if not needed
+        if (this.currentStep === 5 && !this.showSeniorSchoolSection) {
+          this.currentStep = 7; // Skip to parent details
+          this.showSection(this.currentStep);
+          return;
+        }
+
+        if (this.currentStep < this.totalSteps) {
+          this.currentStep++;
+          this.showSection(this.currentStep);
+        } else {
+          this.submitForm();
+        }
+      }
+
+      prevStep() {
+        // Skip senior school section if not needed
+        if (this.currentStep === 7 && !this.showSeniorSchoolSection) {
+          this.currentStep = 5;
+          this.showSection(this.currentStep);
+          return;
+        }
+
+        if (this.currentStep > 1) {
+          this.currentStep--;
+          this.showSection(this.currentStep);
+        }
+      }
+
+      updatePreview() {
+        const childName = document.getElementById('childFirstName')?.value || '-';
+        const childSurname = document.getElementById('childSurname')?.value || '';
+        const entryPoint = document.querySelector('input[name="entry_point"]:checked')?.value || '-';
+        const entryYear = document.getElementById('entryYear')?.value || '';
+
+        document.getElementById('previewChildName').textContent = `${childName} ${childSurname}`.trim();
+        document.getElementById('previewEntry').textContent = entryPoint + (entryYear ? ` (${entryYear})` : '');
+
+        // Collect interests
+        const interests = [];
+        document.querySelectorAll('input[name="sports"]:checked, input[name="arts"]:checked').forEach(cb => {
+          interests.push(cb.value);
+        });
+        document.getElementById('previewInterests').textContent = interests.length > 0 ? interests.slice(0, 4).join(', ') : '-';
+
+        // Collect priorities
+        const priorities = [];
+        document.querySelectorAll('input[name="priorities"]:checked').forEach(cb => {
+          priorities.push(cb.value);
+        });
+        document.getElementById('previewPriorities').textContent = priorities.length > 0 ? priorities.slice(0, 3).join(', ') : '-';
+      }
+
+      collectFormData() {
+        const formData = new FormData(this.form);
+
+        const data = {
+          child: {
+            first_name: formData.get('child_first_name'),
+            surname: formData.get('child_surname'),
+            gender: formData.get('child_gender'),
+            date_of_birth: formData.get('child_dob'),
+            current_school: formData.get('current_school'),
+            current_year_group: formData.get('current_year_group')
+          },
+          entry: {
+            entry_point: formData.get('entry_point'),
+            entry_year: formData.get('entry_year'),
+            prospectus_type: 'prep'
+          },
+          academics: {
+            favourite_subjects: formData.getAll('favourite_subjects'),
+            learning_style: formData.getAll('learning_style')
+          },
+          interests: {
+            sports: formData.getAll('sports'),
+            arts: formData.getAll('arts'),
+            instrument: formData.get('instrument'),
+            other: formData.getAll('other_interests')
+          },
+          priorities: formData.getAll('priorities'),
+          senior_schools: formData.getAll('senior_schools'),
+          additional_info: formData.get('additional_info'),
+          parents: {
+            parent1: {
+              title: formData.get('parent1_title'),
+              first_name: formData.get('parent1_first_name'),
+              surname: formData.get('parent1_surname'),
+              email: formData.get('parent1_email'),
+              phone: formData.get('parent1_phone'),
+              relationship: formData.get('parent1_relationship')
+            }
+          },
+          source: formData.get('source'),
+          consent: {
+            privacy: formData.get('privacy_consent') === 'on',
+            marketing: formData.get('marketing_consent') === 'on'
+          },
+          submitted_at: new Date().toISOString()
+        };
+
+        // Add parent 2 if provided
+        if (formData.get('parent2_first_name')) {
+          data.parents.parent2 = {
+            title: formData.get('parent2_title'),
+            first_name: formData.get('parent2_first_name'),
+            surname: formData.get('parent2_surname'),
+            email: formData.get('parent2_email'),
+            phone: formData.get('parent2_phone'),
+            relationship: formData.get('parent2_relationship')
+          };
+        }
+
+        return data;
+      }
+
+      submitForm() {
+        const data = this.collectFormData();
+
+        // Save to localStorage
+        localStorage.setItem('bcpk_prospectus_data', JSON.stringify(data));
+
+        // Show success state
+        this.form.style.display = 'none';
+        document.querySelector('.bcpk-form-nav').style.display = 'none';
+        document.getElementById('formSuccess').style.display = 'block';
+        document.getElementById('successChildName').textContent = data.child.first_name + "'s";
+
+        // Redirect to prospectus after delay
+        setTimeout(() => {
+          window.location.href = '../prospectus/demo.html';
+        }, 2000);
+      }
+    }
+
+    // Initialise
+    document.addEventListener('DOMContentLoaded', () => {
+      new BCPKFormController();
+    });
+  </script>
+</body>
+</html>

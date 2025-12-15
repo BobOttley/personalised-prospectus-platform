@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Personalised Prospectus | Clifton College Upper School & Sixth Form</title>
+    <meta name="description" content="A personalised prospectus prepared exclusively for your family by Clifton College Upper School - Best Sixth Form in Britain 2025.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../styles/clifton-prospectus.css">
+
+    <style>
+        :root {
+            --upper-burgundy: #800020;
+            --upper-burgundy-dark: #500014;
+            --upper-burgundy-light: #F5E6E9;
+            --clifton-stone: #1C1917;
+            --clifton-blue: #0EA5E9;
+            --gold: #D4AF37;
+        }
+
+        /* Sticky Navigation */
+        .prospectus-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255,255,255,0.98);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(128, 0, 32, 0.1);
+            z-index: 1000;
+            transform: translateY(-100%);
+            transition: transform 0.3s ease;
+        }
+        .prospectus-nav--visible { transform: translateY(0); }
+        .prospectus-nav__inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.75rem 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .prospectus-nav__title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1rem;
+            color: var(--upper-burgundy-dark);
+        }
+        .prospectus-nav__progress {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .prospectus-nav__progress-bar {
+            width: 150px;
+            height: 4px;
+            background: var(--upper-burgundy-light);
+            border-radius: 2rem;
+            overflow: hidden;
+        }
+        .prospectus-nav__progress-fill {
+            height: 100%;
+            background: var(--upper-burgundy);
+            transition: width 0.3s ease;
+        }
+
+        /* Full-screen Video Hero */
+        .video-hero {
+            position: relative;
+            width: 100vw;
+            margin-left: calc(-50vw + 50%);
+            height: 100vh;
+            min-height: 600px;
+            overflow: hidden;
+            background: var(--upper-burgundy-dark);
+        }
+        .video-hero__video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .video-hero__video video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .video-hero__overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(128,0,32,0.75) 0%, rgba(80,0,20,0.85) 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            color: #fff;
+        }
+        .video-hero__welcome {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #fff;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+        }
+        .video-hero__tagline {
+            font-size: 1.75rem;
+            max-width: 700px;
+            color: #fff;
+            text-shadow: 1px 1px 6px rgba(0,0,0,0.5);
+            margin-bottom: 1rem;
+        }
+        .video-hero__badge {
+            background: rgba(255,255,255,0.2);
+            padding: 0.5rem 1.5rem;
+            border-radius: 2rem;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+        .video-hero__awards {
+            display: flex;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .video-hero__award {
+            background: rgba(255,255,255,0.15);
+            padding: 1rem 1.5rem;
+            border-radius: 0.5rem;
+            text-align: center;
+        }
+        .video-hero__award strong {
+            display: block;
+            font-size: 1.5rem;
+            color: var(--gold);
+        }
+        .video-hero__scroll {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #fff;
+            font-size: 0.875rem;
+            animation: bounce 2s infinite;
+        }
+        .video-sound-btn {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: rgba(255,255,255,0.95);
+            color: var(--clifton-stone);
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            z-index: 10;
+        }
+        .video-sound-btn--active { background: var(--upper-burgundy); color: #fff; }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-10px); }
+            60% { transform: translateX(-50%) translateY(-5px); }
+        }
+
+        /* Module Styles */
+        .module { padding: 5rem 0; }
+        .module--alt { background: #FAF9F6; }
+        .module--burgundy { background: linear-gradient(135deg, var(--upper-burgundy) 0%, var(--upper-burgundy-dark) 100%); color: #fff; }
+        .module--dark { background: linear-gradient(135deg, var(--clifton-stone) 0%, #0C0A09 100%); color: #fff; }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+        .container--narrow { max-width: 800px; }
+
+        .module__header { text-align: center; margin-bottom: 3rem; }
+        .module__eyebrow {
+            display: inline-block;
+            background: var(--upper-burgundy-light);
+            color: var(--upper-burgundy-dark);
+            padding: 0.25rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .module--burgundy .module__eyebrow { background: rgba(255,255,255,0.2); color: #fff; }
+        .module--dark .module__eyebrow { background: var(--clifton-blue); color: #fff; }
+
+        .module__title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--clifton-stone);
+            margin-bottom: 0.5rem;
+        }
+        .module--burgundy .module__title, .module--dark .module__title { color: #fff; }
+
+        .module__subtitle { color: #666; font-size: 1.1rem; }
+        .module--burgundy .module__subtitle, .module--dark .module__subtitle { color: rgba(255,255,255,0.8); }
+
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        @media (max-width: 768px) {
+            .two-col { grid-template-columns: 1fr; }
+            .video-hero__welcome { font-size: 2.5rem; }
+            .video-hero__tagline { font-size: 1.25rem; }
+            .video-hero__awards { flex-direction: column; }
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        .stat {
+            text-align: center;
+            padding: 1.5rem;
+            background: #fff;
+            border-radius: 1rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+        .stat__number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--upper-burgundy);
+        }
+        .stat__label { font-size: 0.9rem; color: #666; }
+        @media (max-width: 768px) {
+            .stats { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        .feature-list { list-style: none; padding: 0; margin: 1.5rem 0; }
+        .feature-list__item {
+            display: flex;
+            gap: 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        .feature-list__icon {
+            width: 40px;
+            height: 40px;
+            background: var(--upper-burgundy-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            flex-shrink: 0;
+        }
+        .module--burgundy .feature-list__icon { background: rgba(255,255,255,0.2); }
+        .feature-list__title { font-weight: 600; color: var(--clifton-stone); margin-bottom: 0.25rem; }
+        .module--burgundy .feature-list__title { color: #fff; }
+        .feature-list__text { font-size: 0.9rem; color: #666; }
+        .module--burgundy .feature-list__text { color: rgba(255,255,255,0.8); }
+
+        .quote {
+            background: var(--upper-burgundy-light);
+            border-left: 4px solid var(--upper-burgundy);
+            padding: 1.5rem 2rem;
+            border-radius: 0 1rem 1rem 0;
+            margin: 2rem 0;
+        }
+        .quote__text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.25rem;
+            font-style: italic;
+            color: var(--clifton-stone);
+            margin: 0;
+        }
+        .quote__author {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: var(--upper-burgundy-dark);
+        }
+
+        .card {
+            background: #fff;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+        .card__title {
+            font-weight: 600;
+            color: var(--clifton-stone);
+            margin-bottom: 0.5rem;
+        }
+        .card__text { font-size: 0.9rem; color: #666; margin: 0; }
+
+        .grid--4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+        .grid--3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+        .grid--2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+        @media (max-width: 900px) {
+            .grid--4 { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 768px) {
+            .grid--3, .grid--2 { grid-template-columns: 1fr; }
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 1rem;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        .photo-grid img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 0.75rem;
+            transition: transform 0.3s;
+        }
+        .photo-grid img:hover { transform: scale(1.02); }
+        @media (max-width: 768px) {
+            .photo-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        .cta {
+            background: var(--upper-burgundy);
+            color: #fff;
+            border-radius: 1rem;
+            padding: 2rem;
+            text-align: center;
+        }
+        .cta h4 { color: #fff; margin-bottom: 0.5rem; }
+        .cta p { color: rgba(255,255,255,0.9); margin-bottom: 1.5rem; }
+
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            border-radius: 2rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        .btn--primary { background: #fff; color: var(--upper-burgundy-dark); }
+        .btn--primary:hover { background: #f5f5f5; transform: translateY(-2px); }
+        .btn--secondary { background: transparent; color: #fff; border: 2px solid #fff; }
+        .btn--large { padding: 1rem 2rem; font-size: 1rem; }
+
+        .alumni-card {
+            background: #fff;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            border-top: 4px solid var(--upper-burgundy);
+        }
+        .alumni-card__name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.25rem;
+            color: var(--clifton-stone);
+            margin-bottom: 0.5rem;
+        }
+        .alumni-card__achievement {
+            font-size: 0.9rem;
+            color: var(--upper-burgundy);
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+        .alumni-card__detail {
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        .lead { font-size: 1.15rem; line-height: 1.7; color: #444; }
+
+        .mt-2 { margin-top: 1rem; }
+        .mt-3 { margin-top: 1.5rem; }
+        .mt-4 { margin-top: 2rem; }
+        .mb-4 { margin-bottom: 2rem; }
+
+        .footer {
+            background: var(--clifton-stone);
+            color: #fff;
+            padding: 3rem 0;
+            text-align: center;
+        }
+        .footer a { color: var(--clifton-blue); }
+        .footer p { margin: 0.5rem 0; opacity: 0.9; }
+    </style>
+</head>
+<body class="prospectus">
+    <!-- Sticky Navigation -->
+    <nav class="prospectus-nav" id="prospectusNav">
+        <div class="prospectus-nav__inner">
+            <span class="prospectus-nav__title">Prepared for the <span class="personalised" data-field="family_name">Family</span> Family</span>
+            <div class="prospectus-nav__progress">
+                <span style="font-size: 0.875rem; color: #666;"><span id="scrollPercent">0</span>% read</span>
+                <div class="prospectus-nav__progress-bar">
+                    <div class="prospectus-nav__progress-fill" id="progressFill" style="width: 0%"></div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- VIDEO HERO -->
+    <section class="video-hero" id="videoHero" data-video-section>
+        <div class="video-hero__video">
+            <video id="heroVideo" muted loop playsinline poster="https://a.storyblok.com/f/341818/1500x2248/0f6ea5c26e/dpp-best-upper-2024-133.jpg">
+                <source src="https://a.storyblok.com/f/341818/x/8d47460d26/the_spirit_within_trailer-1080p.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="video-hero__overlay">
+            <span class="video-hero__badge">Upper School & Sixth Form | Ages 13-18</span>
+            <h1 class="video-hero__welcome">Welcome, <span class="personalised" data-field="child_name">Child</span></h1>
+            <p class="video-hero__tagline">One of Britain's Original 26 Public Schools</p>
+            <div class="video-hero__awards">
+                <div class="video-hero__award"><strong>#1</strong>Best Sixth Form 2025</div>
+                <div class="video-hero__award"><strong>3</strong>Nobel Prize Winners</div>
+                <div class="video-hero__award"><strong>1862</strong>Founded</div>
+            </div>
+            <p style="opacity: 0.9;">Prepared exclusively for the <span class="personalised" data-field="family_name">Family</span> Family</p>
+        </div>
+        <button class="video-sound-btn" id="soundBtn">Enable Sound</button>
+        <div class="video-hero__scroll">Scroll to explore your personalised prospectus &#8595;</div>
+    </section>
+
+    <!-- MODULE 1: WELCOME -->
+    <section class="module" id="welcome">
+        <div class="container">
+            <div class="two-col">
+                <div>
+                    <span class="module__eyebrow">Welcome</span>
+                    <h2 class="module__title">Dear <span class="personalised" data-field="family_name">Family</span> Family,</h2>
+                    <p class="lead">Welcome to Clifton College - one of Britain's original 26 public schools and Best Sixth Form in Britain 2025.</p>
+                    <p>At Clifton, we believe in developing the whole person. When <span class="personalised" data-field="child_name">your child</span> joins us, <span class="personalised" data-field="pronoun_subject">they</span> will find an environment that challenges <span class="personalised" data-field="pronoun_object">them</span> academically whilst nurturing <span class="personalised" data-field="pronoun_possessive">their</span> individual talents and interests.</p>
+                    <p>Our motto - "Aim high, stay grounded" - captures the essence of a Clifton education. We want <span class="personalised" data-field="child_name">your child</span> to dream big and achieve extraordinary things, whilst remaining humble, kind, and connected to what matters.</p>
+                    <p>We have a proud heritage of producing leaders in every field - from Nobel Prize winners to Olympic champions, from Geoffrey Hinton (the "Godfather of AI") to John Cleese.</p>
+                    <p style="margin-top: 2rem;">
+                        <img src="https://a.storyblok.com/f/341818/582x616/0bc5d3ac06/tim-greene.jpg" alt="Head Master" style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover; margin-bottom: 0.5rem;"><br>
+                        <strong>Head Master</strong><br>
+                        <span style="color: #666;">Clifton College</span>
+                    </p>
+                </div>
+                <div>
+                    <img src="https://a.storyblok.com/f/341818/1500x2248/0f6ea5c26e/dpp-best-upper-2024-133.jpg" alt="Upper School life" class="hero-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODULE 2: WHY CLIFTON -->
+    <section class="module module--alt" id="why-clifton">
+        <div class="container">
+            <div class="module__header">
+                <span class="module__eyebrow">Why Clifton for <span class="personalised" data-field="child_name">Your Child</span></span>
+                <h2 class="module__title">Best Sixth Form in Britain 2025</h2>
+                <p class="module__subtitle">Where <span class="personalised" data-field="child_name">your child</span> will become extraordinary</p>
+            </div>
+            <div class="stats mb-4">
+                <div class="stat"><div class="stat__number">160+</div><div class="stat__label">Years of Excellence</div></div>
+                <div class="stat"><div class="stat__number">3</div><div class="stat__label">Nobel Prize Winners</div></div>
+                <div class="stat"><div class="stat__number">#1</div><div class="stat__label">Best Sixth Form 2025</div></div>
+                <div class="stat"><div class="stat__number">26</div><div class="stat__label">Original Public Schools</div></div>
+            </div>
+            <div class="quote">
+                <p class="quote__text">"Aim high, stay grounded - this captures everything we want for our pupils. Dream big, achieve extraordinary things, but stay humble and kind."</p>
+            </div>
+            <div class="grid--3 mt-4">
+                <div class="card"><h4 class="card__title">Academic Excellence</h4><p class="card__text">Outstanding GCSE and A-Level results with dedicated Oxbridge and Russell Group preparation.</p></div>
+                <div class="card"><h4 class="card__title">Elite Sport & Arts</h4><p class="card__text">Professional coaching in sport. The Redgrave Theatre for drama. Music at the highest levels.</p></div>
+                <div class="card"><h4 class="card__title">Global Opportunities</h4><p class="card__text">Exchanges, expeditions, and experiences that open doors to universities and careers worldwide.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODULE 3: HERITAGE -->
+    <section class="module" id="heritage">
+        <div class="container">
+            <div class="two-col">
+                <div>
+                    <span class="module__eyebrow">Founded 1862</span>
+                    <h2 class="module__title">A Heritage of Excellence</h2>
+                    <p class="lead">Clifton College was founded by Dr John Percival, a Victorian visionary who championed science over classics, the education of girls, and equality for all.</p>
+                    <p>We were the <strong>first traditional boys' public school to become fully co-educational</strong> in 1987, and remain one of only 26 schools to hold the distinction of being an original English public school.</p>
+                    <p><span class="personalised" data-field="child_name">Your child</span> will join a school that has produced:</p>
+                    <ul class="feature-list">
+                        <li class="feature-list__item"><span class="feature-list__icon">🏆</span><div class="feature-list__content"><div class="feature-list__title">3 Nobel Prize Winners</div><div class="feature-list__text">Including Geoffrey Hinton - the "Godfather of AI" (2024)</div></div></li>
+                        <li class="feature-list__item"><span class="feature-list__icon">🎭</span><div class="feature-list__content"><div class="feature-list__title">John Cleese</div><div class="feature-list__text">Monty Python founder and comedy legend</div></div></li>
+                        <li class="feature-list__item"><span class="feature-list__icon">🏉</span><div class="feature-list__content"><div class="feature-list__title">Immanuel Feyi-Waboso</div><div class="feature-list__text">Current England Rugby International</div></div></li>
+                        <li class="feature-list__item"><span class="feature-list__icon">🎖️</span><div class="feature-list__content"><div class="feature-list__title">8 Victoria Cross Recipients</div><div class="feature-list__text">More than almost any other school</div></div></li>
+                    </ul>
+                </div>
+                <div><img src="https://a.storyblok.com/f/341818/9992x5145/c8ab39da1a/cc-snow.jpg" alt="Clifton College" class="hero-image"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODULE 4: ACADEMIC EXCELLENCE -->
+    <section class="module module--burgundy" id="academics">
+        <div class="container">
+            <div class="two-col">
+                <div>
+                    <span class="module__eyebrow">Academic Life</span>
+                    <h2 class="module__title" style="color: #fff;">Academic Excellence</h2>
+                    <p class="lead" style="color: rgba(255,255,255,0.95);">Named Best Sixth Form in Britain 2025, we offer outstanding teaching, small classes, and exceptional results.</p>
+                    <ul class="feature-list">
+                        <li class="feature-list__item"><span class="feature-list__icon">📚</span><div class="feature-list__content"><div class="feature-list__title" style="color: #fff;">GCSEs & A-Levels</div><div class="feature-list__text">Outstanding results across all subjects</div></div></li>
+                        <li class="feature-list__item"><span class="feature-list__icon">🎓</span><div class="feature-list__content"><div class="feature-list__title" style="color: #fff;">Oxbridge & Russell Group</div><div class="feature-list__text">Dedicated preparation and excellent success rates</div></div></li>
+                        <li class="feature-list__item"><span class="feature-list__icon">🔬</span><div class="feature-list__content"><div class="feature-list__title" style="color: #fff;">EPQ & Super-Curricular</div><div class="feature-list__text">Extended projects and enrichment programmes</div></div></li>
+                        <li class="feature-list__item"><span class="feature-list__icon">💼</span><div class="feature-list__content"><div class="feature-list__title" style="color: #fff;">Careers & UCAS</div><div class="feature-list__text">Guidance from Year 9 onwards</div></div></li>
+                    </ul>
+                </div>
+                <div><img src="https://a.storyblok.com/f/341818/6000x4000/41dccc11e9/maths-challenge-7.jpg" alt="Academic life" class="hero-image"></div>
+            </div>
+            <div class="quote mt-4" style="background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.5);">
+                <p class="quote__text" style="color: #fff;">"<span class="personalised" data-field="child_name">Your child</span> will be challenged to think critically, work independently, and achieve <span class="personalised" data-field="pronoun_possessive">their</span> academic potential in an environment that nurtures intellectual curiosity."</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODULE 5: SIXTH FORM -->
+    <section class="module module--alt" id="sixth-form">
+        <div class="container">
+            <div class="module__header">
+                <span class="module__eyebrow">Best in Britain 2025</span>
+                <h2 class="module__title">The Clifton Sixth Form</h2>
+                <p class="module__subtitle">Where <span class="personalised" data-field="child_name">your child</span> prepares for university and beyond</p>
+            </div>
+            <div class="two-col">
+                <div>
+                    <img src="https://a.storyblok.com/f/341818/1500x1001/812f25a97c/upper-science-mixed.jpg" alt="Sixth Form" class="hero-image" style="height: 450px;">
+                </div>
+                <div>
+                    <p class="lead">Named Best Sixth Form in Britain 2025 by The Week, our Sixth Form combines academic rigour with the freedom to explore.</p>
+                    <ul class="feature-list">
+                        <li class="feature-list__item"><span class="feature-list__icon">📖</span><div class="feature-list__content"><div class="feature-list__title">Wide Subject Choice</div><div class="feature-list__text">Over 25 A-Level subjects available</div></div></li>
+                        <li class="feature-list__item"><span class="feature-list__icon">🏠</span><div class="feature-list__content"><div class="feature-list__title">Sixth Form Houses</div><div class="feature-list__text">Dedicated Sixth Form accommodation with more independence</div></div></li>
+                        <li class="feature-list__item"><span class="feature-list__icon">🎯</span><div class="feature-list__content"><div class="feature-list__title">Leadership Opportunities</div><div class="feature-list__text">Prefects, mentoring, and school responsibilities</div></div></li>
+                        <li class="feature-list__item"><span class="feature-list__icon">🌍</span><div class="feature-list__content"><div class="feature-list__title">University Destinations</div><div class="feature-list__text">Oxbridge, Russell Group, and international universities</div></div></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODULE 6: PHOTO GALLERY -->
+    <section class="module" id="gallery">
+        <div class="container">
+            <div class="module__header">
+                <span class="module__eyebrow">Life at Clifton</span>
+                <h2 class="module__title">Where <span class="personalised" data-field="child_name">Your Child</span> Will Thrive</h2>
+            </div>
+            <div class="photo-grid">
+                <img src="https://a.storyblok.com/f/341818/1500x2248/0f6ea5c26e/dpp-best-upper-2024-133.jpg" alt="Upper School students">
+                <img src="https://a.storyblok.com/f/341818/1500x1000/b8abfda32d/240525-cc-upper_commem-7092.jpg" alt="Commemoration">
+                <img src="https://a.storyblok.com/f/341818/1500x2248/acdf59e19d/upper-mixed-walking-memarch.jpg" alt="Students walking">
+                <img src="https://a.storyblok.com/f/341818/1500x2248/2281a90c8a/dpp-cc-best-upper-0027.jpg" alt="Upper School life">
+                <img src="https://a.storyblok.com/f/341818/1500x2248/5cd4f400dc/dpp-best-upper-2024-263.jpg" alt="Student">
+                <img src="https://a.storyblok.com/f/341818/1500x2247/a55db0655e/dpp-best-upper-2024-130.jpg" alt="House life">
+            </div>
+        </div>
+    </section>
+
+    <!-- MODULE 7: SPORT -->
+    <section class="module module--burgundy" id="sport">
+        <div class="container">
+            <div class="two-col">
+                <div>
+                    <span class="module__eyebrow">Sport</span>
+                    <h2 class="module__title" style="color: #fff;">Elite Sport Pathways</h2>
+                    <p class="lead" style="color: rgba(255,255,255,0.95);">Sport is central to life at Clifton. <span class="personalised" data-field="child_name">Your child</span> can compete at the highest levels or enjoy sport for fitness and fun.</p>
+                    <ul class="feature-list">
+                        <li class="feature-list__item"><span class="feature-list__icon">🏉</span><div class="feature-list__content"><div class="feature-list__title" style="color: #fff;">Rugby</div><div class="feature-list__text">Elite coaching with professional academy pathways</div></div></li>
+                        <li class="feature-list__item"><span class="feature-list__icon">🏑</span><div class="feature-list__content"><div class="feature-list__title" style="color: #fff;">Hockey</div><div class="feature-list__text">Top-level coaching for boys and girls</div></div></li>
+                        <li class="feature-list__item"><span class="feature-list__icon">🏏</span><div class="feature-list__content"><div class="feature-list__title" style="color: #fff;">Cricket</div><div class="feature-list__text">Historic Close ground, professional coaching</div></div></li>
+                        <li class="feature-list__item"><span class="feature-list__icon">🎾</span><div class="feature-list__content"><div class="feature-list__title" style="color: #fff;">Tennis & More</div><div class="feature-list__text">Swimming, athletics, netball, football, squash</div></div></li>
+                    </ul>
+                    <p style="color: rgba(255,255,255,0.9); margin-top: 1rem;"><strong>Immanuel Feyi-Waboso</strong> (England Rugby International) is a recent leaver - <span class="personalised" data-field="child_name">your child</span> could follow in his footsteps.</p>
+                </div>
+                <div><img src="https://a.storyblok.com/f/341818/1500x1000/346b3095d9/cc-cricket-on-the-close.jpg" alt="Sport at Clifton" class="hero-image"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODULE 8: PERFORMING ARTS -->
+    <section class="module" id="arts">
+        <div class="container">
+            <div class="two-col">
+                <div><img src="https://a.storyblok.com/f/341818/1500x1000/134a6f8609/240524-cc-house_dance_finals-1855.jpg" alt="Performing arts" class="hero-image"></div>
+                <div>
+                    <span class="module__eyebrow">Performing Arts</span>
+                    <h2 class="module__title">Drama, Music & Creativity</h2>
+                    <p class="lead">From our 320-seat Redgrave Theatre to our concert halls, the arts flourish at Clifton.</p>
+                    <ul class="feature-list">
+                        <li class="feature-list__item"><span class="feature-list__icon">🎭</span><div class="feature-list__content"><div class="feature-list__title">Redgrave Theatre</div><div class="feature-list__text">Named after Old Cliftonian Sir Michael Redgrave</div></div></li>
+                        <li class="feature-list__item"><span class="feature-list__icon">🎵</span><div class="feature-list__content"><div class="feature-list__title">Music</div><div class="feature-list__text">Orchestra, choirs, jazz bands, rock bands, and ensembles</div></div></li>
+                        <li class="feature-list__item"><span class="feature-list__icon">🎤</span><div class="feature-list__content"><div class="feature-list__title">LAMDA & Drama</div><div class="feature-list__text">John Cleese (Monty Python) is an Old Cliftonian</div></div></li>
+                        <li class="feature-list__item"><span class="feature-list__icon">🎨</span><div class="feature-list__content"><div class="feature-list__title">Art & Design</div><div class="feature-list__text">Studios for fine art, photography, and design technology</div></div></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODULE 9: OLD CLIFTONIANS -->
+    <section class="module module--alt" id="alumni">
+        <div class="container">
+            <div class="module__header">
+                <span class="module__eyebrow">Old Cliftonians</span>
+                <h2 class="module__title">Following in Extraordinary Footsteps</h2>
+                <p class="module__subtitle"><span class="personalised" data-field="child_name">Your child</span> will join a remarkable community</p>
+            </div>
+            <div class="grid--4">
+                <div class="alumni-card">
+                    <div class="alumni-card__name">Geoffrey Hinton</div>
+                    <div class="alumni-card__achievement">Nobel Prize 2024</div>
+                    <div class="alumni-card__detail">"Godfather of AI"</div>
+                </div>
+                <div class="alumni-card">
+                    <div class="alumni-card__name">John Cleese</div>
+                    <div class="alumni-card__achievement">Comedy Legend</div>
+                    <div class="alumni-card__detail">Monty Python Founder</div>
+                </div>
+                <div class="alumni-card">
+                    <div class="alumni-card__name">Sir Michael Redgrave</div>
+                    <div class="alumni-card__achievement">Oscar-Nominated</div>
+                    <div class="alumni-card__detail">Theatre Namesake</div>
+                </div>
+                <div class="alumni-card">
+                    <div class="alumni-card__name">Immanuel Feyi-Waboso</div>
+                    <div class="alumni-card__achievement">England Rugby</div>
+                    <div class="alumni-card__detail">Recent Leaver</div>
+                </div>
+            </div>
+            <p style="text-align: center; margin-top: 2rem; color: #666;">Plus <strong>3 Nobel Prize winners</strong>, <strong>8 Victoria Cross recipients</strong>, Olympic champions, and countless leaders in business, politics, science, and the arts.</p>
+        </div>
+    </section>
+
+    <!-- MODULE 10: HOUSES & BOARDING -->
+    <section class="module" id="boarding">
+        <div class="container">
+            <div class="module__header">
+                <span class="module__eyebrow">Houses</span>
+                <h2 class="module__title">A Home from Home</h2>
+                <p class="module__subtitle">The House system is at the heart of Clifton life</p>
+            </div>
+            <div class="grid--2 mt-4">
+                <div class="card" style="border-top: 4px solid var(--upper-burgundy);">
+                    <h4 class="card__title" style="font-size: 1.25rem;">Day Houses</h4>
+                    <p class="card__text">Day pupils are fully integrated into House life. <span class="personalised" data-field="child_name">Your child</span> will have <span class="personalised" data-field="pronoun_possessive">their</span> own House, Housemaster/Housemistress, and tutor.</p>
+                    <ul style="margin-top: 1rem; font-size: 0.9rem; color: #666;">
+                        <li>Full day from 7:30am to 7:15pm</li>
+                        <li>All meals included</li>
+                        <li>Flexible boarding nights available</li>
+                        <li>Full access to evening activities</li>
+                    </ul>
+                </div>
+                <div class="card" style="border-top: 4px solid var(--upper-burgundy);">
+                    <h4 class="card__title" style="font-size: 1.25rem;">Boarding Houses</h4>
+                    <p class="card__text">Full, weekly, and flexi-boarding options. Houseparents create a true home-from-home environment.</p>
+                    <ul style="margin-top: 1rem; font-size: 0.9rem; color: #666;">
+                        <li>Dedicated Houseparents and tutors</li>
+                        <li>House competitions and traditions</li>
+                        <li>Weekend trips and activities</li>
+                        <li>Lifelong friendships</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="photo-grid mt-4">
+                <img src="https://a.storyblok.com/f/341818/1500x2247/a55db0655e/dpp-best-upper-2024-130.jpg" alt="House life">
+                <img src="https://a.storyblok.com/f/341818/2880x1538/e60b1c4e9e/in-halls.png" alt="Dining">
+                <img src="https://a.storyblok.com/f/341818/1500x2050/da0e11501a/dpp-best-upper-2024-167-1.jpg" alt="Student">
+            </div>
+        </div>
+    </section>
+
+    <!-- MODULE 11: PASTORAL CARE -->
+    <section class="module module--alt" id="pastoral">
+        <div class="container">
+            <div class="two-col">
+                <div>
+                    <span class="module__eyebrow">Wellbeing</span>
+                    <h2 class="module__title">Nurturing Every Individual</h2>
+                    <p class="lead">At Clifton, every pupil matters. <span class="personalised" data-field="child_name">Your child</span> will be known as an individual, supported by a team who care about <span class="personalised" data-field="pronoun_possessive">their</span> wellbeing.</p>
+                    <ul class="feature-list">
+                        <li class="feature-list__item"><span class="feature-list__icon">🏠</span><div class="feature-list__content"><div class="feature-list__title">Houseparent</div><div class="feature-list__text">Primary pastoral contact who knows <span class="personalised" data-field="child_name">your child</span> deeply</div></div></li>
+                        <li class="feature-list__item"><span class="feature-list__icon">👨‍🏫</span><div class="feature-list__content"><div class="feature-list__title">Personal Tutor</div><div class="feature-list__text">Academic and personal guidance</div></div></li>
+                        <li class="feature-list__item"><span class="feature-list__icon">💬</span><div class="feature-list__content"><div class="feature-list__title">Counselling</div><div class="feature-list__text">Professional support when needed</div></div></li>
+                        <li class="feature-list__item"><span class="feature-list__icon">🏥</span><div class="feature-list__content"><div class="feature-list__title">Health Centre</div><div class="feature-list__text">24/7 care for boarders, full-time nursing staff</div></div></li>
+                    </ul>
+                </div>
+                <div>
+                    <img src="https://a.storyblok.com/f/341818/1500x2248/acdf59e19d/upper-mixed-walking-memarch.jpg" alt="Pastoral care" class="hero-image">
+                    <div class="quote mt-3">
+                        <p class="quote__text">"Our dedicated staff nurture every pupil's strengths, providing personalised support in a caring environment where pupils feel valued, confident, and ready to achieve their potential."</p>
+                        <p class="quote__author">ISI Inspection Report</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODULE 12: FACILITIES -->
+    <section class="module" id="facilities">
+        <div class="container">
+            <div class="module__header">
+                <span class="module__eyebrow">Campus</span>
+                <h2 class="module__title">90 Acres of World-Class Facilities</h2>
+                <p class="module__subtitle"><span class="personalised" data-field="child_name">Your child</span> will have access to outstanding resources</p>
+            </div>
+            <div class="photo-grid">
+                <img src="https://a.storyblok.com/f/341818/2880x1538/e60b1c4e9e/in-halls.png" alt="Dining halls">
+                <img src="https://a.storyblok.com/f/341818/1200x630/f5801da398/college-small.jpg" alt="College grounds">
+                <img src="https://a.storyblok.com/f/341818/1500x1000/346b3095d9/cc-cricket-on-the-close.jpg" alt="The Close">
+            </div>
+            <div class="grid--3 mt-4">
+                <div class="card"><h4 class="card__title">The Close</h4><p class="card__text">Historic cricket ground at the heart of campus</p></div>
+                <div class="card"><h4 class="card__title">Sports Centre</h4><p class="card__text">25m pool, fitness suite, courts, and pitches</p></div>
+                <div class="card"><h4 class="card__title">Redgrave Theatre</h4><p class="card__text">320-seat professional performance venue</p></div>
+                <div class="card"><h4 class="card__title">Science Centre</h4><p class="card__text">Modern laboratories and specialist equipment</p></div>
+                <div class="card"><h4 class="card__title">Music School</h4><p class="card__text">Concert hall, practice rooms, recording studio</p></div>
+                <div class="card"><h4 class="card__title">Library</h4><p class="card__text">Extensive collection and study spaces</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODULE 13: LOCATION -->
+    <section class="module module--alt" id="location">
+        <div class="container">
+            <div class="two-col">
+                <div>
+                    <span class="module__eyebrow">Location</span>
+                    <h2 class="module__title">Bristol & Clifton Village</h2>
+                    <p class="lead">One of Britain's most vibrant cities, with the school at the heart of beautiful Clifton Village.</p>
+                    <ul class="feature-list">
+                        <li class="feature-list__item"><span class="feature-list__icon">🏆</span><div class="feature-list__content"><div class="feature-list__title">UK's Most Liveable City</div><div class="feature-list__text">Multiple awards for quality of life</div></div></li>
+                        <li class="feature-list__item"><span class="feature-list__icon">🚗</span><div class="feature-list__content"><div class="feature-list__title">Excellent Transport</div><div class="feature-list__text">M4, M5, Temple Meads station, Bristol Airport</div></div></li>
+                        <li class="feature-list__item"><span class="feature-list__icon">🌉</span><div class="feature-list__content"><div class="feature-list__title">Clifton Village</div><div class="feature-list__text">Independent shops, cafes, Suspension Bridge</div></div></li>
+                        <li class="feature-list__item"><span class="feature-list__icon">🎓</span><div class="feature-list__content"><div class="feature-list__title">University City</div><div class="feature-list__text">Bristol and UWE universities on our doorstep</div></div></li>
+                    </ul>
+                    <div class="card mt-3">
+                        <strong>Clifton College</strong><br>
+                        32 College Road, Clifton<br>
+                        Bristol BS8 3JH
+                    </div>
+                </div>
+                <div><img src="https://a.storyblok.com/f/341818/1200x630/f5801da398/college-small.jpg" alt="Bristol" class="hero-image"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODULE 14: VISIT US -->
+    <section class="module" id="visit">
+        <div class="container">
+            <div class="two-col">
+                <div>
+                    <span class="module__eyebrow">Experience Clifton</span>
+                    <h2 class="module__title">Come and See Us</h2>
+                    <p class="lead">Nothing compares to walking through our 90-acre campus with <span class="personalised" data-field="child_name">your child</span>, meeting our teachers, and feeling the atmosphere for yourselves.</p>
+                    <ul class="feature-list">
+                        <li class="feature-list__item"><span class="feature-list__icon">📅</span><div class="feature-list__content"><div class="feature-list__title">Open Mornings</div><div class="feature-list__text">Regular open events throughout the year</div></div></li>
+                        <li class="feature-list__item"><span class="feature-list__icon">👤</span><div class="feature-list__content"><div class="feature-list__title">Private Tours</div><div class="feature-list__text">Individual tours arranged to suit your schedule</div></div></li>
+                        <li class="feature-list__item"><span class="feature-list__icon">🎯</span><div class="feature-list__content"><div class="feature-list__title">Taster Days</div><div class="feature-list__text"><span class="personalised" data-field="child_name">Your child</span> can experience a day at Clifton</div></div></li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="cta">
+                        <h4>We'd Love to Meet <span class="personalised" data-field="child_name">Your Child</span></h4>
+                        <p>Book a visit and discover what Clifton could mean for <span class="personalised" data-field="pronoun_possessive">their</span> future.</p>
+                        <a href="https://www.cliftoncollege.com/admissions/" class="btn btn--primary" target="_blank">Book a Visit</a>
+                    </div>
+                    <img src="https://a.storyblok.com/f/341818/1500x2248/0f6ea5c26e/dpp-best-upper-2024-133.jpg" alt="Visit us" class="hero-image mt-3">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODULE 15: HOW TO APPLY -->
+    <section class="module module--dark" id="apply">
+        <div class="container">
+            <div class="module__header">
+                <span class="module__eyebrow">Admissions</span>
+                <h2 class="module__title" style="color: #fff;">How <span class="personalised" data-field="child_name">Your Child</span> Can Join Us</h2>
+                <p class="module__subtitle">Your journey to Clifton</p>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin: 2rem 0;">
+                <div style="text-align: center;">
+                    <div style="width: 60px; height: 60px; background: var(--clifton-blue); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; font-weight: 700; font-size: 1.5rem;">1</div>
+                    <h4 style="color: #fff; margin-bottom: 0.5rem;">Visit</h4>
+                    <p style="font-size: 0.9rem; opacity: 0.8;">Open Morning or private tour</p>
+                </div>
+                <div style="text-align: center;">
+                    <div style="width: 60px; height: 60px; background: var(--clifton-blue); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; font-weight: 700; font-size: 1.5rem;">2</div>
+                    <h4 style="color: #fff; margin-bottom: 0.5rem;">Register</h4>
+                    <p style="font-size: 0.9rem; opacity: 0.8;">Complete registration form</p>
+                </div>
+                <div style="text-align: center;">
+                    <div style="width: 60px; height: 60px; background: var(--clifton-blue); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; font-weight: 700; font-size: 1.5rem;">3</div>
+                    <h4 style="color: #fff; margin-bottom: 0.5rem;">Assessment</h4>
+                    <p style="font-size: 0.9rem; opacity: 0.8;">Entrance examination</p>
+                </div>
+                <div style="text-align: center;">
+                    <div style="width: 60px; height: 60px; background: var(--clifton-blue); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; font-weight: 700; font-size: 1.5rem;">4</div>
+                    <h4 style="color: #fff; margin-bottom: 0.5rem;">Join Us</h4>
+                    <p style="font-size: 0.9rem; opacity: 0.8;">Welcome to Clifton!</p>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="https://www.cliftoncollege.com/admissions/" class="btn btn--primary btn--large" style="margin: 0.5rem;" target="_blank">Book a Visit</a>
+                <a href="https://www.cliftoncollege.com/admissions/" class="btn btn--secondary btn--large" style="margin: 0.5rem;" target="_blank">Register Interest</a>
+            </div>
+            <div style="text-align: center; margin-top: 2rem; opacity: 0.9;">
+                <p><a href="mailto:admissions@cliftoncollege.com" style="color: var(--clifton-blue);">admissions@cliftoncollege.com</a> | <a href="tel:+441173157110" style="color: var(--clifton-blue);">+44 (0)117 315 7110</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODULE 16: CLOSING -->
+    <section class="module" id="closing" style="text-align: center;">
+        <div class="container container--narrow">
+            <p style="font-family: 'Playfair Display', serif; font-size: 1.75rem; font-style: italic; color: var(--clifton-stone); max-width: 700px; margin: 0 auto;">"At Clifton, <span class="personalised" data-field="child_name">your child</span> will become part of something extraordinary - a community that will challenge <span class="personalised" data-field="pronoun_object">them</span>, support <span class="personalised" data-field="pronoun_object">them</span>, and prepare <span class="personalised" data-field="pronoun_object">them</span> for whatever the future holds."</p>
+            <p style="font-weight: 700; margin-top: 2rem; font-size: 1.5rem; color: var(--upper-burgundy-dark);">Aim high, stay grounded.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>This personalised prospectus was created for the <span class="personalised" data-field="family_name">Family</span> Family</p>
+            <p style="font-size: 0.85rem; opacity: 0.7;"><span id="prospectusId">Prospectus ID</span> | Generated <span id="prospectusDate">Date</span></p>
+            <p style="margin-top: 1rem;">Clifton College, 32 College Road, Clifton, Bristol BS8 3JH</p>
+            <p><a href="https://www.cliftoncollege.com">www.cliftoncollege.com</a> | +44 (0)117 315 7110</p>
+        </div>
+    </footer>
+
+    <script src="../scripts/prospectus.js"></script>
+    <script>
+        document.addEventListener('scroll', function() {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollPercent = Math.round((scrollTop / docHeight) * 100);
+            document.getElementById('scrollPercent').textContent = scrollPercent;
+            document.getElementById('progressFill').style.width = scrollPercent + '%';
+            const nav = document.getElementById('prospectusNav');
+            if (scrollTop > window.innerHeight * 0.5) { nav.classList.add('prospectus-nav--visible'); }
+            else { nav.classList.remove('prospectus-nav--visible'); }
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const videoSections = document.querySelectorAll('[data-video-section]');
+            if ('IntersectionObserver' in window) {
+                videoSections.forEach(section => {
+                    const observer = new IntersectionObserver((entries) => {
+                        entries.forEach(entry => {
+                            const video = entry.target.querySelector('video');
+                            if (video) {
+                                if (entry.isIntersecting) { video.play().catch(e => {}); }
+                                else { video.pause(); }
+                            }
+                        });
+                    }, { threshold: 0.3 });
+                    observer.observe(section);
+                });
+            }
+
+            const soundBtn = document.getElementById('soundBtn');
+            const video = document.getElementById('heroVideo');
+            if (soundBtn && video) {
+                soundBtn.addEventListener('click', function() {
+                    video.muted = !video.muted;
+                    soundBtn.textContent = video.muted ? 'Enable Sound' : 'Sound On';
+                    soundBtn.classList.toggle('video-sound-btn--active', !video.muted);
+                });
+            }
+
+            const dateEl = document.getElementById('prospectusDate');
+            if (dateEl) { dateEl.textContent = new Date().toLocaleDateString('en-GB', { month: 'long', year: 'numeric' }); }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,232 @@
+{
+  "school": {
+    "name": "Brighton College Prep Kensington",
+    "shortName": "BCPK",
+    "type": "Independent co-educational prep school",
+    "gender": "Co-educational",
+    "ageRange": "2-13",
+    "founded": 2016,
+    "location": {
+      "address": "10-13 Prince's Gardens, London SW7 1ND",
+      "country": "England, United Kingdom",
+      "region": "South Kensington, London"
+    },
+    "campusSize": "Four Victorian townhouses + 2-acre Secret Garden",
+    "pupilNumbers": 350,
+    "website": "www.brightoncollegeprepkensington.co.uk"
+  },
+
+  "leadership": {
+    "head": {
+      "name": "Mrs Lois Gaffney",
+      "role": "Head"
+    }
+  },
+
+  "contact": {
+    "phone": "+44 (0)207 591 4622",
+    "email": "admissions@brightoncollegeprepkensington.co.uk",
+    "website": "www.brightoncollegeprepkensington.co.uk"
+  },
+
+  "affiliations": [
+    "Part of Brighton College Family",
+    "Brighton College UK School of the Decade",
+    "Cognita Schools Group"
+  ],
+
+  "brand": {
+    "colours": {
+      "magenta": "#AC1260",
+      "magentaDark": "#8A0E4D",
+      "magentaLight": "#D4A5BB",
+      "darkBlue": "#1C2B33",
+      "blueLight": "#2A3F4D",
+      "cream": "#FAF8F5",
+      "white": "#FFFFFF",
+      "charcoal": "#333333"
+    },
+    "keyPhrases": [
+      "The happiness of each child matters above anything else",
+      "Inspiring Curiosity",
+      "Building Confidence",
+      "A Culture of Kindness",
+      "A first-rate version of yourself",
+      "Kindness is the currency at Brighton College"
+    ],
+    "threePillars": [
+      "Inspiring Curiosity",
+      "Building Confidence",
+      "Culture of Kindness"
+    ]
+  },
+
+  "academics": {
+    "structure": {
+      "nursery": {
+        "name": "Nursery",
+        "ageRange": "2-4",
+        "entryPoint": "2+"
+      },
+      "reception": {
+        "name": "Reception",
+        "ageRange": "4-5",
+        "entryPoint": "4+"
+      },
+      "prep": {
+        "name": "Prep School",
+        "years": ["Year 1", "Year 2", "Year 3", "Year 4", "Year 5", "Year 6"],
+        "ageRange": "5-11"
+      },
+      "years7and8": {
+        "name": "Years 7 & 8",
+        "years": ["Year 7", "Year 8"],
+        "ageRange": "11-13",
+        "description": "Preparing for senior school entry"
+      }
+    },
+    "features": [
+      "Specialist teaching from Reception",
+      "Small class sizes",
+      "Mandarin and Spanish from early years",
+      "Museum-based learning"
+    ],
+    "subjects": [
+      "English", "Mathematics", "Science", "History", "Geography",
+      "Religious Studies", "PSHEE", "Art", "Music", "Drama",
+      "PE", "Games", "Swimming", "Design & Technology",
+      "Home Economics", "Mandarin", "Spanish"
+    ]
+  },
+
+  "uniqueFeatures": {
+    "secretGarden": {
+      "name": "The Secret Garden",
+      "size": "2 acres",
+      "distinction": "Largest outdoor space of any central London prep school",
+      "features": [
+        "Forest School programme",
+        "Outdoor classrooms",
+        "Nature exploration",
+        "Wildlife garden"
+      ]
+    },
+    "londonAsClassroom": {
+      "museums": [
+        {"name": "Natural History Museum", "walkTime": "5 minutes"},
+        {"name": "Science Museum", "walkTime": "5 minutes"},
+        {"name": "Victoria & Albert Museum", "walkTime": "5 minutes"}
+      ],
+      "museumsNearby": "174+"
+    },
+    "makerspace": {
+      "description": "Innovation meets creativity",
+      "equipment": [
+        "3D printers",
+        "Laser cutters",
+        "Green screen technology",
+        "Traditional craft tools",
+        "Sewing machines"
+      ]
+    }
+  },
+
+  "sport": {
+    "sports": [
+      "Football", "Netball", "Rugby", "Hockey", "Swimming",
+      "Athletics", "Cricket", "Basketball", "Gymnastics", "Badminton"
+    ],
+    "facilities": [
+      {"name": "Imperial College Ethos Centre", "walkTime": "5 minutes", "features": ["Swimming pool", "Sports hall"]},
+      {"name": "Hyde Park", "description": "PE lessons, cross-country, games"}
+    ]
+  },
+
+  "arts": {
+    "music": {
+      "features": ["Music room", "Specialist teaching", "Individual lessons"],
+      "performances": "Regular concerts and performances"
+    },
+    "drama": {
+      "features": ["Dedicated drama space", "Staging"],
+      "performances": "Every child performs each year"
+    },
+    "art": {
+      "facilities": ["Two art studios", "Makerspace"],
+      "features": "Specialist teaching from Reception"
+    }
+  },
+
+  "clubsAndActivities": {
+    "examples": [
+      "LAMDA", "Karate", "Table tennis", "Cyber coding",
+      "Cookery", "Construction", "Art clubs", "Music ensembles"
+    ],
+    "availability": "From Nursery through Year 8"
+  },
+
+  "seniorSchoolDestinations": {
+    "brightonCollege": {
+      "name": "Brighton College",
+      "note": "Natural pathway as part of Brighton College family"
+    },
+    "londonDaySchools": [
+      "St Paul's", "Westminster", "Dulwich College",
+      "Francis Holland", "Latymer Upper", "Putney High School"
+    ],
+    "examPreparation": {
+      "startYear": "Year 5",
+      "exams": ["Common Entrance", "Scholarship exams"]
+    }
+  },
+
+  "facilities": {
+    "buildings": {
+      "description": "Four Grade-II listed Victorian townhouses",
+      "address": "10-13 Prince's Gardens"
+    },
+    "specialistSpaces": [
+      "State-of-the-art science lab",
+      "Two art studios",
+      "Music room",
+      "Drama space with staging",
+      "Multi-purpose hall",
+      "The Makerspace"
+    ],
+    "external": [
+      {"name": "Imperial College Ethos Centre", "distance": "5 min walk"},
+      {"name": "Hyde Park", "description": "Extended campus for sport"}
+    ]
+  },
+
+  "admissions": {
+    "entryPoints": [
+      {"age": "2+", "year": "Nursery"},
+      {"age": "4+", "year": "Reception", "type": "Main entry"},
+      {"age": "7+", "year": "Year 3", "type": "Occasional places"},
+      {"age": "11+", "year": "Year 7", "type": "Occasional places"}
+    ],
+    "process": {
+      "nursery": {
+        "steps": ["Online registration", "Stay and play session", "Phased starts"]
+      },
+      "prep": {
+        "steps": ["Online registration", "Assessment day", "Standardised tests", "Family meeting"]
+      }
+    },
+    "contact": {
+      "phone": "0207 591 4622",
+      "email": "admissions@brightoncollegeprepkensington.co.uk"
+    },
+    "deposit": "3000 (refundable)",
+    "offersIssued": "January"
+  },
+
+  "location": {
+    "description": "Heart of South Kensington, surrounded by world-class museums",
+    "travel": {
+      "southKensingtonTube": "5 min walk",
+      "museums": "Steps from V&A, Science Museum, Natural History Museum"
+    }
+  }
+}
