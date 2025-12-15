@@ -1,0 +1,408 @@
+{
+  "sports": [
+    {
+      "id": "netball",
+      "name": "Netball",
+      "icon": "🏀",
+      "season": "Winter",
+      "category": "main",
+      "description": "Netball is one of our flagship sports at CLC, with teams competing at all levels from recreational to elite.",
+      "highlights": [
+        "Teams from U12 through to 1st VII",
+        "Regular fixtures against top independent schools",
+        "County and regional representation",
+        "Indoor and outdoor courts",
+        "Professional coaching staff"
+      ],
+      "facilities": ["Two sports halls with 6 courts", "Outdoor netball/tennis courts", "Specialist coaching"],
+      "achievements": ["Regional finalists", "Multiple county players", "National representation"],
+      "training": "Multiple sessions per week with match fixtures on Wednesdays and Saturdays",
+      "videoId": "netball-clc"
+    },
+    {
+      "id": "lacrosse",
+      "name": "Lacrosse",
+      "icon": "🥍",
+      "season": "Winter",
+      "category": "main",
+      "description": "Lacrosse has a rich tradition at CLC, combining speed, skill and teamwork in one of the most exciting team sports.",
+      "highlights": [
+        "One of the top lacrosse schools in the country",
+        "Teams at every age group",
+        "Regular national tournament participation",
+        "Strong coaching programme",
+        "Opportunities for beginners and elite players"
+      ],
+      "facilities": ["Multiple grass pitches", "All-weather training areas", "Professional equipment"],
+      "achievements": ["National tournament competitors", "England pathway players", "Regional champions"],
+      "training": "Training sessions throughout the week with fixtures on Wednesdays and weekends",
+      "videoId": "lacrosse-clc"
+    },
+    {
+      "id": "hockey",
+      "name": "Hockey",
+      "icon": "🏑",
+      "season": "Winter",
+      "category": "main",
+      "description": "Hockey at CLC offers competitive opportunities for all abilities, from beginners to those aiming for representative honours.",
+      "highlights": [
+        "Two floodlit AstroTurf pitches",
+        "Teams from U12 to 1st XI",
+        "Strong fixture programme",
+        "Links with local clubs",
+        "Indoor hockey in winter"
+      ],
+      "facilities": ["Two floodlit AstroTurf pitches", "Indoor sports hall for training", "Video analysis"],
+      "achievements": ["County champions", "Regional tournament success", "England pathway players"],
+      "training": "Regular training with matches midweek and weekends",
+      "videoId": "hockey-clc"
+    },
+    {
+      "id": "tennis",
+      "name": "Tennis",
+      "icon": "🎾",
+      "season": "Summer",
+      "category": "main",
+      "description": "Tennis thrives at CLC with excellent facilities and coaching for players of all standards.",
+      "highlights": [
+        "Multiple outdoor courts",
+        "Individual and team competitions",
+        "LTA-qualified coaches",
+        "House tennis competitions",
+        "Summer tennis tours"
+      ],
+      "facilities": ["Hard courts and grass courts", "Indoor facilities for winter", "Ball machine and video analysis"],
+      "achievements": ["National schools competition participants", "County players", "AEGON team success"],
+      "training": "Coaching available for all levels, squad training for competitive players",
+      "videoId": "tennis-clc"
+    },
+    {
+      "id": "swimming",
+      "name": "Swimming",
+      "icon": "🏊",
+      "season": "Year-round",
+      "category": "main",
+      "description": "Our 25-metre, six-lane pool in the Health and Fitness Centre provides outstanding facilities for swimmers at every level.",
+      "highlights": [
+        "25m six-lane competition pool",
+        "Squads for all abilities",
+        "Inter-school galas",
+        "Water polo option",
+        "Early morning training available"
+      ],
+      "facilities": ["25m six-lane pool", "Electronic timing", "Poolside seating for galas", "Dedicated changing facilities"],
+      "achievements": ["County swimmers", "Regional championship qualifiers", "National age group competitors"],
+      "training": "Squad sessions before school and after school, recreational swimming available",
+      "videoId": "swimming-clc"
+    },
+    {
+      "id": "athletics",
+      "name": "Athletics",
+      "icon": "🏃",
+      "season": "Summer",
+      "category": "main",
+      "description": "Athletics at CLC covers track and field events, with opportunities from house competitions to national championships.",
+      "highlights": [
+        "Full range of track and field events",
+        "Sports Day highlight of summer term",
+        "Inter-school competitions",
+        "Cross-country running",
+        "Indoor athletics in winter"
+      ],
+      "facilities": ["Running track", "Field event facilities", "Cross-country courses in local area"],
+      "achievements": ["County champions", "Regional representatives", "English Schools qualifiers"],
+      "training": "After-school athletics club, specialist coaching for field events",
+      "videoId": "athletics-clc"
+    },
+    {
+      "id": "rowing",
+      "name": "Rowing",
+      "icon": "🚣",
+      "season": "Year-round",
+      "category": "specialist",
+      "description": "CLC has a well-established rowing club, training on the nearby River Severn with excellent facilities and coaching.",
+      "highlights": [
+        "Training on the River Severn",
+        "Indoor rowing (ergo) training",
+        "Regattas throughout the season",
+        "Crews from novice to senior",
+        "Tours and training camps"
+      ],
+      "facilities": ["Boathouse on River Severn", "Fleet of boats for all crew sizes", "Indoor rowing machines", "Strength and conditioning"],
+      "achievements": ["Henley Women's Regatta competitors", "National Schools Regatta", "GB rowing pathway"],
+      "training": "Early morning and after-school sessions, weekend regattas",
+      "videoId": "rowing-clc"
+    },
+    {
+      "id": "equestrian",
+      "name": "Equestrian",
+      "icon": "🐴",
+      "season": "Year-round",
+      "category": "specialist",
+      "description": "Equestrian sports are popular at CLC, with girls competing in show jumping, dressage, and eventing.",
+      "highlights": [
+        "NSEA competition participation",
+        "Dressage, show jumping, eventing",
+        "Links with local riding schools",
+        "Livery options available locally",
+        "Regular inter-school competitions"
+      ],
+      "facilities": ["Partnerships with local equestrian centres", "Transport to competitions", "Coaching arranged"],
+      "achievements": ["NSEA national qualifiers", "County team members", "Pony Club championships"],
+      "training": "Arranged through local riding schools, weekly squad sessions",
+      "videoId": "equestrian-clc"
+    },
+    {
+      "id": "dance",
+      "name": "Dance",
+      "icon": "💃",
+      "season": "Year-round",
+      "category": "specialist",
+      "description": "Dance at CLC spans ballet, contemporary, jazz, tap and more, with two dedicated studios and regular performances.",
+      "highlights": [
+        "Two dedicated dance studios",
+        "Ballet, contemporary, jazz, tap, street",
+        "Annual dance showcase",
+        "GCSE and A-Level Dance",
+        "Links with professional companies"
+      ],
+      "facilities": ["Two sprung-floor dance studios", "Mirrors and barres", "Sound systems", "Performance space"],
+      "achievements": ["Dance showcase highlights", "External examinations", "Professional pathways"],
+      "training": "Classes in all styles, company rehearsals, choreography opportunities",
+      "videoId": "dance-clc"
+    },
+    {
+      "id": "gymnastics",
+      "name": "Gymnastics",
+      "icon": "🤸",
+      "season": "Year-round",
+      "category": "specialist",
+      "description": "Gymnastics at CLC develops strength, flexibility and coordination, with recreational and competitive options.",
+      "highlights": [
+        "Recreational and competitive squads",
+        "Trampolining",
+        "Floor and apparatus work",
+        "Acrobatic gymnastics",
+        "House competitions"
+      ],
+      "facilities": ["Gymnastics equipment in sports hall", "Trampolines", "Foam pit for training"],
+      "achievements": ["Regional competition success", "Floor and vault specialists", "Schools championships"],
+      "training": "After-school clubs, squad training for competitors",
+      "videoId": "gymnastics-clc"
+    },
+    {
+      "id": "skiing",
+      "name": "Skiing",
+      "icon": "⛷️",
+      "season": "Winter",
+      "category": "specialist",
+      "description": "Skiing at CLC includes dry slope training locally and annual ski trips to the Alps.",
+      "highlights": [
+        "Weekly dry slope sessions",
+        "Annual ski trip to the Alps",
+        "Racing opportunities",
+        "All abilities welcome",
+        "Snowboarding also available"
+      ],
+      "facilities": ["Local dry slope partnership", "Annual residential ski trip", "Racing training"],
+      "achievements": ["Independent schools ski championships", "Regional race success"],
+      "training": "Weekly sessions at local dry slope, intensive training on ski trips",
+      "videoId": "skiing-clc"
+    },
+    {
+      "id": "climbing",
+      "name": "Climbing",
+      "icon": "🧗",
+      "season": "Year-round",
+      "category": "specialist",
+      "description": "Indoor climbing develops strength, problem-solving and confidence, with our own climbing wall in the Health and Fitness Centre.",
+      "highlights": [
+        "Indoor climbing wall",
+        "Bouldering and roped climbing",
+        "Outdoor climbing trips",
+        "All abilities welcome",
+        "Climbing qualifications available"
+      ],
+      "facilities": ["Indoor climbing wall", "Bouldering area", "Full safety equipment"],
+      "achievements": ["Climbing club members", "Outdoor adventure expeditions"],
+      "training": "Regular climbing club sessions, outdoor trips in holidays",
+      "videoId": "climbing-clc"
+    },
+    {
+      "id": "squash",
+      "name": "Squash",
+      "icon": "🎾",
+      "season": "Year-round",
+      "category": "specialist",
+      "description": "Squash is available for all levels, from beginners to competitive players, with multiple courts on site.",
+      "highlights": [
+        "Multiple squash courts",
+        "Coaching for all levels",
+        "Inter-school matches",
+        "House competitions",
+        "Links with local clubs"
+      ],
+      "facilities": ["Multiple squash courts", "Professional coaching", "Video analysis"],
+      "achievements": ["County players", "Regional success"],
+      "training": "Coaching sessions and match play available",
+      "videoId": "squash-clc"
+    },
+    {
+      "id": "badminton",
+      "name": "Badminton",
+      "icon": "🏸",
+      "season": "Year-round",
+      "category": "recreational",
+      "description": "Badminton is a popular recreational and competitive sport at CLC, played in our sports halls.",
+      "highlights": [
+        "Courts in sports halls",
+        "Recreational and competitive play",
+        "Inter-school matches",
+        "House competitions"
+      ],
+      "facilities": ["Indoor courts in sports halls", "Equipment provided"],
+      "training": "Club sessions and house competitions",
+      "videoId": "badminton-clc"
+    },
+    {
+      "id": "football",
+      "name": "Football",
+      "icon": "⚽",
+      "season": "Year-round",
+      "category": "recreational",
+      "description": "Football has grown rapidly at CLC, with house competitions and inter-school fixtures increasingly popular.",
+      "highlights": [
+        "Growing sport at CLC",
+        "House football competitions",
+        "Inter-school fixtures",
+        "All abilities welcome"
+      ],
+      "facilities": ["Grass pitches", "AstroTurf for training"],
+      "training": "Club sessions and house competitions",
+      "videoId": "football-clc"
+    },
+    {
+      "id": "cross_country",
+      "name": "Cross Country",
+      "icon": "🏃",
+      "season": "Autumn/Winter",
+      "category": "specialist",
+      "description": "Cross country running makes use of the beautiful Cotswolds countryside surrounding Cheltenham.",
+      "highlights": [
+        "Training in the Cotswolds",
+        "Inter-school competitions",
+        "House cross country",
+        "All abilities welcome",
+        "Links to athletics programme"
+      ],
+      "facilities": ["Routes around Cheltenham", "Cotswolds countryside access"],
+      "achievements": ["County cross country teams", "Regional championships"],
+      "training": "Weekly running club, Saturday morning runs",
+      "videoId": "crosscountry-clc"
+    },
+    {
+      "id": "yoga_pilates",
+      "name": "Yoga & Pilates",
+      "icon": "🧘",
+      "season": "Year-round",
+      "category": "recreational",
+      "description": "Yoga and Pilates support physical and mental wellbeing, available to all students.",
+      "highlights": [
+        "Yoga classes for all levels",
+        "Pilates for core strength",
+        "Mindfulness integration",
+        "Relaxation and flexibility",
+        "Part of wellbeing programme"
+      ],
+      "facilities": ["Dance studios", "Yoga mats and equipment provided"],
+      "training": "Regular classes throughout the week",
+      "videoId": "yoga-clc"
+    },
+    {
+      "id": "fitness",
+      "name": "Fitness & Conditioning",
+      "icon": "🏋️",
+      "season": "Year-round",
+      "category": "recreational",
+      "description": "Our state-of-the-art Health and Fitness Centre is available for all students to develop their fitness.",
+      "highlights": [
+        "Full gym facilities",
+        "Spin studio",
+        "Personal training available",
+        "Sport-specific conditioning",
+        "Fitness classes"
+      ],
+      "facilities": ["Cardio machines", "Free weights", "Resistance machines", "Spin bikes", "Stretching area"],
+      "training": "Open gym sessions, fitness classes, personal training",
+      "videoId": "fitness-clc"
+    }
+  ],
+
+  "videos": {
+    "highlights": {
+      "summer_term": {
+        "id": "df5htMjAX1w",
+        "title": "Summer Term Highlights",
+        "description": "A celebration of life at CLC during the summer term"
+      },
+      "sports_highlights": {
+        "id": "df5htMjAX1w",
+        "title": "Sports at CLC",
+        "description": "Experience sport and outdoor education at Cheltenham Ladies' College"
+      }
+    },
+    "playlist": "PLhidolPFrXcCAgJvPndJmUk1s_6vI9USf"
+  },
+
+  "facilities": {
+    "healthAndFitnessCenter": {
+      "name": "Health and Fitness Centre",
+      "opened": 2018,
+      "features": [
+        "25m six-lane swimming pool",
+        "Expansive gym with cardio and weights",
+        "Spin studio",
+        "Two dance studios",
+        "Indoor climbing wall",
+        "Squash courts"
+      ]
+    },
+    "sportsHalls": {
+      "name": "Sports Halls",
+      "features": [
+        "Two large six-court sports halls",
+        "Indoor cricket nets",
+        "Gymnastics equipment",
+        "Badminton and volleyball courts"
+      ]
+    },
+    "outdoorFacilities": {
+      "name": "Outdoor Facilities",
+      "features": [
+        "Two floodlit AstroTurf pitches",
+        "Multiple grass pitches for lacrosse and hockey",
+        "Tennis and netball courts",
+        "Athletics facilities"
+      ]
+    }
+  },
+
+  "outdoorEducation": {
+    "dukeOfEdinburgh": {
+      "name": "Duke of Edinburgh's Award",
+      "levels": ["Bronze", "Silver", "Gold"],
+      "description": "A cornerstone of outdoor education at CLC, developing resilience, teamwork and adventure skills."
+    },
+    "adventureClub": {
+      "name": "Adventure Club",
+      "activities": ["Kayaking", "Windsurfing", "Mountain biking", "Bushcraft", "Sailing", "Trekking", "Caving", "Coasteering"]
+    }
+  },
+
+  "tours": [
+    {"destination": "Dubai", "sport": "Netball"},
+    {"destination": "Australia", "sport": "Various"},
+    {"destination": "New Zealand", "sport": "Various"},
+    {"destination": "France", "sport": "Skiing"}
+  ]
+}

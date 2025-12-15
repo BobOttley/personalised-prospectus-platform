@@ -1,0 +1,626 @@
+{
+  "pathways": [
+    {
+      "id": "medicine_health",
+      "name": "Medicine & Healthcare",
+      "icon": "🏥",
+      "subPathways": [
+        {
+          "id": "medicine_doctor",
+          "name": "Medicine (Doctor)",
+          "requiredSubjects": ["Biology", "Chemistry"],
+          "recommendedSubjects": ["Mathematics", "Physics"],
+          "alternativeSubjects": ["Psychology"],
+          "gcseRequirements": "Strong sciences, usually 8-9 grades",
+          "universityNotes": "Competitive entry. UCAT/BMAT required. Interview skills essential.",
+          "clcStrengths": [
+            "Outstanding Biology and Chemistry departments",
+            "Medicine Society with visiting speakers",
+            "Interview preparation programme",
+            "Work experience coordination",
+            "Strong track record to medical schools"
+          ],
+          "alumniExamples": [
+            "Dr Sarah Chen, Cardiology Registrar, St Thomas' Hospital",
+            "Dr Amelia Wright, GP Partner, Cheltenham"
+          ],
+          "moduleEmphasis": ["sciences", "medicine_society", "interview_prep"]
+        },
+        {
+          "id": "medicine_research",
+          "name": "Medical Research / Biomedical Science",
+          "requiredSubjects": ["Biology", "Chemistry"],
+          "recommendedSubjects": ["Mathematics"],
+          "alternativeSubjects": ["Physics"],
+          "universityNotes": "Can lead to research roles without clinical training",
+          "clcStrengths": [
+            "EPQ opportunities in biomedical topics",
+            "STEM enrichment programme",
+            "Lab facilities for extended projects"
+          ]
+        },
+        {
+          "id": "medicine_dentistry",
+          "name": "Dentistry",
+          "requiredSubjects": ["Biology", "Chemistry"],
+          "recommendedSubjects": ["Mathematics"],
+          "universityNotes": "Similar competitiveness to medicine"
+        },
+        {
+          "id": "medicine_vet",
+          "name": "Veterinary Medicine",
+          "requiredSubjects": ["Biology", "Chemistry"],
+          "recommendedSubjects": ["Mathematics", "Physics"],
+          "universityNotes": "Extremely competitive. Animal experience essential."
+        },
+        {
+          "id": "medicine_nursing",
+          "name": "Nursing & Allied Health",
+          "requiredSubjects": ["Biology"],
+          "recommendedSubjects": ["Chemistry", "Psychology"],
+          "universityNotes": "Growing demand, varied specialisms"
+        },
+        {
+          "id": "medicine_psychology",
+          "name": "Psychology / Mental Health",
+          "requiredSubjects": ["Psychology"],
+          "recommendedSubjects": ["Biology", "Mathematics"],
+          "alternativeSubjects": ["English", "Sociology"]
+        }
+      ],
+      "ibCombination": {
+        "higherLevel": ["Biology", "Chemistry", "One other"],
+        "standardLevel": ["Mathematics", "English", "One other"],
+        "notes": "HL Biology and Chemistry essential for medicine"
+      },
+      "aLevelCombination": {
+        "required": ["Biology", "Chemistry"],
+        "thirdSubject": ["Mathematics", "Physics", "Psychology"],
+        "fourthSubject": "Any facilitating subject"
+      }
+    },
+    {
+      "id": "law",
+      "name": "Law",
+      "icon": "⚖️",
+      "subPathways": [
+        {
+          "id": "law_barrister",
+          "name": "Barrister",
+          "requiredSubjects": [],
+          "recommendedSubjects": ["English Literature", "History"],
+          "valuableSubjects": ["Languages", "Economics", "Philosophy"],
+          "notes": "No required subjects, but strong essay writing essential",
+          "universityNotes": "Law degree or conversion course. Advocacy skills key.",
+          "clcStrengths": [
+            "Outstanding debating programme",
+            "Model United Nations",
+            "Mooting competitions",
+            "Critical thinking emphasis",
+            "Strong Oxbridge law track record"
+          ]
+        },
+        {
+          "id": "law_solicitor",
+          "name": "Solicitor",
+          "requiredSubjects": [],
+          "recommendedSubjects": ["English", "History", "Languages"],
+          "valuableSubjects": ["Business Studies", "Economics"],
+          "notes": "Commercial awareness increasingly valued"
+        },
+        {
+          "id": "law_corporate",
+          "name": "Corporate / Commercial Law",
+          "requiredSubjects": [],
+          "recommendedSubjects": ["Economics", "Business", "Mathematics"],
+          "notes": "Combines legal skills with business understanding"
+        }
+      ],
+      "generalNotes": "Law schools welcome diverse A-Level combinations. What matters is demonstrating analytical thinking, clear writing, and intellectual curiosity.",
+      "ibCombination": {
+        "higherLevel": ["English", "History or Economics", "One language"],
+        "standardLevel": ["Mathematics", "Science", "One other"],
+        "notes": "IB's breadth and essay focus excellent preparation for law"
+      },
+      "aLevelCombination": {
+        "strongChoices": ["English Literature", "History", "Politics", "Philosophy", "Languages", "Economics"],
+        "avoid": "No subjects to avoid, but demonstrate range and rigour"
+      }
+    },
+    {
+      "id": "business_finance",
+      "name": "Business & Finance",
+      "icon": "💼",
+      "subPathways": [
+        {
+          "id": "finance_banking",
+          "name": "Investment Banking / Finance",
+          "requiredSubjects": ["Mathematics"],
+          "recommendedSubjects": ["Economics", "Further Mathematics"],
+          "valuableSubjects": ["Physics", "Computer Science"],
+          "universityNotes": "Economics or Maths degrees preferred. Internships crucial.",
+          "clcStrengths": [
+            "Strong Mathematics department",
+            "Economics A-Level and IB",
+            "Enterprise programme",
+            "Financial literacy programme"
+          ]
+        },
+        {
+          "id": "finance_accounting",
+          "name": "Accountancy",
+          "requiredSubjects": ["Mathematics"],
+          "recommendedSubjects": ["Economics", "Business Studies"],
+          "notes": "Professional qualifications often more valued than degree subject"
+        },
+        {
+          "id": "business_management",
+          "name": "Business Management",
+          "requiredSubjects": [],
+          "recommendedSubjects": ["Economics", "Mathematics", "Business Studies"],
+          "valuableSubjects": ["Psychology", "Languages"],
+          "universityNotes": "Management degrees or broader subjects both viable"
+        },
+        {
+          "id": "business_entrepreneurship",
+          "name": "Entrepreneurship / Startups",
+          "requiredSubjects": [],
+          "recommendedSubjects": ["Any combination showing breadth"],
+          "clcStrengths": [
+            "Enterprise 10 Challenge",
+            "Business Studies",
+            "Real-world business exposure"
+          ]
+        },
+        {
+          "id": "finance_consulting",
+          "name": "Consulting",
+          "requiredSubjects": [],
+          "recommendedSubjects": ["Mathematics", "Economics", "Sciences"],
+          "notes": "Top consulting firms recruit from any discipline"
+        }
+      ],
+      "ibCombination": {
+        "higherLevel": ["Mathematics", "Economics", "One other"],
+        "standardLevel": ["English", "Science", "Language"],
+        "notes": "HL Maths important for quantitative finance"
+      },
+      "aLevelCombination": {
+        "core": ["Mathematics"],
+        "recommended": ["Economics", "Further Mathematics"],
+        "alternatives": ["Physics", "Computer Science", "Business Studies"]
+      }
+    },
+    {
+      "id": "science_research",
+      "name": "Science & Research",
+      "icon": "🔬",
+      "subPathways": [
+        {
+          "id": "science_physics",
+          "name": "Physics / Astrophysics",
+          "requiredSubjects": ["Physics", "Mathematics"],
+          "recommendedSubjects": ["Further Mathematics", "Chemistry"],
+          "clcStrengths": [
+            "Physics department with strong Oxbridge record",
+            "Astronomy Club",
+            "Physics Olympiad participation",
+            "STEM enrichment"
+          ]
+        },
+        {
+          "id": "science_chemistry",
+          "name": "Chemistry",
+          "requiredSubjects": ["Chemistry", "Mathematics"],
+          "recommendedSubjects": ["Physics", "Biology"],
+          "notes": "Can lead to pharmaceuticals, materials science, etc."
+        },
+        {
+          "id": "science_biology",
+          "name": "Biology / Life Sciences",
+          "requiredSubjects": ["Biology"],
+          "recommendedSubjects": ["Chemistry", "Mathematics"],
+          "notes": "Growing field with diverse career options"
+        },
+        {
+          "id": "science_environmental",
+          "name": "Environmental Science",
+          "requiredSubjects": ["Biology or Chemistry or Geography"],
+          "recommendedSubjects": ["Mathematics", "Physics"],
+          "clcStrengths": [
+            "Sustainability focus",
+            "Geography field trips",
+            "Environmental awareness"
+          ]
+        }
+      ],
+      "ibCombination": {
+        "higherLevel": ["Physics/Chemistry/Biology (relevant)", "Mathematics", "One other science"],
+        "standardLevel": ["English", "Language", "One other"],
+        "notes": "HL Maths often required for physical sciences"
+      }
+    },
+    {
+      "id": "technology_computing",
+      "name": "Technology & Computing",
+      "icon": "💻",
+      "subPathways": [
+        {
+          "id": "tech_software",
+          "name": "Software Engineering",
+          "requiredSubjects": ["Mathematics"],
+          "recommendedSubjects": ["Computer Science", "Further Mathematics"],
+          "valuableSubjects": ["Physics"],
+          "clcStrengths": [
+            "Computer Science department",
+            "Coding clubs",
+            "Engineering & Technology block",
+            "Digital skills emphasis"
+          ]
+        },
+        {
+          "id": "tech_ai",
+          "name": "Artificial Intelligence / Data Science",
+          "requiredSubjects": ["Mathematics"],
+          "recommendedSubjects": ["Further Mathematics", "Computer Science"],
+          "valuableSubjects": ["Physics", "Philosophy (for AI ethics)"],
+          "notes": "Rapidly growing field"
+        },
+        {
+          "id": "tech_cybersecurity",
+          "name": "Cybersecurity",
+          "requiredSubjects": ["Mathematics"],
+          "recommendedSubjects": ["Computer Science", "Physics"]
+        },
+        {
+          "id": "tech_product",
+          "name": "Product Management / Tech Business",
+          "requiredSubjects": [],
+          "recommendedSubjects": ["Computer Science", "Economics", "Psychology"],
+          "notes": "Blend of technical and business skills"
+        }
+      ],
+      "generalNotes": "Tech industry increasingly values diverse backgrounds. Computer Science A-Level helpful but not essential for all tech roles.",
+      "aLevelCombination": {
+        "core": ["Mathematics"],
+        "recommended": ["Computer Science", "Further Mathematics", "Physics"]
+      }
+    },
+    {
+      "id": "engineering",
+      "name": "Engineering",
+      "icon": "🔧",
+      "subPathways": [
+        {
+          "id": "eng_mechanical",
+          "name": "Mechanical Engineering",
+          "requiredSubjects": ["Mathematics", "Physics"],
+          "recommendedSubjects": ["Further Mathematics", "Design Technology"]
+        },
+        {
+          "id": "eng_electrical",
+          "name": "Electrical / Electronic Engineering",
+          "requiredSubjects": ["Mathematics", "Physics"],
+          "recommendedSubjects": ["Further Mathematics", "Computer Science"]
+        },
+        {
+          "id": "eng_civil",
+          "name": "Civil Engineering",
+          "requiredSubjects": ["Mathematics", "Physics"],
+          "recommendedSubjects": ["Geography", "Further Mathematics"]
+        },
+        {
+          "id": "eng_chemical",
+          "name": "Chemical Engineering",
+          "requiredSubjects": ["Mathematics", "Chemistry"],
+          "recommendedSubjects": ["Physics", "Further Mathematics"]
+        },
+        {
+          "id": "eng_biomedical",
+          "name": "Biomedical Engineering",
+          "requiredSubjects": ["Mathematics"],
+          "recommendedSubjects": ["Biology", "Physics", "Chemistry"]
+        }
+      ],
+      "clcStrengths": [
+        "Engineering, Enterprise & Technology department",
+        "STEM enrichment",
+        "Engineering competitions",
+        "Strong Maths and Physics departments"
+      ],
+      "aLevelCombination": {
+        "essential": ["Mathematics", "Physics"],
+        "highlyRecommended": ["Further Mathematics"],
+        "useful": ["Chemistry (for chemical eng)", "Computer Science"]
+      }
+    },
+    {
+      "id": "creative_arts",
+      "name": "Creative Arts",
+      "icon": "🎨",
+      "subPathways": [
+        {
+          "id": "creative_fine_art",
+          "name": "Fine Art",
+          "requiredSubjects": ["Art"],
+          "recommendedSubjects": ["Art History", "English"],
+          "portfolio": "Essential",
+          "clcStrengths": [
+            "Dedicated art studios",
+            "Exhibition opportunities",
+            "Art scholarship programme",
+            "Art History option"
+          ]
+        },
+        {
+          "id": "creative_design",
+          "name": "Design (Graphic, Product, Fashion)",
+          "requiredSubjects": ["Art or Design Technology"],
+          "recommendedSubjects": ["Mathematics (for some)", "Computer Science"],
+          "portfolio": "Essential"
+        },
+        {
+          "id": "creative_architecture",
+          "name": "Architecture",
+          "requiredSubjects": ["Art or Design Technology"],
+          "recommendedSubjects": ["Mathematics", "Physics"],
+          "portfolio": "Essential",
+          "notes": "Combines creative and technical skills"
+        },
+        {
+          "id": "creative_music",
+          "name": "Music / Music Production",
+          "requiredSubjects": ["Music"],
+          "recommendedSubjects": ["Mathematics", "Physics (for acoustics)"],
+          "clcStrengths": [
+            "Recording studio",
+            "Music technology",
+            "Performance opportunities",
+            "Music scholarships"
+          ]
+        },
+        {
+          "id": "creative_drama",
+          "name": "Drama / Theatre / Film",
+          "requiredSubjects": ["Drama or English"],
+          "recommendedSubjects": ["English Literature"],
+          "clcStrengths": [
+            "Parabola Arts Centre",
+            "Multiple productions per year",
+            "Drama scholarships",
+            "LAMDA lessons"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "journalism_media",
+      "name": "Journalism & Media",
+      "icon": "📝",
+      "subPathways": [
+        {
+          "id": "journalism_print",
+          "name": "Journalism / Writing",
+          "requiredSubjects": [],
+          "recommendedSubjects": ["English Literature", "Politics", "History"],
+          "clcStrengths": [
+            "Creative writing clubs",
+            "School publications",
+            "Strong English department"
+          ]
+        },
+        {
+          "id": "media_broadcast",
+          "name": "Broadcasting / Media",
+          "requiredSubjects": [],
+          "recommendedSubjects": ["English", "Drama", "Politics"],
+          "clcStrengths": [
+            "Recording studio",
+            "Drama facilities",
+            "Public speaking opportunities"
+          ]
+        },
+        {
+          "id": "media_digital",
+          "name": "Digital Content / Social Media",
+          "requiredSubjects": [],
+          "recommendedSubjects": ["English", "Business Studies", "Computer Science"],
+          "notes": "Combines creative and analytical skills"
+        }
+      ]
+    },
+    {
+      "id": "politics_public",
+      "name": "Politics & Public Service",
+      "icon": "🏛️",
+      "subPathways": [
+        {
+          "id": "politics_government",
+          "name": "Politics / Government",
+          "requiredSubjects": [],
+          "recommendedSubjects": ["Politics", "History", "Economics"],
+          "clcStrengths": [
+            "Politics A-Level",
+            "Model United Nations",
+            "Debating society",
+            "Current affairs focus"
+          ]
+        },
+        {
+          "id": "politics_diplomacy",
+          "name": "Diplomacy / Foreign Office",
+          "requiredSubjects": [],
+          "recommendedSubjects": ["Languages", "History", "Politics", "Economics"]
+        },
+        {
+          "id": "politics_civilservice",
+          "name": "Civil Service",
+          "requiredSubjects": [],
+          "recommendedSubjects": ["Any combination demonstrating analytical skills"],
+          "notes": "Fast Stream recruitment values diverse backgrounds"
+        }
+      ]
+    },
+    {
+      "id": "global_ngo",
+      "name": "International / NGO",
+      "icon": "🌍",
+      "subPathways": [
+        {
+          "id": "global_development",
+          "name": "International Development",
+          "requiredSubjects": [],
+          "recommendedSubjects": ["Geography", "Economics", "Politics", "Languages"]
+        },
+        {
+          "id": "global_ngo",
+          "name": "NGO / Charity Sector",
+          "requiredSubjects": [],
+          "recommendedSubjects": ["Any combination showing social awareness"],
+          "clcStrengths": [
+            "Volunteering programme",
+            "Community service",
+            "Global awareness emphasis"
+          ]
+        },
+        {
+          "id": "global_humanitarian",
+          "name": "Humanitarian Work",
+          "requiredSubjects": [],
+          "recommendedSubjects": ["Languages", "Geography", "Politics"],
+          "notes": "Practical experience often valued over specific subjects"
+        }
+      ],
+      "generalNotes": "International careers value language skills, cultural awareness, and adaptability - all developed at CLC."
+    },
+    {
+      "id": "humanities_social",
+      "name": "Humanities & Social Sciences",
+      "icon": "📚",
+      "subPathways": [
+        {
+          "id": "humanities_english",
+          "name": "English Literature / Writing",
+          "requiredSubjects": ["English Literature"],
+          "recommendedSubjects": ["History", "Languages", "Philosophy"]
+        },
+        {
+          "id": "humanities_history",
+          "name": "History",
+          "requiredSubjects": ["History"],
+          "recommendedSubjects": ["English", "Politics", "Languages"]
+        },
+        {
+          "id": "humanities_languages",
+          "name": "Languages / Translation",
+          "requiredSubjects": ["At least one language"],
+          "recommendedSubjects": ["English", "Another language"],
+          "clcStrengths": [
+            "French, German, Spanish, Latin, Greek",
+            "Language trips",
+            "Native speaker teachers"
+          ]
+        },
+        {
+          "id": "humanities_philosophy",
+          "name": "Philosophy",
+          "requiredSubjects": [],
+          "recommendedSubjects": ["Philosophy", "Mathematics", "English"],
+          "notes": "Philosophy teaches critical thinking applicable everywhere"
+        },
+        {
+          "id": "social_psychology",
+          "name": "Psychology",
+          "requiredSubjects": ["Psychology"],
+          "recommendedSubjects": ["Biology", "Mathematics"]
+        },
+        {
+          "id": "humanities_teaching",
+          "name": "Teaching / Academia",
+          "requiredSubjects": [],
+          "recommendedSubjects": ["Subject you wish to teach, plus broad academic base"],
+          "notes": "Strong academic background essential for teaching"
+        }
+      ]
+    },
+    {
+      "id": "exploring",
+      "name": "Keeping Options Open",
+      "icon": "❓",
+      "message": "Many of our most successful students didn't know what they wanted to do at 16 - and that's absolutely fine. CLC is the perfect place to explore.",
+      "approach": {
+        "ibRecommendation": true,
+        "ibReason": "The IB's breadth keeps doors open across sciences, humanities, and creative subjects",
+        "aLevelAdvice": "Choose facilitating subjects that demonstrate academic rigour and keep university options open",
+        "facilitatingSubjects": [
+          "Mathematics",
+          "English Literature",
+          "Physics",
+          "Chemistry",
+          "Biology",
+          "History",
+          "Geography",
+          "Languages"
+        ]
+      },
+      "clcStrengths": [
+        "Excellent careers guidance",
+        "Wide subject choice",
+        "Opportunity to try new things",
+        "Supportive environment for exploration",
+        "Strong results across all disciplines"
+      ],
+      "moduleEmphasis": ["breadth", "exploration", "careers_guidance"]
+    }
+  ],
+
+  "universityDestinations": {
+    "oxbridge": ["Cambridge", "Oxford"],
+    "russellGroup": [
+      "Imperial College London",
+      "UCL",
+      "LSE",
+      "King's College London",
+      "Edinburgh",
+      "Manchester",
+      "Bristol",
+      "Warwick",
+      "Durham",
+      "Exeter",
+      "Birmingham",
+      "Leeds",
+      "Sheffield",
+      "Southampton",
+      "Nottingham",
+      "Glasgow",
+      "Liverpool",
+      "Newcastle",
+      "Cardiff",
+      "Queen Mary",
+      "Queen's Belfast"
+    ],
+    "overseas": {
+      "usa": ["Harvard", "Yale", "Princeton", "Stanford", "MIT", "Columbia", "Brown", "Cornell"],
+      "europe": ["Sciences Po", "Bocconi", "IE Business School"]
+    }
+  },
+
+  "enrichmentProgrammes": {
+    "medicine": {
+      "name": "Medicine Society",
+      "activities": ["Visiting speakers from medical professionals", "Mock interviews", "UCAT/BMAT preparation", "Work experience coordination"]
+    },
+    "stem": {
+      "name": "STEM Enrichment",
+      "activities": ["Physics Olympiad", "Chemistry competitions", "Engineering challenges", "Robotics club"]
+    },
+    "debating": {
+      "name": "Debating Programme",
+      "activities": ["House debates", "External competitions", "Model United Nations", "Mooting"]
+    },
+    "enterprise": {
+      "name": "Enterprise Programme",
+      "activities": ["Enterprise 10 Challenge", "Business competitions", "Startup incubator"]
+    }
+  }
+}

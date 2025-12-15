@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brighton College - Personalised Prospectus</title>
+  <meta name="description" content="Request your personalised prospectus for Brighton College - UK School of the Decade">
+  <link rel="stylesheet" href="styles/bc-prospectus.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    .landing-hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background: linear-gradient(135deg, var(--bc-navy) 0%, var(--bc-blue) 100%);
+      color: var(--bc-white);
+      padding: var(--space-4xl) var(--space-xl);
+      position: relative;
+    }
+
+    .landing-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('assets/images/open-morning-block-v2.png') center/cover no-repeat;
+      opacity: 0.2;
+    }
+
+    .landing-content {
+      position: relative;
+      z-index: 1;
+      max-width: 900px;
+    }
+
+    .landing-logo {
+      width: 150px;
+      height: auto;
+      margin: 0 auto var(--space-2xl);
+    }
+
+    .landing-title {
+      font-size: var(--fs-6xl);
+      font-weight: var(--fw-bold);
+      margin-bottom: var(--space-md);
+      color: var(--bc-white);
+    }
+
+    .landing-subtitle {
+      font-size: var(--fs-2xl);
+      color: var(--bc-gold);
+      margin-bottom: var(--space-lg);
+      font-family: var(--font-serif);
+    }
+
+    .landing-description {
+      font-size: var(--fs-lg);
+      opacity: 0.9;
+      max-width: 600px;
+      margin: 0 auto var(--space-3xl);
+      line-height: var(--lh-relaxed);
+    }
+
+    .landing-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: var(--space-xl);
+      margin-top: var(--space-3xl);
+    }
+
+    .landing-card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: var(--radius-xl);
+      padding: var(--space-2xl);
+      text-align: left;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: transform var(--transition-normal), background var(--transition-normal);
+    }
+
+    .landing-card:hover {
+      transform: translateY(-4px);
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    .landing-card__badge {
+      display: inline-block;
+      background: var(--bc-gold);
+      color: var(--bc-navy);
+      padding: var(--space-xs) var(--space-md);
+      border-radius: var(--radius-full);
+      font-size: var(--fs-xs);
+      font-weight: var(--fw-semibold);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: var(--space-md);
+    }
+
+    .landing-card__title {
+      font-size: var(--fs-2xl);
+      color: var(--bc-white);
+      margin-bottom: var(--space-sm);
+    }
+
+    .landing-card__subtitle {
+      color: var(--bc-gold);
+      font-size: var(--fs-sm);
+      margin-bottom: var(--space-lg);
+    }
+
+    .landing-card__features {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 var(--space-xl);
+    }
+
+    .landing-card__features li {
+      padding: var(--space-xs) 0;
+      font-size: var(--fs-sm);
+      opacity: 0.9;
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+    }
+
+    .landing-card__features li::before {
+      content: '✓';
+      color: var(--bc-gold);
+      font-weight: bold;
+    }
+
+    .landing-card__btn {
+      display: block;
+      width: 100%;
+      padding: var(--space-md);
+      background: var(--bc-gold);
+      color: var(--bc-navy);
+      text-align: center;
+      border-radius: var(--radius-md);
+      font-weight: var(--fw-semibold);
+      text-decoration: none;
+      transition: background var(--transition-fast);
+    }
+
+    .landing-card__btn:hover {
+      background: var(--bc-gold-light);
+      color: var(--bc-navy);
+    }
+
+    .landing-stats {
+      display: flex;
+      justify-content: center;
+      gap: var(--space-3xl);
+      margin-top: var(--space-4xl);
+      flex-wrap: wrap;
+    }
+
+    .landing-stat {
+      text-align: center;
+    }
+
+    .landing-stat__number {
+      font-family: var(--font-serif);
+      font-size: var(--fs-4xl);
+      font-weight: var(--fw-bold);
+      color: var(--bc-gold);
+    }
+
+    .landing-stat__label {
+      font-size: var(--fs-sm);
+      opacity: 0.8;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .beach-huts {
+      display: flex;
+      justify-content: center;
+      gap: var(--space-sm);
+      margin-top: var(--space-4xl);
+    }
+
+    .beach-hut {
+      width: 40px;
+      height: 60px;
+      border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+    }
+
+    .beach-hut:nth-child(1) { background: var(--bc-pink); }
+    .beach-hut:nth-child(2) { background: var(--bc-teal); }
+    .beach-hut:nth-child(3) { background: var(--bc-orange); }
+    .beach-hut:nth-child(4) { background: var(--bc-green); }
+    .beach-hut:nth-child(5) { background: var(--bc-yellow); }
+
+    .landing-footer {
+      text-align: center;
+      padding: var(--space-2xl);
+      background: var(--bc-navy-dark);
+    }
+
+    .landing-footer p {
+      color: var(--bc-white);
+      opacity: 0.7;
+      font-size: var(--fs-sm);
+    }
+
+    .landing-footer a {
+      color: var(--bc-gold);
+    }
+
+    @media (max-width: 768px) {
+      .landing-title {
+        font-size: var(--fs-4xl);
+      }
+
+      .landing-subtitle {
+        font-size: var(--fs-xl);
+      }
+
+      .landing-cards {
+        grid-template-columns: 1fr;
+      }
+
+      .landing-stats {
+        gap: var(--space-xl);
+      }
+
+      .landing-stat__number {
+        font-size: var(--fs-3xl);
+      }
+    }
+  </style>
+</head>
+<body>
+  <section class="landing-hero">
+    <div class="landing-content">
+      <img src="assets/logo/brighton-college-logo--vertical-white.svg" alt="Brighton College" class="landing-logo">
+
+      <h1 class="landing-title">BRIGHTON COLLEGE</h1>
+      <p class="landing-subtitle">UK School of the Decade</p>
+
+      <p class="landing-description">
+        Discover what Brighton College could offer your child with a personalised prospectus - created just for your family, featuring your child's name throughout, and tailored to their interests and aspirations.
+      </p>
+
+      <div class="landing-cards">
+        <!-- College Entry Card -->
+        <div class="landing-card">
+          <span class="landing-card__badge">Ages 11-16</span>
+          <h2 class="landing-card__title">College Entry</h2>
+          <p class="landing-card__subtitle">Year 7 (11+) & Year 9 (13+)</p>
+          <ul class="landing-card__features">
+            <li>Personalised for your child</li>
+            <li>70+ instances of their name</li>
+            <li>Gender-appropriate content</li>
+            <li>Tailored to their interests</li>
+            <li>Boarding or day options</li>
+            <li>Scholarship information</li>
+          </ul>
+          <a href="forms/enquiry-college.html" class="landing-card__btn">Request College Prospectus</a>
+        </div>
+
+        <!-- Sixth Form Card -->
+        <div class="landing-card">
+          <span class="landing-card__badge">Ages 16-18</span>
+          <h2 class="landing-card__title">Sixth Form Entry</h2>
+          <p class="landing-card__subtitle">Year 12 (16+) - Best Sixth Form in Britain</p>
+          <ul class="landing-card__features">
+            <li>Personalised career pathway</li>
+            <li>Recommended A-Level subjects</li>
+            <li>University destination focus</li>
+            <li>Medicine, Law, Engineering paths</li>
+            <li>Leadership opportunities</li>
+            <li>98% A*-B at A-Level</li>
+          </ul>
+          <a href="forms/enquiry-sixth-form.html" class="landing-card__btn">Request Sixth Form Prospectus</a>
+        </div>
+      </div>
+
+      <div class="landing-stats">
+        <div class="landing-stat">
+          <div class="landing-stat__number">98%</div>
+          <div class="landing-stat__label">A*-B at A-Level</div>
+        </div>
+        <div class="landing-stat">
+          <div class="landing-stat__number">43</div>
+          <div class="landing-stat__label">Oxbridge Offers 2024</div>
+        </div>
+        <div class="landing-stat">
+          <div class="landing-stat__number">#1</div>
+          <div class="landing-stat__label">Co-ed School UK</div>
+        </div>
+        <div class="landing-stat">
+          <div class="landing-stat__number">13</div>
+          <div class="landing-stat__label">Schools Worldwide</div>
+        </div>
+      </div>
+
+      <div class="beach-huts">
+        <div class="beach-hut"></div>
+        <div class="beach-hut"></div>
+        <div class="beach-hut"></div>
+        <div class="beach-hut"></div>
+        <div class="beach-hut"></div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="landing-footer">
+    <p>
+      Brighton College | Eastern Road, Brighton, East Sussex, BN2 0AL<br>
+      <a href="https://www.brightoncollege.org.uk" target="_blank">www.brightoncollege.org.uk</a> | +44 (0)1273 704 200
+    </p>
+    <p style="margin-top: var(--space-md);">
+      Personalised Prospectus System powered by <strong>bSMART ai</strong>
+    </p>
+  </footer>
+</body>
+</html>

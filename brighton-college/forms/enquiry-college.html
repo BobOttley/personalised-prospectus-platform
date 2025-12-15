@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brighton College - Enquiry Form | Year 7 & Year 9 Entry</title>
+  <meta name="description" content="Request your personalised prospectus for Brighton College - UK School of the Decade">
+  <link rel="stylesheet" href="../styles/bc-form.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="bc-form-page">
+    <div class="bc-form-container">
+      <!-- Header -->
+      <div class="bc-form-header">
+        <img src="../assets/logo/brighton-college-logo--vertical-white.svg" alt="Brighton College" class="bc-form-header__logo">
+        <h1 class="bc-form-header__title">Your Personalised Prospectus</h1>
+        <p class="bc-form-header__subtitle">College Entry - Year 7 (11+) & Year 9 (13+)</p>
+      </div>
+
+      <!-- Progress Indicator -->
+      <div class="bc-form-progress">
+        <div class="bc-form-progress__step active" data-step="1"></div>
+        <div class="bc-form-progress__step" data-step="2"></div>
+        <div class="bc-form-progress__step" data-step="3"></div>
+        <div class="bc-form-progress__step" data-step="4"></div>
+        <div class="bc-form-progress__step" data-step="5"></div>
+        <div class="bc-form-progress__step" data-step="6"></div>
+        <div class="bc-form-progress__step" data-step="7"></div>
+        <div class="bc-form-progress__step" data-step="8"></div>
+        <div class="bc-form-progress__step" data-step="9"></div>
+        <div class="bc-form-progress__step" data-step="10"></div>
+      </div>
+      <p class="bc-form-progress__text">Step <span id="currentStep">1</span> of 10</p>
+
+      <!-- Beach Huts Decoration -->
+      <div class="bc-beach-huts">
+        <div class="bc-beach-hut"></div>
+        <div class="bc-beach-hut"></div>
+        <div class="bc-beach-hut"></div>
+        <div class="bc-beach-hut"></div>
+        <div class="bc-beach-hut"></div>
+      </div>
+
+      <form id="bcEnquiryForm" novalidate>
+        <!-- Section 1: About Your Child -->
+        <div class="bc-form-section active" data-section="1">
+          <h2 class="bc-form-section__title">About Your Child</h2>
+          <p class="bc-form-section__description">Tell us about your child so we can personalise their prospectus.</p>
+
+          <div class="bc-form-row">
+            <div class="bc-form-group">
+              <label for="childFirstName">Child's First Name <span class="required">*</span></label>
+              <input type="text" id="childFirstName" name="child_first_name" class="bc-input" required minlength="2" placeholder="e.g., Oliver">
+              <span class="bc-error-message">Please enter your child's first name</span>
+            </div>
+
+            <div class="bc-form-group">
+              <label for="childSurname">Child's Surname <span class="required">*</span></label>
+              <input type="text" id="childSurname" name="child_surname" class="bc-input" required minlength="2" placeholder="e.g., Thompson">
+              <span class="bc-error-message">Please enter your child's surname</span>
+            </div>
+          </div>
+
+          <div class="bc-form-group">
+            <label>Child's Gender <span class="required">*</span></label>
+            <div class="bc-radio-group bc-radio-group--inline">
+              <label class="bc-radio">
+                <input type="radio" name="child_gender" value="boy" required>
+                <span>Boy</span>
+              </label>
+              <label class="bc-radio">
+                <input type="radio" name="child_gender" value="girl">
+                <span>Girl</span>
+              </label>
+              <label class="bc-radio">
+                <input type="radio" name="child_gender" value="prefer_not_to_say">
+                <span>Prefer not to say</span>
+              </label>
+            </div>
+            <span class="bc-error-message">Please select an option</span>
+          </div>
+
+          <div class="bc-form-row">
+            <div class="bc-form-group">
+              <label for="childDob">Date of Birth <span class="required">*</span></label>
+              <input type="date" id="childDob" name="child_dob" class="bc-input" required>
+              <span class="bc-error-message">Please enter your child's date of birth</span>
+            </div>
+
+            <div class="bc-form-group">
+              <label for="currentYear">Current Year Group <span class="required">*</span></label>
+              <select id="currentYear" name="current_year" class="bc-select" required>
+                <option value="">Select year group</option>
+                <option value="Year 5">Year 5</option>
+                <option value="Year 6">Year 6</option>
+                <option value="Year 7">Year 7</option>
+                <option value="Year 8">Year 8</option>
+              </select>
+              <span class="bc-error-message">Please select your child's year group</span>
+            </div>
+          </div>
+
+          <div class="bc-form-group">
+            <label for="currentSchool">Current School (optional)</label>
+            <input type="text" id="currentSchool" name="current_school" class="bc-input" placeholder="e.g., St Mary's Prep">
+          </div>
+        </div>
+
+        <!-- Section 2: Entry Point -->
+        <div class="bc-form-section" data-section="2">
+          <h2 class="bc-form-section__title">Entry Point</h2>
+          <p class="bc-form-section__description">When would you like your child to join Brighton College?</p>
+
+          <div class="bc-form-group">
+            <label>Intended Entry Point <span class="required">*</span></label>
+            <div class="bc-radio-group">
+              <label class="bc-radio">
+                <input type="radio" name="entry_point" value="Year 7" required>
+                <span>Year 7 (11+) - Join at age 11</span>
+              </label>
+              <label class="bc-radio">
+                <input type="radio" name="entry_point" value="Year 9">
+                <span>Year 9 (13+) - Join at age 13</span>
+              </label>
+            </div>
+            <span class="bc-error-message">Please select an entry point</span>
+          </div>
+
+          <div class="bc-form-group">
+            <label for="entryYear">Intended Entry Year <span class="required">*</span></label>
+            <select id="entryYear" name="entry_year" class="bc-select" required>
+              <option value="">Select year</option>
+              <option value="September 2026">September 2026</option>
+              <option value="September 2027">September 2027</option>
+              <option value="September 2028">September 2028</option>
+            </select>
+            <span class="bc-error-message">Please select an entry year</span>
+          </div>
+        </div>
+
+        <!-- Section 3: Day or Boarding -->
+        <div class="bc-form-section" data-section="3">
+          <h2 class="bc-form-section__title">Day or Boarding?</h2>
+          <p class="bc-form-section__description">Brighton College is the UK's Boarding School of the Year (2025 & 2026).</p>
+
+          <div class="bc-form-group">
+            <label>What are you most interested in? <span class="required">*</span></label>
+            <div class="bc-radio-group">
+              <label class="bc-radio">
+                <input type="radio" name="boarding_interest" value="day_pupil" required>
+                <span>Day Pupil - Home every evening</span>
+              </label>
+              <label class="bc-radio">
+                <input type="radio" name="boarding_interest" value="weekly_boarding">
+                <span>Weekly Boarding - Home at weekends</span>
+              </label>
+              <label class="bc-radio">
+                <input type="radio" name="boarding_interest" value="full_boarding">
+                <span>Full Boarding - Full immersion experience</span>
+              </label>
+              <label class="bc-radio">
+                <input type="radio" name="boarding_interest" value="undecided">
+                <span>Undecided - Show me both options</span>
+              </label>
+            </div>
+            <span class="bc-error-message">Please select an option</span>
+          </div>
+
+          <div class="bc-conditional" id="boardingHouseInfo">
+            <div class="bc-form-group">
+              <label class="bc-checkbox">
+                <input type="checkbox" name="house_info" value="true">
+                <span>I'd like to learn about the boarding houses</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 4: Academic Interests -->
+        <div class="bc-form-section" data-section="4">
+          <h2 class="bc-form-section__title">Academic Interests</h2>
+          <p class="bc-form-section__description">Which subjects does your child enjoy most?</p>
+
+          <div class="bc-form-group">
+            <label>Favourite Subjects (select all that apply)</label>
+            <div class="bc-multiselect-grid">
+              <label class="bc-multiselect-item">
+                <input type="checkbox" name="favourite_subjects" value="Mathematics">
+                Mathematics
+              </label>
+              <label class="bc-multiselect-item">
+                <input type="checkbox" name="favourite_subjects" value="English">
+                English
+              </label>
+              <label class="bc-multiselect-item">
+                <input type="checkbox" name="favourite_subjects" value="Sciences">
+                Sciences
+              </label>
+              <label class="bc-multiselect-item">
+                <input type="checkbox" name="favourite_subjects" value="Languages">
+                Languages
+              </label>
+              <label class="bc-multiselect-item">
+                <input type="checkbox" name="favourite_subjects" value="History">
+                History
+              </label>
+              <label class="bc-multiselect-item">
+                <input type="checkbox" name="favourite_subjects" value="Geography">
+                Geography
+              </label>
+              <label class="bc-multiselect-item">
+                <input type="checkbox" name="favourite_subjects" value="Art">
+                Art
+              </label>
+              <label class="bc-multiselect-item">
+                <input type="checkbox" name="favourite_subjects" value="Music">
+                Music
+              </label>
+              <label class="bc-multiselect-item">
+                <input type="checkbox" name="favourite_subjects" value="Drama">
+                Drama
+              </label>
+              <label class="bc-multiselect-item">
+                <input type="checkbox" name="favourite_subjects" value="Sport">
+                Sport / PE
+              </label>
+              <label class="bc-multiselect-item">
+                <input type="checkbox" name="favourite_subjects" value="Computing">
+                Computing
+              </label>
+              <label class="bc-multiselect-item">
+                <input type="checkbox" name="favourite_subjects" value="Other">
+                Other
+              </label>
+            </div>
+          </div>
+
+          <div class="bc-form-group">
+            <label>Academic Strengths (select all that apply)</label>
+            <div class="bc-multiselect-grid">
+              <label class="bc-multiselect-item">
+                <input type="checkbox" name="academic_strengths" value="Problem solving">
+                Problem solving
+              </label>
+              <label class="bc-multiselect-item">
+                <input type="checkbox" name="academic_strengths" value="Creative thinking">
+                Creative thinking
+              </label>
+              <label class="bc-multiselect-item">
+                <input type="checkbox" name="academic_strengths" value="Languages">
+                Languages
+              </label>
+              <label class="bc-multiselect-item">
+                <input type="checkbox" name="academic_strengths" value="Writing">
+                Writing
+              </label>
+              <label class="bc-multiselect-item">
+                <input type="checkbox" name="academic_strengths" value="Science experiments">
+                Science experiments
+              </label>
+              <label class="bc-multiselect-item">
+                <input type="checkbox" name="academic_strengths" value="Research">
+                Research
+              </label>
+              <label class="bc-multiselect-item">
+                <input type="checkbox" name="academic_strengths" value="Public speaking">
+                Public speaking
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 5: Co-Curricular Interests -->
+        <div class="bc-form-section" data-section="5">
+          <h2 class="bc-form-section__title">Co-Curricular Interests</h2>
+          <p class="bc-form-section__description">What activities does your child enjoy outside the classroom?</p>
+
+          <div class="bc-form-group">
+            <label>Sports Interests</label>
+            <div class="bc-multiselect-grid">
+              <label class="bc-multiselect-item">
+                <input type="checkbox" name="sports" value="Rugby">
+                Rugby
+              </label>
+              <label class="bc-multiselect-item">
+                <input type="checkbox" name="sports" value="Cricket">
+                Cricket
+              </label>
+              <label class="bc-multiselect-item">
+                <input type="checkbox" name="sports" value="Football">
+                Football
+              </label>
+              <label class="bc-multiselect-item">
+                <input type="checkbox" name="sports" value="Hockey">
+                Hockey
+              </label>
+              <label class="bc-multiselect-item">
+                <input type="checkbox" name="sports" value="Netball">
+                Netball
+              </label>
+              <label class="bc-multiselect-item">
+                <input type="checkbox" name="sports" value="Tennis">
+                Tennis
+              </label>
+              <label class="bc-multiselect-item">
+                <input type="checkbox" name="sports" value="Swimming">
+                Swimming
+              </label>
+              <label class="bc-multiselect-item">
+                <input type="checkbox" name="sports" value="Athletics">
+                Athletics
+              </label>
+              <label class="bc-multiselect-item">
+                <input type="checkbox" name="sports" value="Other sport">
+                Other
+              </label>
+            </div>
+          </div>
+
+          <div class="bc-form-group">
+            <label>Performing Arts</label>
+            <div class="bc-multiselect-grid">
+              <label class="bc-multiselect-item">
+                <input type="checkbox" name="performing_arts" value="Music (instrument)" id="musicInterest">
+                Music (instrument)
+              </label>
+              <label class="bc-multiselect-item">
+                <input type="checkbox" name="performing_arts" value="Singing">
+                Singing
+              </label>
+              <label class="bc-multiselect-item">
+                <input type="checkbox" name="performing_arts" value="Drama/Theatre">
+                Drama / Theatre
+              </label>
+              <label class="bc-multiselect-item">
+                <input type="checkbox" name="performing_arts" value="Dance">
+                Dance
+              </label>
+            </div>
+          </div>
+
+          <div class="bc-conditional" id="instrumentField">
+            <div class="bc-form-group">
+              <label for="instrument">Which instrument(s)?</label>
+              <input type="text" id="instrument" name="instrument" class="bc-input" placeholder="e.g., Piano, Violin">
+            </div>
+          </div>
+
+          <div class="bc-form-group">
+            <label>Creative Arts</label>
+            <div class="bc-multiselect-grid">
+              <label class="bc-multiselect-item">
+                <input type="checkbox" name="creative_arts" value="Art">
+                Art
+              </label>
+              <label class="bc-multiselect-item">
+                <input type="checkbox" name="creative_arts" value="Photography">
+                Photography
+              </label>
+              <label class="bc-multiselect-item">
+                <input type="checkbox" name="creative_arts" value="Design & Technology">
+                Design & Technology
+              </label>
+            </div>
+          </div>
+
+          <div class="bc-form-group">
+            <label for="otherInterests">Other Interests</label>
+            <input type="text" id="otherInterests" name="other_interests" class="bc-input" placeholder="e.g., Chess, Debating, Coding">
+          </div>
+        </div>
+
+        <!-- Section 6: Scholarships & Bursaries -->
+        <div class="bc-form-section" data-section="6">
+          <h2 class="bc-form-section__title">Scholarships & Bursaries</h2>
+          <p class="bc-form-section__description">Brighton College offers scholarships recognising talent and potential.</p>
+
+          <div class="bc-form-group">
+            <label>Scholarship Interest (select all that apply)</label>
+            <div class="bc-multiselect-grid">
+              <label class="bc-multiselect-item">
+                <input type="checkbox" name="scholarship_types" value="Academic">
+                Academic
+              </label>
+              <label class="bc-multiselect-item">
+                <input type="checkbox" name="scholarship_types" value="Art">
+                Art
+              </label>
+              <label class="bc-multiselect-item">
+                <input type="checkbox" name="scholarship_types" value="Chess">
+                Chess
+              </label>
+              <label class="bc-multiselect-item">
+                <input type="checkbox" name="scholarship_types" value="Choral">
+                Choral
+              </label>
+              <label class="bc-multiselect-item">
+                <input type="checkbox" name="scholarship_types" value="Dance">
+                Dance
+              </label>
+              <label class="bc-multiselect-item">
+                <input type="checkbox" name="scholarship_types" value="Drama">
+                Drama
+              </label>
+              <label class="bc-multiselect-item">
+                <input type="checkbox" name="scholarship_types" value="DT">
+                Design & Technology
+              </label>
+              <label class="bc-multiselect-item">
+                <input type="checkbox" name="scholarship_types" value="Music">
+                Music
+              </label>
+              <label class="bc-multiselect-item">
+                <input type="checkbox" name="scholarship_types" value="Sport">
+                Sport
+              </label>
+            </div>
+          </div>
+
+          <div class="bc-conditional" id="sammyWoods">
+            <div class="bc-form-group">
+              <label>Sammy Woods Sports Scholarship (13+ only)</label>
+              <p style="font-size: var(--fs-sm); color: var(--bc-grey-dark); margin-bottom: var(--space-sm);">
+                Elite sports scholarship for Cricket, Football, Hockey, Netball, or Rugby
+              </p>
+              <div class="bc-multiselect-grid">
+                <label class="bc-multiselect-item">
+                  <input type="checkbox" name="sammy_woods" value="Cricket">
+                  Cricket
+                </label>
+                <label class="bc-multiselect-item">
+                  <input type="checkbox" name="sammy_woods" value="Football">
+                  Football
+                </label>
+                <label class="bc-multiselect-item">
+                  <input type="checkbox" name="sammy_woods" value="Hockey">
+                  Hockey
+                </label>
+                <label class="bc-multiselect-item">
+                  <input type="checkbox" name="sammy_woods" value="Netball">
+                  Netball
+                </label>
+                <label class="bc-multiselect-item">
+                  <input type="checkbox" name="sammy_woods" value="Rugby">
+                  Rugby
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="bc-form-group">
+            <label>Are you interested in learning about bursaries?</label>
+            <div class="bc-radio-group bc-radio-group--inline">
+              <label class="bc-radio">
+                <input type="radio" name="bursary_interest" value="true">
+                <span>Yes, please send information</span>
+              </label>
+              <label class="bc-radio">
+                <input type="radio" name="bursary_interest" value="false">
+                <span>No, thank you</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 7: Parent/Guardian Details -->
+        <div class="bc-form-section" data-section="7">
+          <h2 class="bc-form-section__title">Parent/Guardian Details</h2>
+          <p class="bc-form-section__description">So we can send you the personalised prospectus.</p>
+
+          <h3 style="font-size: var(--fs-lg); color: var(--bc-navy); margin-bottom: var(--space-md);">Parent/Guardian 1</h3>
+
+          <div class="bc-form-row">
+            <div class="bc-form-group">
+              <label for="parent1Title">Title <span class="required">*</span></label>
+              <select id="parent1Title" name="parent1_title" class="bc-select" required>
+                <option value="">Select title</option>
+                <option value="Mr">Mr</option>
+                <option value="Mrs">Mrs</option>
+                <option value="Ms">Ms</option>
+                <option value="Dr">Dr</option>
+                <option value="Professor">Professor</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+
+            <div class="bc-form-group">
+              <label for="parent1Relationship">Relationship <span class="required">*</span></label>
+              <select id="parent1Relationship" name="parent1_relationship" class="bc-select" required>
+                <option value="">Select relationship</option>
+                <option value="Mother">Mother</option>
+                <option value="Father">Father</option>
+                <option value="Guardian">Guardian</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="bc-form-row">
+            <div class="bc-form-group">
+              <label for="parent1FirstName">First Name <span class="required">*</span></label>
+              <input type="text" id="parent1FirstName" name="parent1_first_name" class="bc-input" required>
+            </div>
+
+            <div class="bc-form-group">
+              <label for="parent1Surname">Surname <span class="required">*</span></label>
+              <input type="text" id="parent1Surname" name="parent1_surname" class="bc-input" required>
+            </div>
+          </div>
+
+          <div class="bc-form-row">
+            <div class="bc-form-group">
+              <label for="parent1Email">Email <span class="required">*</span></label>
+              <input type="email" id="parent1Email" name="parent1_email" class="bc-input" required placeholder="email@example.com">
+            </div>
+
+            <div class="bc-form-group">
+              <label for="parent1Phone">Phone <span class="required">*</span></label>
+              <input type="tel" id="parent1Phone" name="parent1_phone" class="bc-input" required placeholder="+44 7700 900123">
+            </div>
+          </div>
+
+          <!-- Parent 2 Toggle -->
+          <div class="bc-form-group" style="margin-top: var(--space-xl);">
+            <label class="bc-checkbox">
+              <input type="checkbox" id="addParent2" name="add_parent2">
+              <span>Add second parent/guardian</span>
+            </label>
+          </div>
+
+          <div class="bc-conditional" id="parent2Fields">
+            <h3 style="font-size: var(--fs-lg); color: var(--bc-navy); margin: var(--space-lg) 0 var(--space-md);">Parent/Guardian 2</h3>
+
+            <div class="bc-form-row">
+              <div class="bc-form-group">
+                <label for="parent2Title">Title</label>
+                <select id="parent2Title" name="parent2_title" class="bc-select">
+                  <option value="">Select title</option>
+                  <option value="Mr">Mr</option>
+                  <option value="Mrs">Mrs</option>
+                  <option value="Ms">Ms</option>
+                  <option value="Dr">Dr</option>
+                  <option value="Professor">Professor</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+
+              <div class="bc-form-group">
+                <label for="parent2Relationship">Relationship</label>
+                <select id="parent2Relationship" name="parent2_relationship" class="bc-select">
+                  <option value="">Select relationship</option>
+                  <option value="Mother">Mother</option>
+                  <option value="Father">Father</option>
+                  <option value="Guardian">Guardian</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="bc-form-row">
+              <div class="bc-form-group">
+                <label for="parent2FirstName">First Name</label>
+                <input type="text" id="parent2FirstName" name="parent2_first_name" class="bc-input">
+              </div>
+
+              <div class="bc-form-group">
+                <label for="parent2Surname">Surname</label>
+                <input type="text" id="parent2Surname" name="parent2_surname" class="bc-input">
+              </div>
+            </div>
+
+            <div class="bc-form-row">
+              <div class="bc-form-group">
+                <label for="parent2Email">Email</label>
+                <input type="email" id="parent2Email" name="parent2_email" class="bc-input">
+              </div>
+
+              <div class="bc-form-group">
+                <label for="parent2Phone">Phone</label>
+                <input type="tel" id="parent2Phone" name="parent2_phone" class="bc-input">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 8: Location -->
+        <div class="bc-form-section" data-section="8">
+          <h2 class="bc-form-section__title">Your Location</h2>
+          <p class="bc-form-section__description">So we can tailor travel information to your area.</p>
+
+          <div class="bc-form-group">
+            <label for="country">Country <span class="required">*</span></label>
+            <select id="country" name="country" class="bc-select" required>
+              <option value="">Select country</option>
+              <option value="United Kingdom">United Kingdom</option>
+              <option value="United States">United States</option>
+              <option value="United Arab Emirates">United Arab Emirates</option>
+              <option value="Singapore">Singapore</option>
+              <option value="Hong Kong">Hong Kong</option>
+              <option value="China">China</option>
+              <option value="Germany">Germany</option>
+              <option value="France">France</option>
+              <option value="Spain">Spain</option>
+              <option value="Italy">Italy</option>
+              <option value="Russia">Russia</option>
+              <option value="India">India</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+
+          <div class="bc-conditional" id="ukPostcode">
+            <div class="bc-form-group">
+              <label for="postcode">Postcode <span class="required">*</span></label>
+              <input type="text" id="postcode" name="postcode" class="bc-input" placeholder="e.g., SW1A 1AA">
+            </div>
+          </div>
+
+          <div class="bc-conditional" id="internationalCity">
+            <div class="bc-form-group">
+              <label for="city">City <span class="required">*</span></label>
+              <input type="text" id="city" name="city" class="bc-input" placeholder="e.g., Dubai, Singapore">
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 9: How Did You Hear About Us? -->
+        <div class="bc-form-section" data-section="9">
+          <h2 class="bc-form-section__title">How Did You Hear About Us?</h2>
+          <p class="bc-form-section__description">This helps us understand how families discover Brighton College.</p>
+
+          <div class="bc-form-group">
+            <label for="source">Source</label>
+            <select id="source" name="source" class="bc-select">
+              <option value="">Select an option</option>
+              <option value="Word of mouth">Word of mouth / Recommendation</option>
+              <option value="School fair">School fair or exhibition</option>
+              <option value="Online search">Online search (Google, etc.)</option>
+              <option value="Social media">Social media</option>
+              <option value="Advertisement">Advertisement</option>
+              <option value="Educational agent">Educational agent / Consultant</option>
+              <option value="Good Schools Guide">Good Schools Guide</option>
+              <option value="Tatler Schools Guide">Tatler Schools Guide</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+
+          <div class="bc-conditional" id="sourceOther">
+            <div class="bc-form-group">
+              <label for="sourceSpecify">Please specify</label>
+              <input type="text" id="sourceSpecify" name="source_specify" class="bc-input">
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 10: Consent & Submission -->
+        <div class="bc-form-section" data-section="10">
+          <h2 class="bc-form-section__title">Almost There!</h2>
+          <p class="bc-form-section__description">Please review and confirm before we create your personalised prospectus.</p>
+
+          <!-- Preview Panel -->
+          <div class="bc-form-preview" id="formPreview">
+            <h3 class="bc-form-preview__title">Your Prospectus Preview</h3>
+            <div class="bc-form-preview__item"><strong>Child:</strong> <span id="previewChildName">-</span></div>
+            <div class="bc-form-preview__item"><strong>Entry:</strong> <span id="previewEntry">-</span></div>
+            <div class="bc-form-preview__item"><strong>Type:</strong> <span id="previewBoarding">-</span></div>
+            <div class="bc-form-preview__item"><strong>Interests:</strong> <span id="previewInterests">-</span></div>
+          </div>
+
+          <div class="bc-form-group">
+            <label class="bc-checkbox">
+              <input type="checkbox" name="privacy_consent" required>
+              <span>I confirm that the information provided is accurate and I consent to Brighton College processing this data to create a personalised prospectus. <a href="https://www.brightoncollege.org.uk/privacy-policy" target="_blank">View Privacy Policy</a> <span class="required">*</span></span>
+            </label>
+          </div>
+
+          <div class="bc-form-group">
+            <label class="bc-checkbox">
+              <input type="checkbox" name="marketing_consent">
+              <span>I would like to receive news and updates from Brighton College</span>
+            </label>
+          </div>
+        </div>
+      </form>
+
+      <!-- Form Navigation -->
+      <div class="bc-form-nav">
+        <button type="button" class="bc-form-btn bc-form-btn--secondary" id="prevBtn" disabled>Back</button>
+        <button type="button" class="bc-form-btn bc-form-btn--primary" id="nextBtn">Continue</button>
+      </div>
+
+      <!-- Success State (hidden initially) -->
+      <div class="bc-form-success" id="formSuccess" style="display: none;">
+        <div class="bc-form-success__icon">✓</div>
+        <h2 class="bc-form-success__title">Thank You!</h2>
+        <p class="bc-form-success__message">
+          <span id="successChildName">Your child's</span> personalised prospectus is being created now.
+        </p>
+        <div class="bc-loading">
+          <div class="bc-loading__spinner"></div>
+          <p class="bc-loading__text">Generating your prospectus...</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../scripts/personalisation.js"></script>
+  <script>
+    // Form Controller
+    class BCFormController {
+      constructor() {
+        this.form = document.getElementById('bcEnquiryForm');
+        this.sections = document.querySelectorAll('.bc-form-section');
+        this.progressSteps = document.querySelectorAll('.bc-form-progress__step');
+        this.currentStepText = document.getElementById('currentStep');
+        this.prevBtn = document.getElementById('prevBtn');
+        this.nextBtn = document.getElementById('nextBtn');
+        this.currentStep = 1;
+        this.totalSteps = this.sections.length;
+
+        this.init();
+      }
+
+      init() {
+        this.prevBtn.addEventListener('click', () => this.prevStep());
+        this.nextBtn.addEventListener('click', () => this.nextStep());
+
+        // Multi-select toggle - use change event to avoid double-toggle
+        document.querySelectorAll('.bc-multiselect-item input[type="checkbox"]').forEach(input => {
+          input.addEventListener('change', () => {
+            const item = input.closest('.bc-multiselect-item');
+            item.classList.toggle('selected', input.checked);
+          });
+        });
+
+        // Radio toggle styling
+        document.querySelectorAll('.bc-radio input').forEach(radio => {
+          radio.addEventListener('change', () => {
+            const group = radio.closest('.bc-radio-group');
+            group.querySelectorAll('.bc-radio').forEach(r => r.classList.remove('selected'));
+            radio.closest('.bc-radio').classList.add('selected');
+          });
+        });
+
+        // Conditional field handlers
+        this.setupConditionals();
+
+        // Update preview on input change
+        this.form.addEventListener('change', () => this.updatePreview());
+        this.form.addEventListener('input', () => this.updatePreview());
+      }
+
+      setupConditionals() {
+        // Boarding house info
+        document.querySelectorAll('input[name="boarding_interest"]').forEach(radio => {
+          radio.addEventListener('change', () => {
+            const show = radio.value !== 'day_pupil';
+            document.getElementById('boardingHouseInfo').classList.toggle('visible', show);
+          });
+        });
+
+        // Music instrument field
+        document.getElementById('musicInterest')?.addEventListener('change', (e) => {
+          document.getElementById('instrumentField').classList.toggle('visible', e.target.checked);
+        });
+
+        // Parent 2 fields
+        document.getElementById('addParent2')?.addEventListener('change', (e) => {
+          document.getElementById('parent2Fields').classList.toggle('visible', e.target.checked);
+        });
+
+        // Country-based fields
+        document.getElementById('country')?.addEventListener('change', (e) => {
+          const isUK = e.target.value === 'United Kingdom';
+          document.getElementById('ukPostcode').classList.toggle('visible', isUK);
+          document.getElementById('internationalCity').classList.toggle('visible', !isUK && e.target.value !== '');
+        });
+
+        // Entry point for Sammy Woods
+        document.querySelectorAll('input[name="entry_point"]').forEach(radio => {
+          radio.addEventListener('change', () => {
+            const isYear9 = document.querySelector('input[name="entry_point"]:checked')?.value === 'Year 9';
+            document.getElementById('sammyWoods')?.classList.toggle('visible', isYear9);
+          });
+        });
+
+        // Source other field
+        document.getElementById('source')?.addEventListener('change', (e) => {
+          document.getElementById('sourceOther').classList.toggle('visible', e.target.value === 'Other');
+        });
+      }
+
+      updateProgress() {
+        this.progressSteps.forEach((step, index) => {
+          step.classList.remove('active', 'completed');
+          if (index + 1 === this.currentStep) {
+            step.classList.add('active');
+          } else if (index + 1 < this.currentStep) {
+            step.classList.add('completed');
+          }
+        });
+        this.currentStepText.textContent = this.currentStep;
+        this.prevBtn.disabled = this.currentStep === 1;
+        this.nextBtn.textContent = this.currentStep === this.totalSteps ? 'Create Prospectus' : 'Continue';
+      }
+
+      showSection(step) {
+        this.sections.forEach((section, index) => {
+          section.classList.toggle('active', index + 1 === step);
+        });
+        this.updateProgress();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+
+      validateCurrentSection() {
+        const currentSection = this.sections[this.currentStep - 1];
+        const requiredFields = currentSection.querySelectorAll('[required]');
+        let isValid = true;
+
+        requiredFields.forEach(field => {
+          const formGroup = field.closest('.bc-form-group');
+
+          if (field.type === 'radio') {
+            const name = field.name;
+            const checked = currentSection.querySelector(`input[name="${name}"]:checked`);
+            if (!checked) {
+              isValid = false;
+              formGroup?.classList.add('has-error');
+            } else {
+              formGroup?.classList.remove('has-error');
+            }
+          } else if (!field.value.trim()) {
+            isValid = false;
+            field.classList.add('error');
+            formGroup?.classList.add('has-error');
+          } else {
+            field.classList.remove('error');
+            formGroup?.classList.remove('has-error');
+          }
+        });
+
+        return isValid;
+      }
+
+      nextStep() {
+        if (!this.validateCurrentSection()) {
+          return;
+        }
+
+        if (this.currentStep < this.totalSteps) {
+          this.currentStep++;
+          this.showSection(this.currentStep);
+        } else {
+          this.submitForm();
+        }
+      }
+
+      prevStep() {
+        if (this.currentStep > 1) {
+          this.currentStep--;
+          this.showSection(this.currentStep);
+        }
+      }
+
+      updatePreview() {
+        const childName = document.getElementById('childFirstName')?.value || '-';
+        const childSurname = document.getElementById('childSurname')?.value || '';
+        const entryPoint = document.querySelector('input[name="entry_point"]:checked')?.value || '-';
+        const entryYear = document.getElementById('entryYear')?.value || '';
+        const boarding = document.querySelector('input[name="boarding_interest"]:checked')?.value || '-';
+
+        document.getElementById('previewChildName').textContent = `${childName} ${childSurname}`.trim();
+        document.getElementById('previewEntry').textContent = entryPoint + (entryYear ? ` (${entryYear})` : '');
+
+        const boardingMap = {
+          'day_pupil': 'Day Pupil',
+          'weekly_boarding': 'Weekly Boarding',
+          'full_boarding': 'Full Boarding',
+          'undecided': 'Undecided'
+        };
+        document.getElementById('previewBoarding').textContent = boardingMap[boarding] || boarding;
+
+        // Collect interests
+        const interests = [];
+        document.querySelectorAll('input[name="sports"]:checked, input[name="performing_arts"]:checked').forEach(cb => {
+          interests.push(cb.value);
+        });
+        const instrument = document.getElementById('instrument')?.value;
+        if (instrument) interests.push(instrument);
+        document.getElementById('previewInterests').textContent = interests.length > 0 ? interests.join(', ') : '-';
+      }
+
+      collectFormData() {
+        const formData = new FormData(this.form);
+
+        const data = {
+          child: {
+            first_name: formData.get('child_first_name'),
+            surname: formData.get('child_surname'),
+            gender: formData.get('child_gender'),
+            date_of_birth: formData.get('child_dob'),
+            current_school: formData.get('current_school'),
+            current_year: formData.get('current_year')
+          },
+          entry: {
+            entry_point: formData.get('entry_point'),
+            entry_year: formData.get('entry_year'),
+            prospectus_type: 'college'
+          },
+          boarding: {
+            interest: formData.get('boarding_interest'),
+            house_info: formData.get('house_info') === 'true'
+          },
+          academics: {
+            favourite_subjects: formData.getAll('favourite_subjects'),
+            strengths: formData.getAll('academic_strengths')
+          },
+          interests: {
+            sports: formData.getAll('sports'),
+            performing_arts: formData.getAll('performing_arts'),
+            instrument: formData.get('instrument'),
+            creative_arts: formData.getAll('creative_arts'),
+            other: formData.get('other_interests')
+          },
+          scholarships: {
+            types: formData.getAll('scholarship_types'),
+            sammy_woods: formData.getAll('sammy_woods'),
+            bursary_interest: formData.get('bursary_interest') === 'true'
+          },
+          parents: {
+            parent1: {
+              title: formData.get('parent1_title'),
+              first_name: formData.get('parent1_first_name'),
+              surname: formData.get('parent1_surname'),
+              email: formData.get('parent1_email'),
+              phone: formData.get('parent1_phone'),
+              relationship: formData.get('parent1_relationship')
+            }
+          },
+          location: {
+            country: formData.get('country'),
+            postcode: formData.get('postcode'),
+            city: formData.get('city')
+          },
+          source: formData.get('source'),
+          source_specify: formData.get('source_specify'),
+          consent: {
+            privacy: formData.get('privacy_consent') === 'on',
+            marketing: formData.get('marketing_consent') === 'on'
+          },
+          submitted_at: new Date().toISOString()
+        };
+
+        // Add parent 2 if provided
+        if (formData.get('parent2_first_name')) {
+          data.parents.parent2 = {
+            title: formData.get('parent2_title'),
+            first_name: formData.get('parent2_first_name'),
+            surname: formData.get('parent2_surname'),
+            email: formData.get('parent2_email'),
+            phone: formData.get('parent2_phone'),
+            relationship: formData.get('parent2_relationship')
+          };
+        }
+
+        return data;
+      }
+
+      submitForm() {
+        const data = this.collectFormData();
+
+        // Save to localStorage
+        localStorage.setItem('bc_prospectus_data', JSON.stringify(data));
+
+        // Show success state
+        this.form.style.display = 'none';
+        document.querySelector('.bc-form-nav').style.display = 'none';
+        document.getElementById('formSuccess').style.display = 'block';
+        document.getElementById('successChildName').textContent = data.child.first_name + "'s";
+
+        // Redirect to prospectus after delay
+        setTimeout(() => {
+          window.location.href = '../prospectus/college-entry.html';
+        }, 2000);
+      }
+    }
+
+    // Initialise
+    document.addEventListener('DOMContentLoaded', () => {
+      new BCFormController();
+    });
+  </script>
+</body>
+</html>

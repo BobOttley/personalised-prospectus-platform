@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personalised Prospectus | Cheltenham Ladies' College</title>
+    <meta name="description" content="Discover Cheltenham Ladies' College through a prospectus tailored specifically for your daughter.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles/clc-prospectus.css">
+
+    <style>
+        .landing {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, var(--clc-teal) 0%, var(--clc-teal-dark) 100%);
+            color: var(--clc-white);
+            padding: var(--space-3xl) var(--space-lg);
+            text-align: center;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('scraped-content/images/buildings---march-2020-12.jpg') center/cover;
+            opacity: 0.15;
+        }
+
+        .hero__content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero__badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.15);
+            padding: var(--space-xs) var(--space-md);
+            border-radius: var(--radius-full);
+            font-size: 0.875rem;
+            margin-bottom: var(--space-lg);
+            backdrop-filter: blur(10px);
+        }
+
+        .hero__title {
+            font-family: var(--font-serif);
+            font-size: 3rem;
+            font-weight: 600;
+            color: var(--clc-white);
+            margin-bottom: var(--space-lg);
+            line-height: 1.2;
+        }
+
+        .hero__subtitle {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            margin-bottom: var(--space-2xl);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero__cta {
+            display: flex;
+            gap: var(--space-md);
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .hero__cta .btn {
+            min-width: 200px;
+        }
+
+        .hero__cta .btn--primary {
+            background: var(--clc-white);
+            color: var(--clc-teal);
+        }
+
+        .hero__cta .btn--primary:hover {
+            background: var(--clc-cream);
+        }
+
+        .hero__cta .btn--secondary {
+            border-color: rgba(255,255,255,0.5);
+            color: var(--clc-white);
+        }
+
+        .hero__cta .btn--secondary:hover {
+            background: rgba(255,255,255,0.1);
+        }
+
+        .features {
+            background: var(--clc-white);
+            padding: var(--space-3xl) var(--space-lg);
+        }
+
+        .features__grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-xl);
+            max-width: var(--container-lg);
+            margin: 0 auto;
+        }
+
+        .feature {
+            text-align: center;
+            padding: var(--space-xl);
+        }
+
+        .feature__icon {
+            font-size: 3rem;
+            margin-bottom: var(--space-md);
+        }
+
+        .feature__title {
+            font-size: 1.25rem;
+            margin-bottom: var(--space-sm);
+        }
+
+        .feature__text {
+            color: var(--text-secondary);
+        }
+
+        .demo-section {
+            background: var(--clc-teal-pale);
+            padding: var(--space-3xl) var(--space-lg);
+            text-align: center;
+        }
+
+        .demo-section h2 {
+            margin-bottom: var(--space-md);
+        }
+
+        .demo-section p {
+            max-width: 600px;
+            margin: 0 auto var(--space-xl);
+            color: var(--text-secondary);
+        }
+
+        .demo-card {
+            background: var(--clc-white);
+            border-radius: var(--radius-xl);
+            padding: var(--space-2xl);
+            max-width: 500px;
+            margin: 0 auto;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .demo-card__title {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            color: var(--clc-teal);
+            margin-bottom: var(--space-sm);
+        }
+
+        .demo-card__details {
+            color: var(--text-secondary);
+            margin-bottom: var(--space-lg);
+            text-align: left;
+        }
+
+        .demo-card__details li {
+            padding: var(--space-xs) 0;
+        }
+
+        @media (max-width: 768px) {
+            .hero__title {
+                font-size: 2rem;
+            }
+
+            .hero__subtitle {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body class="landing">
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header__inner">
+                <div class="header__logo">
+                    <img src="assets/logo/clc-logo.png" alt="Cheltenham Ladies' College" onerror="this.style.display='none'; this.parentElement.innerHTML='<span style=\'font-family: var(--font-serif); font-weight: 600; color: var(--clc-teal); font-size: 1.1rem;\'>Cheltenham Ladies\' College</span>'">
+                </div>
+                <a href="https://www.cheltladiescollege.org" class="btn btn--secondary" style="padding: var(--space-sm) var(--space-md); font-size: 0.875rem;">Visit Main Website</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero__content">
+            <span class="hero__badge">bSMART ai Personalised Prospectus</span>
+            <h1 class="hero__title">A prospectus as unique as your daughter</h1>
+            <p class="hero__subtitle">
+                Tell us about her interests and aspirations, and we'll create a prospectus showing exactly how Cheltenham Ladies' College can help her flourish.
+            </p>
+            <div class="hero__cta">
+                <a href="enquiry-form.html" class="btn btn--primary btn--large">
+                    Request Your Prospectus
+                </a>
+                <a href="prospectus.html" class="btn btn--secondary btn--large">
+                    View Demo Prospectus
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features">
+        <div class="features__grid">
+            <div class="feature">
+                <div class="feature__icon">🎯</div>
+                <h3 class="feature__title">Personalised Content</h3>
+                <p class="feature__text">See only what's relevant to your daughter's interests, entry point, and aspirations.</p>
+            </div>
+            <div class="feature">
+                <div class="feature__icon">📚</div>
+                <h3 class="feature__title">22 Tailored Modules</h3>
+                <p class="feature__text">From academics to arts, boarding to bursaries - content curated just for you.</p>
+            </div>
+            <div class="feature">
+                <div class="feature__icon">🎓</div>
+                <h3 class="feature__title">Career Pathways</h3>
+                <p class="feature__text">For Sixth Form, see subject recommendations based on her career goals.</p>
+            </div>
+            <div class="feature">
+                <div class="feature__icon">✨</div>
+                <h3 class="feature__title">Instant Delivery</h3>
+                <p class="feature__text">Your personalised prospectus is created immediately - no waiting.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Section -->
+    <section class="demo-section">
+        <h2>See It In Action</h2>
+        <p>View a demo prospectus created for a fictional family to see how personalisation works.</p>
+
+        <div class="demo-card">
+            <div class="demo-card__title">The Hamilton Family</div>
+            <ul class="demo-card__details">
+                <li><strong>Daughter:</strong> Sophia Hamilton, age 15</li>
+                <li><strong>Entry Point:</strong> Sixth Form (2025)</li>
+                <li><strong>Interests:</strong> Music (Piano), Debating, Sciences</li>
+                <li><strong>Career Interest:</strong> Medicine</li>
+                <li><strong>Type:</strong> Boarding (International family)</li>
+            </ul>
+            <a href="prospectus.html" class="btn btn--primary btn--full">
+                View Sophia's Prospectus
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p style="margin-bottom: var(--space-md);">
+                <strong>Cheltenham Ladies' College</strong><br>
+                Bayshill Road, Cheltenham, GL50 3EP
+            </p>
+            <p>
+                <a href="tel:+441242520691">+44 (0)1242 520691</a> |
+                <a href="https://www.cheltladiescollege.org">www.cheltladiescollege.org</a>
+            </p>
+            <p class="footer__copyright" style="margin-top: var(--space-lg);">
+                Personalised Prospectus System by bSMART ai
+            </p>
+        </div>
+    </footer>
+</body>
+</html>

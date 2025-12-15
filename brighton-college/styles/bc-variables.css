@@ -1,0 +1,115 @@
+/* Brighton College Brand Variables */
+:root {
+  /* Primary Brand Colours */
+  --bc-navy: #1E3A5F;
+  --bc-blue: #003366;
+  --bc-gold: #C5A572;
+  --bc-sky: #87CEEB;
+  --bc-white: #FFFFFF;
+  --bc-charcoal: #333333;
+
+  /* Beach Hut Accent Colours */
+  --bc-pink: #E91E8C;
+  --bc-teal: #40E0D0;
+  --bc-orange: #FF6B35;
+  --bc-green: #2ECC71;
+  --bc-yellow: #F1C40F;
+
+  /* Functional Colours */
+  --bc-success: #27AE60;
+  --bc-warning: #F39C12;
+  --bc-error: #E74C3C;
+  --bc-info: #3498DB;
+
+  /* Background Shades */
+  --bc-navy-light: #2A4A6F;
+  --bc-navy-dark: #152D4A;
+  --bc-gold-light: #D4BC92;
+  --bc-gold-dark: #A88B5A;
+  --bc-grey-light: #F5F5F5;
+  --bc-grey: #E0E0E0;
+  --bc-grey-dark: #9E9E9E;
+
+  /* Typography */
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Font Sizes */
+  --fs-xs: 0.75rem;
+  --fs-sm: 0.875rem;
+  --fs-base: 1rem;
+  --fs-lg: 1.125rem;
+  --fs-xl: 1.25rem;
+  --fs-2xl: 1.5rem;
+  --fs-3xl: 1.875rem;
+  --fs-4xl: 2.25rem;
+  --fs-5xl: 3rem;
+  --fs-6xl: 3.75rem;
+
+  /* Font Weights */
+  --fw-light: 300;
+  --fw-normal: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+
+  /* Line Heights */
+  --lh-tight: 1.25;
+  --lh-normal: 1.5;
+  --lh-relaxed: 1.75;
+
+  /* Spacing */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4rem;
+  --space-4xl: 6rem;
+
+  /* Border Radius */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-normal: 300ms ease;
+  --transition-slow: 500ms ease;
+
+  /* Z-Index Scale */
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-fixed: 300;
+  --z-modal-backdrop: 400;
+  --z-modal: 500;
+  --z-tooltip: 600;
+
+  /* Container Widths */
+  --container-sm: 640px;
+  --container-md: 768px;
+  --container-lg: 1024px;
+  --container-xl: 1280px;
+  --container-2xl: 1536px;
+
+  /* Sticky Nav Height */
+  --nav-height: 60px;
+}
+
+/* Dark mode support (optional) */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bc-charcoal: #E0E0E0;
+    --bc-white: #1a1a1a;
+    --bc-grey-light: #2a2a2a;
+  }
+}

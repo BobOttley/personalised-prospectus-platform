@@ -1,0 +1,1363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brighton College - Personalised Prospectus</title>
+  <meta name="description" content="Your personalised prospectus for Brighton College - UK School of the Decade">
+  <link rel="stylesheet" href="../styles/bc-prospectus.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- STICKY NAVIGATION HEADER -->
+  <nav class="prospectus-nav">
+    <span class="prospectus-nav__family">Prepared for the <strong data-field="family_name">Thompson</strong> Family</span>
+    <span class="prospectus-nav__progress">
+      <span class="progress-text">0% read</span>
+      <div class="progress-bar"><div class="progress-fill" style="width: 0%"></div></div>
+    </span>
+  </nav>
+
+  <!-- MODULE 1: VIDEO HERO -->
+  <section class="video-hero" id="cover">
+    <!-- Local Video Background -->
+    <div class="video-hero__container">
+      <video
+        id="heroVideo"
+        class="video-hero__player"
+        autoplay
+        muted
+        loop
+        playsinline>
+        <source src="../assets/video/brighton-college-hero.mp4" type="video/mp4">
+      </video>
+      <div class="video-hero__overlay"></div>
+    </div>
+
+    <!-- Personalised Welcome Message - Animates to bottom -->
+    <div class="video-hero__welcome" id="welcomeOverlay">
+      <div class="video-hero__welcome-content">
+        <img src="../assets/logo/brighton-college-logo--vertical-white.svg" alt="Brighton College" class="video-hero__logo">
+        <h1 class="video-hero__title">Welcome to Brighton College</h1>
+        <p class="video-hero__family">Prepared especially for the <strong data-field="family_name">Thompson</strong> Family</p>
+        <p class="video-hero__child">Exploring <span data-field="entry_point_text">Year 7</span> for <span data-field="child_name">Oliver</span></p>
+        <div class="video-hero__badge">UK School of the Decade</div>
+      </div>
+    </div>
+
+    <!-- Sound Toggle Button -->
+    <button class="video-sound-btn" id="soundBtn" onclick="toggleSound()">
+      <svg class="sound-icon sound-off" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+        <line x1="23" y1="9" x2="17" y2="15"></line>
+        <line x1="17" y1="9" x2="23" y2="15"></line>
+      </svg>
+      <svg class="sound-icon sound-on" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none;">
+        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+        <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+      </svg>
+      <span class="sound-text">Enable Sound</span>
+    </button>
+
+    <!-- Minimised bar at bottom -->
+    <div class="video-hero__minimised" id="welcomeMinimised">
+      <img src="../assets/logo/brighton-college-logo--horizontal.svg" alt="Brighton College" class="video-hero__mini-logo">
+      <span class="video-hero__mini-text">Prepared for the <strong data-field="family_name">Thompson</strong> Family</span>
+      <button class="video-hero__scroll-btn" onclick="document.getElementById('welcome').scrollIntoView({behavior: 'smooth'})">
+        <span>Start Reading</span>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M7 13l5 5 5-5M7 6l5 5 5-5"/>
+        </svg>
+      </button>
+    </div>
+  </section>
+
+  <style>
+    /* Video Hero Styles */
+    .video-hero {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+      margin-top: var(--nav-height);
+      background: var(--bc-navy);
+    }
+
+    .video-hero__container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .video-hero__player {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 100vw;
+      height: 56.25vw;
+      min-height: 100vh;
+      min-width: 177.78vh;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      border: none;
+    }
+
+    .video-hero__overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        to bottom,
+        rgba(30, 58, 95, 0.2) 0%,
+        rgba(30, 58, 95, 0.05) 50%,
+        rgba(30, 58, 95, 0.4) 100%
+      );
+      pointer-events: none;
+    }
+
+    /* Welcome Overlay - Full screen initially */
+    .video-hero__welcome {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(30, 58, 95, 0.9);
+      z-index: 10;
+      transition: all 1.2s ease-in-out;
+    }
+
+    .video-hero__welcome.minimising {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+
+    .video-hero__welcome.hidden {
+      display: none;
+    }
+
+    .video-hero__welcome-content {
+      text-align: center;
+      color: var(--bc-white);
+      padding: var(--space-2xl);
+      max-width: 800px;
+      animation: fadeInUp 1s ease-out;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .video-hero__logo {
+      width: 120px;
+      height: auto;
+      margin: 0 auto var(--space-xl);
+    }
+
+    .video-hero__title {
+      font-family: var(--font-serif);
+      font-size: var(--fs-5xl);
+      font-weight: var(--fw-bold);
+      color: var(--bc-white);
+      margin-bottom: var(--space-lg);
+      letter-spacing: -0.02em;
+    }
+
+    .video-hero__family {
+      font-size: var(--fs-2xl);
+      margin-bottom: var(--space-sm);
+      opacity: 0.95;
+    }
+
+    .video-hero__family strong {
+      color: var(--bc-gold);
+    }
+
+    .video-hero__child {
+      font-size: var(--fs-xl);
+      color: var(--bc-gold);
+      margin-bottom: var(--space-xl);
+    }
+
+    .video-hero__badge {
+      display: inline-block;
+      background: var(--bc-gold);
+      color: var(--bc-navy);
+      padding: var(--space-sm) var(--space-xl);
+      border-radius: var(--radius-full);
+      font-weight: var(--fw-semibold);
+      font-size: var(--fs-sm);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* Minimised Bar at Bottom */
+    .video-hero__minimised {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, rgba(30, 58, 95, 0.95), rgba(30, 58, 95, 0.8));
+      backdrop-filter: blur(10px);
+      padding: var(--space-lg) var(--space-xl);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 5;
+      transform: translateY(100%);
+      transition: transform 0.5s ease-out;
+    }
+
+    .video-hero__minimised.visible {
+      transform: translateY(0);
+    }
+
+    .video-hero__mini-logo {
+      height: 40px;
+      width: auto;
+      background: rgba(255, 255, 255, 0.95);
+      padding: 6px 12px;
+      border-radius: var(--radius-sm);
+    }
+
+    .video-hero__mini-text {
+      color: var(--bc-white);
+      font-size: var(--fs-lg);
+      flex: 1;
+      text-align: center;
+    }
+
+    .video-hero__mini-text strong {
+      color: var(--bc-gold);
+    }
+
+    .video-hero__scroll-btn {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      background: var(--bc-gold);
+      color: var(--bc-navy);
+      border: none;
+      padding: var(--space-sm) var(--space-lg);
+      border-radius: var(--radius-full);
+      font-weight: var(--fw-semibold);
+      cursor: pointer;
+      transition: all var(--transition-fast);
+    }
+
+    .video-hero__scroll-btn:hover {
+      background: var(--bc-gold-light);
+      transform: translateY(-2px);
+    }
+
+    .video-hero__scroll-btn svg {
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+      40% { transform: translateY(5px); }
+      60% { transform: translateY(3px); }
+    }
+
+    /* Sound Toggle Button */
+    .video-sound-btn {
+      position: absolute;
+      bottom: 100px;
+      right: var(--space-xl);
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      background: rgba(30, 58, 95, 0.8);
+      backdrop-filter: blur(10px);
+      color: var(--bc-white);
+      border: 2px solid var(--bc-gold);
+      padding: var(--space-sm) var(--space-lg);
+      border-radius: var(--radius-full);
+      cursor: pointer;
+      z-index: 15;
+      transition: all var(--transition-fast);
+      font-weight: var(--fw-medium);
+    }
+
+    .video-sound-btn:hover {
+      background: var(--bc-gold);
+      color: var(--bc-navy);
+    }
+
+    .video-sound-btn.active {
+      background: var(--bc-gold);
+      color: var(--bc-navy);
+    }
+
+    .video-sound-btn.active .sound-off { display: none; }
+    .video-sound-btn.active .sound-on { display: block !important; }
+    .video-sound-btn:not(.active) .sound-off { display: block; }
+    .video-sound-btn:not(.active) .sound-on { display: none; }
+
+    /* Mobile adjustments */
+    @media (max-width: 768px) {
+      .video-hero__title {
+        font-size: var(--fs-3xl);
+      }
+
+      .video-hero__family {
+        font-size: var(--fs-lg);
+      }
+
+      .video-hero__child {
+        font-size: var(--fs-base);
+      }
+
+      .video-hero__minimised {
+        flex-wrap: wrap;
+        gap: var(--space-md);
+        padding: var(--space-md);
+      }
+
+      .video-hero__mini-logo {
+        height: 30px;
+      }
+
+      .video-hero__mini-text {
+        font-size: var(--fs-sm);
+        order: 3;
+        width: 100%;
+      }
+    }
+  </style>
+
+  <script>
+    // Minimise welcome overlay after 3 seconds
+    document.addEventListener('DOMContentLoaded', function() {
+      setTimeout(minimiseWelcome, 3000);
+    });
+
+    function minimiseWelcome() {
+      const welcomeOverlay = document.getElementById('welcomeOverlay');
+      const welcomeMinimised = document.getElementById('welcomeMinimised');
+
+      // Add minimising animation
+      welcomeOverlay.classList.add('minimising');
+
+      // After animation, hide overlay and show minimised bar
+      setTimeout(() => {
+        welcomeOverlay.classList.add('hidden');
+        welcomeMinimised.classList.add('visible');
+      }, 1200);
+    }
+
+    // Toggle sound on/off
+    function toggleSound() {
+      const video = document.getElementById('heroVideo');
+      const btn = document.getElementById('soundBtn');
+      const text = btn.querySelector('.sound-text');
+
+      if (video.muted) {
+        video.muted = false;
+        btn.classList.add('active');
+        text.textContent = 'Sound On';
+      } else {
+        video.muted = true;
+        btn.classList.remove('active');
+        text.textContent = 'Enable Sound';
+      }
+    }
+
+    // Auto-mute when scrolling away from video
+    window.addEventListener('scroll', function() {
+      const videoHero = document.getElementById('cover');
+      const video = document.getElementById('heroVideo');
+      const btn = document.getElementById('soundBtn');
+      const text = btn.querySelector('.sound-text');
+
+      const rect = videoHero.getBoundingClientRect();
+      const isVisible = rect.bottom > 100; // Still partially visible
+
+      if (!isVisible && !video.muted) {
+        video.muted = true;
+        btn.classList.remove('active');
+        text.textContent = 'Enable Sound';
+      }
+    });
+  </script>
+
+  <!-- MODULE 2: WELCOME LETTER -->
+  <section class="prospectus-section" id="welcome" data-module="welcome">
+    <div class="container">
+      <div class="welcome-letter">
+        <p class="welcome-letter__salutation">Dear <span data-field="parent_salutation">Mr and Mrs Thompson</span>,</p>
+
+        <p>Thank you for your interest in Brighton College for <span data-field="child_name">Oliver</span>. From what you've shared with us, <span data-field="pronoun_subject">he</span> sounds like exactly the kind of curious, talented young person who thrives here.</p>
+
+        <p>At Brighton College, <span data-field="child_name">Oliver</span> would join a community where kindness is valued as highly as achievement. Where <span data-field="pronoun_subject">he</span>'ll be known by every teacher, challenged to achieve more than <span data-field="pronoun_subject">he</span> ever thought possible, and where <span data-field="pronoun_subject">he</span>'ll be just a stone's throw from one of Britain's most beautiful beaches.</p>
+
+        <p>We know that young people who are happy are young people who thrive. That's why we've created a culture where it's cool to care - about your studies, about each other, and about who you want to become.</p>
+
+        <p>I hope this prospectus gives you a sense of what life could be like for <span data-field="child_name">Oliver</span> at Brighton. We'd love to meet you all and show you around our wonderful school.</p>
+
+        <div class="welcome-letter__signature">
+          <p class="welcome-letter__signature-name">Steve Marshall-Taylor</p>
+          <p class="welcome-letter__signature-title">Head Master, Brighton College</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODULE 3: WHY BRIGHTON -->
+  <section class="prospectus-section" id="why-brighton" data-module="why_brighton">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-header__title">Why Brighton College for <span data-field="child_name">Oliver</span>?</h2>
+        <p class="section-header__subtitle">At the UK's School of the Decade, <span data-field="child_name">Oliver</span> would be challenged to achieve more than <span data-field="pronoun_subject">he</span> ever thought possible.</p>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-card__number">98%</div>
+          <div class="stat-card__label">A*-B at A-Level</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card__number">43</div>
+          <div class="stat-card__label">Oxbridge Offers 2024</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card__number">650+</div>
+          <div class="stat-card__label">Russell Group Offers</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card__number">#1</div>
+          <div class="stat-card__label">Co-ed School in UK</div>
+        </div>
+      </div>
+
+      <div class="quote-block">
+        <p class="quote-block__text">"At Brighton College, <span data-field="child_name">Oliver</span> would be treated with love, kindness and respect - and <span data-field="pronoun_subject">he</span>'d achieve more than <span data-field="pronoun_subject">he</span> ever dreamed possible."</p>
+        <p class="quote-block__author">Richard Cairns, Principal</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <img src="../assets/images/the-college-who-we-are-block-v2.jpg" alt="Brighton College students" class="feature-card__image">
+          <div class="feature-card__content">
+            <h3 class="feature-card__title">School of the Decade</h3>
+            <p class="feature-card__text">The Sunday Times named Brighton College the UK's School of the Decade - the only school to receive this honour. For <span data-field="child_name">Oliver</span>, this means joining an institution at the very pinnacle of British education.</p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <img src="../assets/images/brighton-college-beach-pupils-marketing-2-1.png" alt="Brighton College students at the beach" class="feature-card__image">
+          <div class="feature-card__content">
+            <h3 class="feature-card__title">The Beach on Your Doorstep</h3>
+            <p class="feature-card__text">No other top school in Britain offers what Brighton does - the sea air, the pier, the beach huts. <span data-field="child_name">Oliver</span> would study at one of the country's finest schools in one of its most vibrant cities.</p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <img src="../assets/images/the-college-a-home-from-home-block.jpg" alt="Brighton College boarding" class="feature-card__image">
+          <div class="feature-card__content">
+            <h3 class="feature-card__title">A Culture of Kindness</h3>
+            <p class="feature-card__text">We celebrate the uniqueness of every individual. <span data-field="child_name">Oliver</span> would join a community where it's cool to care - about your studies, about each other, and about making a difference.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODULE 4: ACADEMIC EXCELLENCE -->
+  <section class="prospectus-section" id="academics" data-module="academics">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-header__title">Academic Excellence</h2>
+        <p class="section-header__subtitle">Where <span data-field="child_name">Oliver</span> will be inspired to achieve <span data-field="pronoun_possessive">his</span> very best</p>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-card__number">98%</div>
+          <div class="stat-card__label">9/8/7 at GCSE</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card__number">26</div>
+          <div class="stat-card__label">A-Level Subjects</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card__number">22</div>
+          <div class="stat-card__label">Medical School Places 2024</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card__number">1:3</div>
+          <div class="stat-card__label">Oxbridge Success Rate</div>
+        </div>
+      </div>
+
+      <div class="features-grid" style="margin-top: var(--space-3xl);">
+        <div class="feature-card">
+          <img src="../assets/images/1714659415-hero-academic-life.jpg" alt="Academic life at Brighton College" class="feature-card__image">
+          <div class="feature-card__content">
+            <h3 class="feature-card__title">Record-Breaking Results</h3>
+            <p class="feature-card__text">In 2025, Brighton College achieved the best A-Level results of any independent school in the country. 98% of grades were A*-B, with A* being the most common grade. <span data-field="child_name">Oliver</span> would be learning alongside some of the brightest young minds in Britain.</p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <img src="../assets/images/college-steve.jpg" alt="Head Master Steve Marshall-Taylor" class="feature-card__image">
+          <div class="feature-card__content">
+            <h3 class="feature-card__title">Small Classes, Big Impact</h3>
+            <p class="feature-card__text">House tutors monitor just 15 pupils each, ensuring <span data-field="child_name">Oliver</span> is known as an individual. Every teacher will understand <span data-field="pronoun_possessive">his</span> strengths, support <span data-field="pronoun_possessive">his</span> challenges, and push <span data-field="pronoun_object">him</span> to excel.</p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <img src="../assets/images/the-college-beyond-the-classroom-block.jpg" alt="Beyond the classroom at Brighton" class="feature-card__image">
+          <div class="feature-card__content">
+            <h3 class="feature-card__title">Global Languages</h3>
+            <p class="feature-card__text">From Year 7, <span data-field="child_name">Oliver</span> would study Mandarin Chinese alongside two other modern languages. In today's world, multilingual graduates have a significant advantage - we're preparing <span data-field="pronoun_object">him</span> for it.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="quote-block">
+        <p class="quote-block__text">"It is cool to care about your studies and normal to want to do well."</p>
+        <p class="quote-block__author">Richard Cairns, Principal</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODULE 5: LOWER SCHOOL (Year 7 Entry Only) -->
+  <section class="prospectus-section" id="lower-school" data-module="lower_school">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-header__title"><span data-field="child_name">Oliver</span>'s Journey: Lower School</h2>
+        <p class="section-header__subtitle">Years 7 & 8 - Where <span data-field="pronoun_possessive">his</span> Brighton adventure begins</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-card__content">
+            <h3 class="feature-card__title">A Gentle Transition</h3>
+            <p class="feature-card__text">Moving from prep school is a big step. In Lower School, <span data-field="child_name">Oliver</span> will be part of a nurturing community designed to help <span data-field="pronoun_object">him</span> settle in quickly and confidently.</p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__content">
+            <h3 class="feature-card__title">Broad Curriculum</h3>
+            <p class="feature-card__text"><span data-field="child_name">Oliver</span> will study a wide range of subjects including our unique "Story of Our Land" course, compulsory Mandarin Chinese, and two other modern languages. We believe in breadth before specialisation.</p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__content">
+            <h3 class="feature-card__title">100+ Activities</h3>
+            <p class="feature-card__text">With 10 activity slots per week and over 100 options, <span data-field="child_name">Oliver</span> will discover new passions and develop existing talents. From robotics to rock climbing, there's something for everyone.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODULE 6: MIDDLE SCHOOL -->
+  <section class="prospectus-section" id="middle-school" data-module="middle_school">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-header__title">Middle School Excellence</h2>
+        <p class="section-header__subtitle">Years 9-11 - Where <span data-field="child_name">Oliver</span> will build <span data-field="pronoun_possessive">his</span> foundations for success</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-card__content">
+            <h3 class="feature-card__title">GCSE Success</h3>
+            <p class="feature-card__text">98% of our GCSE grades are 9, 8, or 7 (the old A*/A). <span data-field="child_name">Oliver</span> would be prepared thoroughly for <span data-field="pronoun_possessive">his</span> exams while developing the independent thinking skills needed for A-Levels and beyond.</p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__content">
+            <h3 class="feature-card__title">Subject Choice</h3>
+            <p class="feature-card__text">In Year 9, <span data-field="child_name">Oliver</span> will choose <span data-field="pronoun_possessive">his</span> GCSE options. With expert guidance from <span data-field="pronoun_possessive">his</span> tutor, <span data-field="pronoun_subject">he</span>'ll select subjects that play to <span data-field="pronoun_possessive">his</span> strengths and support <span data-field="pronoun_possessive">his</span> future aspirations.</p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__content">
+            <h3 class="feature-card__title">Personal Development</h3>
+            <p class="feature-card__text">These are formative years. <span data-field="child_name">Oliver</span> will develop confidence, resilience, and the interpersonal skills that will serve <span data-field="pronoun_object">him</span> throughout life.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODULE 7: BOARDING LIFE -->
+  <section class="prospectus-section" id="boarding" data-module="boarding">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-header__title">Boarding Life for <span data-field="child_name">Oliver</span></h2>
+        <p class="section-header__subtitle">UK Boarding School of the Year 2025 & 2026</p>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-card__number">6</div>
+          <div class="stat-card__label">Boarding Houses</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card__number">50%</div>
+          <div class="stat-card__label">Boarders</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card__number">0</div>
+          <div class="stat-card__label">Saturday School</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card__number">24/7</div>
+          <div class="stat-card__label">Pastoral Care</div>
+        </div>
+      </div>
+
+      <div class="houses-grid" style="margin-top: var(--space-3xl);">
+        <div class="house-card" data-gender="boys">
+          <h3 class="house-card__name">Head's House</h3>
+          <p class="house-card__type">Boys' House</p>
+          <p>A welcoming community with strong traditions and a family atmosphere.</p>
+        </div>
+        <div class="house-card" data-gender="boys">
+          <h3 class="house-card__name">School House</h3>
+          <p class="house-card__type">Boys' House</p>
+          <p>Historic house at the heart of the College with excellent facilities.</p>
+        </div>
+        <div class="house-card" data-gender="boys">
+          <h3 class="house-card__name">Alexander House</h3>
+          <p class="house-card__type">Boys' House</p>
+          <p>Modern accommodation with a vibrant, supportive community.</p>
+        </div>
+        <div class="house-card" data-gender="girls">
+          <h3 class="house-card__name">New House</h3>
+          <p class="house-card__type">Girls' House - RIBA Prize Winner</p>
+          <p>Award-winning architecture with stunning sea views and modern facilities.</p>
+        </div>
+        <div class="house-card" data-gender="girls">
+          <h3 class="house-card__name">Fenwick House</h3>
+          <p class="house-card__type">Girls' House</p>
+          <p>Warm and welcoming with a strong sense of sisterhood.</p>
+        </div>
+        <div class="house-card" data-gender="girls">
+          <h3 class="house-card__name">Abraham House</h3>
+          <p class="house-card__type">Girls' House</p>
+          <p>A close-knit community where every girl is valued.</p>
+        </div>
+      </div>
+
+      <div class="features-grid" style="margin-top: var(--space-3xl);">
+        <div class="feature-card">
+          <div class="feature-card__content">
+            <h3 class="feature-card__title">Weekly Boarding</h3>
+            <p class="feature-card__text">Popular with London families - <span data-field="child_name">Oliver</span> would be immersed in school life Monday to Friday, then home for weekends. The perfect balance of independence and family time.</p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__content">
+            <h3 class="feature-card__title">Weekend Adventures</h3>
+            <p class="feature-card__text">Full boarders enjoy go-karting, Harry Potter Studios visits, beach volleyball, cinema nights, "Boarders Got Talent", and cultural trips to London. <span data-field="child_name">Oliver</span> would never be bored!</p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__content">
+            <h3 class="feature-card__title">A Home from Home</h3>
+            <p class="feature-card__text">Housemasters and housemistresses live on site, creating a genuine family atmosphere. <span data-field="child_name">Oliver</span> would be known, supported, and cared for around the clock.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODULE 8: DAY PUPIL EXPERIENCE -->
+  <section class="prospectus-section" id="day-pupil" data-module="day">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-header__title">The Day Pupil Experience</h2>
+        <p class="section-header__subtitle"><span data-field="child_name">Oliver</span> would enjoy all Brighton has to offer while coming home each evening</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-card__content">
+            <h3 class="feature-card__title">Full Integration</h3>
+            <p class="feature-card__text">Day pupils are fully integrated into house life. <span data-field="child_name">Oliver</span> would belong to a house, have a house tutor, and participate in all house activities and competitions.</p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__content">
+            <h3 class="feature-card__title">Extended Day</h3>
+            <p class="feature-card__text">School runs from 8am with activities until 6pm. <span data-field="child_name">Oliver</span> can stay for prep, clubs, sports fixtures, and social events - or head home earlier if preferred.</p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__content">
+            <h3 class="feature-card__title">Flexible Boarding</h3>
+            <p class="feature-card__text">Many day pupils occasionally board for special events, late fixtures, or simply to experience boarding life. <span data-field="child_name">Oliver</span> would have that flexibility too.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODULE 9: CULTURE OF KINDNESS -->
+  <section class="prospectus-section" id="kindness" data-module="kindness">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-header__title">A Culture of Kindness</h2>
+        <p class="section-header__subtitle">The defining characteristic of Brighton College - and what would shape <span data-field="child_name">Oliver</span>'s character</p>
+      </div>
+
+      <div class="quote-block">
+        <p class="quote-block__text">"We know that young people who are happy are young people who thrive. Every child at Brighton College is valued for <span data-field="pronoun_possessive">his</span> or her own sake."</p>
+        <p class="quote-block__author">Richard Cairns, Principal</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-card__content">
+            <h3 class="feature-card__title">Celebrating Individuality</h3>
+            <p class="feature-card__text">We pioneered the gender-neutral uniform in 2016 and were the first independent school with an openly gay head boy. <span data-field="child_name">Oliver</span> would join a community that truly celebrates who you are.</p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__content">
+            <h3 class="feature-card__title">Community Service</h3>
+            <p class="feature-card__text">Compulsory community volunteering teaches our pupils that success means nothing without giving back. <span data-field="child_name">Oliver</span> would learn that kindness and service are as important as academic achievement.</p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__content">
+            <h3 class="feature-card__title">Anti-Bullying</h3>
+            <p class="feature-card__text">We take a zero-tolerance approach to bullying. Our pastoral system ensures <span data-field="child_name">Oliver</span> would always have someone to turn to, and our culture makes bullying the exception, not the rule.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODULE 10: SPORT -->
+  <section class="prospectus-section" id="sport" data-module="sport">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-header__title">Sport for <span data-field="child_name">Oliver</span></h2>
+        <p class="section-header__subtitle">Participation for all - excellence for those who want it</p>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-card__number">30+</div>
+          <div class="stat-card__label">International Representatives</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card__number">40+</div>
+          <div class="stat-card__label">Oxbridge Blues</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card__number">2021</div>
+          <div class="stat-card__label">School of Science & Sport</div>
+        </div>
+      </div>
+
+      <div class="features-grid sport-cards" style="margin-top: var(--space-3xl);">
+        <div class="feature-card sport-card" data-gender="boys">
+          <div class="feature-card__content">
+            <h3 class="feature-card__title">Sport at Brighton</h3>
+            <p class="feature-card__text"><strong>Rugby:</strong> Won every match in 2024. <strong>Cricket:</strong> Stunning facilities and expert coaching. <strong>Football & Hockey:</strong> Competitive fixtures against top schools. Plus athletics, swimming, golf, rowing, and more.</p>
+          </div>
+        </div>
+        <div class="feature-card sport-card" data-gender="girls">
+          <div class="feature-card__content">
+            <h3 class="feature-card__title">Sport at Brighton</h3>
+            <p class="feature-card__text"><strong>Hockey:</strong> Best season ever in 2024. <strong>Netball:</strong> Strong competitive programme. <strong>Tennis & Cricket:</strong> Growing programmes with excellent coaching. Plus athletics, swimming, gymnastics, and more.</p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__content">
+            <h3 class="feature-card__title">World-Class Facilities</h3>
+            <p class="feature-card__text">The School of Science and Sport (2021) offers an indoor athletics track, fitness suites, and the unique opportunity for beach volleyball on Brighton's seafront. <span data-field="child_name">Oliver</span> would train in exceptional facilities.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="interest-tags" id="sportInterestTags">
+        <!-- Populated by JavaScript based on form data -->
+      </div>
+    </div>
+  </section>
+
+  <!-- MODULE 11: MUSIC -->
+  <section class="prospectus-section" id="music" data-module="music">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-header__title">Music at Brighton</h2>
+        <p class="section-header__subtitle">Where <span data-field="child_name">Oliver</span>'s musical talents would flourish</p>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-card__number">25+</div>
+          <div class="stat-card__label">Ensembles</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card__number">70+</div>
+          <div class="stat-card__label">Events Per Year</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card__number">150</div>
+          <div class="stat-card__label">Seat Recital Hall</div>
+        </div>
+      </div>
+
+      <div class="features-grid" style="margin-top: var(--space-3xl);">
+        <div class="feature-card">
+          <div class="feature-card__content">
+            <h3 class="feature-card__title">Award-Winning Ensembles</h3>
+            <p class="feature-card__text">From our internationally acclaimed Chamber Choir to jazz bands and orchestras, <span data-field="child_name">Oliver</span> would find <span data-field="pronoun_possessive">his</span> musical home. Over 25 ensembles cater for all abilities and interests.</p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__content">
+            <h3 class="feature-card__title">Performance Opportunities</h3>
+            <p class="feature-card__text">With 70+ musical events each year, <span data-field="child_name">Oliver</span> would have countless chances to perform - from intimate recitals in our 150-seat Recital Hall to major concerts in the new 400-seat theatre.</p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__content">
+            <h3 class="feature-card__title">Expert Tuition</h3>
+            <p class="feature-card__text">Individual lessons in virtually every instrument, taught by professional musicians. Many pupils go on to music conservatoires and Oxbridge music courses.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODULE 12: DRAMA -->
+  <section class="prospectus-section" id="drama" data-module="drama">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-header__title">Drama & Theatre</h2>
+        <p class="section-header__subtitle">A world-class stage for <span data-field="child_name">Oliver</span>'s talents</p>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-card__number">15</div>
+          <div class="stat-card__label">Productions Annually</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card__number">400</div>
+          <div class="stat-card__label">Seat Theatre</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card__number">2</div>
+          <div class="stat-card__label">Fringe Festivals</div>
+        </div>
+      </div>
+
+      <div class="features-grid" style="margin-top: var(--space-3xl);">
+        <div class="feature-card">
+          <div class="feature-card__content">
+            <h3 class="feature-card__title">Richard Cairns Building</h3>
+            <p class="feature-card__text">Our stunning new 400-seat professional theatre opened in 2024. <span data-field="child_name">Oliver</span> would perform on one of the finest school stages in the country.</p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__content">
+            <h3 class="feature-card__title">Brighton & Edinburgh Fringe</h3>
+            <p class="feature-card__text">Our pupils take productions to both the Brighton Fringe and Edinburgh Fringe festivals. <span data-field="child_name">Oliver</span> could experience professional festival theatre while still at school.</p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__content">
+            <h3 class="feature-card__title">LAMDA Lessons</h3>
+            <p class="feature-card__text">Individual LAMDA lessons develop confidence and public speaking skills. Many pupils achieve distinction at the highest grades - invaluable for <span data-field="child_name">Oliver</span>'s future.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODULE 13: DANCE -->
+  <section class="prospectus-section" id="dance" data-module="dance">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-header__title">Dance</h2>
+        <p class="section-header__subtitle">For boys AND girls - breaking stereotypes</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-card__content">
+            <h3 class="feature-card__title">Dance School</h3>
+            <p class="feature-card__text">Our purpose-built Dance School features a sprung floor, mirrors, and barres. <span data-field="child_name">Oliver</span> would train in professional-standard facilities.</p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__content">
+            <h3 class="feature-card__title">All Styles Welcome</h3>
+            <p class="feature-card__text">Ballet, Contemporary, Jazz, Hip Hop, Tap - we teach it all. <span data-field="child_name">Oliver</span> could explore different styles or focus on <span data-field="pronoun_possessive">his</span> favourite.</p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__content">
+            <h3 class="feature-card__title">Boys Dance Too</h3>
+            <p class="feature-card__text">We actively encourage boys to dance. It builds fitness, coordination, and confidence - and <span data-field="child_name">Oliver</span> would be in good company with many male dancers at Brighton.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODULE 14: ART -->
+  <section class="prospectus-section" id="art" data-module="art">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-header__title">Art & Design</h2>
+        <p class="section-header__subtitle">Where <span data-field="child_name">Oliver</span>'s creativity would thrive</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-card__content">
+            <h3 class="feature-card__title">Art Studios</h3>
+            <p class="feature-card__text">Dedicated studios for painting, sculpture, printmaking, and photography. <span data-field="child_name">Oliver</span> would have access to professional-grade equipment and materials.</p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__content">
+            <h3 class="feature-card__title">Design & Technology</h3>
+            <p class="feature-card__text">Our DT workshops combine traditional craftsmanship with cutting-edge technology. <span data-field="child_name">Oliver</span> could design, build, and create - from furniture to electronics.</p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__content">
+            <h3 class="feature-card__title">Exhibitions & Competitions</h3>
+            <p class="feature-card__text">Regular exhibitions showcase pupil work, and we enter national competitions. <span data-field="child_name">Oliver</span>'s work could be seen and celebrated by the whole community.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODULE 15: CLUBS & ACTIVITIES -->
+  <section class="prospectus-section" id="activities" data-module="activities">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-header__title">100+ Clubs & Activities</h2>
+        <p class="section-header__subtitle"><span data-field="child_name">Oliver</span> would have 10 activity slots every week to explore</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-card__content">
+            <h3 class="feature-card__title">Academic Societies</h3>
+            <p class="feature-card__text">Model UN, Debating, Science Society, Economics Club, Philosophy Circle, Law Society - <span data-field="child_name">Oliver</span> would extend <span data-field="pronoun_possessive">his</span> learning beyond the classroom.</p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__content">
+            <h3 class="feature-card__title">Adventure & Outdoor</h3>
+            <p class="feature-card__text">Duke of Edinburgh, CCF, climbing, kayaking, sailing - plus unique access to the beach and South Downs. <span data-field="child_name">Oliver</span> could become a qualified lifeguard!</p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__content">
+            <h3 class="feature-card__title">Technology & Innovation</h3>
+            <p class="feature-card__text">Robotics, Coding Club, 3D printing, Electronics - <span data-field="child_name">Oliver</span> would be prepared for the digital future with hands-on experience of emerging technologies.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="quote-block">
+        <p class="quote-block__text">"Brighton allowed me to try everything - from debating to beach volleyball. I discovered passions I never knew I had."</p>
+        <p class="quote-block__author">Recent Leaver</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODULE 16: SCHOLARSHIPS -->
+  <section class="prospectus-section" id="scholarships" data-module="scholarships">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-header__title">Scholarships</h2>
+        <p class="section-header__subtitle">Recognising <span data-field="child_name">Oliver</span>'s talents and potential</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-card__content">
+            <h3 class="feature-card__title">Academic Scholarship</h3>
+            <p class="feature-card__text">For pupils who demonstrate exceptional academic ability and intellectual curiosity. Assessed through our entrance examinations and interview.</p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__content">
+            <h3 class="feature-card__title">Creative Arts Scholarships</h3>
+            <p class="feature-card__text">Art, Chess, Choral, Dance, Drama, Design & Technology, and Music scholarships available at 11+ and 13+. <span data-field="child_name">Oliver</span> would audition or submit a portfolio.</p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__content">
+            <h3 class="feature-card__title">Sports Scholarship</h3>
+            <p class="feature-card__text">For talented athletes who would contribute to our sporting programme. Assessment includes trials and review of sporting achievements.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="feature-card" style="margin-top: var(--space-xl);" data-entry="year9">
+        <div class="feature-card__content">
+          <h3 class="feature-card__title">Sammy Woods Sports Scholarship (13+ Only)</h3>
+          <p class="feature-card__text">Our elite sports scholarship for exceptional talent in Cricket, Football, Hockey, Netball, or Rugby. Named after our famous cricketing alumnus who played for England.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODULE 17: BURSARIES -->
+  <section class="prospectus-section" id="bursaries" data-module="bursaries">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-header__title">Bursaries</h2>
+        <p class="section-header__subtitle">Making Brighton College accessible</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-card__content">
+            <h3 class="feature-card__title">Means-Tested Support</h3>
+            <p class="feature-card__text">Bursaries of up to 100% of fees are available based on family income and circumstances. If <span data-field="child_name">Oliver</span> is right for Brighton, we'll work to make it possible.</p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__content">
+            <h3 class="feature-card__title">Opening Doors Programme</h3>
+            <p class="feature-card__text">Fully-funded places for exceptional pupils from disadvantaged backgrounds. We believe talent should never be limited by financial circumstances.</p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__content">
+            <h3 class="feature-card__title">Confidential Process</h3>
+            <p class="feature-card__text">All bursary applications are handled with complete confidentiality. No one at the school will know who receives financial support.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODULE 18: OUR SPACES -->
+  <section class="prospectus-section" id="spaces" data-module="spaces">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-header__title">Our Spaces</h2>
+        <p class="section-header__subtitle">Where <span data-field="child_name">Oliver</span> would learn, live, and grow</p>
+      </div>
+
+      <!-- 360 Virtual Tour -->
+      <div class="tour-embed">
+        <iframe
+          src="https://www.360marketinglab.org.uk/virtual-tour/brighton-college/"
+          width="100%"
+          height="500"
+          frameborder="0"
+          allowfullscreen
+          title="Brighton College Virtual Tour">
+        </iframe>
+      </div>
+      <p style="text-align: center; margin-top: var(--space-md); color: var(--bc-grey-dark);">
+        Explore our campus with our interactive 360° tour
+      </p>
+
+      <div class="features-grid" style="margin-top: var(--space-3xl);">
+        <div class="feature-card">
+          <div class="feature-card__content">
+            <h3 class="feature-card__title">Richard Cairns Building (2024)</h3>
+            <p class="feature-card__text">Our stunning new performing arts centre with 400-seat theatre, Dance School, and Sixth Form facilities. A statement of ambition for our pupils.</p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__content">
+            <h3 class="feature-card__title">School of Science & Sport (2021)</h3>
+            <p class="feature-card__text">World-class science labs, indoor athletics track, Sky Garden on the roof with views to the sea. Where STEM meets athletic excellence.</p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__content">
+            <h3 class="feature-card__title">The Main Quad</h3>
+            <p class="feature-card__text">The heart of Brighton College - beautiful Victorian Gothic architecture meets modern facilities. <span data-field="child_name">Oliver</span> would study in buildings steeped in 180 years of history.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODULE 19: BRIGHTON & THE BEACH -->
+  <section class="prospectus-section" id="brighton" data-module="brighton">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-header__title">Brighton & The Beach</h2>
+        <p class="section-header__subtitle">No other top school offers what Brighton does</p>
+      </div>
+
+      <div class="quote-block">
+        <p class="quote-block__text">"The beach is on our doorstep. <span data-field="child_name">Oliver</span> would study at one of Britain's finest schools in one of its most vibrant and happy cities - with the sea just a stone's throw away."</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-card__content">
+            <h3 class="feature-card__title">The Iconic Beach Huts</h3>
+            <p class="feature-card__text">Brighton's famous multi-coloured beach huts are part of our identity. Our pupils enjoy beach activities, sea swimming, and the unique energy of the seafront.</p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__content">
+            <h3 class="feature-card__title">The Pier & Seafront</h3>
+            <p class="feature-card__text">The iconic Brighton Pier, the vibrant Lanes, the South Downs - <span data-field="child_name">Oliver</span> would grow up in a city full of culture, creativity, and clean sea air.</p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__content">
+            <h3 class="feature-card__title">Easy Travel</h3>
+            <p class="feature-card__text">London Victoria: ~1 hour by train. Gatwick: ~30 minutes. Heathrow: ~1.5 hours. Brighton is perfectly connected while feeling a world away from the city.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODULE 20: HOW TO APPLY -->
+  <section class="prospectus-section" id="apply" data-module="apply">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-header__title">How to Apply for <span data-field="child_name">Oliver</span></h2>
+        <p class="section-header__subtitle">Your journey to Brighton College starts here</p>
+      </div>
+
+      <div class="features-grid entry-point-cards">
+        <div class="feature-card entry-card" data-entry="year7">
+          <div class="feature-card__content">
+            <h3 class="feature-card__title">Year 7 Entry (11+)</h3>
+            <p class="feature-card__text"><strong>Assessment:</strong> November before entry<br><strong>Includes:</strong> Entrance exams, interview, school report<br><strong>Scholarships:</strong> Academic, Art, Chess, Choral, Dance, Drama, DT, Music, Sport</p>
+          </div>
+        </div>
+        <div class="feature-card entry-card" data-entry="year9">
+          <div class="feature-card__content">
+            <h3 class="feature-card__title">Year 9 Entry (13+)</h3>
+            <p class="feature-card__text"><strong>Assessment:</strong> Common Entrance or Brighton College exams<br><strong>Additional:</strong> Sammy Woods Sports Scholarship available<br><strong>Timing:</strong> Register early for best scholarship consideration</p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__content">
+            <h3 class="feature-card__title">Next Steps</h3>
+            <p class="feature-card__text">1. Book a visit to see Brighton for yourself<br>2. Register your interest online<br>3. We'll be in touch to discuss <span data-field="child_name">Oliver</span>'s application</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODULE 21: VISIT US -->
+  <section class="prospectus-section" id="visit" data-module="visit">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-header__title">Visit Us</h2>
+        <p class="section-header__subtitle">Come and see Brighton College for yourselves</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-card__content">
+            <h3 class="feature-card__title">Open Mornings</h3>
+            <p class="feature-card__text"><strong>Next Date:</strong> Saturday 31 January 2026<br>Join us for a tour, meet teachers and pupils, and experience the Brighton atmosphere. <span data-field="child_name">Oliver</span> is welcome to attend!</p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__content">
+            <h3 class="feature-card__title">Private Visits</h3>
+            <p class="feature-card__text">Can't make an Open Morning? We'd be delighted to arrange a private tour for your family. Contact our Admissions team to book.</p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__content">
+            <h3 class="feature-card__title">Contact Us</h3>
+            <p class="feature-card__text"><strong>Phone:</strong> +44 (0)1273 704 200<br><strong>Email:</strong> admissions@brightoncollege.org.uk<br><strong>Address:</strong> Eastern Road, Brighton, BN2 0AL</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODULE 22: NEXT STEPS / CTA -->
+  <section class="cta-section" id="next-steps" data-module="next_steps">
+    <div class="container">
+      <h2 class="cta-section__title">Ready to Explore Brighton College for <span data-field="child_name">Oliver</span>?</h2>
+      <p class="cta-section__text">We'd love to meet you and show you around the UK's School of the Decade.</p>
+      <div class="btn-group">
+        <a href="https://www.brightoncollege.org.uk/visit" class="btn btn--primary" target="_blank">Book a Visit</a>
+        <a href="https://www.brightoncollege.org.uk/college/join/enquire" class="btn btn--secondary" target="_blank">Register Interest</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="prospectus-footer">
+    <div class="container">
+      <img src="../assets/logo/brighton-college-logo--vertical-white.svg" alt="Brighton College" class="prospectus-footer__logo">
+      <p class="prospectus-footer__contact">
+        Brighton College | Eastern Road, Brighton, East Sussex, BN2 0AL<br>
+        +44 (0)1273 704 200 | admissions@brightoncollege.org.uk
+      </p>
+      <div class="prospectus-footer__links">
+        <a href="https://www.brightoncollege.org.uk" target="_blank">Website</a>
+        <a href="https://www.brightoncollege.org.uk/privacy-policy" target="_blank">Privacy Policy</a>
+        <a href="https://www.brightoncollege.org.uk/college/join/apply" target="_blank">Apply Now</a>
+      </div>
+      <p style="margin-top: var(--space-xl); font-size: var(--fs-sm); opacity: 0.7;">
+        This personalised prospectus was created for the <span data-field="family_name">Thompson</span> Family.<br>
+        Powered by bSMART ai
+      </p>
+    </div>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script src="../scripts/personalisation.js"></script>
+  <script src="../scripts/progress-tracker.js"></script>
+  <script src="../scripts/module-visibility.js"></script>
+  <script>
+    // Initialise on page load
+    document.addEventListener('DOMContentLoaded', function() {
+      // Initialise personalisation
+      const engine = new PersonalisationEngine();
+      window.personalisationEngine = engine;
+
+      // Apply personalisation
+      const nameCount = engine.applyPersonalisation();
+      console.log(`Personalisation complete: ${nameCount} instances of child's name`);
+
+      // Apply module visibility
+      const visibility = new ModuleVisibility(engine);
+      window.moduleVisibility = visibility;
+
+      // Initialise progress tracker
+      const progress = new ProgressTracker();
+      window.progressTracker = progress;
+
+      // Filter boarding houses based on gender
+      filterBoardingHouses(engine.data.child?.gender);
+
+      // Filter sport cards based on gender
+      filterSportCards(engine.data.child?.gender);
+
+      // Filter entry point cards based on selected entry year
+      filterEntryPointCards(engine.data.entry?.point);
+
+      // Populate sport interest tags
+      populateInterestTags(engine);
+
+      // Add smooth scroll for internal links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth' });
+          }
+        });
+      });
+    });
+
+    // Filter boarding houses to show only relevant gender's houses
+    function filterBoardingHouses(gender) {
+      const houses = document.querySelectorAll('.house-card');
+      const housesGrid = document.querySelector('.houses-grid');
+
+      if (!housesGrid || !gender) return;
+
+      const relevantGender = (gender === 'boy' || gender === 'male') ? 'boys' :
+                            (gender === 'girl' || gender === 'female') ? 'girls' : null;
+
+      if (relevantGender) {
+        // Hide opposite gender's houses completely
+        houses.forEach(house => {
+          if (house.dataset.gender === relevantGender) {
+            house.style.display = '';
+          } else {
+            house.style.display = 'none';
+          }
+        });
+      }
+    }
+
+    // Filter sport cards to show only relevant gender's sports
+    function filterSportCards(gender) {
+      const sportCards = document.querySelectorAll('.sport-card');
+
+      if (!gender) return;
+
+      const relevantGender = (gender === 'boy' || gender === 'male') ? 'boys' :
+                            (gender === 'girl' || gender === 'female') ? 'girls' : null;
+
+      if (relevantGender) {
+        // Hide opposite gender's sport card completely
+        sportCards.forEach(card => {
+          if (card.dataset.gender === relevantGender) {
+            card.style.display = '';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      }
+    }
+
+    // Filter entry point cards to show only relevant entry year
+    function filterEntryPointCards(entryPoint) {
+      const entryCards = document.querySelectorAll('.entry-card');
+
+      if (!entryPoint) return;
+
+      // Map entry point values to data attributes
+      const relevantEntry = entryPoint.includes('7') || entryPoint.includes('11') ? 'year7' :
+                           entryPoint.includes('9') || entryPoint.includes('13') ? 'year9' : null;
+
+      if (relevantEntry) {
+        // Hide other entry point card completely
+        entryCards.forEach(card => {
+          if (card.dataset.entry === relevantEntry) {
+            card.style.display = '';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      }
+    }
+
+    // Populate interest tags
+    function populateInterestTags(engine) {
+      const tagsContainer = document.getElementById('sportInterestTags');
+      if (tagsContainer && engine.data.interests?.sports) {
+        tagsContainer.innerHTML = engine.data.interests.sports
+          .map(sport => `<span class="interest-tag">${sport}</span>`)
+          .join('');
+      }
+    }
+
+    // Print function
+    function printProspectus() {
+      window.print();
+    }
+  </script>
+</body>
+</html>

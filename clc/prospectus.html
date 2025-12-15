@@ -1,0 +1,1918 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Personalised Prospectus | Cheltenham Ladies' College</title>
+    <meta name="description" content="A personalised prospectus prepared exclusively for your family by Cheltenham Ladies' College.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles/clc-prospectus.css">
+
+    <style>
+        /* Prospectus Navigation */
+        .prospectus-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255,255,255,0.98);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(26, 95, 90, 0.1);
+            z-index: 1000;
+            transform: translateY(-100%);
+            transition: transform 0.3s ease;
+        }
+
+        .prospectus-nav--visible {
+            transform: translateY(0);
+        }
+
+        .prospectus-nav__inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: var(--space-sm) var(--space-lg);
+            max-width: var(--container-xl);
+            margin: 0 auto;
+        }
+
+        .prospectus-nav__title {
+            font-family: var(--font-serif);
+            font-size: 1rem;
+            color: var(--clc-teal);
+        }
+
+        .prospectus-nav__progress {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+        }
+
+        .prospectus-nav__progress-bar {
+            width: 150px;
+            height: 4px;
+            background: var(--clc-teal-pale);
+            border-radius: var(--radius-full);
+            overflow: hidden;
+        }
+
+        .prospectus-nav__progress-fill {
+            height: 100%;
+            background: var(--clc-teal);
+            transition: width 0.3s ease;
+        }
+
+        /* Module visibility - show by default, hide when not included */
+        .module[data-module] {
+            display: block;
+        }
+        .module[data-module].module--hidden {
+            display: none !important;
+        }
+
+        /* Hero image styles */
+        .hero-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: var(--radius-lg);
+        }
+
+        /* Two column layout */
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-2xl);
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .two-col {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Table of contents */
+        .toc {
+            background: var(--clc-white);
+            border-radius: var(--radius-lg);
+            padding: var(--space-xl);
+            box-shadow: var(--shadow-md);
+        }
+
+        .toc__list {
+            list-style: none;
+        }
+
+        .toc__item {
+            padding: var(--space-sm) 0;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .toc__item:last-child {
+            border-bottom: none;
+        }
+
+        .toc__link {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            color: var(--text-primary);
+            transition: color var(--transition-fast);
+        }
+
+        .toc__link:hover {
+            color: var(--clc-teal);
+        }
+
+        .toc__number {
+            color: var(--clc-teal);
+            font-weight: 600;
+            min-width: 24px;
+        }
+
+        /* Photo grid */
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-md);
+        }
+
+        .photo-grid img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: var(--radius-md);
+        }
+
+        @media (max-width: 768px) {
+            .photo-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* House card */
+        .house-card {
+            background: var(--clc-white);
+            border-radius: var(--radius-lg);
+            padding: var(--space-lg);
+            box-shadow: var(--shadow-sm);
+            border-left: 4px solid var(--clc-teal);
+        }
+
+        .house-card__name {
+            font-weight: 600;
+            color: var(--clc-teal);
+            margin-bottom: var(--space-xs);
+        }
+
+        .house-card__type {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        /* Subject tag */
+        .subject-tag {
+            display: inline-block;
+            padding: var(--space-xs) var(--space-md);
+            background: var(--clc-teal-pale);
+            color: var(--clc-teal);
+            border-radius: var(--radius-full);
+            font-size: 0.875rem;
+            margin: var(--space-xs);
+        }
+
+        .subject-tag--essential {
+            background: var(--clc-teal);
+            color: var(--clc-white);
+        }
+
+        .subject-tag--recommended {
+            background: var(--clc-gold);
+            color: var(--text-primary);
+        }
+
+        /* Pathway card */
+        .pathway-card {
+            background: linear-gradient(135deg, var(--clc-teal) 0%, var(--clc-teal-dark) 100%);
+            color: var(--clc-white);
+            border-radius: var(--radius-xl);
+            padding: var(--space-2xl);
+            margin: var(--space-xl) 0;
+        }
+
+        .pathway-card h3 {
+            color: var(--clc-white);
+        }
+
+
+        /* Video Hero Styles */
+        .video-hero {
+            position: relative;
+            width: 100vw;
+            margin-left: calc(-50vw + 50%);
+            height: 100vh;
+            min-height: 600px;
+            overflow: hidden;
+            background: var(--clc-teal-dark);
+        }
+
+        .video-hero__video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translate(-50%, -50%);
+        }
+
+        .video-hero__video iframe {
+            width: 100vw;
+            height: 56.25vw;
+            min-height: 100vh;
+            min-width: 177.77vh;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+        }
+
+        .video-hero__overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.4);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: var(--space-2xl);
+            color: var(--clc-white);
+            transition: opacity 2s ease;
+        }
+
+        .video-hero__overlay.fade-out {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .video-hero__welcome {
+            font-family: var(--font-serif);
+            font-size: 4rem;
+            font-weight: 600;
+            margin-bottom: var(--space-lg);
+            animation: fadeInUp 1.5s ease;
+            color: #ffffff;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7), 0 0 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .video-hero__tagline {
+            font-size: 1.75rem;
+            max-width: 700px;
+            animation: fadeInUp 1.5s ease 0.3s both;
+            color: #ffffff;
+            text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.7), 0 0 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .video-hero__scroll {
+            position: absolute;
+            bottom: var(--space-xl);
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--clc-white);
+            font-size: 0.875rem;
+            animation: bounce 2s infinite;
+            transition: opacity 2s ease;
+        }
+
+        /* Sound enable button */
+        .video-sound-btn {
+            position: absolute;
+            top: var(--space-xl);
+            right: var(--space-xl);
+            background: rgba(255,255,255,0.95);
+            color: var(--clc-teal);
+            border: none;
+            padding: var(--space-md) var(--space-lg);
+            border-radius: var(--radius-full);
+            font-family: inherit;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            box-shadow: var(--shadow-lg);
+            transition: all var(--transition-fast);
+            z-index: 10;
+        }
+
+        .video-sound-btn:hover {
+            background: var(--clc-white);
+            transform: scale(1.05);
+        }
+
+        .video-sound-btn--active {
+            background: var(--clc-teal);
+            color: var(--clc-white);
+        }
+
+        .video-fullwidth .video-sound-btn {
+            top: var(--space-lg);
+            right: var(--space-lg);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(10px); }
+        }
+
+        /* Video Finale Styles */
+        .video-finale {
+            position: relative;
+            width: 100vw;
+            margin-left: calc(-50vw + 50%);
+            min-height: 100vh;
+            overflow: hidden;
+            background: var(--clc-teal-dark);
+        }
+
+        .video-finale__video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translate(-50%, -50%);
+        }
+
+        .video-finale__video iframe {
+            width: 100vw;
+            height: 56.25vw;
+            min-height: 100vh;
+            min-width: 177.77vh;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .video-finale__overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, transparent 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: center;
+            text-align: center;
+            padding: var(--space-xl);
+            padding-bottom: var(--space-lg);
+            color: var(--clc-white);
+            transition: opacity 2s ease;
+        }
+
+        .video-finale__overlay.fade-out {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .video-finale__text {
+            max-width: 600px;
+        }
+
+        .video-finale__quote {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            font-weight: 400;
+            font-style: italic;
+            margin-bottom: var(--space-sm);
+            opacity: 0;
+            animation: fadeReveal 1.5s ease forwards;
+        }
+
+        .video-finale__name {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--clc-gold);
+            margin-bottom: var(--space-xs);
+            opacity: 0;
+            animation: fadeReveal 1.5s ease 0.5s forwards;
+        }
+
+        .video-finale__message {
+            font-size: 1rem;
+            opacity: 0;
+            animation: fadeReveal 1.5s ease 1s forwards;
+        }
+
+        .video-finale__cta {
+            display: none;
+        }
+
+        .video-finale__cta-below {
+            background: var(--clc-teal-dark);
+            padding: var(--space-xl);
+            text-align: center;
+        }
+
+        @keyframes fadeReveal {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Full-width video sections */
+        .video-fullwidth {
+            position: relative;
+            width: 100vw;
+            margin-left: calc(-50vw + 50%);
+            background: var(--clc-teal-dark);
+            padding: 0;
+        }
+
+        .video-fullwidth__title {
+            text-align: center;
+            color: var(--clc-white);
+            padding: var(--space-xl) var(--space-lg) var(--space-md);
+            margin: 0;
+            font-family: var(--font-serif);
+            font-size: 1.75rem;
+        }
+
+        .video-fullwidth__container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+        }
+
+        .video-fullwidth__container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Video wrapper for embedded videos (contained) */
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Sports detail grid */
+        .sports-detail-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: var(--space-xl);
+            margin-top: var(--space-xl);
+        }
+
+        .sport-detail-card {
+            background: var(--clc-white);
+            border-radius: var(--radius-xl);
+            padding: var(--space-xl);
+            box-shadow: var(--shadow-md);
+            border: 1px solid rgba(26, 95, 90, 0.1);
+            transition: all var(--transition-fast);
+        }
+
+        .sport-detail-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .sport-detail-card__header {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+            margin-bottom: var(--space-md);
+        }
+
+        .sport-detail-card__icon {
+            font-size: 2.5rem;
+        }
+
+        .sport-detail-card__title {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            color: var(--clc-teal);
+            margin: 0;
+        }
+
+        .sport-detail-card__season {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-secondary);
+            background: var(--clc-teal-pale);
+            padding: 2px 8px;
+            border-radius: var(--radius-full);
+        }
+
+        .sport-detail-card__description {
+            color: var(--text-secondary);
+            margin-bottom: var(--space-md);
+        }
+
+        .sport-detail-card__highlights h4 {
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--clc-teal);
+            margin-bottom: var(--space-sm);
+        }
+
+        .sport-detail-card__highlights ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sport-detail-card__highlights li {
+            position: relative;
+            padding-left: var(--space-lg);
+            padding-bottom: var(--space-xs);
+            font-size: 0.9rem;
+            color: var(--text-primary);
+        }
+
+        .sport-detail-card__highlights li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 8px;
+            height: 8px;
+            background: var(--clc-teal);
+            border-radius: 50%;
+        }
+
+        .sport-detail-card__achievements {
+            margin-top: var(--space-md);
+            padding-top: var(--space-md);
+            border-top: 1px solid rgba(26, 95, 90, 0.1);
+        }
+
+        .sport-detail-card__achievements h4 {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-secondary);
+            margin-bottom: var(--space-xs);
+        }
+
+        .sport-detail-card__achievements p {
+            font-size: 0.875rem;
+            color: var(--clc-teal);
+            font-weight: 500;
+            margin: 0;
+        }
+    </style>
+</head>
+<body class="prospectus">
+    <!-- Sticky Navigation -->
+    <nav class="prospectus-nav" id="prospectusNav">
+        <div class="prospectus-nav__inner">
+            <span class="prospectus-nav__title">Prepared for the <span class="personalised" data-field="family_name">Family</span> Family</span>
+            <div class="prospectus-nav__progress">
+                <span style="font-size: 0.875rem; color: var(--text-secondary);">
+                    <span id="scrollPercent">0</span>% read
+                </span>
+                <div class="prospectus-nav__progress-bar">
+                    <div class="prospectus-nav__progress-fill" id="progressFill" style="width: 0%"></div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- VIDEO HERO INTRO -->
+    <section class="video-hero" id="videoHero" data-video-id="df5htMjAX1w" data-video-section>
+        <div class="video-hero__video">
+            <iframe
+                id="heroVideo"
+                src="https://www.youtube.com/embed/df5htMjAX1w?mute=1&loop=1&playlist=df5htMjAX1w&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&enablejsapi=1"
+                data-src="https://www.youtube.com/embed/df5htMjAX1w?autoplay=1&mute=1&loop=1&playlist=df5htMjAX1w&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&enablejsapi=1"
+                title="Life at CLC"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+            </iframe>
+        </div>
+        <div class="video-hero__overlay" id="heroOverlay">
+            <h1 class="video-hero__welcome" style="color: #ffffff;">Welcome, <span data-field="child_name" style="color: #ffffff !important;">Sophia</span></h1>
+            <p class="video-hero__tagline" style="color: #ffffff;">Where extraordinary girls become extraordinary women</p>
+        </div>
+        <script>
+            // Fade out hero text after 10 seconds
+            setTimeout(function() {
+                const overlay = document.getElementById('heroOverlay');
+                if (overlay) {
+                    overlay.classList.add('fade-out');
+                }
+            }, 10000);
+        </script>
+        <button class="video-sound-btn" onclick="enableSound('heroVideo', this)">
+            <span class="sound-icon">🔇</span> Enable Sound
+        </button>
+        <div class="video-hero__scroll">Scroll to explore your personalised prospectus</div>
+    </section>
+
+    <!-- COVER -->
+    <section class="cover" id="cover">
+        <div class="cover__content">
+            <img src="assets/logo/clc-logo.png" alt="CLC" class="cover__logo" onerror="this.style.display='none'">
+            <div class="cover__school">Cheltenham Ladies' College</div>
+            <h1 class="cover__title">Prepared exclusively for the <span data-field="family_name">Hamilton</span> Family</h1>
+            <p class="cover__subtitle">Exploring <span data-field="entry_point_text">Sixth Form</span> for <span class="personalised" data-field="child_name">Sophia</span></p>
+            <p class="cover__date" data-field="date">December 2024</p>
+        </div>
+    </section>
+
+    <!-- MODULE 1: WELCOME -->
+    <section class="module module--visible" data-module="welcome" id="welcome">
+        <div class="container">
+            <div class="two-col">
+                <div>
+                    <span class="module__eyebrow">Welcome</span>
+                    <h2>Dear <span data-field="parent_title_surname">Mrs Hamilton</span>,</h2>
+                    <p class="lead">Thank you for your interest in Cheltenham Ladies' College for <span class="personalised" data-field="child_name">Sophia</span>.</p>
+
+                    <div id="welcomePersonalised">
+                        <!-- Personalised welcome text inserted here -->
+                        <p>From what you've shared with us, <span data-field="child_name">Sophia</span> sounds like exactly the kind of curious, talented girl who thrives at CLC.</p>
+                    </div>
+
+                    <p>At CLC, we believe in nurturing the whole person - not just grades, but the passions, friendships, and experiences that shape who a girl becomes. <span data-field="child_name">Sophia</span> would join a community of around 900 girls from over 40 countries, all encouraged to try everything, take risks, and support one another.</p>
+
+                    <p>This prospectus has been tailored to show you what <span data-field="entry_point_text">Sixth Form</span> at CLC could look like for <span data-field="child_name">Sophia</span>. We hope it answers your questions - but nothing compares to visiting in person.</p>
+
+                    <p>We'd love to meet you both.</p>
+
+                    <p style="margin-top: var(--space-xl);">
+                        <strong>Eve Jardine-Young MA</strong><br>
+                        <span style="color: var(--text-secondary);">Executive Principal</span>
+                    </p>
+                </div>
+                <div>
+                    <img src="scraped-content/images/first-week-back-2022-14.jpg" alt="Students at CLC" class="hero-image" onerror="this.src='https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=600'">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODULE 2: WHY CLC -->
+    <section class="module module--visible" data-module="why_clc" id="why-clc">
+        <div class="container">
+            <div class="module__header">
+                <span class="module__eyebrow">Why CLC for <span data-field="child_name">Sophia</span></span>
+                <h2 class="module__title">Joy, Excitement and Challenge</h2>
+                <p class="module__subtitle">Where <span data-field="child_name">Sophia</span> can thrive</p>
+            </div>
+
+            <div class="stats mb-4">
+                <div class="stat">
+                    <div class="stat__number">39.1</div>
+                    <div class="stat__label">Average IB Score</div>
+                </div>
+                <div class="stat">
+                    <div class="stat__number">3rd</div>
+                    <div class="stat__label">Best IB School in UK</div>
+                </div>
+                <div class="stat">
+                    <div class="stat__number">86%</div>
+                    <div class="stat__label">GCSE Grades 9-7</div>
+                </div>
+                <div class="stat">
+                    <div class="stat__number">40+</div>
+                    <div class="stat__label">Nationalities</div>
+                </div>
+            </div>
+
+            <div class="quote">
+                <p class="quote__text">"At CLC, it's not just about the grades you get - it's about the person you become as you gain those grades."</p>
+            </div>
+
+            <div class="grid grid--3 mt-4">
+                <div class="card">
+                    <div class="card__content">
+                        <h4 class="card__title">Academic Excellence</h4>
+                        <p class="card__text">South West Independent Secondary School of the Decade. Top Girls' Boarding School in the World for IB - the perfect place for <span data-field="child_name">Sophia</span> to achieve her potential.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card__content">
+                        <h4 class="card__title">Global Community</h4>
+                        <p class="card__text"><span data-field="child_name">Sophia</span> would join students from over 40 countries in a diverse, internationally-minded community that prepares girls for a global future.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card__content">
+                        <h4 class="card__title">Beyond the Classroom</h4>
+                        <p class="card__text">140+ clubs and societies, 30+ sports, outstanding arts facilities - countless opportunities for <span data-field="child_name">Sophia</span> to discover new passions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODULE 3: ACADEMIC EXCELLENCE -->
+    <section class="module module--visible" data-module="academic_excellence" id="academic-excellence">
+        <div class="container">
+            <div class="module__header">
+                <span class="module__eyebrow">Academics</span>
+                <h2 class="module__title">Academic Excellence</h2>
+                <p class="module__subtitle">Where <span data-field="child_name">Sophia</span>'s intellectual curiosity will flourish</p>
+            </div>
+
+            <div class="two-col">
+                <div>
+                    <h3>Results That Speak for Themselves</h3>
+                    <p>Our 2024 results continue our tradition of academic excellence - here's what <span data-field="child_name">Sophia</span> could be part of:</p>
+
+                    <ul class="feature-list">
+                        <li class="feature-list__item">
+                            <span class="feature-list__icon">★</span>
+                            <div class="feature-list__content">
+                                <div class="feature-list__title">IB Average: 39.1 points</div>
+                                <div class="feature-list__text">3rd highest in the UK, top girls' boarding school in the world</div>
+                            </div>
+                        </li>
+                        <li class="feature-list__item">
+                            <span class="feature-list__icon">★</span>
+                            <div class="feature-list__content">
+                                <div class="feature-list__title">A-Level: 70% A*-A</div>
+                                <div class="feature-list__text">Consistently outstanding results across all subjects</div>
+                            </div>
+                        </li>
+                        <li class="feature-list__item">
+                            <span class="feature-list__icon">★</span>
+                            <div class="feature-list__content">
+                                <div class="feature-list__title">GCSE: 86% grades 9-7</div>
+                                <div class="feature-list__text">Strong foundations for Sixth Form success</div>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <h3 class="mt-4">Small Classes, Big Impact</h3>
+                    <p>Average class sizes of <strong>17 in senior school</strong> and just <strong>8 in Sixth Form</strong> mean <span data-field="child_name">Sophia</span> will never get lost in the crowd - every teacher will know her by name.</p>
+                </div>
+                <div>
+                    <img src="scraped-content/images/teaching-march-2021-10.jpg" alt="Teaching at CLC" class="hero-image" onerror="this.src='https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=600'">
+
+                    <div class="quote mt-3">
+                        <p class="quote__text">"Pupils' attitudes to learning are consistently positive. They develop a strong sense of self-understanding."</p>
+                        <p class="quote__author">ISI Inspection Report 2022</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODULE 4: LOWER COLLEGE -->
+    <section class="module" data-module="lower_college" id="lower-college">
+        <div class="container">
+            <div class="module__header">
+                <span class="module__eyebrow">Years 7-9</span>
+                <h2 class="module__title">Lower College</h2>
+                <p class="module__subtitle">Building strong foundations</p>
+            </div>
+
+            <div class="two-col">
+                <div>
+                    <p class="lead">Lower College (LC1-LC3) is where <span data-field="child_name">your daughter</span>'s CLC journey begins - a time of discovery, growth, and building the foundations for academic success.</p>
+
+                    <h3>A Broad Curriculum</h3>
+                    <p>In Lower College, girls experience a wide range of subjects before making GCSE choices. This breadth ensures they discover their true passions while building essential skills across disciplines.</p>
+
+                    <h3>Entry at 11+ and 13+</h3>
+                    <p>Our main entry points are Year 7 (age 11) and Year 9 (age 13). Both offer excellent opportunities to integrate into College life, with strong pastoral support to ease the transition.</p>
+
+                    <h3>What <span data-field="child_name">Sophia</span> Will Experience</h3>
+                    <ul class="feature-list">
+                        <li class="feature-list__item">
+                            <span class="feature-list__icon">✓</span>
+                            <div class="feature-list__content">
+                                <div class="feature-list__title">Subject Sampling</div>
+                                <div class="feature-list__text">Try subjects like Latin, Drama, and Design Technology alongside core subjects</div>
+                            </div>
+                        </li>
+                        <li class="feature-list__item">
+                            <span class="feature-list__icon">✓</span>
+                            <div class="feature-list__content">
+                                <div class="feature-list__title">House Integration</div>
+                                <div class="feature-list__text">Become part of a house family with girls of all ages</div>
+                            </div>
+                        </li>
+                        <li class="feature-list__item">
+                            <span class="feature-list__icon">✓</span>
+                            <div class="feature-list__content">
+                                <div class="feature-list__title">Activity Discovery</div>
+                                <div class="feature-list__text">Try 140+ clubs and societies to find her passions</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <img src="scraped-content/images/lc1-production-once-upon-a-time-13.jpg" alt="Lower College students" class="hero-image" onerror="this.src='https://images.unsplash.com/photo-1509062522246-3755977927d7?w=600'">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODULE 5: UPPER COLLEGE -->
+    <section class="module" data-module="upper_college" id="upper-college">
+        <div class="container">
+            <div class="module__header">
+                <span class="module__eyebrow">Years 10-11</span>
+                <h2 class="module__title">Upper College</h2>
+                <p class="module__subtitle">The GCSE years</p>
+            </div>
+
+            <div class="two-col">
+                <div>
+                    <p class="lead">Upper College is where academic focus intensifies while maintaining the breadth of experience that makes CLC special.</p>
+
+                    <h3>GCSE Programme</h3>
+                    <p>Most girls take around 10 GCSEs, including compulsory subjects and carefully chosen options. Our 2024 cohort achieved 86% grades 9-7 across all subjects.</p>
+
+                    <h3>Subject Choices</h3>
+                    <p>The range of options ensures every girl can pursue her interests:</p>
+                    <div style="margin: var(--space-md) 0;">
+                        <span class="subject-tag">English</span>
+                        <span class="subject-tag">Mathematics</span>
+                        <span class="subject-tag">Sciences</span>
+                        <span class="subject-tag">Languages</span>
+                        <span class="subject-tag">History</span>
+                        <span class="subject-tag">Geography</span>
+                        <span class="subject-tag">Art</span>
+                        <span class="subject-tag">Music</span>
+                        <span class="subject-tag">Drama</span>
+                        <span class="subject-tag">Computer Science</span>
+                    </div>
+
+                    <h3>Preparation for Sixth Form</h3>
+                    <p>By the end of Upper College, girls are ready to make informed choices about A-Levels or the IB, with guidance from tutors who know them well.</p>
+                </div>
+                <div>
+                    <img src="scraped-content/images/uc4-art-miss-grundon-7.jpg" alt="Upper College art" class="hero-image" onerror="this.src='https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600'">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODULE 6: SIXTH FORM -->
+    <section class="module" data-module="sixth_form" id="sixth-form">
+        <div class="container">
+            <div class="module__header">
+                <span class="module__eyebrow">Years 12-13</span>
+                <h2 class="module__title">Sixth Form College</h2>
+                <p class="module__subtitle">Where <span data-field="child_name">Sophia</span> could flourish</p>
+            </div>
+
+            <div class="two-col">
+                <div>
+                    <p class="lead">Sixth Form at CLC offers a unique choice: A-Levels or the International Baccalaureate. Both pathways lead to outstanding university outcomes.</p>
+
+                    <h3>A-Levels</h3>
+                    <p><span data-field="child_name">Sophia</span> could choose 3-4 subjects to study in depth. Our 2024 A-Level cohort achieved 70% A*-A grades, with exceptional results across sciences, humanities, and creative subjects.</p>
+
+                    <h3>International Baccalaureate</h3>
+                    <p>Or the IB Diploma could give <span data-field="child_name">Sophia</span> a broader education across six subjects, plus Theory of Knowledge, Extended Essay, and Creativity, Activity, Service (CAS). Our 2024 average of 39.1 points places us 3rd in the UK.</p>
+
+                    <h3>New Sixth Form Centre</h3>
+                    <p><strong>Opening Autumn 2026</strong> - <span data-field="child_name">Sophia</span> would have access to a stunning new facility designed specifically for Sixth Formers, with study spaces, social areas, and state-of-the-art resources.</p>
+                </div>
+                <div>
+                    <img src="scraped-content/images/sixth-form-centre-artist-impression-meeting-room_01.jpg" alt="New Sixth Form Centre" class="hero-image" onerror="this.src='https://images.unsplash.com/photo-1497633762265-9d179a990aa6?w=600'">
+
+                    <div class="stats mt-3">
+                        <div class="stat">
+                            <div class="stat__number">70%</div>
+                            <div class="stat__label">A-Level A*-A</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat__number">39.1</div>
+                            <div class="stat__label">IB Average</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODULE 7: IB PROGRAMME -->
+    <section class="module" data-module="ib_programme" id="ib-programme">
+        <div class="container">
+            <div class="module__header">
+                <span class="module__eyebrow">International Baccalaureate</span>
+                <h2 class="module__title">The IB at CLC</h2>
+                <p class="module__subtitle">Could the IB be right for <span data-field="child_name">Sophia</span>?</p>
+            </div>
+
+            <div class="two-col">
+                <div>
+                    <p class="lead">CLC has offered the IB since 2008, and our results consistently place us among the top schools globally. Could this be the right path for <span data-field="child_name">Sophia</span>?</p>
+
+                    <h3>Why <span data-field="child_name">Sophia</span> Might Choose the IB</h3>
+                    <ul class="feature-list">
+                        <li class="feature-list__item">
+                            <span class="feature-list__icon">✓</span>
+                            <div class="feature-list__content">
+                                <div class="feature-list__title">Breadth with Depth</div>
+                                <div class="feature-list__text">Study 6 subjects across different disciplines while still specialising in areas of passion</div>
+                            </div>
+                        </li>
+                        <li class="feature-list__item">
+                            <span class="feature-list__icon">✓</span>
+                            <div class="feature-list__content">
+                                <div class="feature-list__title">Critical Thinking</div>
+                                <div class="feature-list__text">Theory of Knowledge develops analytical skills valued by top universities</div>
+                            </div>
+                        </li>
+                        <li class="feature-list__item">
+                            <span class="feature-list__icon">✓</span>
+                            <div class="feature-list__content">
+                                <div class="feature-list__title">Independent Research</div>
+                                <div class="feature-list__text">The Extended Essay provides excellent university preparation</div>
+                            </div>
+                        </li>
+                        <li class="feature-list__item">
+                            <span class="feature-list__icon">✓</span>
+                            <div class="feature-list__content">
+                                <div class="feature-list__title">Global Recognition</div>
+                                <div class="feature-list__text">Highly regarded by universities worldwide, including US and European institutions</div>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <h3 class="mt-4">IB Structure</h3>
+                    <p>Three subjects at Higher Level, three at Standard Level, plus:</p>
+                    <ul style="list-style: disc; padding-left: var(--space-lg);">
+                        <li>Theory of Knowledge (TOK)</li>
+                        <li>Extended Essay (4,000 words)</li>
+                        <li>Creativity, Activity, Service (CAS)</li>
+                    </ul>
+                </div>
+                <div>
+                    <img src="scraped-content/images/tok-conference-2022-5.jpg" alt="IB students" class="hero-image" onerror="this.src='https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=600'">
+
+                    <div class="card mt-3">
+                        <div class="card__content text-center">
+                            <h4>Our IB Results</h4>
+                            <div class="stat__number" style="font-size: 3rem;">39.1</div>
+                            <p>Average points (out of 45)<br>
+                            <strong>3rd best in the UK</strong></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODULE 8: CAREER PATHWAY (Dynamic - 6th Form only) -->
+    <section class="module" data-module="career_pathway" id="career-pathway">
+        <div class="container">
+            <div class="module__header">
+                <span class="module__eyebrow">Your Pathway</span>
+                <h2 class="module__title">Your Journey to <span id="careerPathwayTitle">Your Goals</span></h2>
+                <p class="module__subtitle">How CLC prepares <span data-field="child_name">Sophia</span> for her future</p>
+            </div>
+
+            <div class="pathway-card">
+                <h3 id="pathwayIntro">Based on your interests, here's how CLC can help you achieve your goals.</h3>
+                <div id="pathwayContent">
+                    <!-- Dynamically populated by JavaScript -->
+                </div>
+            </div>
+
+            <div class="two-col mt-4">
+                <div>
+                    <h3>Recommended Subjects</h3>
+                    <div id="subjectRecommendations">
+                        <!-- Dynamically populated -->
+                    </div>
+                </div>
+                <div>
+                    <h3>CLC Advantages</h3>
+                    <div id="clcAdvantages">
+                        <!-- Dynamically populated -->
+                    </div>
+                </div>
+            </div>
+
+            <div id="universityDestinations" class="mt-4">
+                <!-- Dynamically populated -->
+            </div>
+        </div>
+    </section>
+
+    <!-- MODULE 9: BOARDING LIFE -->
+    <section class="module" data-module="boarding_life" id="boarding-life">
+        <div class="container">
+            <div class="module__header">
+                <span class="module__eyebrow">Boarding</span>
+                <h2 class="module__title">Boarding Life at CLC</h2>
+                <p class="module__subtitle"><span data-field="child_name">Sophia</span>'s home away from home</p>
+            </div>
+
+            <div class="two-col">
+                <div>
+                    <p class="lead">Over 70% of our students are boarders, creating a vibrant, supportive community. <span data-field="child_name">Sophia</span> would join girls from over 40 countries.</p>
+
+                    <h3>The House System</h3>
+                    <p><span data-field="child_name">Sophia</span> would belong to a house - her family within the College. Each house has its own Housemistress and team of staff dedicated to pastoral care and wellbeing.</p>
+
+                    <h3>A Typical Week</h3>
+                    <ul class="feature-list">
+                        <li class="feature-list__item">
+                            <span class="feature-list__icon">🌅</span>
+                            <div class="feature-list__content">
+                                <div class="feature-list__title">Morning</div>
+                                <div class="feature-list__text">Breakfast in house, lessons from 8:30am</div>
+                            </div>
+                        </li>
+                        <li class="feature-list__item">
+                            <span class="feature-list__icon">📚</span>
+                            <div class="feature-list__content">
+                                <div class="feature-list__title">Afternoon</div>
+                                <div class="feature-list__text">Lessons, sport, activities, clubs</div>
+                            </div>
+                        </li>
+                        <li class="feature-list__item">
+                            <span class="feature-list__icon">🌙</span>
+                            <div class="feature-list__content">
+                                <div class="feature-list__title">Evening</div>
+                                <div class="feature-list__text">Prep time, house activities, social time</div>
+                            </div>
+                        </li>
+                        <li class="feature-list__item">
+                            <span class="feature-list__icon">🎉</span>
+                            <div class="feature-list__content">
+                                <div class="feature-list__title">Weekends</div>
+                                <div class="feature-list__text">Trips, activities, town visits, house events</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <img src="scraped-content/images/eversleigh-19.jpg" alt="Boarding house" class="hero-image" onerror="this.src='https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=600'">
+                </div>
+            </div>
+
+            <h3 class="mt-4"><span data-field="child_name">Sophia</span>'s Boarding House Options</h3>
+            <div class="grid grid--3 mt-2" id="boardingHousesGrid">
+                <div class="house-card" data-house-type="junior">
+                    <div class="house-card__name">St Austin's</div>
+                    <div class="house-card__type">Junior House (Years 7-11)</div>
+                </div>
+                <div class="house-card" data-house-type="junior">
+                    <div class="house-card__name">St Helen's</div>
+                    <div class="house-card__type">Junior House (Years 7-11)</div>
+                </div>
+                <div class="house-card" data-house-type="junior">
+                    <div class="house-card__name">St Margaret's</div>
+                    <div class="house-card__type">Junior House (Years 7-11)</div>
+                </div>
+                <div class="house-card" data-house-type="sixth_form">
+                    <div class="house-card__name">Beale</div>
+                    <div class="house-card__type">Sixth Form House</div>
+                </div>
+                <div class="house-card" data-house-type="sixth_form">
+                    <div class="house-card__name">Cambray</div>
+                    <div class="house-card__type">Sixth Form House</div>
+                </div>
+                <div class="house-card" data-house-type="sixth_form">
+                    <div class="house-card__name">St Hilda's</div>
+                    <div class="house-card__type">Sixth Form House</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODULE 10: DAY GIRL EXPERIENCE -->
+    <section class="module" data-module="day_girl_experience" id="day-girl">
+        <div class="container">
+            <div class="module__header">
+                <span class="module__eyebrow">Day Pupils</span>
+                <h2 class="module__title">The Day Girl Experience</h2>
+                <p class="module__subtitle">The best of both worlds for <span data-field="child_name">Sophia</span></p>
+            </div>
+
+            <div class="two-col">
+                <div>
+                    <p class="lead">Around 30% of our students are day girls, fully integrated into College life while enjoying the comfort of home each evening.</p>
+
+                    <h3>Fully Part of the Community</h3>
+                    <p><span data-field="child_name">Sophia</span> would be assigned to a house, giving her the same sense of belonging as boarders. She can stay for evening activities, join house events, and build strong friendships across both communities.</p>
+
+                    <h3>What Day Girls Enjoy</h3>
+                    <ul class="feature-list">
+                        <li class="feature-list__item">
+                            <span class="feature-list__icon">✓</span>
+                            <div class="feature-list__content">
+                                <div class="feature-list__title">House Membership</div>
+                                <div class="feature-list__text">Full member of a house with dedicated day girl spaces</div>
+                            </div>
+                        </li>
+                        <li class="feature-list__item">
+                            <span class="feature-list__icon">✓</span>
+                            <div class="feature-list__content">
+                                <div class="feature-list__title">Flexible Staying</div>
+                                <div class="feature-list__text">Stay for evening activities, clubs, and events</div>
+                            </div>
+                        </li>
+                        <li class="feature-list__item">
+                            <span class="feature-list__icon">✓</span>
+                            <div class="feature-list__content">
+                                <div class="feature-list__title">Full Access</div>
+                                <div class="feature-list__text">All facilities, activities, and opportunities</div>
+                            </div>
+                        </li>
+                        <li class="feature-list__item">
+                            <span class="feature-list__icon">✓</span>
+                            <div class="feature-list__content">
+                                <div class="feature-list__title">Occasional Boarding</div>
+                                <div class="feature-list__text">Option to board for specific nights when needed</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <img src="scraped-content/images/girls-around-college---summer-term-2-1686754673.jpg" alt="Day girls at CLC" class="hero-image" onerror="this.src='https://images.unsplash.com/photo-1529390079861-591de354faf5?w=600'">
+
+                    <div class="card mt-3">
+                        <div class="card__content">
+                            <h4>Getting Here</h4>
+                            <p>Cheltenham Spa station is a 20-minute walk, with excellent road links to Bristol, Birmingham, and Oxford (all within 1 hour).</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODULE 11: PASTORAL CARE -->
+    <section class="module module--visible" data-module="pastoral_care" id="pastoral-care">
+        <div class="container">
+            <div class="module__header">
+                <span class="module__eyebrow">Wellbeing</span>
+                <h2 class="module__title">Pastoral Care</h2>
+                <p class="module__subtitle">Where <span data-field="child_name">Sophia</span> will be known and valued</p>
+            </div>
+
+            <div class="two-col">
+                <div>
+                    <p class="lead">At CLC, wellbeing isn't an add-on - it's woven into everything we do. <span data-field="child_name">Sophia</span> would have multiple adults looking out for her.</p>
+
+                    <h3>Three-Tier Support for <span data-field="child_name">Sophia</span></h3>
+                    <ul class="feature-list">
+                        <li class="feature-list__item">
+                            <span class="feature-list__icon">1</span>
+                            <div class="feature-list__content">
+                                <div class="feature-list__title">House System</div>
+                                <div class="feature-list__text"><span data-field="child_name">Sophia</span>'s Housemistress and house staff provide daily care and support</div>
+                            </div>
+                        </li>
+                        <li class="feature-list__item">
+                            <span class="feature-list__icon">2</span>
+                            <div class="feature-list__content">
+                                <div class="feature-list__title">Tutor Groups</div>
+                                <div class="feature-list__text"><span data-field="child_name">Sophia</span>'s academic tutor would know her progress and potential</div>
+                            </div>
+                        </li>
+                        <li class="feature-list__item">
+                            <span class="feature-list__icon">3</span>
+                            <div class="feature-list__content">
+                                <div class="feature-list__title">Division Structure</div>
+                                <div class="feature-list__text">Heads of Lower/Upper/Sixth Form provide oversight</div>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <h3 class="mt-4">Wellbeing Programme</h3>
+                    <p>A dedicated curriculum covering mental health, resilience, relationships, and self-understanding - giving <span data-field="child_name">Sophia</span> the tools to thrive.</p>
+                </div>
+                <div>
+                    <img src="scraped-content/images/wellbeing---leila-hassan-howe-talk-10.jpg" alt="Wellbeing at CLC" class="hero-image" onerror="this.src='https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600'">
+
+                    <div class="quote mt-3">
+                        <p class="quote__text">"Pupils respond wholeheartedly to the trust invested in them."</p>
+                        <p class="quote__author">ISI Inspection Report</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODULE 12: SPORT -->
+    <section class="module" data-module="sport" id="sport">
+        <div class="container">
+            <div class="module__header">
+                <span class="module__eyebrow">Sport for <span data-field="child_name">Sophia</span></span>
+                <h2 class="module__title">Sport & Outdoor Education</h2>
+                <p class="module__subtitle">Something for <span data-field="child_name">Sophia</span></p>
+            </div>
+
+            <div class="two-col">
+                <div>
+                    <p class="lead">With 30+ sports on offer and outstanding facilities, <span data-field="child_name">Sophia</span> can find her place - whether she's a competitive athlete or simply enjoys being active.</p>
+
+                    <h3>Main Sports</h3>
+                    <p><strong>Winter:</strong> Netball, Lacrosse, Hockey<br>
+                    <strong>Summer:</strong> Tennis, Swimming, Athletics</p>
+
+                    <h3>Plus So Much More</h3>
+                    <p>Rowing, equestrian, skiing, squash, dance, climbing, and many others - <span data-field="child_name">Sophia</span> would have access to all of them.</p>
+
+                    <h3>Outstanding Facilities</h3>
+                    <ul class="feature-list">
+                        <li class="feature-list__item">
+                            <span class="feature-list__icon">🏊</span>
+                            <div class="feature-list__content">
+                                <div class="feature-list__title">25m Swimming Pool</div>
+                                <div class="feature-list__text">Six-lane pool in our Health and Fitness Centre</div>
+                            </div>
+                        </li>
+                        <li class="feature-list__item">
+                            <span class="feature-list__icon">🏋️</span>
+                            <div class="feature-list__content">
+                                <div class="feature-list__title">Fitness Centre</div>
+                                <div class="feature-list__text">State-of-the-art gym opened 2018</div>
+                            </div>
+                        </li>
+                        <li class="feature-list__item">
+                            <span class="feature-list__icon">🏟️</span>
+                            <div class="feature-list__content">
+                                <div class="feature-list__title">Sports Halls & Pitches</div>
+                                <div class="feature-list__text">Two six-court halls, floodlit AstroTurf, grass pitches</div>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <div class="mt-3" id="sportScholarshipNote">
+                        <strong>Sport Scholarships</strong> are available at <span class="entry-points">13+ and 16+</span>.
+                    </div>
+                </div>
+                <div>
+                    <img src="scraped-content/images/senior-house-football-2022-26.jpg" alt="Sport at CLC" class="hero-image" onerror="this.src='https://images.unsplash.com/photo-1461896836934- voices-in-my-head?w=600'">
+
+                    <div class="photo-grid mt-3">
+                        <img src="scraped-content/images/u19-netball-tournament-2022-15.jpg" alt="Netball" onerror="this.style.display='none'">
+                        <img src="scraped-content/images/lc1-and-lc2-house-lax-2022-26.jpg" alt="Lacrosse" onerror="this.style.display='none'">
+                        <img src="scraped-content/images/dance-showcase-2022-75.jpg" alt="Dance" onerror="this.style.display='none'">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Personalised Sport Section -->
+            <div id="selectedSportsSection" class="selected-sports-section" style="display: none;">
+                <h3 class="section-heading" style="margin-top: var(--space-2xl); text-align: center;">
+                    <span data-field="child_name">Sophia</span>'s Sports at CLC
+                </h3>
+                <p class="text-center text-secondary mb-3">Based on the sports you told us about, here's what CLC has to offer:</p>
+
+                <div id="selectedSportsGrid" class="sports-detail-grid">
+                    <!-- Dynamically populated sport cards -->
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- MODULE 13: MUSIC -->
+    <section class="module" data-module="music" id="music">
+        <div class="container">
+            <div class="module__header">
+                <span class="module__eyebrow">Music</span>
+                <h2 class="module__title">Music at CLC</h2>
+                <p class="module__subtitle" id="musicSubtitle">Where <span data-field="child_name">Sophia</span>'s musical journey continues</p>
+            </div>
+
+            <div class="two-col">
+                <div>
+                    <p class="lead">Music thrives at CLC, from enthusiastic beginners to diploma-standard performers. <span data-field="child_name">Sophia</span> would have access to our professional recording studio and countless performance opportunities.</p>
+
+                    <h3>Ensembles & Groups</h3>
+                    <ul class="feature-list">
+                        <li class="feature-list__item">
+                            <span class="feature-list__icon">🎻</span>
+                            <div class="feature-list__content">
+                                <div class="feature-list__title">Orchestra</div>
+                                <div class="feature-list__text">Full symphony orchestra and chamber groups</div>
+                            </div>
+                        </li>
+                        <li class="feature-list__item">
+                            <span class="feature-list__icon">🎤</span>
+                            <div class="feature-list__content">
+                                <div class="feature-list__title">Choirs</div>
+                                <div class="feature-list__text">Chapel choir, Gospel choir, and more</div>
+                            </div>
+                        </li>
+                        <li class="feature-list__item">
+                            <span class="feature-list__icon">🎸</span>
+                            <div class="feature-list__content">
+                                <div class="feature-list__title">Bands & Ensembles</div>
+                                <div class="feature-list__text">Jazz, rock, and specialist instrumental groups</div>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <h3 class="mt-4">Individual Tuition</h3>
+                    <p>Specialist teachers for all instruments, from strings to brass to voice. <span data-field="child_name">Sophia</span> would have regular concerts and recitals to showcase her talents throughout the year.</p>
+
+                    <div class="mt-3" id="musicScholarshipNote">
+                        <strong>Music Scholarships</strong> are available at <span class="entry-points">11+, 13+, and 16+</span> (including Organ scholarship at 16+).
+                    </div>
+                </div>
+                <div>
+                    <img src="scraped-content/images/sfc-award-holders_27-concert-2021-33.jpg" alt="Music at CLC" class="hero-image" onerror="this.src='https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=600'">
+
+                    <img src="scraped-content/images/fb-summer-concert-2023-43-1690471140.jpg" alt="Concert" class="hero-image mt-3" onerror="this.style.display='none'">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODULE 14: DRAMA & DANCE -->
+    <section class="module" data-module="drama_dance" id="drama-dance">
+        <div class="container">
+            <div class="module__header">
+                <span class="module__eyebrow">Performing Arts</span>
+                <h2 class="module__title">Drama & Dance</h2>
+                <p class="module__subtitle">Where <span data-field="child_name">Sophia</span> can take centre stage</p>
+            </div>
+
+            <div class="two-col">
+                <div>
+                    <p class="lead">The Parabola Arts Centre - our 325-seat professional theatre - is where <span data-field="child_name">Sophia</span> could shine, with multiple productions staged each year.</p>
+
+                    <h3>Drama</h3>
+                    <p>From large-scale musicals to intimate studio pieces, there are opportunities for <span data-field="child_name">Sophia</span> at every level. LAMDA lessons are available for developing formal qualifications.</p>
+
+                    <h3>Dance</h3>
+                    <p>Two dedicated dance studios host classes in ballet, contemporary, jazz, and more. <span data-field="child_name">Sophia</span> could perform in our annual dance showcases that celebrate the range of talent across the school.</p>
+
+                    <h3>What's On</h3>
+                    <ul class="feature-list">
+                        <li class="feature-list__item">
+                            <span class="feature-list__icon">🎭</span>
+                            <div class="feature-list__content">
+                                <div class="feature-list__title">Major Productions</div>
+                                <div class="feature-list__text">Large-scale shows in the Parabola Arts Centre</div>
+                            </div>
+                        </li>
+                        <li class="feature-list__item">
+                            <span class="feature-list__icon">🎬</span>
+                            <div class="feature-list__content">
+                                <div class="feature-list__title">House Drama</div>
+                                <div class="feature-list__text">Inter-house drama competitions</div>
+                            </div>
+                        </li>
+                        <li class="feature-list__item">
+                            <span class="feature-list__icon">💃</span>
+                            <div class="feature-list__content">
+                                <div class="feature-list__title">Dance Showcases</div>
+                                <div class="feature-list__text">Annual performances celebrating all dance styles</div>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <div class="mt-3" id="dramaScholarshipNote">
+                        <strong>Drama Scholarships</strong> are available at <span class="entry-points">13+ and 16+</span>.
+                    </div>
+                </div>
+                <div>
+                    <img src="scraped-content/images/lc-showcase-production-13.jpg" alt="Drama at CLC" class="hero-image" onerror="this.src='https://images.unsplash.com/photo-1503095396549-807759245b35?w=600'">
+
+                    <img src="scraped-content/images/dance-showcase-2022-75.jpg" alt="Dance showcase" class="hero-image mt-3" onerror="this.style.display='none'">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODULE 15: ART -->
+    <section class="module" data-module="art" id="art">
+        <div class="container">
+            <div class="module__header">
+                <span class="module__eyebrow">Creative Arts</span>
+                <h2 class="module__title">Art at CLC</h2>
+                <p class="module__subtitle">Where <span data-field="child_name">Sophia</span> can express, create and inspire</p>
+            </div>
+
+            <div class="two-col">
+                <div>
+                    <p class="lead">Our modern Art and Technology block would give <span data-field="child_name">Sophia</span> dedicated studios for painting, sculpture, printmaking, photography, and digital art.</p>
+
+                    <h3>Facilities</h3>
+                    <p>The glass-fronted Art and Technology block houses specialist studios flooded with natural light - the perfect environment for <span data-field="child_name">Sophia</span>'s creative work.</p>
+
+                    <h3>Exhibitions</h3>
+                    <p>Regular exhibitions showcase student work, <span class="gcse-content">from GCSE pieces to </span>A-Level and IB portfolios. <span data-field="child_name">Sophia</span> could see her work displayed at the annual art exhibition - a highlight of the College calendar.</p>
+
+                    <h3>Art History</h3>
+                    <p>For those interested in the academic study of art, Art History is available as an A-Level option.</p>
+
+                    <div class="mt-3" id="artScholarshipNote">
+                        <strong>Art Scholarships</strong> are available at <span class="entry-points">13+ and 16+</span>.
+                    </div>
+                </div>
+                <div>
+                    <img src="scraped-content/images/art-exhibition-2018-18.jpg" alt="Art at CLC" class="hero-image" onerror="this.src='https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?w=600'">
+
+                    <img src="scraped-content/images/sfc1-art-lesson---ms-whitehead-13.jpg" alt="Art lesson" class="hero-image mt-3" onerror="this.style.display='none'">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODULE 16: CLUBS & ENRICHMENT -->
+    <section class="module module--visible" data-module="clubs_enrichment" id="clubs">
+        <div class="container">
+            <div class="module__header">
+                <span class="module__eyebrow">Beyond the Classroom</span>
+                <h2 class="module__title">Clubs & Enrichment</h2>
+                <p class="module__subtitle">140+ ways for <span data-field="child_name">Sophia</span> to explore</p>
+            </div>
+
+            <div class="two-col">
+                <div>
+                    <p class="lead">At CLC, we believe the experiences outside the classroom shape who <span data-field="child_name">Sophia</span> becomes just as much as the grades she achieves.</p>
+
+                    <h3>Something for Everyone</h3>
+                    <p>From Debating to Engineering Club, Gospel Choir to Model United Nations - there's a club for every interest. And if <span data-field="child_name">Sophia</span> doesn't find what she's looking for, she can start her own.</p>
+
+                    <h3>Enterprise</h3>
+                    <p>The <strong>Enterprise 10 Challenge</strong> gives <span data-field="child_name">Sophia</span> £10 and challenges her to build a business. It's real-world entrepreneurship in action.</p>
+
+                    <div id="clubsPersonalised" class="mt-4">
+                        <!-- Personalised club suggestions based on interests -->
+                    </div>
+                </div>
+                <div>
+                    <img src="scraped-content/images/world_27s-largest-lesson-2017-9.jpg" alt="Clubs at CLC" class="hero-image" onerror="this.src='https://images.unsplash.com/photo-1529390079861-591de354faf5?w=600'">
+
+                    <div class="grid grid--2 mt-3">
+                        <div class="card">
+                            <div class="card__content">
+                                <h4>Debating</h4>
+                                <p class="card__text">House debates, MUN, public speaking</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card__content">
+                                <h4>STEM</h4>
+                                <p class="card__text">Engineering, coding, robotics</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card__content">
+                                <h4>Volunteering</h4>
+                                <p class="card__text">Community service, fundraising</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card__content">
+                                <h4>Duke of Edinburgh</h4>
+                                <p class="card__text">Bronze, Silver, Gold awards</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODULE 17: SCHOLARSHIPS -->
+    <section class="module" data-module="scholarships" id="scholarships">
+        <div class="container">
+            <div class="module__header">
+                <span class="module__eyebrow">Recognition</span>
+                <h2 class="module__title">Scholarships</h2>
+                <p class="module__subtitle">Recognising <span data-field="child_name">Sophia</span>'s excellence and potential</p>
+            </div>
+
+            <div class="two-col">
+                <div>
+                    <p class="lead">Scholarships at CLC are positions of honour, recognising exceptional ability and potential. Could one be right for <span data-field="child_name">Sophia</span>?</p>
+
+                    <div class="card" style="background: var(--clc-teal-pale); border: none;">
+                        <div class="card__content">
+                            <strong>Important:</strong> Scholarships are positions of honour and do not carry fee remission. If <span data-field="child_name">Sophia</span> would benefit from financial assistance, please see our Bursaries (Beale Awards).
+                        </div>
+                    </div>
+
+                    <h3 class="mt-4">Available Scholarships</h3>
+
+                    <div id="scholarshipTypes">
+                        <ul class="feature-list">
+                            <li class="feature-list__item">
+                                <span class="feature-list__icon">📚</span>
+                                <div class="feature-list__content">
+                                    <div class="feature-list__title">Academic</div>
+                                    <div class="feature-list__text">Available at 11+, 13+, 16+ - by invitation based on entrance exam/interview</div>
+                                </div>
+                            </li>
+                            <li class="feature-list__item">
+                                <span class="feature-list__icon">🎵</span>
+                                <div class="feature-list__content">
+                                    <div class="feature-list__title">Music</div>
+                                    <div class="feature-list__text">Available at 11+, 13+, 16+ - by audition (Organ scholarship at 16+)</div>
+                                </div>
+                            </li>
+                            <li class="feature-list__item">
+                                <span class="feature-list__icon">⚽</span>
+                                <div class="feature-list__content">
+                                    <div class="feature-list__title">Sport</div>
+                                    <div class="feature-list__text">Available at 13+, 16+</div>
+                                </div>
+                            </li>
+                            <li class="feature-list__item">
+                                <span class="feature-list__icon">🎨</span>
+                                <div class="feature-list__content">
+                                    <div class="feature-list__title">Art</div>
+                                    <div class="feature-list__text">Available at 13+, 16+</div>
+                                </div>
+                            </li>
+                            <li class="feature-list__item">
+                                <span class="feature-list__icon">🎭</span>
+                                <div class="feature-list__content">
+                                    <div class="feature-list__title">Drama</div>
+                                    <div class="feature-list__text">Available at 13+, 16+</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div>
+                    <img src="scraped-content/images/sfc-award-holders_27-concert-2021-33.jpg" alt="Scholars at CLC" class="hero-image" onerror="this.src='https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=600'">
+
+                    <div class="quote mt-3">
+                        <p class="quote__text">"Scholars play a key role in College life, leading activities and inspiring others in their area of specialism."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODULE 18: BURSARIES -->
+    <section class="module" data-module="bursaries" id="bursaries">
+        <div class="container">
+            <div class="module__header">
+                <span class="module__eyebrow">Financial Support</span>
+                <h2 class="module__title">Beale Awards (Bursaries)</h2>
+                <p class="module__subtitle">Making CLC possible for <span data-field="child_name">Sophia</span></p>
+            </div>
+
+            <div class="two-col">
+                <div>
+                    <p class="lead">Named after Dorothea Beale, our transformative Principal from 1858-1906, Beale Awards provide means-tested financial assistance to UK families.</p>
+
+                    <h3>What's Available for <span data-field="child_name">Sophia</span></h3>
+                    <ul class="feature-list">
+                        <li class="feature-list__item">
+                            <span class="feature-list__icon">✓</span>
+                            <div class="feature-list__content">
+                                <div class="feature-list__title">Up to 100% of Fees</div>
+                                <div class="feature-list__text">Full bursaries available for eligible families</div>
+                            </div>
+                        </li>
+                        <li class="feature-list__item">
+                            <span class="feature-list__icon">✓</span>
+                            <div class="feature-list__content">
+                                <div class="feature-list__title">Entry Points</div>
+                                <div class="feature-list__text" id="bursaryEntryPoints">Available at <span class="entry-points">11+, 13+, and 16+</span></div>
+                            </div>
+                        </li>
+                        <li class="feature-list__item">
+                            <span class="feature-list__icon">✓</span>
+                            <div class="feature-list__content">
+                                <div class="feature-list__title">UK Residents</div>
+                                <div class="feature-list__text">For families ordinarily resident in the UK</div>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <h3 class="mt-4">How to Apply</h3>
+                    <p>Bursary applications have an earlier deadline than standard admissions. If you'd like to explore this option for <span data-field="child_name">Sophia</span>, contact our Admissions Department well in advance to discuss eligibility and timing.</p>
+
+                    <p><strong>All enquiries are treated in strict confidence.</strong></p>
+                </div>
+                <div>
+                    <div class="card">
+                        <div class="card__content">
+                            <h4>Dorothea Beale (1831-1906)</h4>
+                            <p>Principal for 48 years, Dorothea Beale transformed CLC into a leading academic institution and founded St Hilda's College, Oxford. Her legacy of opening education to all continues through these awards.</p>
+                        </div>
+                    </div>
+
+                    <div class="cta mt-3">
+                        <h4 style="color: var(--clc-white);">Confidential Discussion</h4>
+                        <p>Contact our Admissions team to discuss financial assistance in confidence.</p>
+                        <a href="https://www.cheltladiescollege.org/apply/bursaries" class="btn btn--primary" target="_blank">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODULE 19: HOW TO APPLY -->
+    <section class="module module--visible" data-module="how_to_apply" id="how-to-apply">
+        <div class="container">
+            <div class="module__header">
+                <span class="module__eyebrow">Admissions</span>
+                <h2 class="module__title">How <span data-field="child_name">Sophia</span> Can Join Us</h2>
+                <p class="module__subtitle">Your journey to CLC</p>
+            </div>
+
+            <div id="admissionsContent">
+                <!-- Dynamically populated based on entry point -->
+            </div>
+
+            <div class="two-col mt-4">
+                <div>
+                    <h3>Timeline for <span data-field="child_name">Sophia</span></h3>
+                    <div id="admissionsTimeline">
+                        <!-- Dynamically populated -->
+                    </div>
+                </div>
+                <div>
+                    <div class="card" style="background: var(--clc-teal-pale); border: none;">
+                        <div class="card__content">
+                            <h4>Competition for Places</h4>
+                            <p>CLC is highly selective, with typically 3-4 applicants per place at 11+ and 13+. Sixth Form competition is described as "fierce", with boarding places especially sought after.</p>
+                            <p class="mt-2"><strong>We recommend registering early.</strong></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODULE 20: VISIT US -->
+    <section class="module module--visible" data-module="visit_us" id="visit-us">
+        <div class="container">
+            <div class="module__header">
+                <span class="module__eyebrow">Experience CLC</span>
+                <h2 class="module__title">Come and See Us</h2>
+                <p class="module__subtitle">We'd love to meet <span data-field="child_name">Sophia</span></p>
+            </div>
+
+            <div class="two-col">
+                <div>
+                    <p class="lead">Nothing compares to walking through our quads with <span data-field="child_name">Sophia</span>, meeting our students, and feeling the atmosphere for yourselves.</p>
+
+                    <h3>Ways to Visit</h3>
+                    <ul class="feature-list">
+                        <li class="feature-list__item">
+                            <span class="feature-list__icon">📅</span>
+                            <div class="feature-list__content">
+                                <div class="feature-list__title">Open Days</div>
+                                <div class="feature-list__text">Whole school Open Day in the Summer Term</div>
+                            </div>
+                        </li>
+                        <li class="feature-list__item">
+                            <span class="feature-list__icon">🎯</span>
+                            <div class="feature-list__content">
+                                <div class="feature-list__title">Experience Days</div>
+                                <div class="feature-list__text">Entry-point specific days throughout the year</div>
+                            </div>
+                        </li>
+                        <li class="feature-list__item">
+                            <span class="feature-list__icon">👤</span>
+                            <div class="feature-list__content">
+                                <div class="feature-list__title">Private Tours</div>
+                                <div class="feature-list__text">Individual tours for registered families</div>
+                            </div>
+                        </li>
+                        <li class="feature-list__item">
+                            <span class="feature-list__icon">💻</span>
+                            <div class="feature-list__content">
+                                <div class="feature-list__title">Virtual Tour</div>
+                                <div class="feature-list__text">Explore online if you can't visit in person</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <img src="scraped-content/images/admissions-visit-building-shots-2016.jpg" alt="Visit CLC" class="hero-image" onerror="this.src='https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=600'">
+
+                    <div class="cta mt-3">
+                        <h4 style="color: var(--clc-white);">We'd Love to Meet <span data-field="child_name">Sophia</span></h4>
+                        <p>Book a visit and see what CLC could mean for her future.</p>
+                        <a href="https://www.cheltladiescollege.org/apply/visits" class="btn btn--primary" target="_blank">Book a Visit</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODULE 21: LOCATION -->
+    <section class="module module--visible" data-module="location" id="location">
+        <div class="container">
+            <div class="module__header">
+                <span class="module__eyebrow">Location</span>
+                <h2 class="module__title">Cheltenham & The Cotswolds</h2>
+                <p class="module__subtitle"><span data-field="child_name">Sophia</span>'s new neighbourhood</p>
+            </div>
+
+            <div class="two-col">
+                <div>
+                    <p class="lead">CLC sits in the heart of Cheltenham, a vibrant Regency spa town in the beautiful Cotswolds - an Area of Outstanding Natural Beauty where <span data-field="child_name">Sophia</span> will feel right at home.</p>
+
+                    <h3>The Campus</h3>
+                    <p>Our 36-acre dispersed estate spans 15+ sites within a 10-minute walk of each other. <span data-field="child_name">Sophia</span>'s daily walk to lessons would take her through stunning Gothic revival architecture - vaulted ceilings, marble hallways, and beautiful stained glass.</p>
+
+                    <h3>Getting Here</h3>
+                    <ul class="feature-list">
+                        <li class="feature-list__item">
+                            <span class="feature-list__icon">🚂</span>
+                            <div class="feature-list__content">
+                                <div class="feature-list__title">Cheltenham Spa Station</div>
+                                <div class="feature-list__text">20-minute walk from College</div>
+                            </div>
+                        </li>
+                        <li class="feature-list__item">
+                            <span class="feature-list__icon">🚗</span>
+                            <div class="feature-list__content">
+                                <div class="feature-list__title">Road Links</div>
+                                <div class="feature-list__text">Bristol, Birmingham, Oxford all within 1 hour</div>
+                            </div>
+                        </li>
+                        <li class="feature-list__item">
+                            <span class="feature-list__icon">✈️</span>
+                            <div class="feature-list__content">
+                                <div class="feature-list__title">Airports</div>
+                                <div class="feature-list__text">Birmingham: 65 mins | Heathrow: 1.5 hours</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <img src="scraped-content/images/buildings---march-2020-12.jpg" alt="CLC Campus" class="hero-image" onerror="this.src='https://images.unsplash.com/photo-1564981797816-1043664bf78d?w=600'">
+
+                    <img src="scraped-content/images/college-library-building-at-night-1-3.jpg" alt="CLC at night" class="hero-image mt-3" onerror="this.style.display='none'">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODULE 22: NEXT STEPS -->
+    <section class="module module--visible module--dark" data-module="next_steps" id="next-steps">
+        <div class="container">
+            <div class="module__header">
+                <span class="module__eyebrow" style="color: var(--clc-gold);">Next Steps</span>
+                <h2 class="module__title">We'd Love to Meet <span data-field="child_name">Sophia</span></h2>
+            </div>
+
+            <div class="two-col">
+                <div>
+                    <div id="nextStepsTimeline">
+                        <!-- Dynamically populated -->
+                    </div>
+
+                    <h3 class="mt-4">What to Do Now</h3>
+                    <ol style="list-style: decimal; padding-left: var(--space-lg);">
+                        <li style="margin-bottom: var(--space-md);"><strong>Register your interest</strong> via our Admissions Portal</li>
+                        <li style="margin-bottom: var(--space-md);"><strong>Book a visit</strong> - come and see us in person</li>
+                        <li style="margin-bottom: var(--space-md);"><strong>Talk to Admissions</strong> if you have any questions</li>
+                    </ol>
+                </div>
+                <div>
+                    <div class="card" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);">
+                        <div class="card__content">
+                            <h4 style="color: var(--clc-white);">Contact Admissions</h4>
+                            <p style="opacity: 0.9;"><strong>+44 (0)1242 520691</strong></p>
+                            <p style="opacity: 0.9;">admissions@cheltladiescollege.org</p>
+                            <div class="mt-3">
+                                <a href="https://www.cheltladiescollege.org/apply/visits" class="btn" style="background: var(--clc-white); color: var(--clc-teal);">Book a Visit</a>
+                            </div>
+                            <div class="mt-2">
+                                <a href="https://cheltenhamladiescollege.admissions.isamshosting.cloud/" class="btn btn--secondary" style="border-color: rgba(255,255,255,0.5); color: var(--clc-white);">Register Interest</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-4">
+                <p style="font-size: 1.25rem; opacity: 0.9;">
+                    "At CLC, it's not just about the grades you get - it's about the person you become as you gain those grades."
+                </p>
+                <p class="mt-3" style="opacity: 0.7;">
+                    We look forward to welcoming <span class="personalised" data-field="child_name">Sophia</span> to Cheltenham Ladies' College.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- VIDEO FINALE -->
+    <section class="video-finale" id="videoFinale" data-video-section>
+        <div class="video-finale__video">
+            <iframe
+                id="finaleVideo"
+                src="https://www.youtube.com/embed/xOHCRjLO31I?mute=1&controls=1&showinfo=0&rel=0&modestbranding=1&playsinline=1&enablejsapi=1"
+                data-src="https://www.youtube.com/embed/xOHCRjLO31I?autoplay=1&mute=1&loop=1&playlist=xOHCRjLO31I&controls=1&showinfo=0&rel=0&modestbranding=1&playsinline=1&enablejsapi=1"
+                title="Virtual Tour of CLC"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+            </iframe>
+        </div>
+        <button class="video-sound-btn" onclick="enableSound('finaleVideo', this)">
+            <span class="sound-icon">🔇</span> Enable Sound
+        </button>
+        <div class="video-finale__overlay" id="finaleOverlay">
+            <div class="video-finale__text">
+                <p class="video-finale__quote" style="color: #ffffff;">"The future belongs to those who believe in the beauty of their dreams"</p>
+                <p class="video-finale__name" style="color: #ffffff;"><span data-field="child_name" style="color: #ffffff !important;">Sophia</span>, we can't wait to welcome you</p>
+                <p class="video-finale__message" style="color: #ffffff;">
+                    Come and see for yourself.
+                </p>
+            </div>
+        </div>
+    </section>
+    <!-- Book Visit CTA Below Video -->
+    <div class="video-finale__cta-below">
+        <a href="#next-steps" class="btn btn--primary btn--large" style="background: var(--clc-white); color: var(--clc-teal);">
+            Book Your Visit
+        </a>
+    </div>
+    <script>
+        // Fade out finale text after 10 seconds
+        setTimeout(function() {
+            const overlay = document.getElementById('finaleOverlay');
+            if (overlay) {
+                overlay.classList.add('fade-out');
+            }
+        }, 10000);
+    </script>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <img src="assets/logo/clc-logo.png" alt="CLC" class="footer__logo" onerror="this.style.display='none'">
+            <div class="footer__contact">
+                <p>Cheltenham Ladies' College</p>
+                <p>Bayshill Road, Cheltenham, GL50 3EP</p>
+                <p><a href="tel:+441242520691">+44 (0)1242 520691</a> | <a href="https://www.cheltladiescollege.org">www.cheltladiescollege.org</a></p>
+            </div>
+            <div class="footer__social">
+                <a href="https://www.instagram.com/cheltladiescoll/" target="_blank" title="Instagram">📷</a>
+                <a href="https://www.facebook.com/CheltLadiesColl" target="_blank" title="Facebook">📘</a>
+                <a href="https://twitter.com/cheltladiescoll" target="_blank" title="Twitter">🐦</a>
+                <a href="https://www.youtube.com/c/cheltladiescoll" target="_blank" title="YouTube">▶️</a>
+                <a href="https://www.linkedin.com/company/the-cheltenham-ladies-college" target="_blank" title="LinkedIn">💼</a>
+            </div>
+            <p class="footer__copyright">
+                Prepared exclusively for the <span data-field="family_name">Hamilton</span> Family | <span data-field="date">December 2024</span>
+            </p>
+        </div>
+    </footer>
+
+
+    <!-- Personalisation Script -->
+    <script src="scripts/personalisation.js?v=20251215k"></script>
+    <script src="scripts/prospectus.js?v=20251215k"></script>
+</body>
+</html>

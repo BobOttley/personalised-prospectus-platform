@@ -1,0 +1,75 @@
+{
+  "videos": {
+    "welcome": [
+      {"id": "df5htMjAX1w", "title": "Summer Term 2025", "description": "Life at CLC during Summer 2025"},
+      {"id": "u3Wk9jiLtZs", "title": "Spring Term 2025", "description": "Life at CLC during Spring 2025"},
+      {"id": "FxWdtXht7zo", "title": "Autumn Term 2024", "description": "Life at CLC during Autumn 2024"}
+    ],
+    "virtual_tour": [
+      {"id": "xOHCRjLO31I", "title": "Virtual Tour", "description": "Take a virtual tour of our campus"},
+      {"id": "BagBmBYwKHA", "title": "Senior Prefect Tour", "description": "Student-led campus tour"}
+    ],
+    "admissions": {
+      "year7": {"id": "Xdhhc0xzqi4", "title": "11+ at CLC", "description": "Year 7 entry information"},
+      "year9": {"id": "YhfJNXZAiAw", "title": "13+ at CLC", "description": "Year 9 entry information"},
+      "sixth_form": {"id": "HJiX_xkc_Sk", "title": "Discover Your Future at CLC Sixth Form", "description": "Sixth Form entry"}
+    },
+    "sixth_form": [
+      {"id": "ELjHW_t7PP4", "title": "Sixth Form at CLC", "description": "Life in Sixth Form"},
+      {"id": "HJiX_xkc_Sk", "title": "Discover Your Future", "description": "Sixth Form opportunities"}
+    ],
+    "boarding": [
+      {"id": "f-19CISvGuo", "title": "Senior Boarding Houses", "description": "Boarding for older students"},
+      {"id": "ZUlNSHC2r6U", "title": "Junior Boarding Houses", "description": "Boarding for younger students"}
+    ],
+    "student_life": [
+      {"id": "TRdusW-6rA0", "title": "My Life at CLC by Kaitlyn", "description": "Student perspective"},
+      {"id": "moD8vuvWw-g", "title": "Best of Both Worlds", "description": "Day and boarding life"},
+      {"id": "_Oiwkfx_zZQ", "title": "Life Lessons", "description": "What CLC teaches beyond academics"},
+      {"id": "SPq4HgVAcik", "title": "The Future", "description": "Preparing for the future"},
+      {"id": "zIf3fYZc9Ho", "title": "Community", "description": "The CLC community"},
+      {"id": "nlwewSIscWg", "title": "Individuality", "description": "Celebrating individuality"}
+    ],
+    "music": [
+      {"id": "TT8-SHyyeaQ", "title": "Symphonic Wind Band - Defying Gravity", "description": "Music performance"}
+    ],
+    "celebration": [
+      {"id": "Pck90CbZfL4", "title": "Celebrating 170 Years", "description": "CLC history and heritage"},
+      {"id": "-1VpwWe4U6o", "title": "Class of 2023", "description": "Leavers celebration"},
+      {"id": "KkOnobfl9pI", "title": "Class of 2021", "description": "Leavers celebration"}
+    ],
+    "term_highlights": [
+      {"id": "df5htMjAX1w", "title": "Summer Term 2025", "term": "summer", "year": 2025},
+      {"id": "u3Wk9jiLtZs", "title": "Spring Term 2025", "term": "spring", "year": 2025},
+      {"id": "FxWdtXht7zo", "title": "Autumn Term 2024", "term": "autumn", "year": 2024},
+      {"id": "2JAZhTsJitc", "title": "Summer Term 2024", "term": "summer", "year": 2024},
+      {"id": "GIpNFigCazE", "title": "Spring Term 2024", "term": "spring", "year": 2024},
+      {"id": "xo1RPnn6CHw", "title": "Autumn Term 2023", "term": "autumn", "year": 2023},
+      {"id": "ehvKpy5Hae8", "title": "Summer Term 2023", "term": "summer", "year": 2023},
+      {"id": "kJcFe7bCp8k", "title": "Spring Term 2023", "term": "spring", "year": 2023},
+      {"id": "zfosJmZybuo", "title": "Autumn Term 2022", "term": "autumn", "year": 2022},
+      {"id": "W-FLbfTdBqQ", "title": "Summer Term 2022", "term": "summer", "year": 2022},
+      {"id": "4xsASVyGfRg", "title": "Spring Term 2022", "term": "spring", "year": 2022},
+      {"id": "B5-NFjwTgbo", "title": "Autumn Term 2021", "term": "autumn", "year": 2021},
+      {"id": "75_3ZvaZLwc", "title": "Summer Term 2021", "term": "summer", "year": 2021},
+      {"id": "8dsWB0jToa4", "title": "Spring Term 2021", "term": "spring", "year": 2021}
+    ]
+  },
+  "playlists": {
+    "main": "PLhidolPFrXcCAgJvPndJmUk1s_6vI9USf"
+  },
+  "personalisation_mapping": {
+    "entry_point": {
+      "year7": "Xdhhc0xzqi4",
+      "year9": "YhfJNXZAiAw",
+      "sixth_form": "HJiX_xkc_Sk"
+    },
+    "accommodation": {
+      "boarding_junior": "ZUlNSHC2r6U",
+      "boarding_senior": "f-19CISvGuo"
+    },
+    "interests": {
+      "music": "TT8-SHyyeaQ"
+    }
+  }
+}

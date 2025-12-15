@@ -1,0 +1,388 @@
+{
+  "school": {
+    "name": "Cheltenham Ladies' College",
+    "shortName": "CLC",
+    "type": "Independent boarding and day school",
+    "gender": "Girls only",
+    "ageRange": "11-18",
+    "founded": 1853,
+    "location": {
+      "address": "Bayshill Road, Cheltenham, Gloucestershire, GL50 3EP",
+      "country": "England, United Kingdom",
+      "region": "Cotswolds / South West"
+    },
+    "campusSize": "36 acres",
+    "pupilNumbers": 900,
+    "boardingRatio": "70% boarders / 30% day",
+    "nationalities": "40+",
+    "website": "www.cheltladiescollege.org"
+  },
+
+  "leadership": {
+    "executivePrincipal": {
+      "name": "Eve Jardine-Young",
+      "title": "MA",
+      "role": "Executive Principal"
+    },
+    "directorOfAdmissions": {
+      "name": "Charlotte Coull",
+      "role": "Director of Admissions"
+    }
+  },
+
+  "contact": {
+    "phone": "+44 (0)1242 520691",
+    "website": "www.cheltladiescollege.org",
+    "social": {
+      "instagram": "@cheltladiescoll",
+      "facebook": "/CheltLadiesColl",
+      "twitter": "@cheltladiescoll",
+      "linkedin": "/company/the-cheltenham-ladies-college",
+      "youtube": "/c/cheltladiescoll"
+    }
+  },
+
+  "affiliations": [
+    "Headmasters' and Headmistresses' Conference (HMC)",
+    "Girls' Schools Association (GSA)",
+    "Boarding Schools' Association (BSA)",
+    "World Leading Schools Association (WLSA)",
+    "AEGIS (Association for the Education and Guardianship of International Students)",
+    "International Baccalaureate World School"
+  ],
+
+  "brand": {
+    "colours": {
+      "primary": "#1a5f5a",
+      "primaryDark": "#134845",
+      "primaryLight": "#2a7a74",
+      "primaryPale": "#e8f4f3",
+      "gold": "#c9a962",
+      "cream": "#faf8f5",
+      "white": "#ffffff"
+    },
+    "keyPhrases": [
+      "Joy, excitement and challenge",
+      "Pioneering girls' education",
+      "Think globally, cherish diversity, innovate",
+      "The person you become as you gain your grades",
+      "Collaboration, tolerance and unity",
+      "Confident, resilient, clever girls flourish",
+      "Inspirational and empowered young women"
+    ]
+  },
+
+  "academics": {
+    "structure": {
+      "lowerCollege": {
+        "name": "Lower College",
+        "years": ["Year 7 (LC1)", "Year 8 (LC2)", "Year 9 (LC3)"],
+        "ages": "11-14",
+        "keyStage": 3,
+        "entryPoints": ["11+", "13+"]
+      },
+      "upperCollege": {
+        "name": "Upper College",
+        "years": ["Year 10 (UC4)", "Year 11 (UC5)"],
+        "ages": "14-16",
+        "keyStage": 4,
+        "qualification": "GCSE",
+        "typicalSubjects": 10
+      },
+      "sixthForm": {
+        "name": "Sixth Form College",
+        "years": ["Year 12 (SFC1)", "Year 13 (SFC2)"],
+        "ages": "16-18",
+        "keyStage": 5,
+        "qualifications": ["A-Levels", "International Baccalaureate (IB)"],
+        "entryPoint": "16+"
+      }
+    },
+    "results2024": {
+      "ibAverage": 39.1,
+      "ibUKRanking": 3,
+      "gcse97": "86%",
+      "aLevelAstarA": "70%"
+    },
+    "accolades": [
+      "South West Independent Secondary School of the Decade (Times/Sunday Times 2020)",
+      "Top Girls' Boarding School in UK for IB",
+      "Top Girls' Boarding School in the World for IB (2022)",
+      "Listed in Schools Index Top 150 World Schools",
+      "Listed in Schools Index Top 30 UK Senior Schools"
+    ],
+    "classSizes": {
+      "seniorSchool": 17,
+      "sixthForm": 8
+    },
+    "subjects": {
+      "core": ["English Language", "English Literature", "Mathematics", "Further Mathematics", "Physics", "Chemistry", "Biology"],
+      "languages": ["French", "German", "Spanish", "Latin", "Greek", "Mandarin"],
+      "humanities": ["History", "Geography", "Religious Studies", "Philosophy", "Politics", "Economics", "Psychology"],
+      "creative": ["Art", "Music", "Drama", "Design Technology"],
+      "other": ["Computer Science", "Physical Education"]
+    }
+  },
+
+  "boarding": {
+    "overview": {
+      "percentage": "70%",
+      "nationalities": "40+",
+      "options": ["Full boarding", "Weekly boarding"]
+    },
+    "juniorHouses": [
+      {"name": "St Austin's", "type": "Junior"},
+      {"name": "St Helen's", "type": "Junior"},
+      {"name": "St Margaret's", "type": "Junior"},
+      {"name": "Glenlee", "type": "Junior"},
+      {"name": "Sidney Lodge", "type": "Junior"}
+    ],
+    "sixthFormHouses": [
+      {"name": "Beale", "note": "Named after Dorothea Beale"},
+      {"name": "Cambray", "type": "Sixth Form"},
+      {"name": "Elizabeth", "type": "Sixth Form"},
+      {"name": "Roderic", "type": "Sixth Form"},
+      {"name": "St Hilda's", "note": "Named after St Hilda's College Oxford"}
+    ],
+    "features": [
+      "House system with housemistress and house staff",
+      "Mix of shared and single rooms",
+      "Full weekend activity programme",
+      "Compulsory exeat weekends for family time"
+    ]
+  },
+
+  "dayGirls": {
+    "percentage": "30%",
+    "features": [
+      "Fully integrated into house system",
+      "Each day girl assigned to a house",
+      "Can stay for evening activities",
+      "Full access to all facilities"
+    ]
+  },
+
+  "pastoral": {
+    "structure": [
+      "House system (Housemistress and house staff)",
+      "Tutor groups",
+      "Division structure (Lower/Upper/Sixth Form)"
+    ],
+    "features": [
+      "Dedicated wellbeing curriculum",
+      "Mental health support",
+      "Counselling services",
+      "On-site medical facilities",
+      "School nurses",
+      "Chaplaincy and multi-faith community"
+    ],
+    "isiQuotes": [
+      "Pupils' attitudes to learning are consistently positive",
+      "Pupils develop a strong sense of self-understanding",
+      "Pupils have an outstanding sense of what is right and wrong",
+      "Pupils' communication skills are particularly strong",
+      "Pupils respond wholeheartedly to the trust invested in them"
+    ]
+  },
+
+  "sport": {
+    "overview": "30+ sports offered",
+    "mainSports": {
+      "winter": ["Netball", "Lacrosse", "Hockey"],
+      "summer": ["Tennis", "Swimming", "Athletics"]
+    },
+    "otherSports": ["Rowing", "Equestrian", "Skiing", "Squash", "Dance", "Climbing"],
+    "facilities": [
+      {"name": "Health and Fitness Centre", "opened": 2018, "detail": "State-of-the-art"},
+      {"name": "Swimming Pool", "detail": "25m, six-lane"},
+      {"name": "Sports Halls", "detail": "Two large six-court halls"},
+      {"name": "Gym", "detail": "Expansive health and conditioning gym"},
+      {"name": "Dance Studios", "detail": "Two studios"},
+      {"name": "Spin Studio", "detail": "Modern spin bikes"},
+      {"name": "Climbing Wall", "detail": "Indoor climbing"},
+      {"name": "Squash Courts", "detail": "Multiple courts"},
+      {"name": "AstroTurf Pitches", "detail": "Two floodlit pitches"},
+      {"name": "Tennis/Netball Courts", "detail": "Multi-court facility"}
+    ],
+    "outdoorEducation": ["Duke of Edinburgh's Award", "Adventure Club", "Kayaking", "Windsurfing", "Mountain biking", "Bushcraft", "Sailing", "Trekking"],
+    "tours": ["Dubai", "Australia", "New Zealand", "France"]
+  },
+
+  "arts": {
+    "facilities": [
+      {"name": "Parabola Arts Centre", "detail": "325-seat theatre"},
+      {"name": "Recording Studio", "opened": 2016},
+      {"name": "Art and Technology Block"}
+    ],
+    "music": {
+      "ensembles": ["Orchestra", "Choir", "Chamber groups"],
+      "opportunities": ["Individual instrumental tuition", "House music competitions", "Regular concerts"],
+      "scholarships": ["11+", "13+", "16+", "Organ scholarship at 16+"]
+    },
+    "drama": {
+      "features": ["Regular productions", "LAMDA lessons available"],
+      "scholarships": ["13+", "16+"]
+    },
+    "art": {
+      "features": ["Dedicated art facilities", "Regular exhibitions"],
+      "scholarships": ["13+", "16+"]
+    },
+    "dance": {
+      "features": ["Two dance studios", "Dance showcases", "Various styles"]
+    }
+  },
+
+  "clubsAndSocieties": {
+    "total": "140+",
+    "examples": [
+      "Debating", "Gospel Choir", "Engineering Club", "STEM activities",
+      "Model United Nations", "Creative writing", "Languages clubs",
+      "Enterprise activities", "Volunteering groups"
+    ],
+    "enterprise": {
+      "name": "Enterprise 10 Challenge",
+      "description": "Start with £10, build a business"
+    }
+  },
+
+  "scholarships": {
+    "note": "Scholarships recognise excellence and potential. Position of honour at College. Scholarships do NOT carry fee remission.",
+    "types": {
+      "academic": {
+        "entryPoints": ["11+", "13+", "16+"],
+        "assessment": "By invitation based on entrance exam performance (11+/13+) or interview (16+)"
+      },
+      "music": {
+        "entryPoints": ["11+", "13+", "16+"],
+        "assessment": "By audition",
+        "note": "Organ scholarship available at 16+"
+      },
+      "sport": {
+        "entryPoints": ["13+", "16+"]
+      },
+      "art": {
+        "entryPoints": ["13+", "16+"]
+      },
+      "drama": {
+        "entryPoints": ["13+", "16+"]
+      }
+    }
+  },
+
+  "bursaries": {
+    "name": "Beale Awards",
+    "namedAfter": "Dorothea Beale",
+    "coverage": "Up to 100% of fees",
+    "eligibility": "UK residents only, means-tested",
+    "entryPoints": ["11+", "13+", "16+"]
+  },
+
+  "admissions": {
+    "entryPoints": [
+      {"age": 11, "year": "Year 7 (LC1)", "type": "Main entry"},
+      {"age": 12, "year": "Year 8 (LC2)", "type": "Occasional places"},
+      {"age": 13, "year": "Year 9 (LC3)", "type": "Main entry"},
+      {"age": 14, "year": "Year 10 (UC4)", "type": "Occasional places"},
+      {"age": 16, "year": "Year 12 (SFC1)", "type": "Main entry (Sixth Form)"}
+    ],
+    "timeline": {
+      "applicationStart": "2 years before entry",
+      "deadline": "1st October in the year preceding entry"
+    },
+    "process11Plus": {
+      "steps": [
+        "Online application via iSAMS Admissions Portal",
+        "ISEB Common Pre-Test (Autumn term of Year 6)",
+        "Individual interview (~20 minutes)",
+        "Group interview/activities",
+        "Offer or waitlist"
+      ],
+      "isebSubjects": ["English", "Maths", "Verbal reasoning", "Non-verbal reasoning"]
+    },
+    "process13Plus": {
+      "options": ["Common Entrance", "College's own entrance examination"],
+      "commonEntranceSubjects": ["English", "Maths", "Science", "French", "History", "Geography", "RS"],
+      "additionalSteps": ["Individual interview", "Group interview"]
+    },
+    "process16Plus": {
+      "steps": [
+        "Online application",
+        "Entrance assessments in chosen A-Level/IB subjects",
+        "Subject-specific interviews with Heads of Department",
+        "Discussion of academic interests"
+      ]
+    },
+    "competition": {
+      "11Plus": "3-4 applicants per place",
+      "13Plus": "3-4 applicants per place",
+      "sixthForm": "Fierce competition",
+      "boardingNote": "Boarding places especially competitive"
+    }
+  },
+
+  "fees": {
+    "note": "Fees cover tuition, lunch, and most extracurricular activities. Separate charges for individual music tuition. Current fees available on website.",
+    "categories": ["Day", "Weekly Boarding", "Full Boarding"]
+  },
+
+  "history": {
+    "timeline": [
+      {"year": 1853, "event": "School founded"},
+      {"year": 1854, "event": "First 82 pupils, Principal Annie Procter"},
+      {"year": 1858, "event": "Dorothea Beale becomes Principal"},
+      {"year": 1931, "event": "Coat of arms granted by College of Arms"},
+      {"year": 1998, "event": "Sixth formers allowed to wear trousers"},
+      {"year": 2008, "event": "IB Diploma Programme introduced"},
+      {"year": 2016, "event": "Recording studio opened"},
+      {"year": 2017, "event": "Dorothea Beale commemorated with blue plaque"},
+      {"year": 2018, "event": "Health and Fitness Centre opened"},
+      {"year": 2020, "event": "Named SW Independent School of the Decade"},
+      {"year": 2026, "event": "New Sixth Form Centre opening (Autumn)"}
+    ],
+    "dorotheaBeale": {
+      "years": "1831-1906",
+      "tenure": "Principal 1858-1906 (48 years)",
+      "achievements": [
+        "Prominent suffragist and education pioneer",
+        "Introduced mathematics and science despite parental opposition",
+        "Founded St Hilda's College, Oxford",
+        "Transformed CLC into leading academic institution"
+      ]
+    },
+    "famousAlumnae": [
+      {"name": "Dame Mary Archer DBE", "achievement": "Scientist, Chairman of Science Museum Group"},
+      {"name": "U. A. Fanthorpe", "achievement": "Poet"},
+      {"name": "Miriam Violet Griffith", "achievement": "Electrical engineer, pioneer of ground source heat pumps"},
+      {"name": "Constance Leathart", "achievement": "WWII pilot, first woman in Britain to design and fly a glider"}
+    ],
+    "badge": {
+      "elements": ["Two martlets (birds) from Cheltenham town coat of arms", "Three stars", "Daisy - school symbol"]
+    }
+  },
+
+  "location": {
+    "description": "Heart of Cheltenham, Gloucestershire. Regency spa town in the Cotswolds, Area of Outstanding Natural Beauty.",
+    "campus": {
+      "size": "36-acre dispersed estate",
+      "sites": "15+ sites within 10-minute walk",
+      "architecture": "Gothic revival with modern additions"
+    },
+    "travel": {
+      "cheltenhamSpaStation": "20 min walk",
+      "bristol": "1 hour drive",
+      "birmingham": "1 hour drive",
+      "oxford": "1 hour drive",
+      "london": "~2 hours by car/train",
+      "birminghamAirport": "65 min drive",
+      "heathrow": "1.5 hours drive"
+    },
+    "keyBuildings": [
+      {"name": "Main Site", "description": "Gothic revival, vaulted ceilings, marble hallways, stained glass"},
+      {"name": "Art & Technology Block", "description": "Modern, glass-fronted"},
+      {"name": "Parabola Arts Centre", "description": "325-seat theatre"},
+      {"name": "Health & Fitness Centre", "opened": 2018},
+      {"name": "Recording Studio", "opened": 2016},
+      {"name": "New Sixth Form Centre", "opening": "Autumn 2026"}
+    ]
+  }
+}

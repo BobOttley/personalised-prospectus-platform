@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <style>
+        body {
+            font-family: "Arial";
+        }
+    </style>
+    <script type="text/javascript">
+    window.awsWafCookieDomainList = [];
+    window.gokuProps = {
+"key":"AQIDAHjcYu/GjX+QlghicBgQ/7bFaQZ+m5FKCMDnO+vTbNg96AESxVzgSPcKv826GgSWkJ15AAAAfjB8BgkqhkiG9w0BBwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMXAiVbESldq/kqYnGAgEQgDt5zU5WNpOIVHK+zGo+RD81GRuSveW/YkHmchFVI1Z7IgxpibOcZS3o0pmsm4KRUJCgXPXTM4se6HUYFw==",
+          "iv":"CgAGkiEdnQAAAlKy",
+          "context":"6ivuaCGQ62LnvtBn36GCJkZsZUcCJRYxDiGoV2NRQ3wkDg3sQ+35fVNHb/fsGLqxy6r2FqNvXRWHtWccxyUmcKts8MarFyZOfHZanhrdZE6W1injRGPg7NF0IrzuSjvG7djHazFqNc6edOQGDqJh7eqh3P3lPyIN7d5u5rfgSu5LkbAekkSAdYAfCkONiJamYdZW+QcdFwAU6GGxGyV9+Bz1g6G1gA1Xo00FxuHzfcE+do1igwngQnQS/0PhdkL4vCHvHBRSTfAn0EKgobAJMjgrIdIkvfXyJXT2JNE13oG/gONiL5auVxCnV7I4hJ3Qn7OnTzaYEyndHVDw"
+};
+    </script>
+    <script src="https://3f364da4c2ba.28e7a464.eu-west-2.token.awswaf.com/3f364da4c2ba/96dfc9a28634/9d1292657f90/challenge.js"></script>
+</head>
+<body>
+    <div id="challenge-container"></div>
+    <script type="text/javascript">
+        AwsWafIntegration.saveReferrer();
+        AwsWafIntegration.checkForceRefresh().then((forceRefresh) => {
+            if (forceRefresh) {
+                AwsWafIntegration.forceRefreshToken().then(() => {
+                    window.location.reload(true);
+                });
+            } else {
+                AwsWafIntegration.getToken().then(() => {
+                    window.location.reload(true);
+                });
+            }
+        });
+    </script>
+    <noscript>
+        <h1>JavaScript is disabled</h1>
+        In order to continue, we need to verify that you're not a robot.
+        This requires JavaScript. Enable JavaScript and then reload the page.
+    </noscript>
+</body>
+</html>

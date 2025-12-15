@@ -1,0 +1,1090 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request Your Personalised Prospectus | Cheltenham Ladies' College</title>
+    <meta name="description" content="Tell us about your daughter and receive a prospectus tailored specifically to her interests and aspirations.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles/clc-prospectus.css">
+
+    <style>
+        /* Additional form-specific styles */
+        .form-intro {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto var(--space-2xl);
+        }
+
+        .form-intro__badge {
+            display: inline-block;
+            background: var(--clc-teal-pale);
+            color: var(--clc-teal);
+            padding: var(--space-xs) var(--space-md);
+            border-radius: var(--radius-full);
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: var(--space-md);
+        }
+
+        .conditional-field {
+            display: none;
+            animation: fadeIn var(--transition-normal);
+        }
+
+        .conditional-field.visible {
+            display: block;
+        }
+
+        .form-section {
+            margin-bottom: var(--space-2xl);
+        }
+
+        .form-section__title {
+            font-size: 1.1rem;
+            color: var(--clc-teal);
+            margin-bottom: var(--space-md);
+            padding-bottom: var(--space-sm);
+            border-bottom: 2px solid var(--clc-teal-pale);
+        }
+
+        .inline-fields {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--space-md);
+        }
+
+        .helper-text {
+            background: var(--clc-teal-pale);
+            border-radius: var(--radius-md);
+            padding: var(--space-md);
+            margin-top: var(--space-md);
+            font-size: 0.9rem;
+            color: var(--clc-teal-dark);
+        }
+
+        .helper-text strong {
+            display: block;
+            margin-bottom: var(--space-xs);
+        }
+    </style>
+</head>
+<body class="form-page">
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header__inner">
+                <div class="header__logo">
+                    <img src="assets/logo/clc-logo.png" alt="Cheltenham Ladies' College" onerror="this.style.display='none'; this.parentElement.innerHTML='<span style=\'font-family: var(--font-serif); font-weight: 600; color: var(--clc-teal); font-size: 1.25rem;\'>Cheltenham Ladies\' College</span>'">
+                </div>
+                <div class="header__contact">
+                    <a href="tel:+441242520691" style="color: var(--text-secondary); font-size: 0.9rem;">+44 (0)1242 520691</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Form -->
+    <main class="form-container">
+        <div class="container container--narrow">
+
+            <!-- Intro -->
+            <div class="form-intro">
+                <span class="form-intro__badge">Personalised Prospectus</span>
+                <h1>Tell us about your daughter</h1>
+                <p class="lead">In just a few minutes, we'll create a prospectus tailored specifically to her interests and aspirations.</p>
+            </div>
+
+            <!-- Progress Bar -->
+            <div class="progress-bar">
+                <div class="progress-steps">
+                    <div class="progress-step progress-step--active" data-step="1">
+                        <span class="progress-step__circle">1</span>
+                        <span class="progress-step__label">About Her</span>
+                    </div>
+                    <span class="progress-step__line"></span>
+                    <div class="progress-step" data-step="2">
+                        <span class="progress-step__circle">2</span>
+                        <span class="progress-step__label">Interests</span>
+                    </div>
+                    <span class="progress-step__line"></span>
+                    <div class="progress-step" data-step="3">
+                        <span class="progress-step__circle">3</span>
+                        <span class="progress-step__label">Practical</span>
+                    </div>
+                    <span class="progress-step__line"></span>
+                    <div class="progress-step" data-step="4">
+                        <span class="progress-step__circle">4</span>
+                        <span class="progress-step__label">Contact</span>
+                    </div>
+                    <span class="progress-step__line progress-step__line--futures hidden"></span>
+                    <div class="progress-step progress-step--futures hidden" data-step="5">
+                        <span class="progress-step__circle">5</span>
+                        <span class="progress-step__label">Futures</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Form Card -->
+            <div class="form-card">
+                <form id="enquiryForm" novalidate>
+
+                    <!-- STEP 1: About Your Daughter -->
+                    <div class="form-step form-step--active" data-step="1">
+                        <div class="form-card__header">
+                            <h2 class="form-card__title">About Your Daughter</h2>
+                            <p class="form-card__subtitle">Help us understand when she might join us</p>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-group__label">When would you like her to join us?</label>
+                            <div class="radio-cards">
+                                <div class="radio-card">
+                                    <input type="radio" name="entry_point" id="entry_year7" value="year7" class="radio-card__input" required>
+                                    <label for="entry_year7" class="radio-card__label">
+                                        <span class="radio-card__indicator"></span>
+                                        <div class="radio-card__content">
+                                            <div class="radio-card__title">Year 7 (age 11)</div>
+                                            <div class="radio-card__description">Our most popular entry point - join at the start of senior school</div>
+                                        </div>
+                                    </label>
+                                </div>
+                                <div class="radio-card">
+                                    <input type="radio" name="entry_point" id="entry_year9" value="year9" class="radio-card__input">
+                                    <label for="entry_year9" class="radio-card__label">
+                                        <span class="radio-card__indicator"></span>
+                                        <div class="radio-card__content">
+                                            <div class="radio-card__title">Year 9 (age 13)</div>
+                                            <div class="radio-card__description">Common entry point - join before GCSE choices</div>
+                                        </div>
+                                    </label>
+                                </div>
+                                <div class="radio-card">
+                                    <input type="radio" name="entry_point" id="entry_sixthform" value="sixth_form" class="radio-card__input">
+                                    <label for="entry_sixthform" class="radio-card__label">
+                                        <span class="radio-card__indicator"></span>
+                                        <div class="radio-card__content">
+                                            <div class="radio-card__title">Sixth Form (age 16)</div>
+                                            <div class="radio-card__description">Join for A-Levels or the International Baccalaureate</div>
+                                        </div>
+                                    </label>
+                                </div>
+                                <div class="radio-card">
+                                    <input type="radio" name="entry_point" id="entry_other" value="other" class="radio-card__input">
+                                    <label for="entry_other" class="radio-card__label">
+                                        <span class="radio-card__indicator"></span>
+                                        <div class="radio-card__content">
+                                            <div class="radio-card__title">Other year group</div>
+                                            <div class="radio-card__description">Occasional places may be available in other years</div>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Conditional: Other year selector -->
+                        <div class="form-group conditional-field" id="otherYearField">
+                            <label class="form-group__label" for="other_year">Which year group?</label>
+                            <select class="form-select" id="other_year" name="other_year">
+                                <option value="">Select year group...</option>
+                                <option value="year8">Year 8 (age 12)</option>
+                                <option value="year10">Year 10 (age 14)</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-group__label" for="entry_year">Which September would she start?</label>
+                            <select class="form-select" id="entry_year" name="entry_year" required>
+                                <option value="">Select year...</option>
+                                <option value="2026">September 2026</option>
+                                <option value="2027">September 2027</option>
+                                <option value="2028">September 2028</option>
+                                <option value="2029">September 2029</option>
+                                <option value="exploring">Later / Just exploring</option>
+                            </select>
+                        </div>
+
+                        <div class="inline-fields">
+                            <div class="form-group">
+                                <label class="form-group__label" for="child_first_name">Her first name</label>
+                                <input type="text" class="form-input" id="child_first_name" name="child_first_name" placeholder="e.g. Sophie" required maxlength="50">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-group__label" for="child_age">Her current age</label>
+                                <select class="form-select" id="child_age" name="child_age" required>
+                                    <option value="">Select...</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                    <option value="13">13</option>
+                                    <option value="14">14</option>
+                                    <option value="15">15</option>
+                                    <option value="16">16</option>
+                                    <option value="17">17</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-group__label" for="current_school">Which school does she currently attend? (Optional)</label>
+                            <input type="text" class="form-input" id="current_school" name="current_school" placeholder="Start typing school name...">
+                            <p class="form-group__hint">This helps us understand her educational background</p>
+                        </div>
+
+                        <div class="form-actions">
+                            <div></div>
+                            <button type="button" class="btn btn--primary" onclick="nextStep()">
+                                Continue
+                                <span>→</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- STEP 2: Her Interests -->
+                    <div class="form-step" data-step="2">
+                        <div class="form-card__header">
+                            <h2 class="form-card__title">Her Interests</h2>
+                            <p class="form-card__subtitle">Tell us what she loves - we'll show you how CLC nurtures these passions</p>
+                        </div>
+
+                        <div class="form-section">
+                            <h3 class="form-section__title">Academic Interests</h3>
+                            <p class="form-group__hint mb-2">Which subjects does she enjoy most? (Choose up to 3)</p>
+                            <div class="checkbox-grid">
+                                <div class="checkbox-item">
+                                    <input type="checkbox" name="academic_interests" id="int_english" value="english" class="checkbox-item__input">
+                                    <label for="int_english" class="checkbox-item__label">
+                                        <span class="checkbox-item__indicator"></span>
+                                        English & Languages
+                                    </label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" name="academic_interests" id="int_maths" value="mathematics" class="checkbox-item__input">
+                                    <label for="int_maths" class="checkbox-item__label">
+                                        <span class="checkbox-item__indicator"></span>
+                                        Mathematics
+                                    </label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" name="academic_interests" id="int_sciences" value="sciences" class="checkbox-item__input">
+                                    <label for="int_sciences" class="checkbox-item__label">
+                                        <span class="checkbox-item__indicator"></span>
+                                        Sciences
+                                    </label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" name="academic_interests" id="int_humanities" value="humanities" class="checkbox-item__input">
+                                    <label for="int_humanities" class="checkbox-item__label">
+                                        <span class="checkbox-item__indicator"></span>
+                                        History & Geography
+                                    </label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" name="academic_interests" id="int_art" value="art" class="checkbox-item__input">
+                                    <label for="int_art" class="checkbox-item__label">
+                                        <span class="checkbox-item__indicator"></span>
+                                        Art & Design
+                                    </label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" name="academic_interests" id="int_music" value="music" class="checkbox-item__input">
+                                    <label for="int_music" class="checkbox-item__label">
+                                        <span class="checkbox-item__indicator"></span>
+                                        Music
+                                    </label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" name="academic_interests" id="int_drama" value="drama" class="checkbox-item__input">
+                                    <label for="int_drama" class="checkbox-item__label">
+                                        <span class="checkbox-item__indicator"></span>
+                                        Drama
+                                    </label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" name="academic_interests" id="int_computing" value="computing" class="checkbox-item__input">
+                                    <label for="int_computing" class="checkbox-item__label">
+                                        <span class="checkbox-item__indicator"></span>
+                                        Computing & Technology
+                                    </label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" name="academic_interests" id="int_sport" value="sport" class="checkbox-item__input">
+                                    <label for="int_sport" class="checkbox-item__label">
+                                        <span class="checkbox-item__indicator"></span>
+                                        Sport & PE
+                                    </label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" name="academic_interests" id="int_all" value="all" class="checkbox-item__input">
+                                    <label for="int_all" class="checkbox-item__label">
+                                        <span class="checkbox-item__indicator"></span>
+                                        She enjoys everything!
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h3 class="form-section__title">Extracurricular Interests</h3>
+                            <p class="form-group__hint mb-2">What does she love to do outside the classroom?</p>
+                            <div class="checkbox-grid">
+                                <div class="checkbox-item">
+                                    <input type="checkbox" name="extracurricular_interests" id="extra_music" value="music" class="checkbox-item__input">
+                                    <label for="extra_music" class="checkbox-item__label">
+                                        <span class="checkbox-item__indicator"></span>
+                                        Music (instrumental/singing)
+                                    </label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" name="extracurricular_interests" id="extra_sport" value="sport" class="checkbox-item__input">
+                                    <label for="extra_sport" class="checkbox-item__label">
+                                        <span class="checkbox-item__indicator"></span>
+                                        Sport & Fitness
+                                    </label>
+                                </div>
+
+                                <!-- Sport Selection - appears when Sport is checked -->
+                                <div id="sportSelectionField" class="conditional-field">
+                                    <div class="form-group__label" style="margin-top: var(--space-md); margin-bottom: var(--space-sm);">
+                                        Which sports interest <span id="childNameSports">her</span> most? (Select up to 3)
+                                    </div>
+                                    <div class="sport-selection-grid">
+                                        <div class="sport-chip">
+                                            <input type="checkbox" name="selected_sports" id="sport_netball" value="netball" class="sport-chip__input">
+                                            <label for="sport_netball" class="sport-chip__label">Netball</label>
+                                        </div>
+                                        <div class="sport-chip">
+                                            <input type="checkbox" name="selected_sports" id="sport_lacrosse" value="lacrosse" class="sport-chip__input">
+                                            <label for="sport_lacrosse" class="sport-chip__label">Lacrosse</label>
+                                        </div>
+                                        <div class="sport-chip">
+                                            <input type="checkbox" name="selected_sports" id="sport_hockey" value="hockey" class="sport-chip__input">
+                                            <label for="sport_hockey" class="sport-chip__label">Hockey</label>
+                                        </div>
+                                        <div class="sport-chip">
+                                            <input type="checkbox" name="selected_sports" id="sport_tennis" value="tennis" class="sport-chip__input">
+                                            <label for="sport_tennis" class="sport-chip__label">Tennis</label>
+                                        </div>
+                                        <div class="sport-chip">
+                                            <input type="checkbox" name="selected_sports" id="sport_swimming" value="swimming" class="sport-chip__input">
+                                            <label for="sport_swimming" class="sport-chip__label">Swimming</label>
+                                        </div>
+                                        <div class="sport-chip">
+                                            <input type="checkbox" name="selected_sports" id="sport_athletics" value="athletics" class="sport-chip__input">
+                                            <label for="sport_athletics" class="sport-chip__label">Athletics</label>
+                                        </div>
+                                        <div class="sport-chip">
+                                            <input type="checkbox" name="selected_sports" id="sport_rowing" value="rowing" class="sport-chip__input">
+                                            <label for="sport_rowing" class="sport-chip__label">Rowing</label>
+                                        </div>
+                                        <div class="sport-chip">
+                                            <input type="checkbox" name="selected_sports" id="sport_equestrian" value="equestrian" class="sport-chip__input">
+                                            <label for="sport_equestrian" class="sport-chip__label">Equestrian</label>
+                                        </div>
+                                        <div class="sport-chip">
+                                            <input type="checkbox" name="selected_sports" id="sport_dance" value="dance" class="sport-chip__input">
+                                            <label for="sport_dance" class="sport-chip__label">Dance</label>
+                                        </div>
+                                        <div class="sport-chip">
+                                            <input type="checkbox" name="selected_sports" id="sport_gymnastics" value="gymnastics" class="sport-chip__input">
+                                            <label for="sport_gymnastics" class="sport-chip__label">Gymnastics</label>
+                                        </div>
+                                        <div class="sport-chip">
+                                            <input type="checkbox" name="selected_sports" id="sport_cross_country" value="cross_country" class="sport-chip__input">
+                                            <label for="sport_cross_country" class="sport-chip__label">Cross Country</label>
+                                        </div>
+                                        <div class="sport-chip">
+                                            <input type="checkbox" name="selected_sports" id="sport_fitness" value="fitness" class="sport-chip__input">
+                                            <label for="sport_fitness" class="sport-chip__label">Fitness & Gym</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="checkbox-item">
+                                    <input type="checkbox" name="extracurricular_interests" id="extra_drama" value="drama" class="checkbox-item__input">
+                                    <label for="extra_drama" class="checkbox-item__label">
+                                        <span class="checkbox-item__indicator"></span>
+                                        Drama & Theatre
+                                    </label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" name="extracurricular_interests" id="extra_art" value="art" class="checkbox-item__input">
+                                    <label for="extra_art" class="checkbox-item__label">
+                                        <span class="checkbox-item__indicator"></span>
+                                        Art & Creative
+                                    </label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" name="extracurricular_interests" id="extra_dance" value="dance" class="checkbox-item__input">
+                                    <label for="extra_dance" class="checkbox-item__label">
+                                        <span class="checkbox-item__indicator"></span>
+                                        Dance
+                                    </label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" name="extracurricular_interests" id="extra_debating" value="debating" class="checkbox-item__input">
+                                    <label for="extra_debating" class="checkbox-item__label">
+                                        <span class="checkbox-item__indicator"></span>
+                                        Debating & Public Speaking
+                                    </label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" name="extracurricular_interests" id="extra_outdoor" value="outdoor" class="checkbox-item__input">
+                                    <label for="extra_outdoor" class="checkbox-item__label">
+                                        <span class="checkbox-item__indicator"></span>
+                                        Outdoor Activities / DofE
+                                    </label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" name="extracurricular_interests" id="extra_stem" value="stem" class="checkbox-item__input">
+                                    <label for="extra_stem" class="checkbox-item__label">
+                                        <span class="checkbox-item__indicator"></span>
+                                        STEM Clubs / Coding
+                                    </label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" name="extracurricular_interests" id="extra_reading" value="reading" class="checkbox-item__input">
+                                    <label for="extra_reading" class="checkbox-item__label">
+                                        <span class="checkbox-item__indicator"></span>
+                                        Reading & Writing
+                                    </label>
+                                </div>
+                                <div class="checkbox-item">
+                                    <input type="checkbox" name="extracurricular_interests" id="extra_volunteering" value="volunteering" class="checkbox-item__input">
+                                    <label for="extra_volunteering" class="checkbox-item__label">
+                                        <span class="checkbox-item__indicator"></span>
+                                        Community & Volunteering
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-group__label" for="interest_details">Tell us a bit more (optional)</label>
+                            <textarea class="form-input" id="interest_details" name="interest_details" rows="4" placeholder="e.g. She plays Grade 5 piano and loves netball. She's also interested in astronomy..." maxlength="500"></textarea>
+                            <p class="form-group__hint">This helps us personalise her prospectus - mention instruments, sports, achievements, or anything else that makes her unique</p>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="button" class="btn btn--secondary" onclick="prevStep()">
+                                <span>←</span>
+                                Back
+                            </button>
+                            <button type="button" class="btn btn--primary" onclick="nextStep()">
+                                Continue
+                                <span>→</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- STEP 3: Practical Details -->
+                    <div class="form-step" data-step="3">
+                        <div class="form-card__header">
+                            <h2 class="form-card__title">Practical Details</h2>
+                            <p class="form-card__subtitle">Help us show you the most relevant information</p>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-group__label">What type of place are you considering?</label>
+                            <div class="radio-cards">
+                                <div class="radio-card">
+                                    <input type="radio" name="accommodation_type" id="acc_day" value="day" class="radio-card__input" required>
+                                    <label for="acc_day" class="radio-card__label">
+                                        <span class="radio-card__indicator"></span>
+                                        <div class="radio-card__content">
+                                            <div class="radio-card__title">Day pupil</div>
+                                            <div class="radio-card__description">She'd attend during the day and return home each evening</div>
+                                        </div>
+                                    </label>
+                                </div>
+                                <div class="radio-card">
+                                    <input type="radio" name="accommodation_type" id="acc_boarding" value="boarding" class="radio-card__input">
+                                    <label for="acc_boarding" class="radio-card__label">
+                                        <span class="radio-card__indicator"></span>
+                                        <div class="radio-card__content">
+                                            <div class="radio-card__title">Boarding</div>
+                                            <div class="radio-card__description">She'd live at school during term time, part of our boarding community</div>
+                                        </div>
+                                    </label>
+                                </div>
+                                <div class="radio-card">
+                                    <input type="radio" name="accommodation_type" id="acc_unsure" value="unsure" class="radio-card__input">
+                                    <label for="acc_unsure" class="radio-card__label">
+                                        <span class="radio-card__indicator"></span>
+                                        <div class="radio-card__content">
+                                            <div class="radio-card__title">Not sure yet</div>
+                                            <div class="radio-card__description">We'd like to learn more about both options</div>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-group__label">Where are you based?</label>
+                            <div class="radio-cards">
+                                <div class="radio-card">
+                                    <input type="radio" name="family_location" id="loc_local" value="local" class="radio-card__input" required>
+                                    <label for="loc_local" class="radio-card__label">
+                                        <span class="radio-card__indicator"></span>
+                                        <div class="radio-card__content">
+                                            <div class="radio-card__title">Local to Cheltenham</div>
+                                            <div class="radio-card__description">Within 30 miles of the school</div>
+                                        </div>
+                                    </label>
+                                </div>
+                                <div class="radio-card">
+                                    <input type="radio" name="family_location" id="loc_uk" value="uk" class="radio-card__input">
+                                    <label for="loc_uk" class="radio-card__label">
+                                        <span class="radio-card__indicator"></span>
+                                        <div class="radio-card__content">
+                                            <div class="radio-card__title">Elsewhere in the UK</div>
+                                            <div class="radio-card__description">Outside the local Cheltenham area</div>
+                                        </div>
+                                    </label>
+                                </div>
+                                <div class="radio-card">
+                                    <input type="radio" name="family_location" id="loc_international" value="international" class="radio-card__input">
+                                    <label for="loc_international" class="radio-card__label">
+                                        <span class="radio-card__indicator"></span>
+                                        <div class="radio-card__content">
+                                            <div class="radio-card__title">Outside the UK</div>
+                                            <div class="radio-card__description">We're an international family</div>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Conditional: Native Language for International Families -->
+                        <div class="conditional-field" id="nativeLanguageField">
+                            <div class="form-group">
+                                <label class="form-group__label">What is your family's primary language at home?</label>
+                                <p class="form-group__hint">We can add subtitles to videos in your preferred language</p>
+                                <select name="native_language" id="native_language" class="form-control">
+                                    <option value="en">English</option>
+                                    <option value="zh-Hans">Chinese (Simplified / 简体中文)</option>
+                                    <option value="zh-Hant">Chinese (Traditional / 繁體中文)</option>
+                                    <option value="es">Spanish (Español)</option>
+                                    <option value="ar">Arabic (العربية)</option>
+                                    <option value="ru">Russian (Русский)</option>
+                                    <option value="de">German (Deutsch)</option>
+                                    <option value="fr">French (Français)</option>
+                                    <option value="ja">Japanese (日本語)</option>
+                                    <option value="ko">Korean (한국어)</option>
+                                    <option value="pt">Portuguese (Português)</option>
+                                    <option value="hi">Hindi (हिन्दी)</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h3 class="form-section__title">Additional Information</h3>
+
+                            <div class="form-group">
+                                <div class="checkbox-item">
+                                    <input type="checkbox" name="scholarship_interest" id="scholarship_interest" value="yes" class="checkbox-item__input">
+                                    <label for="scholarship_interest" class="checkbox-item__label">
+                                        <span class="checkbox-item__indicator"></span>
+                                        I'd like information about scholarships
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Conditional: Scholarship types -->
+                            <div class="conditional-field" id="scholarshipTypesField">
+                                <p class="form-group__hint mb-2">Which scholarships might be relevant?</p>
+                                <div class="checkbox-grid">
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" name="scholarship_types" id="schol_academic" value="academic" class="checkbox-item__input">
+                                        <label for="schol_academic" class="checkbox-item__label">
+                                            <span class="checkbox-item__indicator"></span>
+                                            Academic
+                                        </label>
+                                    </div>
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" name="scholarship_types" id="schol_music" value="music" class="checkbox-item__input">
+                                        <label for="schol_music" class="checkbox-item__label">
+                                            <span class="checkbox-item__indicator"></span>
+                                            Music
+                                        </label>
+                                    </div>
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" name="scholarship_types" id="schol_sport" value="sport" class="checkbox-item__input">
+                                        <label for="schol_sport" class="checkbox-item__label">
+                                            <span class="checkbox-item__indicator"></span>
+                                            Sport
+                                        </label>
+                                    </div>
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" name="scholarship_types" id="schol_art" value="art" class="checkbox-item__input">
+                                        <label for="schol_art" class="checkbox-item__label">
+                                            <span class="checkbox-item__indicator"></span>
+                                            Art
+                                        </label>
+                                    </div>
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" name="scholarship_types" id="schol_drama" value="drama" class="checkbox-item__input">
+                                        <label for="schol_drama" class="checkbox-item__label">
+                                            <span class="checkbox-item__indicator"></span>
+                                            Drama
+                                        </label>
+                                    </div>
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" name="scholarship_types" id="schol_all" value="all" class="checkbox-item__input">
+                                        <label for="schol_all" class="checkbox-item__label">
+                                            <span class="checkbox-item__indicator"></span>
+                                            Tell me about all options
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Bursary interest (UK only) -->
+                            <div class="form-group conditional-field" id="bursaryField">
+                                <div class="checkbox-item">
+                                    <input type="checkbox" name="bursary_interest" id="bursary_interest" value="yes" class="checkbox-item__input">
+                                    <label for="bursary_interest" class="checkbox-item__label">
+                                        <span class="checkbox-item__indicator"></span>
+                                        I'd like information about financial assistance (bursaries)
+                                    </label>
+                                </div>
+                                <div class="helper-text">
+                                    <strong>Beale Awards</strong>
+                                    Means-tested bursaries can cover up to 100% of fees for eligible UK families. All enquiries are treated in strict confidence.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="button" class="btn btn--secondary" onclick="prevStep()">
+                                <span>←</span>
+                                Back
+                            </button>
+                            <button type="button" class="btn btn--primary" onclick="nextStep()">
+                                Continue
+                                <span>→</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- STEP 4: Contact Details -->
+                    <div class="form-step" data-step="4">
+                        <div class="form-card__header">
+                            <h2 class="form-card__title">Your Contact Details</h2>
+                            <p class="form-card__subtitle">So we can send you <span class="personalised" id="childNamePreview">your daughter</span>'s personalised prospectus</p>
+                        </div>
+
+                        <div class="form-section">
+                            <h3 class="form-section__title">Primary Contact</h3>
+
+                            <div class="inline-fields">
+                                <div class="form-group">
+                                    <label class="form-group__label" for="parent_title">Title</label>
+                                    <select class="form-select" id="parent_title" name="parent_title" required>
+                                        <option value="">Select...</option>
+                                        <option value="Mr">Mr</option>
+                                        <option value="Mrs">Mrs</option>
+                                        <option value="Ms">Ms</option>
+                                        <option value="Miss">Miss</option>
+                                        <option value="Dr">Dr</option>
+                                        <option value="Prof">Prof</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-group__label" for="parent_first_name">First name</label>
+                                    <input type="text" class="form-input" id="parent_first_name" name="parent_first_name" required maxlength="50">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-group__label" for="parent_surname">Surname</label>
+                                    <input type="text" class="form-input" id="parent_surname" name="parent_surname" required maxlength="50">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-group__label" for="parent_email">Email address</label>
+                                <input type="email" class="form-input" id="parent_email" name="parent_email" placeholder="you@example.com" required>
+                                <p class="form-group__hint">We'll send the personalised prospectus to this address</p>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-group__label" for="parent_phone">Phone number (optional)</label>
+                                <input type="tel" class="form-input" id="parent_phone" name="parent_phone" placeholder="+44...">
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <div class="form-group">
+                                <div class="checkbox-item">
+                                    <input type="checkbox" name="include_second_parent" id="include_second_parent" value="yes" class="checkbox-item__input">
+                                    <label for="include_second_parent" class="checkbox-item__label">
+                                        <span class="checkbox-item__indicator"></span>
+                                        Add another parent/guardian
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Conditional: Second parent -->
+                            <div class="conditional-field" id="secondParentFields">
+                                <h3 class="form-section__title">Second Contact</h3>
+                                <div class="inline-fields">
+                                    <div class="form-group">
+                                        <label class="form-group__label" for="second_parent_title">Title</label>
+                                        <select class="form-select" id="second_parent_title" name="second_parent_title">
+                                            <option value="">Select...</option>
+                                            <option value="Mr">Mr</option>
+                                            <option value="Mrs">Mrs</option>
+                                            <option value="Ms">Ms</option>
+                                            <option value="Miss">Miss</option>
+                                            <option value="Dr">Dr</option>
+                                            <option value="Prof">Prof</option>
+                                            <option value="Other">Other</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-group__label" for="second_parent_first_name">First name</label>
+                                        <input type="text" class="form-input" id="second_parent_first_name" name="second_parent_first_name" maxlength="50">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-group__label" for="second_parent_surname">Surname</label>
+                                        <input type="text" class="form-input" id="second_parent_surname" name="second_parent_surname" maxlength="50">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-group__label" for="second_parent_email">Email address</label>
+                                    <input type="email" class="form-input" id="second_parent_email" name="second_parent_email" placeholder="partner@example.com">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h3 class="form-section__title">Communication Preferences</h3>
+                            <div class="form-group">
+                                <div class="checkbox-item">
+                                    <input type="checkbox" name="pref_events" id="pref_events" value="yes" class="checkbox-item__input" checked>
+                                    <label for="pref_events" class="checkbox-item__label">
+                                        <span class="checkbox-item__indicator"></span>
+                                        Email updates about events and open days
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="checkbox-item">
+                                    <input type="checkbox" name="pref_personalised" id="pref_personalised" value="yes" class="checkbox-item__input" checked>
+                                    <label for="pref_personalised" class="checkbox-item__label">
+                                        <span class="checkbox-item__indicator"></span>
+                                        Personalised information based on her interests
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="checkbox-item">
+                                    <input type="checkbox" name="pref_phone" id="pref_phone" value="yes" class="checkbox-item__input">
+                                    <label for="pref_phone" class="checkbox-item__label">
+                                        <span class="checkbox-item__indicator"></span>
+                                        Phone call from our Admissions team
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-group__label" for="source">How did you hear about Cheltenham Ladies' College?</label>
+                            <select class="form-select" id="source" name="source">
+                                <option value="">Select...</option>
+                                <option value="search">Search engine (Google, etc.)</option>
+                                <option value="social">Social media</option>
+                                <option value="event">School fair or event</option>
+                                <option value="recommendation">Recommendation from another family</option>
+                                <option value="consultant">Educational consultant</option>
+                                <option value="media">Publication / Media</option>
+                                <option value="known">We've known about CLC for years</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="button" class="btn btn--secondary" onclick="prevStep()">
+                                <span>←</span>
+                                Back
+                            </button>
+                            <button type="button" class="btn btn--primary" onclick="nextStep()" id="step4Continue">
+                                Continue
+                                <span>→</span>
+                            </button>
+                            <button type="submit" class="btn btn--primary btn--large hidden" id="step4Submit">
+                                Create My Prospectus
+                                <span>→</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- STEP 5: Futures (6th Form Only) -->
+                    <div class="form-step" data-step="5">
+                        <div class="form-card__header">
+                            <h2 class="form-card__title">Her Future</h2>
+                            <p class="form-card__subtitle">Tell us about <span class="personalised" id="childNameFutures">her</span> aspirations so we can show you how CLC prepares students for their chosen path</p>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-group__label">What kind of career might interest her? (Choose up to 2)</label>
+                            <div class="career-cards">
+                                <div class="career-card">
+                                    <input type="checkbox" name="career_areas" id="career_medicine" value="medicine_health" class="career-card__input">
+                                    <label for="career_medicine" class="career-card__label">
+                                        <span class="career-card__icon">🏥</span>
+                                        <span class="career-card__title">Medicine & Health</span>
+                                    </label>
+                                </div>
+                                <div class="career-card">
+                                    <input type="checkbox" name="career_areas" id="career_law" value="law" class="career-card__input">
+                                    <label for="career_law" class="career-card__label">
+                                        <span class="career-card__icon">⚖️</span>
+                                        <span class="career-card__title">Law</span>
+                                    </label>
+                                </div>
+                                <div class="career-card">
+                                    <input type="checkbox" name="career_areas" id="career_business" value="business_finance" class="career-card__input">
+                                    <label for="career_business" class="career-card__label">
+                                        <span class="career-card__icon">💼</span>
+                                        <span class="career-card__title">Business & Finance</span>
+                                    </label>
+                                </div>
+                                <div class="career-card">
+                                    <input type="checkbox" name="career_areas" id="career_science" value="science_research" class="career-card__input">
+                                    <label for="career_science" class="career-card__label">
+                                        <span class="career-card__icon">🔬</span>
+                                        <span class="career-card__title">Science & Research</span>
+                                    </label>
+                                </div>
+                                <div class="career-card">
+                                    <input type="checkbox" name="career_areas" id="career_tech" value="technology_computing" class="career-card__input">
+                                    <label for="career_tech" class="career-card__label">
+                                        <span class="career-card__icon">💻</span>
+                                        <span class="career-card__title">Technology</span>
+                                    </label>
+                                </div>
+                                <div class="career-card">
+                                    <input type="checkbox" name="career_areas" id="career_engineering" value="engineering" class="career-card__input">
+                                    <label for="career_engineering" class="career-card__label">
+                                        <span class="career-card__icon">🔧</span>
+                                        <span class="career-card__title">Engineering</span>
+                                    </label>
+                                </div>
+                                <div class="career-card">
+                                    <input type="checkbox" name="career_areas" id="career_creative" value="creative_arts" class="career-card__input">
+                                    <label for="career_creative" class="career-card__label">
+                                        <span class="career-card__icon">🎨</span>
+                                        <span class="career-card__title">Creative Arts</span>
+                                    </label>
+                                </div>
+                                <div class="career-card">
+                                    <input type="checkbox" name="career_areas" id="career_journalism" value="journalism_media" class="career-card__input">
+                                    <label for="career_journalism" class="career-card__label">
+                                        <span class="career-card__icon">📝</span>
+                                        <span class="career-card__title">Media & Journalism</span>
+                                    </label>
+                                </div>
+                                <div class="career-card">
+                                    <input type="checkbox" name="career_areas" id="career_politics" value="politics_public" class="career-card__input">
+                                    <label for="career_politics" class="career-card__label">
+                                        <span class="career-card__icon">🏛️</span>
+                                        <span class="career-card__title">Politics & Public Service</span>
+                                    </label>
+                                </div>
+                                <div class="career-card">
+                                    <input type="checkbox" name="career_areas" id="career_global" value="global_ngo" class="career-card__input">
+                                    <label for="career_global" class="career-card__label">
+                                        <span class="career-card__icon">🌍</span>
+                                        <span class="career-card__title">International / NGO</span>
+                                    </label>
+                                </div>
+                                <div class="career-card">
+                                    <input type="checkbox" name="career_areas" id="career_humanities" value="humanities_social" class="career-card__input">
+                                    <label for="career_humanities" class="career-card__label">
+                                        <span class="career-card__icon">📚</span>
+                                        <span class="career-card__title">Humanities</span>
+                                    </label>
+                                </div>
+                                <div class="career-card">
+                                    <input type="checkbox" name="career_areas" id="career_exploring" value="exploring" class="career-card__input">
+                                    <label for="career_exploring" class="career-card__label">
+                                        <span class="career-card__icon">❓</span>
+                                        <span class="career-card__title">Still Exploring</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <p class="form-group__hint">Don't worry if she's not sure - many students discover new passions at Sixth Form</p>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-group__label" for="career_details">Tell us more about her interests (optional)</label>
+                            <textarea class="form-input" id="career_details" name="career_details" rows="3" placeholder="e.g. She's interested in medical research, particularly cancer treatment..." maxlength="500"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-group__label">Is she interested in A-Levels, the IB, or both?</label>
+                            <div class="radio-cards">
+                                <div class="radio-card">
+                                    <input type="radio" name="qualification_preference" id="qual_alevel" value="a_levels" class="radio-card__input">
+                                    <label for="qual_alevel" class="radio-card__label">
+                                        <span class="radio-card__indicator"></span>
+                                        <div class="radio-card__content">
+                                            <div class="radio-card__title">A-Levels</div>
+                                            <div class="radio-card__description">Focus on 3-4 subjects in depth</div>
+                                        </div>
+                                    </label>
+                                </div>
+                                <div class="radio-card">
+                                    <input type="radio" name="qualification_preference" id="qual_ib" value="ib" class="radio-card__input">
+                                    <label for="qual_ib" class="radio-card__label">
+                                        <span class="radio-card__indicator"></span>
+                                        <div class="radio-card__content">
+                                            <div class="radio-card__title">International Baccalaureate (IB)</div>
+                                            <div class="radio-card__description">Broader programme across 6 subjects</div>
+                                        </div>
+                                    </label>
+                                </div>
+                                <div class="radio-card">
+                                    <input type="radio" name="qualification_preference" id="qual_unsure" value="undecided" class="radio-card__input">
+                                    <label for="qual_unsure" class="radio-card__label">
+                                        <span class="radio-card__indicator"></span>
+                                        <div class="radio-card__content">
+                                            <div class="radio-card__title">Not sure yet</div>
+                                            <div class="radio-card__description">We'd like to learn about both options</div>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-group__label">What are her university aspirations?</label>
+                            <div class="radio-cards">
+                                <div class="radio-card">
+                                    <input type="radio" name="university_aspiration" id="uni_oxbridge" value="oxbridge" class="radio-card__input">
+                                    <label for="uni_oxbridge" class="radio-card__label">
+                                        <span class="radio-card__indicator"></span>
+                                        <div class="radio-card__content">
+                                            <div class="radio-card__title">Oxbridge</div>
+                                            <div class="radio-card__description">Oxford or Cambridge</div>
+                                        </div>
+                                    </label>
+                                </div>
+                                <div class="radio-card">
+                                    <input type="radio" name="university_aspiration" id="uni_russell" value="russell_group" class="radio-card__input">
+                                    <label for="uni_russell" class="radio-card__label">
+                                        <span class="radio-card__indicator"></span>
+                                        <div class="radio-card__content">
+                                            <div class="radio-card__title">Russell Group / Top UK</div>
+                                            <div class="radio-card__description">Leading UK universities</div>
+                                        </div>
+                                    </label>
+                                </div>
+                                <div class="radio-card">
+                                    <input type="radio" name="university_aspiration" id="uni_overseas" value="overseas" class="radio-card__input">
+                                    <label for="uni_overseas" class="radio-card__label">
+                                        <span class="radio-card__indicator"></span>
+                                        <div class="radio-card__content">
+                                            <div class="radio-card__title">Overseas</div>
+                                            <div class="radio-card__description">US, Europe, or other international universities</div>
+                                        </div>
+                                    </label>
+                                </div>
+                                <div class="radio-card">
+                                    <input type="radio" name="university_aspiration" id="uni_exploring" value="exploring" class="radio-card__input">
+                                    <label for="uni_exploring" class="radio-card__label">
+                                        <span class="radio-card__indicator"></span>
+                                        <div class="radio-card__content">
+                                            <div class="radio-card__title">Still exploring options</div>
+                                            <div class="radio-card__description">She's keeping her options open</div>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="button" class="btn btn--secondary" onclick="prevStep()">
+                                <span>←</span>
+                                Back
+                            </button>
+                            <button type="submit" class="btn btn--primary btn--large">
+                                Create My Prospectus
+                                <span>→</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Success State -->
+                    <div class="form-step" data-step="success">
+                        <div class="success-card">
+                            <div class="success-card__icon">✓</div>
+                            <h2 class="success-card__title">Thank you, <span id="parentNameSuccess">Parent</span></h2>
+                            <p class="success-card__message">
+                                We're creating a personalised prospectus for <span class="personalised" id="childNameSuccess">your daughter</span>.
+                            </p>
+                            <a href="#" class="btn btn--primary btn--large" id="viewProspectusBtn">
+                                View <span id="childNameBtn">Her</span>'s Prospectus
+                                <span>→</span>
+                            </a>
+                            <p style="margin-top: var(--space-xl); color: var(--text-secondary);">
+                                We've also sent a copy to <span id="emailConfirmation">your email</span>
+                            </p>
+
+                            <div style="margin-top: var(--space-2xl); padding-top: var(--space-xl); border-top: 1px solid #eee;">
+                                <h3 style="font-size: 1.1rem; margin-bottom: var(--space-md);">What happens next?</h3>
+                                <ul style="text-align: left; max-width: 400px; margin: 0 auto; list-style: none;">
+                                    <li style="padding: var(--space-sm) 0; display: flex; align-items: center; gap: var(--space-sm);">
+                                        <span style="color: var(--clc-teal);">•</span>
+                                        Our Admissions team will be in touch
+                                    </li>
+                                    <li style="padding: var(--space-sm) 0; display: flex; align-items: center; gap: var(--space-sm);">
+                                        <span style="color: var(--clc-teal);">•</span>
+                                        You can book a visit to see us in person
+                                    </li>
+                                    <li style="padding: var(--space-sm) 0; display: flex; align-items: center; gap: var(--space-sm);">
+                                        <span style="color: var(--clc-teal);">•</span>
+                                        Browse our virtual tour online
+                                    </li>
+                                </ul>
+
+                                <div style="margin-top: var(--space-xl); display: flex; gap: var(--space-md); justify-content: center; flex-wrap: wrap;">
+                                    <a href="https://www.cheltladiescollege.org/apply/visits" class="btn btn--secondary">Book a Visit</a>
+                                    <a href="https://www.cheltladiescollege.org/information/contact-us" class="btn btn--secondary">Contact Admissions</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer style="background: var(--clc-teal-pale); padding: var(--space-xl) 0; text-align: center; margin-top: auto;">
+        <div class="container">
+            <p style="color: var(--text-secondary); font-size: 0.875rem;">
+                Cheltenham Ladies' College, Bayshill Road, Cheltenham, GL50 3EP
+                <br>
+                <a href="tel:+441242520691">+44 (0)1242 520691</a> |
+                <a href="https://www.cheltladiescollege.org">www.cheltladiescollege.org</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- Form JavaScript -->
+    <script src="scripts/form.js?v=20251215"></script>
+</body>
+</html>

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Personalised Prospectus Platform | bSMART ai</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #1a1a2e;
+      --secondary: #16213e;
+      --accent: #e94560;
+      --gold: #c5a572;
+      --white: #ffffff;
+      --grey: #f5f5f5;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      min-height: 100vh;
+      color: var(--white);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    header {
+      padding: 2rem 0;
+      text-align: center;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 0.1em;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 4rem 0;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      opacity: 0.9;
+      max-width: 600px;
+      margin: 0 auto 3rem;
+      line-height: 1.6;
+    }
+
+    .schools-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+      padding: 2rem 0 4rem;
+    }
+
+    .school-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 1rem;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .school-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .school-card__image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .school-card__content {
+      padding: 2rem;
+    }
+
+    .school-card__name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.75rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .school-card__location {
+      color: var(--gold);
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+
+    .school-card__description {
+      opacity: 0.8;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+
+    .school-card__links {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      border-radius: 2rem;
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+
+    .btn--primary {
+      background: var(--gold);
+      color: var(--primary);
+    }
+
+    .btn--primary:hover {
+      background: #d4b682;
+      transform: translateY(-2px);
+    }
+
+    .btn--secondary {
+      background: transparent;
+      color: var(--white);
+      border: 2px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .btn--secondary:hover {
+      border-color: var(--white);
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    footer {
+      text-align: center;
+      padding: 3rem 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    footer p {
+      opacity: 0.7;
+      font-size: 0.9rem;
+    }
+
+    footer a {
+      color: var(--gold);
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .schools-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="logo">bSMART ai</div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h1>Personalised Prospectus Platform</h1>
+        <p>Creating bespoke, personalised prospectuses for the UK's leading independent schools. Each prospectus is tailored to your family.</p>
+      </div>
+    </section>
+
+    <section class="schools">
+      <div class="container">
+        <div class="schools-grid">
+          <!-- Cheltenham Ladies' College -->
+          <div class="school-card">
+            <img src="clc/scraped-content/images/first-week-back-2022-14.jpg" alt="Cheltenham Ladies' College" class="school-card__image" onerror="this.src='https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=600'">
+            <div class="school-card__content">
+              <h2 class="school-card__name">Cheltenham Ladies' College</h2>
+              <p class="school-card__location">Cheltenham, Gloucestershire</p>
+              <p class="school-card__description">One of the UK's leading girls' boarding and day schools. Where extraordinary girls become extraordinary women.</p>
+              <div class="school-card__links">
+                <a href="clc/enquiry-form.html" class="btn btn--primary">Request Prospectus</a>
+                <a href="clc/prospectus.html" class="btn btn--secondary">Preview</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Brighton College -->
+          <div class="school-card">
+            <img src="brighton-college/assets/images/open-morning-block-v2.png" alt="Brighton College" class="school-card__image" onerror="this.src='https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=600'">
+            <div class="school-card__content">
+              <h2 class="school-card__name">Brighton College</h2>
+              <p class="school-card__location">Brighton, East Sussex</p>
+              <p class="school-card__description">UK School of the Decade. The UK's top co-educational independent school with the beach on your doorstep.</p>
+              <div class="school-card__links">
+                <a href="brighton-college/index.html" class="btn btn--primary">Request Prospectus</a>
+                <a href="brighton-college/prospectus/college-entry.html" class="btn btn--secondary">Preview</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>Personalised Prospectus Platform powered by <strong>bSMART ai</strong></p>
+      <p style="margin-top: 0.5rem;">Transforming school admissions through personalisation</p>
+    </div>
+  </footer>
+</body>
+</html>
