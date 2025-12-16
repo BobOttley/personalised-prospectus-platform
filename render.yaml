@@ -1,0 +1,69 @@
+# Render Blueprint for Emily Multi-School Platform
+# https://render.com/docs/blueprint-spec
+
+services:
+  # Emily AI Assistant Service
+  - type: web
+    name: emily
+    env: node
+    rootDir: emily
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: NODE_ENV
+        value: production
+      - key: API_BASE_URL
+        value: https://emily.bsmart-ai.com
+      - key: PORT
+        value: 3030
+
+    # Auto-scaling settings
+    autoDeploy: true
+    plan: starter
+
+    # Routes
+    routes:
+      - type: rewrite
+        source: /widget/*
+        destination: /widget/*
+      - type: rewrite
+        source: /api/*
+        destination: /api/*
+
+  # Static sites for each school prospectus (optional)
+  # These can be deployed separately or served from a different location
+
+  # CLC Prospectus
+  # - type: static
+  #   name: clc-prospectus
+  #   rootDir: clc
+  #   buildCommand: ""
+  #   staticPublishPath: .
+  #   headers:
+  #     - path: /*
+  #       name: Cache-Control
+  #       value: public, max-age=3600
+
+  # Brighton College Prospectus
+  # - type: static
+  #   name: brighton-prospectus
+  #   rootDir: brighton-college
+  #   buildCommand: ""
+  #   staticPublishPath: .
+
+  # BCPK Prospectus
+  # - type: static
+  #   name: bcpk-prospectus
+  #   rootDir: bcpk
+  #   buildCommand: ""
+  #   staticPublishPath: .
+
+  # Clifton College Prospectus
+  # - type: static
+  #   name: clifton-prospectus
+  #   rootDir: clifton-college
+  #   buildCommand: ""
+  #   staticPublishPath: .

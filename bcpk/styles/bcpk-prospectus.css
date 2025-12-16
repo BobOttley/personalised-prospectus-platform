@@ -264,8 +264,7 @@ img {
 .quote-block [data-field="child_name"],
 .cta-section [data-field="child_name"],
 .prospectus-cover [data-field="child_name"],
-.prospectus-footer [data-field="child_name"],
-.secret-garden-section [data-field="child_name"] {
+.prospectus-footer [data-field="child_name"] {
   color: var(--bcpk-magenta-light) !important;
 }
 
@@ -588,8 +587,8 @@ img {
    SECRET GARDEN HIGHLIGHT SECTION
    ============================================ */
 .secret-garden-section {
-  background: linear-gradient(135deg, var(--bcpk-dark-blue) 0%, var(--bcpk-blue-light) 100%);
-  color: var(--bcpk-white);
+  background: var(--bcpk-cream);
+  color: var(--bcpk-charcoal);
   padding: var(--space-4xl) 0;
   position: relative;
   overflow: hidden;
@@ -603,7 +602,7 @@ img {
   right: 0;
   bottom: 0;
   background: url('../assets/images/nursery-kindness.jpg') center/cover no-repeat;
-  opacity: 0.15;
+  opacity: 0.08;
 }
 
 .secret-garden-section .container {
@@ -613,15 +612,15 @@ img {
 
 .secret-garden-section h2,
 .secret-garden-section .section-header__title {
-  color: var(--bcpk-white);
+  color: #1a365d !important;
 }
 
 .secret-garden-section .section-header__subtitle {
-  color: rgba(255, 255, 255, 0.9);
+  color: #2d3748 !important;
 }
 
 .secret-garden-section .feature-card {
-  background: rgba(255, 255, 255, 0.95);
+  background: var(--bcpk-white);
 }
 
 /* ============================================
