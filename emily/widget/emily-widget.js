@@ -30,7 +30,34 @@
       const dataFamilyContext = script.getAttribute('data-family-context');
 
       if (dataFamilyId) familyId = dataFamilyId;
-      if (dataFamilyContext) {
+
+      // Try to load family context from localStorage first (same source as prospectus personalisation)
+      const storageKey = dataSchool ? `${dataSchool}_prospectus_data` : null;
+      const storedData = storageKey ? localStorage.getItem(storageKey) : null;
+
+      if (storedData) {
+        try {
+          const parsed = JSON.parse(storedData);
+          // Map localStorage data to Emily's familyContext format
+          familyContext = {
+            parent_name: parsed.parent ? `${parsed.parent.title} ${parsed.parent.surname}` : '',
+            child_name: parsed.child?.first_name || '',
+            entry_point: parsed.child?.entry_point || '',
+            interests: [
+              ...(parsed.interests?.academic || []),
+              ...(parsed.interests?.extracurricular || [])
+            ],
+            career_pathway: parsed.futures?.career_areas?.[0] || parsed.personalisation?.career_pathway || '',
+            accommodation: parsed.practical?.accommodation_type || ''
+          };
+          familyId = parsed.prospectus_id || dataFamilyId;
+        } catch (e) {
+          console.warn('Emily: Could not parse localStorage data', e);
+        }
+      }
+
+      // Fall back to data-family-context attribute if no localStorage data
+      if (!familyContext.child_name && dataFamilyContext) {
         try { familyContext = JSON.parse(dataFamilyContext); } catch (e) {}
       }
 
