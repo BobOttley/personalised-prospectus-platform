@@ -111,7 +111,7 @@ app.post('/api/:schoolId/realtime/session', async (req, res) => {
   const sessionId = uuidv4();
   const familyId = body.family_id;
   const language = (body.language || 'en').toLowerCase();
-  const voice = body.voice || school.emilyPersonality?.voice || 'shimmer';
+  const voice = body.voice || school.emilyPersonality?.voice || 'vale'; // British English accent
 
   // Load knowledge base for system prompt
   let knowledgeBase = '';
@@ -134,7 +134,7 @@ app.post('/api/:schoolId/realtime/session', async (req, res) => {
       },
       body: JSON.stringify({
         model: 'gpt-4o-realtime-preview',
-        voice: 'coral',  // Female voice - trying for British accent
+        voice: voice,  // Use configured voice (vale = British English)
         modalities: ['text', 'audio'],
         output_audio_format: 'pcm16',
         temperature: 0.6,
