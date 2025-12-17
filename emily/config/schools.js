@@ -500,8 +500,8 @@ const schools = {
     knowledgeBase: 'strathallan.md',
     knowledgeBaseJson: '../strathallan/kb_chunks.json',
     theme: {
-      primary: '#003863',      // Strathallan navy
-      secondary: '#C9A227',    // Strathallan gold
+      primary: '#C9A227',      // Strathallan gold (for Emily widget visibility)
+      secondary: '#003863',    // Strathallan navy
       accent: '#C9A227',
       background: '#FAFAFA',
       text: '#2D3748'
