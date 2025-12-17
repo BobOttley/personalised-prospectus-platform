@@ -39,7 +39,8 @@
         'clc': 'clc_prospectus_data',
         'brighton-college': 'bc_prospectus_data',
         'bcpk': 'bcpk_prospectus_data',
-        'clifton-college': 'clifton_prospectus_data'
+        'clifton-college': 'clifton_prospectus_data',
+        'strathallan': 'strath_prospectus_data'
       };
       const storageKey = dataSchool ? storageKeyMap[dataSchool] : null;
       const storedData = storageKey ? localStorage.getItem(storageKey) : null;
