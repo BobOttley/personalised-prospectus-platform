@@ -175,6 +175,75 @@ function populateDataFields() {
     document.querySelectorAll('[data-field="entry_point_text"]').forEach(el => {
         el.textContent = entryPointText;
     });
+
+    // Pronouns based on child's gender
+    const gender = data.child?.gender || 'other';
+    const pronouns = getPronouns(gender);
+
+    // He/She (subject)
+    document.querySelectorAll('[data-field="pronoun_subject"]').forEach(el => {
+        el.textContent = pronouns.subject;
+    });
+
+    // him/her (object)
+    document.querySelectorAll('[data-field="pronoun_object"]').forEach(el => {
+        el.textContent = pronouns.object;
+    });
+
+    // his/her (possessive)
+    document.querySelectorAll('[data-field="pronoun_possessive"]').forEach(el => {
+        el.textContent = pronouns.possessive;
+    });
+
+    // himself/herself (reflexive)
+    document.querySelectorAll('[data-field="pronoun_reflexive"]').forEach(el => {
+        el.textContent = pronouns.reflexive;
+    });
+
+    // He's/She's (subject + is contraction)
+    document.querySelectorAll('[data-field="pronoun_subject_is"]').forEach(el => {
+        el.textContent = pronouns.subject_is;
+    });
+
+    // he'll/she'll (subject + will contraction)
+    document.querySelectorAll('[data-field="pronoun_subject_will"]').forEach(el => {
+        el.textContent = pronouns.subject_will;
+    });
+}
+
+/**
+ * Get pronouns based on gender
+ */
+function getPronouns(gender) {
+    if (gender === 'male') {
+        return {
+            subject: 'he',
+            object: 'him',
+            possessive: 'his',
+            reflexive: 'himself',
+            subject_is: "he's",
+            subject_will: "he'll"
+        };
+    } else if (gender === 'female') {
+        return {
+            subject: 'she',
+            object: 'her',
+            possessive: 'her',
+            reflexive: 'herself',
+            subject_is: "she's",
+            subject_will: "she'll"
+        };
+    } else {
+        // Default to they/them for other/unknown
+        return {
+            subject: 'they',
+            object: 'them',
+            possessive: 'their',
+            reflexive: 'themselves',
+            subject_is: "they're",
+            subject_will: "they'll"
+        };
+    }
 }
 
 /**
