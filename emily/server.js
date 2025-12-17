@@ -36,6 +36,9 @@ app.use(express.urlencoded({ extended: true }));
 // Serve static files for widget
 app.use('/widget', express.static(path.join(__dirname, 'widget')));
 
+// Serve the main prospectus static files from parent directory (all school folders)
+app.use(express.static(path.join(__dirname, '..')));
+
 // Request logging
 app.use((req, res, next) => {
   const timestamp = new Date().toISOString();
