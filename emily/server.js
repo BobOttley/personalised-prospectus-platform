@@ -111,7 +111,7 @@ app.post('/api/:schoolId/realtime/session', async (req, res) => {
   const sessionId = uuidv4();
   const familyId = body.family_id;
   const language = (body.language || 'en').toLowerCase();
-  const voice = body.voice || school.emilyPersonality?.voice || 'vale'; // British English accent
+  const voice = body.voice || school.emilyPersonality?.voice || 'ash'; // Warm, refined tone
 
   // Load knowledge base for system prompt
   let knowledgeBase = '';

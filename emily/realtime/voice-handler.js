@@ -17,7 +17,7 @@ class EmilyVoiceHandler {
     this.familyId = config.familyId;
     this.familyContext = config.familyContext || {};
     this.language = config.language || 'en';
-    this.voice = config.voice || 'vale'; // British English accent
+    this.voice = config.voice || 'ash'; // Warm, refined tone
 
     // State
     this.pc = null;           // RTCPeerConnection
@@ -41,7 +41,7 @@ class EmilyVoiceHandler {
 
     // Language to voice mapping
     this.voiceByLang = {
-      en: 'vale',    // British English accent
+      en: 'ash',     // Warm, refined tone
       fr: 'alloy',
       es: 'verse',
       de: 'luna',
