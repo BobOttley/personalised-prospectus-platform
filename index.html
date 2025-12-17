@@ -30,6 +30,18 @@
       --bcpk-dark-blue-dark: #141F25;
       --bcpk-magenta: #AC1260;
       --bcpk-magenta-light: #C4347A;
+
+      /* Strathallan School Brand - Scottish */
+      --strath-navy: #003366;
+      --strath-navy-dark: #002244;
+      --strath-crimson: #C41E3A;
+      --strath-gold: #D4AF37;
+
+      /* Bloxham School Brand - Oxfordshire */
+      --bloxham-navy: #1B365D;
+      --bloxham-navy-dark: #142847;
+      --bloxham-gold: #C5A572;
+      --bloxham-brown: #8B4513;
     }
 
     * {
@@ -267,6 +279,70 @@
       color: #FFFFFF;
     }
 
+    /* Strathallan School Branded Card */
+    .school-card--strathallan {
+      border-color: var(--strath-crimson);
+    }
+
+    .school-card--strathallan .school-card__content {
+      background: linear-gradient(135deg, var(--strath-navy-dark) 0%, var(--strath-navy) 100%);
+    }
+
+    .school-card--strathallan .school-card__location {
+      color: var(--strath-gold);
+    }
+
+    .school-card--strathallan .btn--primary {
+      background: var(--strath-crimson);
+      color: #FFFFFF;
+    }
+
+    .school-card--strathallan .btn--primary:hover {
+      background: #D4324A;
+    }
+
+    .school-card--strathallan .btn--secondary {
+      border-color: var(--strath-gold);
+      color: var(--strath-gold);
+    }
+
+    .school-card--strathallan .btn--secondary:hover {
+      background: var(--strath-gold);
+      color: var(--strath-navy-dark);
+    }
+
+    /* Bloxham School Branded Card */
+    .school-card--bloxham {
+      border-color: var(--bloxham-gold);
+    }
+
+    .school-card--bloxham .school-card__content {
+      background: linear-gradient(135deg, var(--bloxham-navy-dark) 0%, var(--bloxham-navy) 100%);
+    }
+
+    .school-card--bloxham .school-card__location {
+      color: var(--bloxham-gold);
+    }
+
+    .school-card--bloxham .btn--primary {
+      background: var(--bloxham-gold);
+      color: var(--bloxham-navy-dark);
+    }
+
+    .school-card--bloxham .btn--primary:hover {
+      background: #D4BC92;
+    }
+
+    .school-card--bloxham .btn--secondary {
+      border-color: var(--bloxham-gold);
+      color: var(--bloxham-gold);
+    }
+
+    .school-card--bloxham .btn--secondary:hover {
+      background: var(--bloxham-gold);
+      color: var(--bloxham-navy-dark);
+    }
+
     footer {
       text-align: center;
       padding: 3rem 0;
@@ -421,6 +497,34 @@
               <div class="school-card__links">
                 <a href="bcpk/index.html" class="btn btn--primary">Request Prospectus</a>
                 <a href="bcpk/prospectus/demo.html" class="btn btn--secondary">Preview</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Strathallan School -->
+          <div class="school-card school-card--strathallan">
+            <img src="strathallan/assets/images/campus-aerial-01.jpg" alt="Strathallan School" class="school-card__image" onerror="this.src='https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=600'">
+            <div class="school-card__content">
+              <h2 class="school-card__name">Strathallan School</h2>
+              <p class="school-card__location">Perthshire, Scotland</p>
+              <p class="school-card__description">Home of Olympic champion Duncan Scott. World-renowned Pipe Band, Rugby Academy with Glasgow Warriors pathway, 153 acres of Scottish excellence.</p>
+              <div class="school-card__links">
+                <a href="strathallan/index.html" class="btn btn--primary">Request Prospectus</a>
+                <a href="strathallan/index.html?demo=angus" class="btn btn--secondary">Preview Demo</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bloxham School -->
+          <div class="school-card school-card--bloxham">
+            <img src="bloxham/assets/images/campus-aerial-view-01.jpg" alt="Bloxham School" class="school-card__image" onerror="this.src='https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=600'">
+            <div class="school-card__content">
+              <h2 class="school-card__name">Bloxham School</h2>
+              <p class="school-card__location">Oxfordshire, England</p>
+              <p class="school-card__description">Founded 1860. Co-educational boarding and day school for 11-18 year olds. National Schools Plate rugby champions, 6x clay shooting national champions.</p>
+              <div class="school-card__links">
+                <a href="bloxham/enquiry-form.html" class="btn btn--primary">Request Prospectus</a>
+                <a href="bloxham/prospectus.html" class="btn btn--secondary">Preview Demo</a>
               </div>
             </div>
           </div>
