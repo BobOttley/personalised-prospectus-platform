@@ -514,7 +514,7 @@ const schools = {
     },
     principal: 'Mark Lauder',
     emilyPersonality: {
-      voice: 'sage',  // Female, calm refined tone
+      voice: 'coral', // Female voice
       accent: 'British',
       tone: 'warm, friendly, knowledgeable about Scottish boarding life',
       greeting: "Hello! I'm Emily, your guide to Strathallan School. I can tell you all about life here and give you an audio tour of the prospectus - just ask!"
