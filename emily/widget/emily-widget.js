@@ -23,7 +23,9 @@
   // =========================================================================
 
   function init() {
+    console.log('Emily: init() called');
     const script = document.currentScript || document.querySelector('script[data-school]');
+    console.log('Emily: script element found:', !!script);
     if (script) {
       const dataSchool = script.getAttribute('data-school');
       const dataFamilyId = script.getAttribute('data-family-id');
@@ -68,6 +70,7 @@
         }
       }
     }
+    console.log('Emily: About to createWidget(), schoolConfig:', schoolConfig?.id);
     createWidget();
   }
 
@@ -89,6 +92,7 @@
   // =========================================================================
 
   function createWidget() {
+    console.log('Emily: createWidget() called');
     injectStyles();
 
     const container = document.createElement('div');
