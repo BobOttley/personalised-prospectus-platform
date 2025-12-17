@@ -34,25 +34,52 @@
       if (dataFamilyId) familyId = dataFamilyId;
 
       // Try to load family context from localStorage first (same source as prospectus personalisation)
-      const storageKey = dataSchool ? `${dataSchool}_prospectus_data` : null;
+      // Map school IDs to their actual localStorage keys
+      const storageKeyMap = {
+        'clc': 'clc_prospectus_data',
+        'brighton-college': 'bc_prospectus_data',
+        'bcpk': 'bcpk_prospectus_data',
+        'clifton-college': 'clifton_prospectus_data'
+      };
+      const storageKey = dataSchool ? storageKeyMap[dataSchool] : null;
       const storedData = storageKey ? localStorage.getItem(storageKey) : null;
 
       if (storedData) {
         try {
           const parsed = JSON.parse(storedData);
           // Map localStorage data to Emily's familyContext format
+          // Handle different data structures (CLC vs Brighton College)
+          let parentName = '';
+          if (parsed.parent) {
+            // CLC format
+            parentName = `${parsed.parent.title} ${parsed.parent.surname}`;
+          } else if (parsed.parents?.parent1) {
+            // Brighton College format
+            const p1 = parsed.parents.parent1;
+            const p2 = parsed.parents.parent2;
+            if (p2 && p1.surname === p2.surname) {
+              parentName = `${p1.title} and ${p2.title} ${p1.surname}`;
+            } else if (p2) {
+              parentName = `${p1.title} ${p1.surname} and ${p2.title} ${p2.surname}`;
+            } else {
+              parentName = `${p1.title} ${p1.surname}`;
+            }
+          }
+
           familyContext = {
-            parent_name: parsed.parent ? `${parsed.parent.title} ${parsed.parent.surname}` : '',
+            parent_name: parentName,
             child_name: parsed.child?.first_name || '',
-            entry_point: parsed.child?.entry_point || '',
+            entry_point: parsed.child?.entry_point || parsed.entry?.entry_point || '',
             interests: [
               ...(parsed.interests?.academic || []),
-              ...(parsed.interests?.extracurricular || [])
+              ...(parsed.interests?.extracurricular || []),
+              ...(parsed.interests?.sports || [])
             ],
-            career_pathway: parsed.futures?.career_areas?.[0] || parsed.personalisation?.career_pathway || '',
-            accommodation: parsed.practical?.accommodation_type || ''
+            career_pathway: parsed.futures?.career_areas?.[0] || parsed.personalisation?.career_pathway || parsed.career?.interest || '',
+            accommodation: parsed.practical?.accommodation_type || parsed.boarding?.interest || ''
           };
           familyId = parsed.prospectus_id || dataFamilyId;
+          console.log('Emily: Loaded family context from localStorage:', familyContext);
         } catch (e) {
           console.warn('Emily: Could not parse localStorage data', e);
         }
