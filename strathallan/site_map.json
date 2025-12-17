@@ -1,0 +1,244 @@
+{
+  "school": "strathallan",
+  "baseUrl": "https://www.strathallan.co.uk",
+  "scrapedAt": "2025-12-17T09:26:55.207Z",
+  "totalPages": 47,
+  "maxDepth": 5,
+  "pages": [
+    {
+      "url": "https://www.strathallan.co.uk",
+      "title": "Strathallan School | Leading Scottish Boarding School - Strathallan School | Leading Scottish Boarding School",
+      "depth": 0
+    },
+    {
+      "url": "https://www.strathallan.co.uk/",
+      "title": "Strathallan School | Leading Scottish Boarding School - Strathallan School | Leading Scottish Boarding School",
+      "depth": 1
+    },
+    {
+      "url": "https://www.strathallan.co.uk/our-curriculum",
+      "title": "Learning tailored to you - Strathallan School | Leading Scottish Boarding School",
+      "depth": 1
+    },
+    {
+      "url": "https://www.strathallan.co.uk/sports",
+      "title": "Sports - Strathallan School | Leading Scottish Boarding School",
+      "depth": 1
+    },
+    {
+      "url": "https://www.strathallan.co.uk/faq",
+      "title": "What would you like to know about Strath? - Strathallan School | Leading Scottish Boarding School",
+      "depth": 1
+    },
+    {
+      "url": "https://www.strathallan.co.uk/forms/leads/new",
+      "title": "Request a prospectus - Strathallan School | Leading Scottish Boarding School",
+      "depth": 1
+    },
+    {
+      "url": "https://www.strathallan.co.uk/make-an-admissions-enquiry",
+      "title": "Make an admissions enquiry - Strathallan School | Leading Scottish Boarding School",
+      "depth": 1
+    },
+    {
+      "url": "https://www.strathallan.co.uk/open-days",
+      "title": "Visit us - Strathallan School | Leading Scottish Boarding School",
+      "depth": 1
+    },
+    {
+      "url": "https://www.strathallan.co.uk/privacy-policy",
+      "title": "Privacy policy - Strathallan School | Leading Scottish Boarding School",
+      "depth": 1
+    },
+    {
+      "url": "https://www.strathallan.co.uk/news/strath-worldwide-s-online-learning-programme?locale=en",
+      "title": "Strath Worldwide’s Online Learning Programme - Strathallan School | Leading Scottish Boarding School",
+      "depth": 2
+    },
+    {
+      "url": "https://www.strathallan.co.uk/news/strathallan-students-forge-ahead-with-outstanding-a-levels",
+      "title": "Strathallan students forge ahead with outstanding A Levels - Strathallan School | Leading Scottish Boarding School",
+      "depth": 2
+    },
+    {
+      "url": "https://www.strathallan.co.uk/strathallan-prep",
+      "title": "Strathallan Prep School - Strathallan School | Leading Scottish Boarding School",
+      "depth": 2
+    },
+    {
+      "url": "https://www.strathallan.co.uk/slickr_media_upload?id=3210",
+      "title": "Untitled",
+      "depth": 2
+    },
+    {
+      "url": "https://www.strathallan.co.uk/slickr_media_upload?id=3211",
+      "title": "Untitled",
+      "depth": 2
+    },
+    {
+      "url": "https://www.strathallan.co.uk/boarding-houses",
+      "title": "Boarding Houses - Strathallan School | Leading Scottish Boarding School",
+      "depth": 2
+    },
+    {
+      "url": "https://www.strathallan.co.uk/beyond-the-classroom",
+      "title": "Beyond the Classroom - Strathallan School | Leading Scottish Boarding School",
+      "depth": 2
+    },
+    {
+      "url": "https://www.strathallan.co.uk/health-wellbeing",
+      "title": "Health & Wellbeing - Strathallan School | Leading Scottish Boarding School",
+      "depth": 2
+    },
+    {
+      "url": "https://www.strathallan.co.uk/boarding-day",
+      "title": "Boarding & Day Pupils - Strathallan School | Leading Scottish Boarding School",
+      "depth": 2
+    },
+    {
+      "url": "https://www.strathallan.co.uk/alumni",
+      "title": "Alumni - Strathallan School | Leading Scottish Boarding School",
+      "depth": 2
+    },
+    {
+      "url": "https://www.strathallan.co.uk/forms/leads/new?locale=en",
+      "title": "Request a prospectus - Strathallan School | Leading Scottish Boarding School",
+      "depth": 2
+    },
+    {
+      "url": "https://www.strathallan.co.uk/open-days-registration-form",
+      "title": "Open Morning Registration Form - Strathallan School | Leading Scottish Boarding School",
+      "depth": 2
+    },
+    {
+      "url": "https://www.strathallan.co.uk/make-an-admissions-enquiry2",
+      "title": "Make an Admissions Enquiry - Strathallan School | Leading Scottish Boarding School",
+      "depth": 2
+    },
+    {
+      "url": "https://www.strathallan.co.uk/news/sophie-named-tayside-s-most-promising-tennis-junior?locale=en",
+      "title": "Sophie Named Tayside’s Most Promising Tennis Junior - Strathallan School | Leading Scottish Boarding School",
+      "depth": 3
+    },
+    {
+      "url": "https://www.strathallan.co.uk/news/strathallan-school-pupil-breaks-u14-scottish-weightlifting-records-in-first-competition?locale=en",
+      "title": "Strathallan School pupil breaks U14 Scottish Weightlifting Records in First Competition - Strathallan School | Leading Scottish Boarding School",
+      "depth": 3
+    },
+    {
+      "url": "https://www.strathallan.co.uk/news/strathallan-celebrates-record-higher-and-advanced-higher-results?locale=en",
+      "title": "Strathallan celebrates record Higher and Advanced Higher results - Strathallan School | Leading Scottish Boarding School",
+      "depth": 3
+    },
+    {
+      "url": "https://www.strathallan.co.uk/visit-us",
+      "title": "Visit us - Strathallan School | Leading Scottish Boarding School",
+      "depth": 3
+    },
+    {
+      "url": "https://www.strathallan.co.uk/our-campus",
+      "title": "Our Campus - Strathallan School | Leading Scottish Boarding School",
+      "depth": 3
+    },
+    {
+      "url": "https://www.strathallan.co.uk/why-strathallan-prep",
+      "title": "Younger Years at Strathallan - Strathallan School | Leading Scottish Boarding School",
+      "depth": 3
+    },
+    {
+      "url": "https://www.strathallan.co.uk/freeland",
+      "title": "Welcome to Freeland - Strathallan School | Leading Scottish Boarding School",
+      "depth": 3
+    },
+    {
+      "url": "https://www.strathallan.co.uk/nicol",
+      "title": "Welcome to Nicol House - Strathallan School | Leading Scottish Boarding School",
+      "depth": 3
+    },
+    {
+      "url": "https://www.strathallan.co.uk/ruthven",
+      "title": "Welcome to Ruthven! - Strathallan School | Leading Scottish Boarding School",
+      "depth": 3
+    },
+    {
+      "url": "https://www.strathallan.co.uk/simpson",
+      "title": "A Warm Welcome to Simpson - Strathallan School | Leading Scottish Boarding School",
+      "depth": 3
+    },
+    {
+      "url": "https://www.strathallan.co.uk/glenbrae",
+      "title": "Welcome to Glenbrae! - Strathallan School | Leading Scottish Boarding School",
+      "depth": 3
+    },
+    {
+      "url": "https://www.strathallan.co.uk/thornbank",
+      "title": "A Warm Welcome to Thornbank - Strathallan School | Leading Scottish Boarding School",
+      "depth": 3
+    },
+    {
+      "url": "https://www.strathallan.co.uk/woodlands",
+      "title": "A Warm Welcome to Woodlands - Strathallan School | Leading Scottish Boarding School",
+      "depth": 3
+    },
+    {
+      "url": "https://www.strathallan.co.uk/slickr_media_upload?id=177",
+      "title": "Untitled",
+      "depth": 3
+    },
+    {
+      "url": "https://www.strathallan.co.uk/news/elevating-the-student-dining-experience-the-launch-of-harry-s-at-strathallan-school?locale=en",
+      "title": "Elevating the Student Dining Experience: The Launch of ‘Harry’s’ at Strathallan School - Strathallan School | Leading Scottish Boarding School",
+      "depth": 3
+    },
+    {
+      "url": "https://www.strathallan.co.uk/the-art-cafe",
+      "title": "The Art Café - Strathallan School | Leading Scottish Boarding School",
+      "depth": 3
+    },
+    {
+      "url": "https://www.strathallan.co.uk/forms/alumni/new",
+      "title": "Alumni Communication Consent - Strathallan School | Leading Scottish Boarding School",
+      "depth": 3
+    },
+    {
+      "url": "https://www.strathallan.co.uk/news/tennis-star-thomas-named-tayside-s-most-promising-junior?locale=en",
+      "title": "Tennis star Thomas named Tayside’s Most Promising Junior - Strathallan School | Leading Scottish Boarding School",
+      "depth": 4
+    },
+    {
+      "url": "https://www.strathallan.co.uk/news/outstanding-performances-at-strathallan-s-annual-show-jumping-competition?locale=en",
+      "title": "Outstanding Performances at Strathallan’s Annual Show Jumping Competition - Strathallan School | Leading Scottish Boarding School",
+      "depth": 4
+    },
+    {
+      "url": "https://www.strathallan.co.uk/news/strathallan-school-launches-annual-fund-to-expand-game-changing-athletic-development-programme?locale=en",
+      "title": "Strathallan School Launches Annual Fund to Expand Game-Changing Athletic Development Programme - Strathallan School | Leading Scottish Boarding School",
+      "depth": 4
+    },
+    {
+      "url": "https://www.strathallan.co.uk/story-explorers",
+      "title": "Story Explorers at Strathallan Prep School - Strathallan School | Leading Scottish Boarding School",
+      "depth": 4
+    },
+    {
+      "url": "https://www.strathallan.co.uk/register-for-our-open-morning",
+      "title": "Register for our Open Morning - Strathallan School | Leading Scottish Boarding School",
+      "depth": 4
+    },
+    {
+      "url": "https://www.strathallan.co.uk/forms/alumni/new?locale=en",
+      "title": "Alumni Communication Consent - Strathallan School | Leading Scottish Boarding School",
+      "depth": 4
+    },
+    {
+      "url": "https://www.strathallan.co.uk/news/from-rallies-to-rising-stars-strathallan-tennis-celebrates-a-remarkable-year?locale=en",
+      "title": "From rallies to rising stars: Strathallan Tennis celebrates a remarkable year on court - Strathallan School | Leading Scottish Boarding School",
+      "depth": 5
+    },
+    {
+      "url": "https://www.strathallan.co.uk/slickr_media_upload?id=3408",
+      "title": "Untitled",
+      "depth": 5
+    }
+  ]
+}

@@ -491,6 +491,226 @@ const schools = {
     }
   },
 
+  'strathallan': {
+    id: 'strathallan',
+    name: 'Strathallan School',
+    shortName: 'Strathallan',
+    type: 'co-ed',
+    prospectusPath: '../strathallan',
+    knowledgeBase: 'strathallan.md',
+    knowledgeBaseJson: '../strathallan/kb_chunks.json',
+    theme: {
+      primary: '#003863',      // Strathallan navy
+      secondary: '#C9A227',    // Strathallan gold
+      accent: '#C9A227',
+      background: '#FAFAFA',
+      text: '#2D3748'
+    },
+    contact: {
+      email: 'admissions@strathallan.co.uk',
+      phone: '+44 (0)1738 812546',
+      website: 'www.strathallan.co.uk',
+      address: 'Forgandenny, Perth PH2 9EG, Scotland'
+    },
+    principal: 'Mark Lauder',
+    emilyPersonality: {
+      voice: 'coral',
+      accent: 'British',
+      tone: 'warm, friendly, knowledgeable about Scottish boarding life',
+      greeting: "Hello! I'm Emily, your guide to Strathallan School. I can tell you all about life here and give you an audio tour of the prospectus - just ask!"
+    },
+    quickReplies: [
+      { label: 'Audio Tour', query: 'Can you give me an audio tour?' },
+      { label: 'Boarding', query: 'Tell me about boarding' },
+      { label: 'Sports', query: 'What sports do you offer?' },
+      { label: 'Scholarships', query: 'Tell me about scholarships' },
+      { label: 'Visit', query: 'Can I book a visit?' }
+    ],
+    openDaysUrl: 'https://www.strathallan.co.uk/admissions/visit-us',
+    // AUDIO TOUR JOURNEY - the exact order Emily follows through the prospectus
+    // Section names MUST match data-module attributes in prospectus HTML
+    tourJourney: [
+      'welcome',              // Head's welcome message
+      'why_strathallan',      // Why Strathallan is special
+      'senior_school',        // Senior School overview
+      'curriculum',           // Scotland's Triple Pathway
+      'bigger_picture',       // The Bigger Picture
+      'boarding_life',        // Boarding experience
+      'boarding_houses',      // The houses
+      'flexi_boarding',       // Flexi-boarding options
+      'sports',               // Sports overview
+      'rugby',                // Rugby Academy
+      'shooting',             // Shooting Academy
+      'tennis',               // Tennis Academy
+      'swimming',             // Swimming Academy
+      'music',                // Music programme
+      'drama',                // Drama
+      'art',                  // Art
+      'pastoral_care',        // Pastoral care
+      'campus',               // Campus tour
+      'scholarships',         // Scholarships
+      'bursaries',            // Bursaries & fees
+      'military_families',    // Forces families support
+      'next_steps'            // How to apply
+    ],
+    prospectusModules: [
+      'welcome', 'why_strathallan', 'senior_school', 'curriculum', 'bigger_picture',
+      'third_form', 'fourth_form', 'sixth_form', 'boarding_life', 'boarding_houses',
+      'flexi_boarding', 'sports', 'rugby', 'shooting', 'tennis', 'swimming',
+      'music', 'piping_drumming', 'drama', 'art', 'community', 'pastoral_care',
+      'campus', 'location', 'scholarships', 'bursaries', 'military_families',
+      'admissions', 'next_steps'
+    ],
+    sectionMeta: {
+      welcome: {
+        title: 'Welcome to Strathallan',
+        intro: "Let me share the Head's welcome message with you",
+        nextSection: 'why_strathallan',
+        followUp: ['why_strathallan', 'senior_school'],
+        audioPrompt: "I'll open this section for you now. When you're ready to continue, just say 'next' or ask about anything specific."
+      },
+      why_strathallan: {
+        title: 'Why Strathallan',
+        intro: "Here's what makes Strathallan special - nestled in 153 acres of beautiful Perthshire",
+        nextSection: 'curriculum',
+        followUp: ['curriculum', 'boarding_life']
+      },
+      senior_school: {
+        title: 'Senior School',
+        intro: "Let me tell you about the Senior School experience",
+        nextSection: 'curriculum',
+        followUp: ['curriculum', 'fourth_form']
+      },
+      curriculum: {
+        title: "Scotland's Triple Pathway",
+        intro: "Strathallan is the first school in Scotland to offer genuine curriculum choice - Scottish Highers, A-Levels, or a combination",
+        nextSection: 'bigger_picture',
+        followUp: ['bigger_picture', 'sixth_form']
+      },
+      bigger_picture: {
+        title: 'The Bigger Picture',
+        intro: "Education at Strathallan goes far beyond the classroom",
+        nextSection: 'boarding_life',
+        followUp: ['boarding_life', 'sports']
+      },
+      boarding_life: {
+        title: 'Boarding Life',
+        intro: "Boarding at Strathallan is like joining an extended family - let me tell you about it",
+        nextSection: 'boarding_houses',
+        followUp: ['boarding_houses', 'flexi_boarding']
+      },
+      boarding_houses: {
+        title: 'Our Boarding Houses',
+        intro: "We have seven boarding houses, each with its own character and house spirit",
+        nextSection: 'flexi_boarding',
+        followUp: ['flexi_boarding', 'pastoral_care']
+      },
+      flexi_boarding: {
+        title: 'Flexi-Boarding',
+        intro: "Flexi-boarding gives you the best of both worlds - some nights boarding, some nights at home",
+        nextSection: 'sports',
+        followUp: ['sports', 'boarding_life']
+      },
+      sports: {
+        title: 'Sports at Strathallan',
+        intro: "Sport is central to life here - with four elite Academy programmes in Rugby, Shooting, Tennis, and Swimming",
+        nextSection: 'rugby',
+        followUp: ['rugby', 'shooting', 'tennis', 'swimming']
+      },
+      rugby: {
+        title: 'Rugby Academy',
+        intro: "Our Rugby Academy has produced nine Scotland internationals including Zander Fagerson",
+        nextSection: 'shooting',
+        followUp: ['shooting', 'sports']
+      },
+      shooting: {
+        title: 'Shooting Academy',
+        intro: "We're the only school in Scotland with our own clay target range on site",
+        nextSection: 'tennis',
+        followUp: ['tennis', 'sports']
+      },
+      tennis: {
+        title: 'Tennis Academy',
+        intro: "Year-round tennis with LTA-qualified coaching and indoor courts",
+        nextSection: 'swimming',
+        followUp: ['swimming', 'sports']
+      },
+      swimming: {
+        title: 'Swimming Academy',
+        intro: "Our swimming programme uses our excellent 25-metre pool",
+        nextSection: 'music',
+        followUp: ['music', 'sports']
+      },
+      music: {
+        title: 'Music',
+        intro: "Music thrives at Strathallan - including our famous Piping and Drumming programme",
+        nextSection: 'drama',
+        followUp: ['drama', 'piping_drumming']
+      },
+      piping_drumming: {
+        title: 'Piping & Drumming',
+        intro: "Our pipe bands are nationally renowned - they've performed all over the world",
+        nextSection: 'drama',
+        followUp: ['drama', 'music']
+      },
+      drama: {
+        title: 'Drama',
+        intro: "Drama flourishes here with regular productions and LAMDA examinations",
+        nextSection: 'art',
+        followUp: ['art', 'music']
+      },
+      art: {
+        title: 'Art',
+        intro: "Our Art Cafe is a unique creative space where students can work and be inspired",
+        nextSection: 'pastoral_care',
+        followUp: ['pastoral_care', 'community']
+      },
+      pastoral_care: {
+        title: 'Pastoral Care',
+        intro: "The wellbeing of every pupil is our priority - we follow the SHANARI principles",
+        nextSection: 'campus',
+        followUp: ['campus', 'boarding_life']
+      },
+      campus: {
+        title: 'Our Campus',
+        intro: "Let me give you a virtual tour of our stunning 153-acre campus",
+        nextSection: 'scholarships',
+        followUp: ['scholarships', 'location']
+      },
+      scholarships: {
+        title: 'Scholarships',
+        intro: "We offer scholarships to recognise exceptional talent in academics, sport, music, art, and drama",
+        nextSection: 'bursaries',
+        followUp: ['bursaries', 'next_steps']
+      },
+      bursaries: {
+        title: 'Bursaries & Fees',
+        intro: "We believe education should be accessible - bursaries and fee remissions are available",
+        nextSection: 'military_families',
+        followUp: ['military_families', 'scholarships']
+      },
+      military_families: {
+        title: 'Military Families',
+        intro: "We're proud to support serving military families with CEA fee remission",
+        nextSection: 'next_steps',
+        followUp: ['next_steps', 'bursaries']
+      },
+      next_steps: {
+        title: 'Next Steps',
+        intro: "Here's what to do next to begin your journey with Strathallan",
+        nextSection: null,
+        followUp: ['scholarships', 'campus']
+      }
+    },
+    // Audio tour specific settings
+    audioTourSettings: {
+      waitForSectionOpen: true,
+      autoAdvance: false,
+      pauseBetweenSections: true,
+      introMessage: "I can give you a personalised audio tour of this prospectus. As I guide you through each section, I'll open it for you and wait until you're ready to continue. Just say 'next' or 'continue' when you want to move on, or ask me about anything specific. Would you like to start the tour?"
+    }
+  },
+
   'clifton-college': {
     id: 'clifton-college',
     name: 'Clifton College',
@@ -656,6 +876,7 @@ function detectSchoolFromUrl(url) {
   if (urlLower.includes('brightoncollegeprepkensington') || urlLower.includes('bcpk')) return 'bcpk';
   if (urlLower.includes('brightoncollege')) return 'brighton-college';
   if (urlLower.includes('cliftoncollege')) return 'clifton-college';
+  if (urlLower.includes('strathallan')) return 'strathallan';
 
   return null;
 }

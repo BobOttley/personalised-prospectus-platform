@@ -1,0 +1,2276 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Personalised Prospectus | Strathallan School</title>
+    <meta name="description" content="A personalised prospectus prepared exclusively for your family by Strathallan School.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles/strathallan-prospectus.css">
+</head>
+<body>
+    <!-- Sticky Reading Progress Bar (appears on scroll) -->
+    <div class="reading-progress-bar" id="readingProgressBar">
+        <span class="reading-progress-bar__family">Prepared for the <strong data-field="family_name">Family</strong> Family</span>
+        <span class="reading-progress-bar__status">
+            <span class="reading-progress-bar__text" id="readingPercentText">0% read</span>
+            <div class="reading-progress-bar__track">
+                <div class="reading-progress-bar__fill" id="readingProgressFill" style="width: 0%"></div>
+            </div>
+        </span>
+    </div>
+
+    <!-- ============================================
+         MODULE: Video Hero
+         ============================================ -->
+    <section class="video-hero" id="cover" data-module="cover">
+        <!-- YouTube Video Background - Dear Younger Me -->
+        <div class="video-hero__container">
+            <iframe
+                id="heroVideo"
+                class="video-hero__player"
+                src="https://www.youtube.com/embed/X8lXe4RUDGM?autoplay=1&mute=1&loop=1&playlist=X8lXe4RUDGM&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&enablejsapi=1"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+            </iframe>
+            <div class="video-hero__overlay"></div>
+        </div>
+
+        <!-- Personalised Welcome Overlay -->
+        <div class="video-hero__welcome" id="welcomeOverlay">
+            <div class="video-hero__welcome-content">
+                <img src="assets/logo/strathallan-logo-white.png" alt="Strathallan School" class="video-hero__logo" onerror="this.style.display='none'">
+                <h1 class="video-hero__title">Welcome to Strathallan</h1>
+                <p class="video-hero__family">Prepared especially for the <strong data-field="family_name">Family</strong> Family</p>
+                <p class="video-hero__child">Exploring <span data-field="school_type_text">Strathallan</span> for <span data-field="child_name" class="text-gold">Your Child</span></p>
+                <div class="video-hero__badge">Scotland's Leading Boarding School</div>
+            </div>
+        </div>
+
+        <!-- Sound Toggle -->
+        <button class="video-sound-btn" id="soundBtn" onclick="toggleSound()">
+            <svg class="sound-icon sound-off" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                <line x1="23" y1="9" x2="17" y2="15"></line>
+                <line x1="17" y1="9" x2="23" y2="15"></line>
+            </svg>
+            <svg class="sound-icon sound-on" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none;">
+                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            </svg>
+            <span class="sound-text">Enable Sound</span>
+        </button>
+
+        <!-- Minimised Bar -->
+        <div class="video-hero__minimised" id="welcomeMinimised">
+            <img src="assets/logo/strathallan-logo.png" alt="Strathallan" class="video-hero__mini-logo" onerror="this.style.display='none'">
+            <span class="video-hero__mini-text">Prepared for the <strong data-field="family_name">Family</strong> Family</span>
+            <button class="video-hero__scroll-btn" style="margin-right: 350px;" onclick="document.getElementById('welcome').scrollIntoView({behavior: 'smooth'})">
+                <span>Start Reading</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M7 13l5 5 5-5M7 6l5 5 5-5"/>
+                </svg>
+            </button>
+        </div>
+    </section>
+
+    <!-- ============================================
+         MODULE: Welcome Message
+         ============================================ -->
+    <section class="module" id="welcome" data-module="welcome">
+        <div class="container">
+            <div class="two-col">
+                <div>
+                    <div style="text-align: center; margin-bottom: var(--space-xl);">
+                        <span class="section-header__badge">Welcome</span>
+                        <h2 style="margin-top: var(--space-md);">Dear <span data-field="parent_title">Mr</span> <span data-field="family_name">Family</span>,</h2>
+                    </div>
+
+                    <p class="lead">Thank you for considering Strathallan for <span data-field="child_name">your child</span>. We've prepared this prospectus especially for your family, highlighting aspects of school life that we think will interest you most.</p>
+
+                    <p>Set within 153 acres of beautiful Perthshire countryside, Strathallan offers an exceptional education for children aged 5 to 18. We believe in nurturing individual talents while building character, resilience, and a lifelong love of learning.</p>
+
+                    <p>Whether <span data-field="child_name">your child</span> is destined for the rugby pitch, the concert hall, the science lab, or somewhere in between, they'll find a welcoming community ready to help them flourish.</p>
+
+                    <p style="margin-top: var(--space-xl);">
+                        <strong style="color: var(--strath-navy);">Mark Lauder</strong><br>
+                        <span style="color: var(--text-secondary);">Head</span>
+                    </p>
+                </div>
+                <div>
+                    <img src="assets/images/campus/img_30.jpg" alt="Strathallan Campus" class="img-rounded" onerror="this.src='https://via.placeholder.com/600x400?text=Strathallan+Campus'">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         PROSPECTUS NAVIGATION
+         ============================================ -->
+    <nav class="prospectus-nav" id="prospectusNav">
+        <div class="prospectus-nav__header">
+            <span class="prospectus-nav__title">Contents</span>
+            <button class="prospectus-nav__toggle-all" id="toggleAllSections" title="Expand All Sections">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="17 11 12 6 7 11"/>
+                    <polyline points="17 18 12 13 7 18"/>
+                </svg>
+            </button>
+        </div>
+        <ul class="prospectus-nav__list" id="navList">
+            <li class="prospectus-nav__item"><a href="#why_strathallan" class="prospectus-nav__link" data-section="why_strathallan"><span class="prospectus-nav__link-icon"></span>Why Strathallan</a></li>
+            <li class="prospectus-nav__item"><a href="#senior_school" class="prospectus-nav__link" data-section="senior_school"><span class="prospectus-nav__link-icon"></span>Senior School</a></li>
+            <li class="prospectus-nav__item"><a href="#curriculum" class="prospectus-nav__link" data-section="curriculum"><span class="prospectus-nav__link-icon"></span>Flexible Learning</a></li>
+            <li class="prospectus-nav__item"><a href="#bigger_picture" class="prospectus-nav__link" data-section="bigger_picture"><span class="prospectus-nav__link-icon"></span>Bigger Picture</a></li>
+            <li class="prospectus-nav__item"><a href="#fourth_form" class="prospectus-nav__link" data-section="fourth_form"><span class="prospectus-nav__link-icon"></span>Fourth Form</a></li>
+            <li class="prospectus-nav__item"><a href="#gcse_subjects" class="prospectus-nav__link" data-section="gcse_subjects"><span class="prospectus-nav__link-icon"></span>GCSE Subjects</a></li>
+            <li class="prospectus-nav__item"><a href="#boarding_life" class="prospectus-nav__link" data-section="boarding_life"><span class="prospectus-nav__link-icon"></span>Boarding Life</a></li>
+            <li class="prospectus-nav__item"><a href="#boarding_houses" class="prospectus-nav__link" data-section="boarding_houses"><span class="prospectus-nav__link-icon"></span>Boarding Houses</a></li>
+            <li class="prospectus-nav__item"><a href="#flexi_boarding" class="prospectus-nav__link" data-section="flexi_boarding"><span class="prospectus-nav__link-icon"></span>Flexi-Boarding</a></li>
+            <li class="prospectus-nav__item"><a href="#sports" class="prospectus-nav__link" data-section="sports"><span class="prospectus-nav__link-icon"></span>Sports</a></li>
+            <li class="prospectus-nav__item"><a href="#rugby" class="prospectus-nav__link" data-section="rugby"><span class="prospectus-nav__link-icon"></span>Rugby Academy</a></li>
+            <li class="prospectus-nav__item"><a href="#shooting" class="prospectus-nav__link" data-section="shooting"><span class="prospectus-nav__link-icon"></span>Shooting Academy</a></li>
+            <li class="prospectus-nav__item"><a href="#tennis" class="prospectus-nav__link" data-section="tennis"><span class="prospectus-nav__link-icon"></span>Tennis Academy</a></li>
+            <li class="prospectus-nav__item"><a href="#swimming" class="prospectus-nav__link" data-section="swimming"><span class="prospectus-nav__link-icon"></span>Swimming Academy</a></li>
+            <li class="prospectus-nav__item"><a href="#piping_drumming" class="prospectus-nav__link" data-section="piping_drumming"><span class="prospectus-nav__link-icon"></span>Piping & Drumming</a></li>
+            <li class="prospectus-nav__item"><a href="#community" class="prospectus-nav__link" data-section="community"><span class="prospectus-nav__link-icon"></span>Community</a></li>
+            <li class="prospectus-nav__item"><a href="#pastoral_care" class="prospectus-nav__link" data-section="pastoral_care"><span class="prospectus-nav__link-icon"></span>Pastoral Care</a></li>
+            <li class="prospectus-nav__item"><a href="#campus" class="prospectus-nav__link" data-section="campus"><span class="prospectus-nav__link-icon"></span>Campus</a></li>
+            <li class="prospectus-nav__item"><a href="#location" class="prospectus-nav__link" data-section="location"><span class="prospectus-nav__link-icon"></span>Location</a></li>
+            <li class="prospectus-nav__item"><a href="#military_families" class="prospectus-nav__link" data-section="military_families"><span class="prospectus-nav__link-icon"></span>Military Families</a></li>
+            <li class="prospectus-nav__item"><a href="#next_steps" class="prospectus-nav__link" data-section="next_steps"><span class="prospectus-nav__link-icon"></span>Next Steps</a></li>
+        </ul>
+        <div class="prospectus-nav__progress">
+            <div class="prospectus-nav__progress-bar" id="readingProgress"></div>
+        </div>
+    </nav>
+
+    <!-- Mobile Nav Toggle Button -->
+    <button class="prospectus-nav__mobile-toggle" id="mobileNavToggle" aria-label="Toggle navigation">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+        <span>Contents</span>
+    </button>
+
+    <!-- Main Content Wrapper for collapsible sections -->
+    <div id="mainContent">
+
+    <!-- ============================================
+         MODULE: Why Strathallan
+         ============================================ -->
+    <section class="module module--navy collapsible-section" id="why_strathallan" data-module="why_strathallan" data-nav-title="Why Strathallan">
+        <div class="container">
+            <div class="section-header">
+                <h2 style="color: var(--strath-white);">Why Strathallan?</h2>
+                <p class="lead" style="color: rgba(255,255,255,0.8);">Scotland's leading co-educational boarding and day school</p>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-item__number">153</div>
+                    <div class="stat-item__label">Acres of Campus</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-item__number">5-18</div>
+                    <div class="stat-item__label">Age Range</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-item__number">540</div>
+                    <div class="stat-item__label">Pupils</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-item__number">24</div>
+                    <div class="stat-item__label">Subjects Offered</div>
+                </div>
+            </div>
+
+            <div class="feature-grid" style="margin-top: var(--space-3xl);">
+                <div class="feature-card">
+                    
+                    <h4 class="feature-card__title">Triple Curriculum</h4>
+                    <p class="feature-card__description">Scotland's only school offering full GCSE, A Level, and Scottish Highers pathways - genuine choice for every student.</p>
+                </div>
+                <div class="feature-card">
+                    
+                    <h4 class="feature-card__title">Home from Home</h4>
+                    <p class="feature-card__description">Eight boarding houses with dedicated houseparents create a warm, family atmosphere where every child is known.</p>
+                </div>
+                <div class="feature-card">
+                    
+                    <h4 class="feature-card__title">Excellence in Sport</h4>
+                    <p class="feature-card__description">World-class facilities and coaching produce international athletes in rugby, tennis, swimming, and more.</p>
+                </div>
+                <div class="feature-card">
+                    
+                    <h4 class="feature-card__title">Musical Heritage</h4>
+                    <p class="feature-card__description">From our renowned pipe band to orchestras and choirs, music thrives at Strathallan.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         MODULE: Strathallan Prep (Conditional)
+         ============================================ -->
+    <section class="module collapsible-section" id="strathallan_prep" data-module="strathallan_prep" data-nav-title="Strathallan Prep">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-header__badge">Ages 5-13</span>
+                <h2>Strathallan Prep School</h2>
+                <p class="lead">Small classes, big resources. Where children can be children.</p>
+            </div>
+
+            <div class="two-col">
+                <div>
+                    <img src="assets/images/campus/img_20.jpg" alt="Strathallan Prep" class="img-rounded" onerror="this.src='https://via.placeholder.com/600x400?text=Strathallan+Prep'">
+                </div>
+                <div>
+                    <p>Set within our safe, rural campus with its own classrooms, social areas, and outdoor space, Strathallan Prep is a close-knit community where <span data-field="child_name">your child</span> will benefit from:</p>
+
+                    <ul style="list-style: none; margin: var(--space-lg) 0;">
+                        <li style="padding: var(--space-sm) 0; display: flex; align-items: flex-start; gap: var(--space-sm);">
+                            <span style="color: var(--strath-gold); font-size: 1.2em;">></span>
+                            <span><strong>Small class sizes</strong> of 12-14 pupils with dedicated teachers</span>
+                        </li>
+                        <li style="padding: var(--space-sm) 0; display: flex; align-items: flex-start; gap: var(--space-sm);">
+                            <span style="color: var(--strath-gold); font-size: 1.2em;">></span>
+                            <span><strong>Specialist teaching</strong> from senior school staff</span>
+                        </li>
+                        <li style="padding: var(--space-sm) 0; display: flex; align-items: flex-start; gap: var(--space-sm);">
+                            <span style="color: var(--strath-gold); font-size: 1.2em;">></span>
+                            <span><strong>Wraparound care</strong> until 7:30pm for day pupils</span>
+                        </li>
+                        <li style="padding: var(--space-sm) 0; display: flex; align-items: flex-start; gap: var(--space-sm);">
+                            <span style="color: var(--strath-gold); font-size: 1.2em;">></span>
+                            <span><strong>Seamless transition</strong> to Senior School</span>
+                        </li>
+                    </ul>
+
+                    <div class="quote-block" style="margin-top: var(--space-xl);">
+                        <p class="quote-block__text">"In Riley, there is a commitment to helping pupils discover what inspires them."</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Prep Video -->
+            <div class="conditional-content" data-video="prep" style="margin-top: var(--space-2xl);">
+                <h3 style="text-align: center; margin-bottom: var(--space-lg);">Discover Strathallan Prep</h3>
+                <div class="video-wrapper">
+                    <iframe
+                        src="https://www.youtube.com/embed/0Rp9ID0ug90?rel=0&modestbranding=1"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         MODULE: Riley House (Prep Boarding)
+         ============================================ -->
+    <section class="module collapsible-section" id="riley_house" data-module="riley_house" data-nav-title="Riley House">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-header__badge">Prep Boarding</span>
+                <h2>Riley House</h2>
+                <p class="lead">A home-from-home for our youngest boarders</p>
+            </div>
+
+            <div class="two-col two-col--reverse">
+                <div>
+                    <img src="assets/images/campus/img_45.jpg" alt="Riley House" class="img-rounded" onerror="this.src='https://via.placeholder.com/600x400?text=Riley+House'">
+                </div>
+                <div>
+                    <p>Boarding at Strathallan Prep is available for children aged 7-13. Whether full boarding or flexi-boarding for 1, 2, or 3 nights per week, Riley House offers:</p>
+
+                    <ul style="list-style: none; margin: var(--space-lg) 0;">
+                        <li style="padding: var(--space-sm) 0; display: flex; align-items: flex-start; gap: var(--space-sm);">
+                            <span style="color: var(--strath-gold); font-size: 1.2em;">•</span>
+                            <span>Comfortable common rooms, TV lounge, and games room</span>
+                        </li>
+                        <li style="padding: var(--space-sm) 0; display: flex; align-items: flex-start; gap: var(--space-sm);">
+                            <span style="color: var(--strath-gold); font-size: 1.2em;">•</span>
+                            <span>Caring houseparents who know every child</span>
+                        </li>
+                        <li style="padding: var(--space-sm) 0; display: flex; align-items: flex-start; gap: var(--space-sm);">
+                            <span style="color: var(--strath-gold); font-size: 1.2em;">•</span>
+                            <span>A safe environment to grow in confidence</span>
+                        </li>
+                        <li style="padding: var(--space-sm) 0; display: flex; align-items: flex-start; gap: var(--space-sm);">
+                            <span style="color: var(--strath-gold); font-size: 1.2em;">•</span>
+                            <span>Freedom to explore our 153-acre grounds</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Riley House Video -->
+            <div class="conditional-content" data-video="riley" style="margin-top: var(--space-2xl);">
+                <div class="video-wrapper">
+                    <iframe
+                        src="https://www.youtube.com/embed/HzIEFcmqbI4?rel=0&modestbranding=1"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         MODULE: Senior School
+         ============================================ -->
+    <section class="module collapsible-section" id="senior_school" data-module="senior_school" data-nav-title="Senior School">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-header__badge">Ages 13-18</span>
+                <h2>Senior School</h2>
+                <p class="lead">Preparing young people to face the world as confident, well-rounded adults</p>
+            </div>
+
+            <div class="two-col">
+                <div>
+                    <p>At Strathallan Senior School, <span data-field="child_name">your child</span> will experience an education tailored to their individual strengths, interests, and aspirations.</p>
+
+                    <p>We know young people learn in different ways, so we offer the flexibility to adapt our curriculum accordingly. With 24 subjects to choose from, we offer one of the broadest curriculums available in Scotland.</p>
+
+                    <h4 style="margin-top: var(--space-xl); color: var(--strath-navy);">Key Entry Points:</h4>
+                    <ul style="list-style: none; margin: var(--space-md) 0;">
+                        <li style="padding: var(--space-sm) 0;"><strong>Third Form (Year 9)</strong> - Our main entry point with The Bigger Picture programme</li>
+                        <li style="padding: var(--space-sm) 0;"><strong>Fourth Form (Year 10)</strong> - Start of GCSE studies</li>
+                        <li style="padding: var(--space-sm) 0;"><strong>Sixth Form</strong> - A Levels, Highers, or Advanced Highers</li>
+                    </ul>
+                </div>
+                <div>
+                    <img src="assets/images/academic/img_21.jpg" alt="Senior School" class="img-rounded" onerror="this.src='https://via.placeholder.com/600x400?text=Senior+School'">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         MODULE: Curriculum
+         ============================================ -->
+    <section class="module module--gold collapsible-section" id="curriculum" data-module="curriculum" data-nav-title="Flexible Learning">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-header__badge">Scotland's Triple Pathway</span>
+                <h2>Flexible Learning</h2>
+                <p class="lead">The first school in Scotland to offer genuine curriculum choice</p>
+            </div>
+
+            <div class="feature-grid">
+                <div class="feature-card" data-module="scottish_curriculum">
+                    
+                    <h4 class="feature-card__title">Scottish Highers</h4>
+                    <p class="feature-card__description">The traditional Scottish route, ideal for Scottish universities. Study 5 Highers in S5, then Advanced Highers in S6.</p>
+                </div>
+                <div class="feature-card" data-module="english_curriculum">
+                    
+                    <h4 class="feature-card__title">GCSEs & A Levels</h4>
+                    <p class="feature-card__description">The English pathway, recognised worldwide. 9 GCSEs in Fourth/Fifth Form, then 3-4 A Levels in Sixth Form.</p>
+                </div>
+                <div class="feature-card">
+                    
+                    <h4 class="feature-card__title">EPQ Option</h4>
+                    <p class="feature-card__description">The Extended Project Qualification allows deeper exploration of a topic of personal interest.</p>
+                </div>
+            </div>
+
+            <div class="helper-text" style="max-width: 800px; margin: var(--space-2xl) auto 0; background: var(--strath-white);">
+                <strong>Which pathway is right for <span data-field="child_name">your child</span>?</strong>
+                The choice depends on their learning style, university aspirations, and future plans. Our academic staff will guide you through the options during your visit.
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         MODULE: Third Form & Bigger Picture
+         ============================================ -->
+    <section class="module collapsible-section" id="bigger_picture" data-nav-title="Bigger Picture" data-module="bigger_picture">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-header__badge">Third Form</span>
+                <h2>The Bigger Picture</h2>
+                <p class="lead">Nurturing independence and expanding horizons</p>
+            </div>
+
+            <div class="two-col" style="margin-bottom: var(--space-2xl);">
+                <div>
+                    <img src="assets/images/campus/img_55.jpg" alt="Third Form" class="img-rounded" onerror="this.src='https://via.placeholder.com/600x400?text=Third+Form'">
+                </div>
+                <div>
+                    <p>Third Form (Year 9) pupils study a broad curriculum to develop their interests, uncover their talents, and find the subjects they will pursue throughout their school career.</p>
+
+                    <p><strong>The Bigger Picture</strong> programme is designed to:</p>
+                    <ul style="list-style: none; margin: var(--space-md) 0;">
+                        <li style="padding: var(--space-xs) 0;">> Nurture independence</li>
+                        <li style="padding: var(--space-xs) 0;">> Build identity</li>
+                        <li style="padding: var(--space-xs) 0;">> Expand understanding of the world</li>
+                        <li style="padding: var(--space-xs) 0;">> Develop intellectual curiosity</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Third Form Subjects Grid -->
+            <h3 style="color: var(--strath-navy); font-size: var(--fs-2xl); margin-bottom: var(--space-xl); font-family: var(--font-serif);">Third Form Curriculum</h3>
+            <div class="third-form-subjects" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: var(--space-md);">
+                <div class="subject-tablet" style="background: var(--strath-white); padding: var(--space-md) var(--space-lg); border-radius: var(--radius-md); box-shadow: var(--shadow-sm); border-left: 3px solid var(--strath-navy); text-align: center;">
+                    <span style="font-weight: var(--fw-semibold); color: var(--strath-navy);">Art</span>
+                </div>
+                <div class="subject-tablet" style="background: var(--strath-white); padding: var(--space-md) var(--space-lg); border-radius: var(--radius-md); box-shadow: var(--shadow-sm); border-left: 3px solid var(--strath-gold); text-align: center;">
+                    <span style="font-weight: var(--fw-semibold); color: var(--strath-navy);">Biology</span>
+                </div>
+                <div class="subject-tablet" style="background: var(--strath-white); padding: var(--space-md) var(--space-lg); border-radius: var(--radius-md); box-shadow: var(--shadow-sm); border-left: 3px solid var(--strath-gold); text-align: center;">
+                    <span style="font-weight: var(--fw-semibold); color: var(--strath-navy);">Chemistry</span>
+                </div>
+                <div class="subject-tablet" style="background: var(--strath-white); padding: var(--space-md) var(--space-lg); border-radius: var(--radius-md); box-shadow: var(--shadow-sm); border-left: 3px solid var(--strath-navy); text-align: center;">
+                    <span style="font-weight: var(--fw-semibold); color: var(--strath-navy);">Computing</span>
+                </div>
+                <div class="subject-tablet" style="background: var(--strath-white); padding: var(--space-md) var(--space-lg); border-radius: var(--radius-md); box-shadow: var(--shadow-sm); border-left: 3px solid var(--strath-navy); text-align: center;">
+                    <span style="font-weight: var(--fw-semibold); color: var(--strath-navy);">Design Technology</span>
+                </div>
+                <div class="subject-tablet" style="background: var(--strath-white); padding: var(--space-md) var(--space-lg); border-radius: var(--radius-md); box-shadow: var(--shadow-sm); border-left: 3px solid var(--strath-navy); text-align: center;">
+                    <span style="font-weight: var(--fw-semibold); color: var(--strath-navy);">Drama</span>
+                </div>
+                <div class="subject-tablet" style="background: var(--strath-white); padding: var(--space-md) var(--space-lg); border-radius: var(--radius-md); box-shadow: var(--shadow-sm); border-left: 3px solid var(--strath-gold); text-align: center;">
+                    <span style="font-weight: var(--fw-semibold); color: var(--strath-navy);">English</span>
+                </div>
+                <div class="subject-tablet" style="background: var(--strath-white); padding: var(--space-md) var(--space-lg); border-radius: var(--radius-md); box-shadow: var(--shadow-sm); border-left: 3px solid var(--strath-navy); text-align: center;">
+                    <span style="font-weight: var(--fw-semibold); color: var(--strath-navy);">French</span>
+                </div>
+                <div class="subject-tablet" style="background: var(--strath-white); padding: var(--space-md) var(--space-lg); border-radius: var(--radius-md); box-shadow: var(--shadow-sm); border-left: 3px solid var(--strath-navy); text-align: center;">
+                    <span style="font-weight: var(--fw-semibold); color: var(--strath-navy);">Geography</span>
+                </div>
+                <div class="subject-tablet" style="background: var(--strath-white); padding: var(--space-md) var(--space-lg); border-radius: var(--radius-md); box-shadow: var(--shadow-sm); border-left: 3px solid var(--strath-navy); text-align: center;">
+                    <span style="font-weight: var(--fw-semibold); color: var(--strath-navy);">German/Spanish</span>
+                </div>
+                <div class="subject-tablet" style="background: var(--strath-white); padding: var(--space-md) var(--space-lg); border-radius: var(--radius-md); box-shadow: var(--shadow-sm); border-left: 3px solid var(--strath-navy); text-align: center;">
+                    <span style="font-weight: var(--fw-semibold); color: var(--strath-navy);">History</span>
+                </div>
+                <div class="subject-tablet" style="background: var(--strath-white); padding: var(--space-md) var(--space-lg); border-radius: var(--radius-md); box-shadow: var(--shadow-sm); border-left: 3px solid var(--strath-navy); text-align: center;">
+                    <span style="font-weight: var(--fw-semibold); color: var(--strath-navy);">Latin</span>
+                </div>
+                <div class="subject-tablet" style="background: var(--strath-white); padding: var(--space-md) var(--space-lg); border-radius: var(--radius-md); box-shadow: var(--shadow-sm); border-left: 3px solid var(--strath-gold); text-align: center;">
+                    <span style="font-weight: var(--fw-semibold); color: var(--strath-navy);">Mathematics</span>
+                </div>
+                <div class="subject-tablet" style="background: var(--strath-white); padding: var(--space-md) var(--space-lg); border-radius: var(--radius-md); box-shadow: var(--shadow-sm); border-left: 3px solid var(--strath-navy); text-align: center;">
+                    <span style="font-weight: var(--fw-semibold); color: var(--strath-navy);">Music</span>
+                </div>
+                <div class="subject-tablet" style="background: var(--strath-white); padding: var(--space-md) var(--space-lg); border-radius: var(--radius-md); box-shadow: var(--shadow-sm); border-left: 3px solid var(--strath-navy); text-align: center;">
+                    <span style="font-weight: var(--fw-semibold); color: var(--strath-navy);">Physical Education</span>
+                </div>
+                <div class="subject-tablet" style="background: var(--strath-white); padding: var(--space-md) var(--space-lg); border-radius: var(--radius-md); box-shadow: var(--shadow-sm); border-left: 3px solid var(--strath-gold); text-align: center;">
+                    <span style="font-weight: var(--fw-semibold); color: var(--strath-navy);">Physics</span>
+                </div>
+                <div class="subject-tablet" style="background: var(--strath-white); padding: var(--space-md) var(--space-lg); border-radius: var(--radius-md); box-shadow: var(--shadow-sm); border-left: 3px solid var(--strath-navy); text-align: center;">
+                    <span style="font-weight: var(--fw-semibold); color: var(--strath-navy);">Religious Education</span>
+                </div>
+            </div>
+            <p style="margin-top: var(--space-lg); font-size: var(--fs-sm); color: var(--text-secondary);"><span style="display: inline-block; width: 12px; height: 12px; background: var(--strath-gold); border-radius: 2px; margin-right: var(--space-xs);"></span> Core subjects</p>
+        </div>
+    </section>
+
+    <!-- ============================================
+         MODULE: Fourth Form / GCSE Overview
+         ============================================ -->
+    <section class="module collapsible-section" id="fourth_form" data-nav-title="Fourth Form" data-module="fourth_form">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-header__badge">Fourth Form</span>
+                <h2>GCSE Pathways at Strathallan</h2>
+                <p class="lead">Personalised academic pathways tailored to individual strengths</p>
+            </div>
+
+            <div class="two-col" style="margin-bottom: var(--space-2xl); align-items: center;">
+                <div>
+                    <img src="assets/images/campus/img_14.jpg" alt="GCSE Studies at Strathallan" class="img-rounded" style="max-height: 350px; object-fit: cover; object-position: top; width: 100%;" onerror="this.src='https://via.placeholder.com/600x400?text=GCSE+Studies'">
+                </div>
+                <div>
+                    <p>At Strathallan, we believe the best academic outcomes are achieved through a personalised approach to subject choices, balancing academic challenge with individual interests and strengths.</p>
+
+                    <p>Most pupils study <strong>nine GCSEs</strong> in the Fourth and Fifth Forms, including core subjects of Mathematics, English Language and English Literature, at least one modern foreign language, and a minimum of two single-award sciences.</p>
+
+                    <p>Our flexible curriculum is built around internationally respected qualifications, ensuring pupils follow pathways tailored to their abilities, ambitions, and aspirations.</p>
+
+                    <p style="margin-top: var(--space-md);"><strong>Expert guidance</strong> ensures each pupil follows the pathway that best supports their ambitions. While most take Higher Tier courses (grades 9-4), Foundation Tier may suit some pupils better.</p>
+                </div>
+            </div>
+
+            <!-- GCSE Pathways -->
+            <h3 style="color: var(--strath-navy); font-size: var(--fs-2xl); margin-bottom: var(--space-xl); font-family: var(--font-serif);">Three Distinct Pathways</h3>
+
+            <div class="pathway-cards" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-xl); margin-bottom: var(--space-2xl);">
+                <div class="pathway-card" style="background: var(--strath-white); border-radius: var(--radius-lg); padding: var(--space-xl); box-shadow: var(--shadow-md); border-top: 4px solid var(--strath-navy);">
+                    <div style="font-size: var(--fs-4xl); font-weight: var(--fw-bold); color: var(--strath-navy); font-family: var(--font-serif); margin-bottom: var(--space-sm);">9</div>
+                    <h4 style="color: var(--strath-navy); margin-bottom: var(--space-md);">Standard Pathway</h4>
+                    <p style="font-size: var(--fs-sm); color: var(--text-secondary);">The standard Strathallan curriculum of nine GCSEs provides a rigorous academic challenge and a strong foundation for progression to A Levels or Scottish Highers, ensuring a clear route to top universities.</p>
+                </div>
+
+                <div class="pathway-card" style="background: var(--strath-white); border-radius: var(--radius-lg); padding: var(--space-xl); box-shadow: var(--shadow-md); border-top: 4px solid var(--strath-gold);">
+                    <div style="font-size: var(--fs-4xl); font-weight: var(--fw-bold); color: var(--strath-gold-dark); font-family: var(--font-serif); margin-bottom: var(--space-sm);">9+</div>
+                    <h4 style="color: var(--strath-navy); margin-bottom: var(--space-md);">Extended Pathway</h4>
+                    <p style="font-size: var(--fs-sm); color: var(--text-secondary);">Exceptionally strong academic pupils may take an additional GCSE beyond the standard nine, pursuing a subject off the timetable out of genuine academic passion. Universities value high achievement in nine subjects over a larger number with lower grades.</p>
+                </div>
+
+                <div class="pathway-card" style="background: var(--strath-white); border-radius: var(--radius-lg); padding: var(--space-xl); box-shadow: var(--shadow-md); border-top: 4px solid var(--strath-navy);">
+                    <div style="font-size: var(--fs-4xl); font-weight: var(--fw-bold); color: var(--strath-navy); font-family: var(--font-serif); margin-bottom: var(--space-sm);">8</div>
+                    <h4 style="color: var(--strath-navy); margin-bottom: var(--space-md);">Focused Pathway</h4>
+                    <p style="font-size: var(--fs-sm); color: var(--text-secondary);">For pupils who excel with a slightly reduced subject load, this option offers eight GCSEs with additional focus on achieving strong grades. Particularly suited to those with significant commitments in sport or performing arts, or who benefit from additional study support.</p>
+                </div>
+            </div>
+
+            <!-- Subject Categories -->
+            <div class="subject-overview" style="background: var(--strath-cream); border-radius: var(--radius-lg); padding: var(--space-xl); margin-bottom: var(--space-xl);">
+                <h4 style="color: var(--strath-navy); margin-bottom: var(--space-lg);">GCSE Subject Categories</h4>
+                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-lg);">
+                    <div>
+                        <p style="margin-bottom: var(--space-sm);"><strong>Core Subjects (Compulsory)</strong></p>
+                        <p style="font-size: var(--fs-sm); color: var(--text-secondary);">English Language, English Literature, Mathematics</p>
+                    </div>
+                    <div>
+                        <p style="margin-bottom: var(--space-sm);"><strong>Sciences</strong></p>
+                        <p style="font-size: var(--fs-sm); color: var(--text-secondary);">Minimum two sciences; Triple Science option available</p>
+                    </div>
+                    <div>
+                        <p style="margin-bottom: var(--space-sm);"><strong>Modern Languages</strong></p>
+                        <p style="font-size: var(--fs-sm); color: var(--text-secondary);">At least one: French or Spanish</p>
+                    </div>
+                    <div>
+                        <p style="margin-bottom: var(--space-sm);"><strong>Humanities</strong></p>
+                        <p style="font-size: var(--fs-sm); color: var(--text-secondary);">History and/or Geography</p>
+                    </div>
+                    <div>
+                        <p style="margin-bottom: var(--space-sm);"><strong>Creative & Technical</strong></p>
+                        <p style="font-size: var(--fs-sm); color: var(--text-secondary);">Art, Business, Computer Science, DT, Drama, Latin, Music, PE, RS</p>
+                    </div>
+                    <div>
+                        <p style="margin-bottom: var(--space-sm);"><strong>Support Options</strong></p>
+                        <p style="font-size: var(--fs-sm); color: var(--text-secondary);">Supervised Study, Learning Support, EAL as required</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         MODULE: GCSE Subjects (Dynamic)
+         ============================================ -->
+    <section class="module collapsible-section" id="gcse_subjects" data-nav-title="GCSE Subjects" data-module="gcse_subjects">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-header__badge">GCSE Options</span>
+                <h2>Recommended Subjects for <span data-field="child_name">Your Child</span></h2>
+                <p class="lead">Based on their interests and future aspirations - click any subject for details</p>
+            </div>
+
+            <!-- Dynamic subject grid - populated by JavaScript -->
+            <div id="gcseSubjectsGrid" class="subject-grid">
+                <!-- Core Subjects -->
+                <div class="subject-category-section" id="gcseCoreSectionSubjects" style="display: none;">
+                    <h3 class="subject-category-title">Core Subjects</h3>
+                    <p class="subject-category-desc">Compulsory for all pupils</p>
+                    <div class="subject-cards" id="gcseCoreSubjectsCards"></div>
+                </div>
+
+                <!-- Recommended Subjects -->
+                <div class="subject-category-section" id="gcseRecommendedSubjectsSection" style="display: none;">
+                    <h3 class="subject-category-title">Recommended for Your Pathway</h3>
+                    <p class="subject-category-desc">Subjects that align with your interests and aspirations</p>
+                    <div class="subject-cards" id="gcseRecommendedSubjectsCards"></div>
+                </div>
+
+                <!-- Optional Subjects -->
+                <div class="subject-category-section" id="gcseOptionalSubjectsSection" style="display: none;">
+                    <h3 class="subject-category-title">Additional Options</h3>
+                    <p class="subject-category-desc">Other subjects to consider</p>
+                    <div class="subject-cards" id="gcseOptionalSubjectsCards"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         MODULE: Sixth Form
+         ============================================ -->
+    <section class="module collapsible-section" id="sixth_form" data-nav-title="Sixth Form" data-module="sixth_form">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-header__badge">Sixth Form</span>
+                <h2>Your Path to Excellence</h2>
+                <p class="lead">Greater specialisation, greater responsibility, greater opportunities</p>
+            </div>
+
+            <!-- Key Stats -->
+            <div class="stats-row" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-lg); margin-bottom: var(--space-2xl); text-align: center;">
+                <div style="background: var(--strath-navy); color: var(--strath-white); padding: var(--space-lg); border-radius: var(--radius-lg);">
+                    <div style="font-size: var(--fs-3xl); font-weight: var(--fw-bold); font-family: var(--font-serif);">23</div>
+                    <div style="font-size: var(--fs-sm);">A Level Subjects</div>
+                </div>
+                <div style="background: var(--strath-navy); color: var(--strath-white); padding: var(--space-lg); border-radius: var(--radius-lg);">
+                    <div style="font-size: var(--fs-3xl); font-weight: var(--fw-bold); font-family: var(--font-serif);">3</div>
+                    <div style="font-size: var(--fs-sm);">Curriculum Pathways</div>
+                </div>
+                <div style="background: var(--strath-navy); color: var(--strath-white); padding: var(--space-lg); border-radius: var(--radius-lg);">
+                    <div style="font-size: var(--fs-3xl); font-weight: var(--fw-bold); font-family: var(--font-serif);">95%</div>
+                    <div style="font-size: var(--fs-sm);">University Placement</div>
+                </div>
+                <div style="background: var(--strath-navy); color: var(--strath-white); padding: var(--space-lg); border-radius: var(--radius-lg);">
+                    <div style="font-size: var(--fs-3xl); font-weight: var(--fw-bold); font-family: var(--font-serif);">1:8</div>
+                    <div style="font-size: var(--fs-sm);">Staff to Student Ratio</div>
+                </div>
+            </div>
+
+            <div class="two-col">
+                <div>
+                    <h4 style="color: var(--strath-navy); margin-bottom: var(--space-md);">Flexibility to Choose</h4>
+                    <p>A special feature of our Sixth Form is the flexibility to choose either A Levels or Scottish Highers over one or two-year programmes. Fewer subjects are studied but in more depth.</p>
+
+                    <h4 style="color: var(--strath-navy); margin-top: var(--space-lg); margin-bottom: var(--space-md);">Leadership Opportunities</h4>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-sm);">
+                        <div style="padding: var(--space-sm); background: var(--strath-grey-light); border-radius: var(--radius-sm);">Captains of School</div>
+                        <div style="padding: var(--space-sm); background: var(--strath-grey-light); border-radius: var(--radius-sm);">Heads of House</div>
+                        <div style="padding: var(--space-sm); background: var(--strath-grey-light); border-radius: var(--radius-sm);">Prefects</div>
+                        <div style="padding: var(--space-sm); background: var(--strath-grey-light); border-radius: var(--radius-sm);">Subject Ambassadors</div>
+                    </div>
+
+                    <div style="margin-top: var(--space-lg); padding: var(--space-md); background: var(--strath-gold-pale); border-left: 3px solid var(--strath-gold); border-radius: var(--radius-sm);">
+                        <p style="margin: 0; font-style: italic; color: var(--strath-navy);">"Best couple years of my life so far"</p>
+                        <p style="margin: var(--space-xs) 0 0; font-size: var(--fs-sm); color: var(--text-secondary);">- Sixth Form Student</p>
+                    </div>
+                </div>
+                <div>
+                    <!-- Sixth Form Video -->
+                    <div class="video-wrapper" style="border-radius: var(--radius-lg); overflow: hidden;">
+                        <iframe
+                            src="https://www.youtube.com/embed/2NdTxmnS-4A?rel=0&modestbranding=1"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         MODULE: A Level Subjects - Dynamic based on career pathway
+         ============================================ -->
+    <section class="module collapsible-section" id="a_level_subjects" data-nav-title="A Level Subjects" data-module="a_level_subjects">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-header__badge">Recommended Subjects</span>
+                <h2>A Level Recommendations for <span data-field="child_name">Your Child</span></h2>
+                <p class="lead">Based on their career interests - click any subject for details</p>
+            </div>
+
+            <!-- Dynamic subject grid - populated by JavaScript -->
+            <div id="recommendedSubjectsGrid" class="subject-grid">
+                <!-- Essential Subjects -->
+                <div class="subject-category-section" id="essentialSubjectsSection" style="display: none;">
+                    <h3 class="subject-category-title">Essential Subjects</h3>
+                    <p class="subject-category-desc">Required for this career pathway</p>
+                    <div class="subject-cards" id="essentialSubjectsCards"></div>
+                </div>
+
+                <!-- Recommended Subjects -->
+                <div class="subject-category-section" id="recommendedSubjectsSection" style="display: none;">
+                    <h3 class="subject-category-title">Highly Recommended</h3>
+                    <p class="subject-category-desc">Strongly advised for this pathway</p>
+                    <div class="subject-cards" id="recommendedSubjectsCards"></div>
+                </div>
+
+                <!-- Useful Subjects -->
+                <div class="subject-category-section" id="optionalSubjectsSection" style="display: none;">
+                    <h3 class="subject-category-title">Useful Options</h3>
+                    <p class="subject-category-desc">Good complementary choices</p>
+                    <div class="subject-cards" id="optionalSubjectsCards"></div>
+                </div>
+            </div>
+
+            <div class="helper-text" style="max-width: 800px; margin: var(--space-2xl) auto 0; background: var(--strath-gold-pale);">
+                Our academic advisors will discuss the best subject combination for <span data-field="child_name">your child</span>'s specific goals during your visit.
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         MODULE: A Levels vs Highers Comparison
+         ============================================ -->
+    <section class="module module--gold collapsible-section" id="curriculum_comparison" data-module="curriculum_comparison" data-nav-title="A Levels vs Highers">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-header__badge">Curriculum Choice</span>
+                <h2>A Levels vs Scottish Highers</h2>
+                <p class="lead">Both pathways lead to excellent outcomes - the choice depends on <span data-field="child_name">your child</span>'s learning style</p>
+            </div>
+
+            <div class="comparison-table" style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-xl); margin: var(--space-2xl) 0;">
+                <!-- A Levels Column -->
+                <div style="background: var(--strath-white); padding: var(--space-xl); border-radius: var(--radius-xl); box-shadow: var(--shadow-md);">
+                    <h3 style="color: var(--strath-navy); text-align: center; margin-bottom: var(--space-lg);"> A Levels</h3>
+                    <ul style="list-style: none; margin: 0;">
+                        <li style="padding: var(--space-sm) 0; border-bottom: 1px solid var(--strath-grey-light);"><strong>Duration:</strong> 2 years (Lower & Upper Sixth)</li>
+                        <li style="padding: var(--space-sm) 0; border-bottom: 1px solid var(--strath-grey-light);"><strong>Subjects:</strong> Typically 3-4 subjects</li>
+                        <li style="padding: var(--space-sm) 0; border-bottom: 1px solid var(--strath-grey-light);"><strong>Assessment:</strong> Final exams at end of Year 13</li>
+                        <li style="padding: var(--space-sm) 0; border-bottom: 1px solid var(--strath-grey-light);"><strong>UCAS Points:</strong> Up to 56 per subject (A*)</li>
+                        <li style="padding: var(--space-sm) 0; border-bottom: 1px solid var(--strath-grey-light);"><strong>Best for:</strong> England, Wales & international universities</li>
+                        <li style="padding: var(--space-sm) 0;"><strong>Style:</strong> Depth over breadth</li>
+                    </ul>
+                    <div style="margin-top: var(--space-lg); padding: var(--space-md); background: var(--strath-navy-pale); border-radius: var(--radius-md); border-left: 3px solid var(--strath-navy);">
+                        <p style="font-size: var(--fs-sm); color: var(--strath-navy); margin: 0; font-style: italic;">"A Levels allow students to develop real expertise in their chosen subjects"</p>
+                    </div>
+                </div>
+
+                <!-- Highers Column -->
+                <div style="background: var(--strath-white); padding: var(--space-xl); border-radius: var(--radius-xl); box-shadow: var(--shadow-md);">
+                    <h3 style="color: var(--strath-navy); text-align: center; margin-bottom: var(--space-lg);">Scottish Highers</h3>
+                    <ul style="list-style: none; margin: 0;">
+                        <li style="padding: var(--space-sm) 0; border-bottom: 1px solid var(--strath-grey-light);"><strong>Duration:</strong> 1 year per level (S5 & S6)</li>
+                        <li style="padding: var(--space-sm) 0; border-bottom: 1px solid var(--strath-grey-light);"><strong>Subjects:</strong> Typically 5 Highers in S5</li>
+                        <li style="padding: var(--space-sm) 0; border-bottom: 1px solid var(--strath-grey-light);"><strong>Assessment:</strong> Annual exams each May</li>
+                        <li style="padding: var(--space-sm) 0; border-bottom: 1px solid var(--strath-grey-light);"><strong>UCAS Points:</strong> Up to 33 per subject (A)</li>
+                        <li style="padding: var(--space-sm) 0; border-bottom: 1px solid var(--strath-grey-light);"><strong>Best for:</strong> Scottish universities</li>
+                        <li style="padding: var(--space-sm) 0;"><strong>Style:</strong> Breadth and flexibility</li>
+                    </ul>
+                    <div style="margin-top: var(--space-lg); padding: var(--space-md); background: var(--strath-navy-pale); border-radius: var(--radius-md); border-left: 3px solid var(--strath-navy);">
+                        <p style="font-size: var(--fs-sm); color: var(--strath-navy); margin: 0; font-style: italic;">"Highers offer the flexibility to keep options open for longer"</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="helper-text" style="max-width: 900px; margin: var(--space-xl) auto 0; background: var(--strath-white);">
+                <strong>Unique to Strathallan:</strong> We are the only school in Scotland to offer the complete triple pathway - GCSEs, A Levels, AND Scottish Highers. Our academic advisors will help <span data-field="child_name">your child</span> choose the pathway that best suits their goals and learning style.
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         MODULE: EPQ (Extended Project Qualification)
+         ============================================ -->
+    <section class="module collapsible-section" id="epq" data-nav-title="EPQ" data-module="epq">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-header__badge">Stand Out</span>
+                <h2>Extended Project Qualification (EPQ)</h2>
+                <p class="lead">Worth half an A Level - demonstrating independent research skills</p>
+            </div>
+
+            <div class="feature-grid" style="grid-template-columns: repeat(3, 1fr);">
+                <div class="feature-card">
+                    
+                    <h4 class="feature-card__title">UCAS Points</h4>
+                    <p class="feature-card__description">Worth up to 28 UCAS points - equivalent to half an A Level grade A*</p>
+                </div>
+                <div class="feature-card">
+                    
+                    <h4 class="feature-card__title">Word Dissertation</h4>
+                    <p class="feature-card__description">Or an artefact/production with a 1,000-word supporting report</p>
+                </div>
+                <div class="feature-card">
+                    
+                    <h4 class="feature-card__title">Timeline</h4>
+                    <p class="feature-card__description">Start September of Lower Sixth, present in March before A Level prep</p>
+                </div>
+            </div>
+
+            <div class="two-col" style="margin-top: var(--space-2xl);">
+                <div>
+                    <h4 style="color: var(--strath-navy); margin-bottom: var(--space-md);">What is the EPQ?</h4>
+                    <p>The Extended Project Qualification allows students to lead their own independent research project on a topic they choose. It demonstrates to universities that a student can work independently at degree level.</p>
+
+                    <h4 style="color: var(--strath-navy); margin-top: var(--space-xl); margin-bottom: var(--space-md);">Why do it?</h4>
+                    <ul style="margin: 0; padding-left: var(--space-lg);">
+                        <li>Many universities make lower offers to students with EPQ</li>
+                        <li>Develops critical thinking and research skills</li>
+                        <li>Great talking point for personal statements and interviews</li>
+                        <li>Excellent preparation for university dissertation work</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 style="color: var(--strath-navy); margin-bottom: var(--space-md);">Skills Developed</h4>
+                    <ul style="margin: 0; padding-left: var(--space-lg);">
+                        <li>Independent research and planning</li>
+                        <li>Critical analysis and evaluation</li>
+                        <li>Time management and organisation</li>
+                        <li>Written communication</li>
+                        <li>Presentation skills</li>
+                    </ul>
+
+                    <div style="margin-top: var(--space-xl); padding: var(--space-md); background: var(--strath-navy-pale); border-radius: var(--radius-md); border-left: 3px solid var(--strath-navy);">
+                        <p style="font-size: var(--fs-sm); color: var(--strath-navy); margin: 0; font-style: italic;">"Many universities encourage students to undertake an EPQ - it's recognised by all UK universities and employers"</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         MODULE: University Preparation
+         ============================================ -->
+    <section class="module module--navy collapsible-section" id="university_prep" data-module="university_prep" data-nav-title="University Prep">
+        <div class="container">
+            <div class="section-header">
+                <h2 style="color: var(--strath-white);">Preparing for University</h2>
+                <p class="lead" style="color: rgba(255,255,255,0.8);">From Russell Group to Ivy League - our students go further</p>
+            </div>
+
+            <div class="feature-grid">
+                <div class="feature-card">
+                    
+                    <h4 class="feature-card__title">Oxbridge Preparation</h4>
+                    <p class="feature-card__description">Dedicated support for Oxford and Cambridge applications, including interview practice and admissions test preparation.</p>
+                </div>
+                <div class="feature-card">
+                    
+                    <h4 class="feature-card__title">Medical Applications</h4>
+                    <p class="feature-card__description">Specialist guidance for medicine, dentistry, and veterinary science including UCAT/BMAT preparation.</p>
+                </div>
+                <div class="feature-card">
+                    
+                    <h4 class="feature-card__title">International Universities</h4>
+                    <p class="feature-card__description">Support for US, Canadian, and European applications including SAT preparation.</p>
+                </div>
+                <div class="feature-card">
+                    
+                    <h4 class="feature-card__title">Personal Statements</h4>
+                    <p class="feature-card__description">One-to-one support crafting compelling personal statements and preparing for interviews.</p>
+                </div>
+            </div>
+
+            <div style="margin-top: var(--space-3xl); text-align: center;">
+                <h3 style="color: var(--strath-white); margin-bottom: var(--space-lg);">Recent University Destinations</h3>
+                <p style="color: rgba(255,255,255,0.8); font-size: var(--fs-lg);">
+                    Oxford • Cambridge • Edinburgh • St Andrews • Durham • Bristol • Imperial • UCL • Glasgow • Exeter • Leeds • Manchester • Aberdeen • Bath
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         MODULE: Boarding Life
+         ============================================ -->
+    <section class="module collapsible-section" id="boarding_life" data-nav-title="Boarding Life" data-module="boarding_life">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-header__badge">One Community</span>
+                <h2>Boarding & Day at Strathallan</h2>
+                <p class="lead">No distinction - just one inclusive school family</p>
+            </div>
+
+            <div class="two-col" style="margin-bottom: var(--space-2xl); align-items: center;">
+                <div>
+                    <p style="font-size: var(--fs-lg); color: var(--strath-navy); font-weight: var(--fw-medium);">At Strathallan, we make no distinction between boarding and day pupils. Everyone participates equally in school life, building friendships and memories that last a lifetime.</p>
+
+                    <p>With approximately two-thirds of pupils boarding, there's always a vibrant community on campus. Our seven-day programme means weekends are just as full of activities, sports fixtures, and social events as weekdays.</p>
+
+                    <p>Whether boarding full-time, flexi-boarding a few nights, or attending as a day pupil, every child belongs to a house - their home within the school where lasting friendships are forged.</p>
+                </div>
+                <div>
+                    <img src="https://www.strathallan.co.uk/uploads/store/mediaupload/1821/image/xxl_fit-edit_1.jpg" alt="Boarding Life" class="img-rounded" style="max-height: 320px; object-fit: cover; object-position: center; width: 100%;">
+                </div>
+            </div>
+
+            <!-- Daily Schedule -->
+            <h3 style="color: var(--strath-navy); font-size: var(--fs-2xl); margin-bottom: var(--space-xl); font-family: var(--font-serif);">A Typical Day</h3>
+            <div class="schedule-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: var(--space-md); margin-bottom: var(--space-2xl);">
+                <div style="background: var(--strath-navy); color: var(--strath-white); padding: var(--space-lg); border-radius: var(--radius-md); text-align: center;">
+                    <div style="font-size: var(--fs-lg); font-weight: var(--fw-bold);">7:00am</div>
+                    <div style="font-size: var(--fs-sm); opacity: 0.9;">Wake up</div>
+                </div>
+                <div style="background: var(--strath-white); padding: var(--space-lg); border-radius: var(--radius-md); text-align: center; box-shadow: var(--shadow-sm);">
+                    <div style="font-size: var(--fs-lg); font-weight: var(--fw-bold); color: var(--strath-navy);">7:30am</div>
+                    <div style="font-size: var(--fs-sm); color: var(--text-secondary);">Breakfast at Harry's</div>
+                </div>
+                <div style="background: var(--strath-white); padding: var(--space-lg); border-radius: var(--radius-md); text-align: center; box-shadow: var(--shadow-sm);">
+                    <div style="font-size: var(--fs-lg); font-weight: var(--fw-bold); color: var(--strath-navy);">8:40am</div>
+                    <div style="font-size: var(--fs-sm); color: var(--text-secondary);">Lessons begin</div>
+                </div>
+                <div style="background: var(--strath-white); padding: var(--space-lg); border-radius: var(--radius-md); text-align: center; box-shadow: var(--shadow-sm);">
+                    <div style="font-size: var(--fs-lg); font-weight: var(--fw-bold); color: var(--strath-navy);">4:10pm</div>
+                    <div style="font-size: var(--fs-sm); color: var(--text-secondary);">School day ends</div>
+                </div>
+                <div style="background: var(--strath-white); padding: var(--space-lg); border-radius: var(--radius-md); text-align: center; box-shadow: var(--shadow-sm);">
+                    <div style="font-size: var(--fs-lg); font-weight: var(--fw-bold); color: var(--strath-navy);">5:45pm</div>
+                    <div style="font-size: var(--fs-sm); color: var(--text-secondary);">Dinner service</div>
+                </div>
+                <div style="background: var(--strath-gold); color: var(--strath-navy); padding: var(--space-lg); border-radius: var(--radius-md); text-align: center;">
+                    <div style="font-size: var(--fs-lg); font-weight: var(--fw-bold);">7:30pm</div>
+                    <div style="font-size: var(--fs-sm);">Evening prep & activities</div>
+                </div>
+            </div>
+
+            <!-- Weekend Life -->
+            <div style="background: var(--strath-cream); border-radius: var(--radius-lg); padding: var(--space-xl); margin-bottom: var(--space-xl);">
+                <h4 style="color: var(--strath-navy); margin-bottom: var(--space-md);">Weekend Life</h4>
+                <p style="margin-bottom: var(--space-md);">Saturdays include morning lessons until 12:20pm followed by afternoon sports fixtures. Evenings are filled with activities:</p>
+                <div style="display: flex; flex-wrap: wrap; gap: var(--space-sm);">
+                    <span style="background: var(--strath-white); padding: var(--space-xs) var(--space-md); border-radius: var(--radius-full); font-size: var(--fs-sm);">Movie marathons</span>
+                    <span style="background: var(--strath-white); padding: var(--space-xs) var(--space-md); border-radius: var(--radius-full); font-size: var(--fs-sm);">House cooking</span>
+                    <span style="background: var(--strath-white); padding: var(--space-xs) var(--space-md); border-radius: var(--radius-full); font-size: var(--fs-sm);">Takeaway nights</span>
+                    <span style="background: var(--strath-white); padding: var(--space-xs) var(--space-md); border-radius: var(--radius-full); font-size: var(--fs-sm);">Board games</span>
+                    <span style="background: var(--strath-white); padding: var(--space-xs) var(--space-md); border-radius: var(--radius-full); font-size: var(--fs-sm);">Social events</span>
+                    <span style="background: var(--strath-white); padding: var(--space-xs) var(--space-md); border-radius: var(--radius-full); font-size: var(--fs-sm);">Day pupil sleepovers</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         MODULE: Boarding Houses
+         ============================================ -->
+    <section class="module collapsible-section" id="boarding_houses" data-nav-title="Boarding Houses" data-module="boarding_houses">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-header__badge">Boarding</span>
+                <h2>Our Boarding Houses</h2>
+                <p class="lead">A Home Away From Home</p>
+            </div>
+
+            <!-- Hero Image & Intro -->
+            <div class="two-col" style="margin-bottom: var(--space-2xl);">
+                <div>
+                    <img src="https://www.strathallan.co.uk/uploads/store/mediaupload/1822/image/xl_limit-DSC03506.jpg" alt="Strathallan boarding house common room" class="img-rounded" style="width: 100%; height: 350px; object-fit: cover;">
+                </div>
+                <div>
+                    <h3 style="color: var(--strath-gold); margin-bottom: var(--space-md);">A True Home from Home</h3>
+                    <p>We have seven senior boarding houses - four boys' and three girls' - plus Riley House for our junior boarders. Each house has its own unique feel and traditions, but all share a strong sense of family and welcome new pupils with open arms.</p>
+                    <p style="margin-top: var(--space-md);">Day and boarding pupils are assigned to houses together and are equally encouraged to get involved in all aspects of school life. Unlike some schools, we do not allocate houses based on particular activities - instead we focus on creating a balance of interests and talents across all houses.</p>
+                </div>
+            </div>
+
+            <!-- House Allocation -->
+            <div class="cta-section" style="margin-bottom: var(--space-2xl);">
+                <h3 style="color: #fff;">How House Allocation Works</h3>
+                <p style="color: rgba(255,255,255,0.9);">Senior houses are allocated in the Summer Term prior to joining the senior school, and the allocation process is meticulously planned. We create a broad mix of abilities, interests and previous schools in each house. Sibling or family connections can sometimes influence preference to a particular house, but otherwise we focus on ensuring every house is balanced and welcoming.</p>
+            </div>
+
+            <!-- House Staff -->
+            <h3 style="color: var(--strath-gold); margin-bottom: var(--space-lg);">The House Team</h3>
+            <div class="two-col" style="margin-bottom: var(--space-2xl);">
+                <div>
+                    <div style="display: grid; gap: var(--space-md);">
+                        <div style="padding: var(--space-md); background: rgba(255,255,255,0.03); border-left: 3px solid var(--strath-gold);">
+                            <strong>Housemaster/Housemistress</strong>
+                            <p style="margin-top: var(--space-xs); opacity: 0.9;">Lives in-house with their family and is responsible for the wellbeing and safety of all members of the house.</p>
+                        </div>
+                        <div style="padding: var(--space-md); background: rgba(255,255,255,0.03); border-left: 3px solid var(--strath-gold);">
+                            <strong>Matron</strong>
+                            <p style="margin-top: var(--space-xs); opacity: 0.9;">Supervises the day-to-day running of the house, including cleaning and laundry, making sure everyone is happy and healthy.</p>
+                        </div>
+                        <div style="padding: var(--space-md); background: rgba(255,255,255,0.03); border-left: 3px solid var(--strath-gold);">
+                            <strong>House Tutors</strong>
+                            <p style="margin-top: var(--space-xs); opacity: 0.9;">Support pupils academically - monitoring progress, providing help where needed, and challenging every pupil to achieve their best.</p>
+                        </div>
+                        <div style="padding: var(--space-md); background: rgba(255,255,255,0.03); border-left: 3px solid var(--strath-gold);">
+                            <strong>Domestic Team</strong>
+                            <p style="margin-top: var(--space-xs); opacity: 0.9;">Keep bedrooms tidy, wash bedding and clothes, and maintain communal areas. They take a genuine interest in pupils' wellbeing and achievements.</p>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <img src="https://www.strathallan.co.uk/uploads/store/mediaupload/1443/image/xl_limit-edit_7.jpg" alt="House staff and pupils" class="img-rounded" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+            </div>
+
+            <!-- House Facilities -->
+            <h3 style="color: var(--strath-gold); margin-bottom: var(--space-lg);">House Facilities</h3>
+            <p style="margin-bottom: var(--space-lg);">Our boarding houses are designed with comfort and safety in mind - spaces where pupils can unwind, relax with friends and focus on their studies.</p>
+
+            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-lg); margin-bottom: var(--space-2xl);">
+                <div>
+                    <img src="https://www.strathallan.co.uk/uploads/store/mediaupload/45/image/xl_limit-House_Facilities.jpg" alt="Boarding house bedroom" class="img-rounded" style="width: 100%; height: 250px; object-fit: cover; margin-bottom: var(--space-md);">
+                    <h4>Bedrooms</h4>
+                    <p style="font-size: 0.95em;">All girl boarders in the Senior School have their own single study bedroom. Boys are allocated single rooms from Fourth Form onwards. Day pupils share a study bedroom with another day pupil. Pupils are encouraged to decorate their rooms to help them feel at home.</p>
+                </div>
+                <div>
+                    <img src="https://www.strathallan.co.uk/uploads/store/mediaupload/1442/image/xl_limit-edit_5.jpg" alt="House common room" class="img-rounded" style="width: 100%; height: 250px; object-fit: cover; margin-bottom: var(--space-md);">
+                    <h4>Common Rooms</h4>
+                    <p style="font-size: 0.95em;">Each house has a central common room plus smaller year group common rooms for free time. These have comfortable sofas and entertainment options including TVs, board games and DVD libraries.</p>
+                </div>
+            </div>
+
+            <!-- Kitchens -->
+            <div class="two-col" style="margin-bottom: var(--space-2xl);">
+                <div>
+                    <h4 style="color: var(--strath-gold); margin-bottom: var(--space-md);">Kitchens & Social Spaces</h4>
+                    <p>Kitchens are social areas supplied with fresh bread and fruit daily so pupils can make snacks during evenings and weekends. Perfect for casual catch-ups with friends over a cup of tea or toast.</p>
+                </div>
+                <div>
+                    <img src="https://www.strathallan.co.uk/uploads/store/mediaupload/3055/image/xl_limit-Game-Changing_Education_-_2024-08-29T114936.812.jpg" alt="House kitchen and social space" class="img-rounded" style="width: 100%; height: 250px; object-fit: cover;">
+                </div>
+            </div>
+
+            <!-- House Traditions -->
+            <div class="two-col" style="margin-bottom: var(--space-2xl);">
+                <div>
+                    <img src="https://www.strathallan.co.uk/uploads/store/mediaupload/243/image/xl_limit-DSC09867.jpg" alt="House traditions and activities" class="img-rounded" style="width: 100%; height: 300px; object-fit: cover;">
+                </div>
+                <div>
+                    <h3 style="color: var(--strath-gold); margin-bottom: var(--space-md);">House Traditions & Spirit</h3>
+                    <p>Each house has its own special traditions - movie-marathon evenings, group baking sessions, fancy dress parties.</p>
+                    <p style="margin-top: var(--space-md);">Houses compete in inter-house sports events and our annual House Music extravaganza, where each house puts together musical acts and battles it out to be crowned House Music champions.</p>
+                </div>
+            </div>
+
+            <!-- Junior House - shown for third_form entry -->
+            <div id="riley-house-section" class="feature-card" style="display: none !important; margin-bottom: var(--space-2xl); background: linear-gradient(135deg, rgba(207,181,59,0.1) 0%, rgba(0,61,76,0.2) 100%);">
+                <h3 style="color: var(--strath-gold);">Riley House - Your House</h3>
+                <p style="margin-bottom: var(--space-md);"><strong>Home to Third Form boarders</strong></p>
+                <p>Riley House provides a specialist programme tailored specifically for younger boarders. With its own dedicated facilities, age-appropriate routines, and nurturing staff team, Riley offers a supportive environment where younger pupils can thrive. Senior house allocation happens in the Summer Term prior to joining the senior school.</p>
+            </div>
+
+            <!-- Senior Boys' Houses - shown for boys at fourth_form or sixth_form -->
+            <div id="boys-houses-section" style="display: none !important;">
+                <h3 style="margin-bottom: var(--space-lg); color: var(--strath-gold);"><span data-field="child_name">Your child</span> will be allocated to one of our Senior Boys' Houses:</h3>
+                <div class="house-grid" style="margin-bottom: var(--space-2xl);">
+                    <div class="house-card">
+                        <div class="house-card__name">Freeland</div>
+                        <div class="house-card__type">Senior Boys</div>
+                        <div class="house-card__description">A friendly house with a strong sense of community and excellent pastoral care. Known for its supportive atmosphere and house spirit.</div>
+                    </div>
+                    <div class="house-card">
+                        <div class="house-card__name">Nicol</div>
+                        <div class="house-card__type">Senior Boys</div>
+                        <div class="house-card__description">Named after the school founder, Nicol combines tradition with a modern, inclusive approach. Strong academic focus and peer mentoring.</div>
+                    </div>
+                    <div class="house-card">
+                        <div class="house-card__name">Ruthven</div>
+                        <div class="house-card__type">Senior Boys</div>
+                        <div class="house-card__description">Outstanding pastoral care in a welcoming environment with a proud tradition of nurturing confident, well-rounded young men.</div>
+                    </div>
+                    <div class="house-card">
+                        <div class="house-card__name">Simpson</div>
+                        <div class="house-card__type">Senior Boys</div>
+                        <div class="house-card__description">Warm and supportive with a strong family feel. Simpson encourages individuality while building lasting friendships.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Senior Girls' Houses - shown for girls at fourth_form or sixth_form -->
+            <div id="girls-houses-section" style="display: none !important;">
+                <h3 style="margin-bottom: var(--space-lg); color: var(--strath-gold);"><span data-field="child_name">Your child</span> will be allocated to one of our Senior Girls' Houses:</h3>
+                <div class="house-grid">
+                    <div class="house-card">
+                        <div class="house-card__name">Glenbrae</div>
+                        <div class="house-card__type">Senior Girls</div>
+                        <div class="house-card__description">Supportive and vibrant with a close-knit community. Glenbrae girls are known for their enthusiasm and house spirit.</div>
+                    </div>
+                    <div class="house-card">
+                        <div class="house-card__name">Thornbank</div>
+                        <div class="house-card__type">Senior Girls</div>
+                        <div class="house-card__description">A warm welcome awaits in Thornbank, where strong friendships form and every girl is encouraged to flourish.</div>
+                    </div>
+                    <div class="house-card">
+                        <div class="house-card__name">Woodlands</div>
+                        <div class="house-card__type">Senior Girls</div>
+                        <div class="house-card__description">A nurturing environment that celebrates individuality. Woodlands fosters independence while providing exceptional support.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         MODULE: Flexi-Boarding
+         ============================================ -->
+    <section class="module collapsible-section" id="flexi_boarding" data-nav-title="Flexi-Boarding" data-module="flexi_boarding">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-header__badge">Best of Both Worlds</span>
+                <h2>Flexi-Boarding</h2>
+                <p class="lead">Experience boarding life on your own terms</p>
+            </div>
+
+            <div class="two-col" style="margin-bottom: var(--space-2xl);">
+                <div>
+                    <h3 style="color: var(--strath-gold); margin-bottom: var(--space-md);">A Gentle Introduction</h3>
+                    <p>Flexi-boarding offers <span data-field="child_name">your child</span> the chance to experience the benefits of boarding - independence, deeper friendships, evening activities, and homework support - while still returning home part of the week.</p>
+                    <p style="margin-top: var(--space-md);">It's the perfect option for families who want their child to enjoy the social and academic benefits of boarding without committing to full-time from the start. Many flexi-boarders gradually increase their nights as they grow in confidence - some eventually choosing full boarding.</p>
+                </div>
+                <div>
+                    <img src="assets/images/campus/img_65.jpg" alt="Flexi Boarding" class="img-rounded" onerror="this.src='https://via.placeholder.com/600x400?text=Flexi+Boarding'">
+                </div>
+            </div>
+
+            <h3 style="color: var(--strath-gold); margin-bottom: var(--space-lg);">Flexi-Boarding Options</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--space-lg); margin-bottom: var(--space-2xl);">
+                <div class="feature-card" style="border-left: 4px solid var(--strath-gold);">
+                    <h4>1 Night Per Week</h4>
+                    <p>A gentle start - perfect for trying boarding without major commitment. Stay for activities night and experience the evening routine.</p>
+                </div>
+                <div class="feature-card" style="border-left: 4px solid var(--strath-gold);">
+                    <h4>2 Nights Per Week</h4>
+                    <p>Our most popular option. Enough time to settle in, join evening activities, and build friendships without being away too long.</p>
+                </div>
+                <div class="feature-card" style="border-left: 4px solid var(--strath-gold);">
+                    <h4>3+ Nights Per Week</h4>
+                    <p>Almost full boarding. Ideal for older pupils who want more independence or families with busy weeknight schedules.</p>
+                </div>
+            </div>
+
+            <h3 style="color: var(--strath-gold); margin-bottom: var(--space-lg);">Benefits of Flexi-Boarding</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: var(--space-md);">
+                <div style="padding: var(--space-md); background: rgba(255,255,255,0.03); border-radius: var(--radius-md);">
+                    <strong>Deeper Friendships</strong>
+                    <p style="font-size: 0.9em; opacity: 0.9;">Evening time together strengthens bonds beyond the classroom</p>
+                </div>
+                <div style="padding: var(--space-md); background: rgba(255,255,255,0.03); border-radius: var(--radius-md);">
+                    <strong>Homework Support</strong>
+                    <p style="font-size: 0.9em; opacity: 0.9;">Supervised prep with teacher help available</p>
+                </div>
+                <div style="padding: var(--space-md); background: rgba(255,255,255,0.03); border-radius: var(--radius-md);">
+                    <strong>More Activities</strong>
+                    <p style="font-size: 0.9em; opacity: 0.9;">Access evening clubs, sports, and social events</p>
+                </div>
+                <div style="padding: var(--space-md); background: rgba(255,255,255,0.03); border-radius: var(--radius-md);">
+                    <strong>Growing Independence</strong>
+                    <p style="font-size: 0.9em; opacity: 0.9;">Learn life skills in a supportive environment</p>
+                </div>
+                <div style="padding: var(--space-md); background: rgba(255,255,255,0.03); border-radius: var(--radius-md);">
+                    <strong>Family Flexibility</strong>
+                    <p style="font-size: 0.9em; opacity: 0.9;">Fits around busy work schedules and commitments</p>
+                </div>
+                <div style="padding: var(--space-md); background: rgba(255,255,255,0.03); border-radius: var(--radius-md);">
+                    <strong>Pathway to Boarding</strong>
+                    <p style="font-size: 0.9em; opacity: 0.9;">Try before committing to full boarding</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         MODULE: Day Pupil Experience
+         ============================================ -->
+    <section class="module collapsible-section" id="day_pupil_experience" data-nav-title="Day Pupils" data-module="day_pupil_experience">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-header__badge">Day Pupils</span>
+                <h2>The Day Pupil Experience</h2>
+                <p class="lead">No distinction - day pupils are fully part of Strathallan life</p>
+            </div>
+
+            <div class="two-col" style="margin-bottom: var(--space-2xl);">
+                <div>
+                    <h3 style="color: var(--strath-gold); margin-bottom: var(--space-md);">Fully Integrated</h3>
+                    <p>At Strathallan, we make no distinction between day pupils and boarders. Day pupils belong to a house, wear the same uniform, and have full access to every aspect of school life - from 7am breakfast through to evening prep and activities until 9:30pm.</p>
+                    <p style="margin-top: var(--space-md);">This approach means day pupils form the same strong friendships, enjoy the same opportunities, and feel just as much a part of their house community as boarders. Many day families tell us their children don't want to come home!</p>
+                </div>
+                <div>
+                    <img src="assets/images/campus/img_35.jpg" alt="Day Pupils at Strathallan" class="img-rounded" onerror="this.src='https://via.placeholder.com/600x400?text=Day+Pupils'">
+                </div>
+            </div>
+
+            <h3 style="color: var(--strath-gold); margin-bottom: var(--space-lg);">What Day Pupils Can Access</h3>
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-lg); margin-bottom: var(--space-2xl);">
+                <div class="feature-card">
+                    <h4>Full Catering</h4>
+                    <p>Breakfast, lunch, and supper all included. Stay for meals with friends before heading home.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>House Membership</h4>
+                    <p>Belong to a house community, participate in inter-house competitions, and build lasting friendships.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Evening Prep</h4>
+                    <p>Stay for supervised homework sessions with teacher support and quiet study spaces.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Activities & Sport</h4>
+                    <p>Full access to evening clubs, sport training, music rehearsals, and co-curricular activities.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Weekend Programme</h4>
+                    <p>Join Saturday matches, activities, and trips. Many day families participate in weekend events.</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Extended Hours</h4>
+                    <p>Arrive from 7am, stay until 9:30pm. Perfect for working families needing flexibility.</p>
+                </div>
+            </div>
+
+            <div class="cta-section">
+                <h3 style="color: #fff;">Easy Access from Across Scotland</h3>
+                <p style="color: rgba(255,255,255,0.9);">Our central Perthshire location offers excellent access from Perth (15 mins), Dundee (30 mins), Stirling (30 mins), and Edinburgh (50 mins). Many day families also use the school bus routes.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         MODULE: Sports
+         ============================================ -->
+    <section class="module collapsible-section" id="sports" data-nav-title="Sports" data-module="sports">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-header__badge">Excellence in Sport</span>
+                <h2>Sport at Strathallan</h2>
+                <p class="lead">Where natural talent becomes international achievement</p>
+            </div>
+
+            <div class="two-col">
+                <div>
+                    <img src="https://www.strathallan.co.uk/uploads/store/mediaupload/986/image/xxl_fit-Rugby.jpg" alt="Sport at Strathallan" class="img-rounded">
+                </div>
+                <div>
+                    <p>Sport is a big part of school life at Strathallan and there are so many opportunities for <span data-field="child_name">your child</span> to get involved. Whether aspiring to elite achievement or simply enjoying recreational participation, we believe athletics should be enjoyable for all skill levels.</p>
+
+                    <p>With £22 million invested in campus development over two decades, we offer world-class facilities across 153 acres - from our purpose-built clay pigeon shooting facility (the only school in Scotland with this) to our indoor tennis centre and 25m pool.</p>
+                </div>
+            </div>
+
+            <!-- Four Academy Sports -->
+            <div style="margin-top: var(--space-2xl);">
+                <h3 style="text-align: center; margin-bottom: var(--space-xl);">Four Sports Academies</h3>
+                <p style="text-align: center; max-width: 800px; margin: 0 auto var(--space-xl);">Strathallan offers specialist academy programmes in four sports, providing expert coaching, scholarships, and pathways to regional, national and international competition.</p>
+
+                <div class="stats-grid" style="grid-template-columns: repeat(4, 1fr);">
+                    <div class="stat-item" style="text-align: center;">
+                        <img src="https://www.strathallan.co.uk/uploads/store/mediaupload/2084/image/xl_limit-Rugby22.jpg" alt="Rugby Academy" style="width: 100%; height: 120px; object-fit: cover; border-radius: var(--radius-md); margin-bottom: var(--space-md);">
+                        <span class="stat-item__number" style="font-size: var(--fs-lg);">Rugby</span>
+                        <span class="stat-item__label">Academy</span>
+                    </div>
+                    <div class="stat-item" style="text-align: center;">
+                        <img src="https://www.strathallan.co.uk/uploads/store/mediaupload/949/image/xl_limit-Anugs_and_Ali_Turnbull.jpg" alt="Shooting Academy" style="width: 100%; height: 120px; object-fit: cover; border-radius: var(--radius-md); margin-bottom: var(--space-md);">
+                        <span class="stat-item__number" style="font-size: var(--fs-lg);">Shooting</span>
+                        <span class="stat-item__label">Academy</span>
+                    </div>
+                    <div class="stat-item" style="text-align: center;">
+                        <img src="https://www.strathallan.co.uk/uploads/store/mediaupload/2546/image/xl_limit-WhatsApp_Image_2023-06-16_at_16.35.37_(4).jpeg" alt="Tennis Academy" style="width: 100%; height: 120px; object-fit: cover; border-radius: var(--radius-md); margin-bottom: var(--space-md);">
+                        <span class="stat-item__number" style="font-size: var(--fs-lg);">Tennis</span>
+                        <span class="stat-item__label">Academy</span>
+                    </div>
+                    <div class="stat-item" style="text-align: center;">
+                        <img src="https://www.strathallan.co.uk/uploads/store/mediaupload/3000/image/xxl_fit-swimpost_2.jpg" alt="Swimming Academy" style="width: 100%; height: 120px; object-fit: cover; border-radius: var(--radius-md); margin-bottom: var(--space-md);">
+                        <span class="stat-item__number" style="font-size: var(--fs-lg);">Swimming</span>
+                        <span class="stat-item__label">Academy</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Other Sports -->
+            <div style="margin-top: var(--space-2xl); padding: var(--space-xl); background: var(--strath-navy-pale); border-radius: var(--radius-lg);">
+                <h4 style="margin-bottom: var(--space-md);">Plus Many More Sports:</h4>
+                <div class="checkbox-grid" style="grid-template-columns: repeat(4, 1fr); gap: var(--space-sm);">
+                    <span style="padding: var(--space-xs); background: white; border-radius: var(--radius-sm); text-align: center;">Hockey</span>
+                    <span style="padding: var(--space-xs); background: white; border-radius: var(--radius-sm); text-align: center;">Cricket</span>
+                    <span style="padding: var(--space-xs); background: white; border-radius: var(--radius-sm); text-align: center;">Netball</span>
+                    <span style="padding: var(--space-xs); background: white; border-radius: var(--radius-sm); text-align: center;">Athletics</span>
+                    <span style="padding: var(--space-xs); background: white; border-radius: var(--radius-sm); text-align: center;">Golf</span>
+                    <span style="padding: var(--space-xs); background: white; border-radius: var(--radius-sm); text-align: center;">Equestrian</span>
+                    <span style="padding: var(--space-xs); background: white; border-radius: var(--radius-sm); text-align: center;">Fencing</span>
+                    <span style="padding: var(--space-xs); background: white; border-radius: var(--radius-sm); text-align: center;">Canoeing</span>
+                    <span style="padding: var(--space-xs); background: white; border-radius: var(--radius-sm); text-align: center;">Skiing</span>
+                    <span style="padding: var(--space-xs); background: white; border-radius: var(--radius-sm); text-align: center;">Fishing</span>
+                    <span style="padding: var(--space-xs); background: white; border-radius: var(--radius-sm); text-align: center;">Touch Rugby</span>
+                    <span style="padding: var(--space-xs); background: white; border-radius: var(--radius-sm); text-align: center;">& More</span>
+                </div>
+            </div>
+
+            <!-- Sports Video -->
+            <div style="margin-top: var(--space-2xl);">
+                <div class="video-wrapper">
+                    <iframe
+                        src="https://www.youtube.com/embed/Zegz9sFYbTM?rel=0&modestbranding=1"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         MODULE: Rugby Academy
+         ============================================ -->
+    <section class="module collapsible-section" id="rugby" data-nav-title="Rugby Academy" data-module="rugby">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-header__badge">Academy Sport</span>
+                <h2>Rugby Academy</h2>
+                <p class="lead">Where natural talent becomes international achievement</p>
+            </div>
+
+            <div class="two-col">
+                <div>
+                    <img src="https://www.strathallan.co.uk/uploads/store/mediaupload/2084/image/xl_limit-Rugby22.jpg" alt="Rugby at Strathallan" class="img-rounded">
+                </div>
+                <div>
+                    <p>The Strathallan Rugby Academy develops talented young players through a focused programme, with a proud tradition of producing international players including Jamie Ritchie, Zander Fagerson, Matt Fagerson, and George Horne.</p>
+
+                    <p>Nine former Strathallan students competed in the 2023 Six Nations, and 11 former pupils were selected for the FOSROC Super Series.</p>
+                </div>
+            </div>
+
+            <!-- Rugby Stats -->
+            <div class="stats-grid" style="margin-top: var(--space-xl);">
+                <div class="stat-item">
+                    <span class="stat-item__number">40+</span>
+                    <span class="stat-item__label" style="color: var(--strath-navy);">International age-grade players in last 10 years</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-item__number">11</span>
+                    <span class="stat-item__label" style="color: var(--strath-navy);">Full-time professionals</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-item__number">9</span>
+                    <span class="stat-item__label" style="color: var(--strath-navy);">Full internationalists</span>
+                </div>
+            </div>
+
+            <!-- Academy Support -->
+            <div style="margin-top: var(--space-xl); padding: var(--space-xl); background: var(--strath-navy-pale); border-radius: var(--radius-lg);">
+                <h4 style="margin-bottom: var(--space-md);">Academy Support Services:</h4>
+                <div class="checkbox-grid" style="grid-template-columns: repeat(3, 1fr); gap: var(--space-sm);">
+                    <span style="padding: var(--space-sm); background: white; border-radius: var(--radius-sm); text-align: center;">Elite Coaching</span>
+                    <span style="padding: var(--space-sm); background: white; border-radius: var(--radius-sm); text-align: center;">Strength & Conditioning</span>
+                    <span style="padding: var(--space-sm); background: white; border-radius: var(--radius-sm); text-align: center;">Video Analysis</span>
+                    <span style="padding: var(--space-sm); background: white; border-radius: var(--radius-sm); text-align: center;">Physiotherapy</span>
+                    <span style="padding: var(--space-sm); background: white; border-radius: var(--radius-sm); text-align: center;">Nutrition Support</span>
+                    <span style="padding: var(--space-sm); background: white; border-radius: var(--radius-sm); text-align: center;">Sports Psychology</span>
+                </div>
+            </div>
+
+            <!-- Zander Fagerson Quote -->
+            <div style="margin-top: var(--space-xl); position: relative;">
+                <img src="https://www.strathallan.co.uk/uploads/store/mediaupload/2718/image/xl_limit-xl_limit-Zander_-_Glasgow_Warriors_wquote.jpg" alt="Zander Fagerson - British & Irish Lion" class="img-rounded" style="width: 100%;">
+            </div>
+
+            <!-- Rugby Video -->
+            <div class="conditional-content" data-video="rugby" style="margin-top: var(--space-xl);">
+                <div class="video-wrapper">
+                    <iframe
+                        src="https://www.youtube.com/embed/1iuJYFfQecM?rel=0&modestbranding=1"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         MODULE: Shooting Academy
+         ============================================ -->
+    <section class="module module--gold collapsible-section" id="shooting" data-nav-title="Shooting Academy" data-module="shooting">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-header__badge" style="background: var(--strath-navy); color: var(--strath-white);">Academy Sport</span>
+                <h2>Shooting Academy</h2>
+                <p class="lead">Scotland's only school with a purpose-built clay pigeon shooting facility</p>
+            </div>
+
+            <div class="two-col">
+                <div>
+                    <img src="https://www.strathallan.co.uk/uploads/store/mediaupload/949/image/xl_limit-Anugs_and_Ali_Turnbull.jpg" alt="Shooting at Strathallan" class="img-rounded">
+                </div>
+                <div>
+                    <p>Strathallan operates Scotland's only purpose-built Compact Sporting clay pigeon shooting facility with nine fully automated radio-controlled traps. We maintain a proud shooting tradition going back many years.</p>
+
+                    <p>The academy currently holds UK Schools Champions status, having won all three major competitions. Alumni represent Scotland at World Championships, and current pupils include a Colts World Champion.</p>
+                </div>
+            </div>
+
+            <!-- Shooting Stats -->
+            <div class="stats-grid" style="margin-top: var(--space-xl);">
+                <div class="stat-item">
+                    <span class="stat-item__number">13x</span>
+                    <span class="stat-item__label" style="color: var(--strath-navy);">Scottish Schools Champions (in 15 years)</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-item__number">12</span>
+                    <span class="stat-item__label" style="color: var(--strath-navy);">Years in top 4 at British Schools</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-item__number">UK</span>
+                    <span class="stat-item__label" style="color: var(--strath-navy);">Schools Champions (all 3 competitions)</span>
+                </div>
+            </div>
+
+            <!-- Academy Programme -->
+            <div style="margin-top: var(--space-xl); padding: var(--space-xl); background: rgba(255,255,255,0.5); border-radius: var(--radius-lg);">
+                <h4 style="margin-bottom: var(--space-md);">Academy Programme Includes:</h4>
+                <div class="checkbox-grid" style="grid-template-columns: repeat(3, 1fr); gap: var(--space-sm);">
+                    <span style="padding: var(--space-sm); background: white; border-radius: var(--radius-sm); text-align: center;">Expert Coaching</span>
+                    <span style="padding: var(--space-sm); background: white; border-radius: var(--radius-sm); text-align: center;">Competition Preparation</span>
+                    <span style="padding: var(--space-sm); background: white; border-radius: var(--radius-sm); text-align: center;">Technique Analysis</span>
+                    <span style="padding: var(--space-sm); background: white; border-radius: var(--radius-sm); text-align: center;">Fitness Training</span>
+                    <span style="padding: var(--space-sm); background: white; border-radius: var(--radius-sm); text-align: center;">Nutrition Guidance</span>
+                    <span style="padding: var(--space-sm); background: white; border-radius: var(--radius-sm); text-align: center;">Sports Psychology</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         MODULE: Tennis Academy
+         ============================================ -->
+    <section class="module collapsible-section" id="tennis" data-nav-title="Tennis Academy" data-module="tennis">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-header__badge">Academy Sport</span>
+                <h2>Tennis Academy</h2>
+                <p class="lead">Year-round training with fantastic indoor and outdoor facilities</p>
+            </div>
+
+            <div class="two-col two-col--reverse">
+                <div>
+                    <img src="https://www.strathallan.co.uk/uploads/store/mediaupload/2546/image/xl_limit-WhatsApp_Image_2023-06-16_at_16.35.37_(4).jpeg" alt="Tennis at Strathallan" class="img-rounded">
+                </div>
+                <div>
+                    <p>The Tennis Academy develops players from beginner through to district, regional, and national competitive levels. With fantastic indoor and outdoor facilities, we're able to play all year round.</p>
+
+                    <p>Our programme emphasises an all-around, player-centred approach with opportunities for participation across all three terms. Students compete in Junior ITF competitions, Tennis Europe events, and national championships.</p>
+                </div>
+            </div>
+
+            <!-- Tennis Stats -->
+            <div class="stats-grid" style="margin-top: var(--space-xl);">
+                <div class="stat-item">
+                    <span class="stat-item__number">3</span>
+                    <span class="stat-item__label" style="color: var(--strath-navy);">Terms of tennis opportunities</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-item__number">ITF</span>
+                    <span class="stat-item__label" style="color: var(--strath-navy);">Junior International Competition</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-item__number">LTA</span>
+                    <span class="stat-item__label" style="color: var(--strath-navy);">Schools National Championships</span>
+                </div>
+            </div>
+
+            <!-- Academy Programme -->
+            <div style="margin-top: var(--space-xl); padding: var(--space-xl); background: var(--strath-navy-pale); border-radius: var(--radius-lg);">
+                <h4 style="margin-bottom: var(--space-md);">Academy Programme Includes:</h4>
+                <div class="checkbox-grid" style="grid-template-columns: repeat(3, 1fr); gap: var(--space-sm);">
+                    <span style="padding: var(--space-sm); background: white; border-radius: var(--radius-sm); text-align: center;">Expert Coaching</span>
+                    <span style="padding: var(--space-sm); background: white; border-radius: var(--radius-sm); text-align: center;">Year-Round Training</span>
+                    <span style="padding: var(--space-sm); background: white; border-radius: var(--radius-sm); text-align: center;">Indoor & Outdoor Courts</span>
+                    <span style="padding: var(--space-sm); background: white; border-radius: var(--radius-sm); text-align: center;">All Levels Welcome</span>
+                    <span style="padding: var(--space-sm); background: white; border-radius: var(--radius-sm); text-align: center;">Competition Pathway</span>
+                    <span style="padding: var(--space-sm); background: white; border-radius: var(--radius-sm); text-align: center;">Player-Centred Approach</span>
+                </div>
+            </div>
+
+            <!-- Tennis Image Grid -->
+            <div class="two-col" style="margin-top: var(--space-xl);">
+                <img src="https://www.strathallan.co.uk/uploads/store/mediaupload/2547/image/xl_limit-tennis_10.jpg" alt="Tennis coaching" class="img-rounded">
+                <img src="https://www.strathallan.co.uk/uploads/store/mediaupload/2502/image/xl_limit-StrathallanTeams_2.jpg" alt="Tennis team" class="img-rounded">
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         MODULE: Swimming Academy
+         ============================================ -->
+    <section class="module module--navy collapsible-section" id="swimming" data-nav-title="Swimming Academy" data-module="swimming">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-header__badge" style="background: var(--strath-gold); color: var(--strath-navy);">Academy Sport</span>
+                <h2 style="color: var(--strath-white);">Swimming Academy</h2>
+                <p class="lead" style="color: rgba(255,255,255,0.9);">The only Scottish boarding school with a full swimming scholarship programme</p>
+            </div>
+
+            <div class="two-col">
+                <div>
+                    <img src="https://www.strathallan.co.uk/uploads/store/mediaupload/3000/image/xxl_fit-swimpost_2.jpg" alt="Swimming at Strathallan" class="img-rounded">
+                </div>
+                <div>
+                    <p style="color: var(--strath-white);">Strathallan is the only Scottish boarding school to offer a full swimming scholarship programme to day and boarding pupils. We provide expert guidance, encouragement and support to maximise opportunities and realise potential in the pool.</p>
+
+                    <p style="color: var(--strath-white);">Our most famous swimming alumnus is Olympic champion <strong style="color: var(--strath-gold);">Duncan Scott</strong>, who made history after winning four Olympic medals in Tokyo 2020 - more than any other British athlete at a single Olympic Games.</p>
+                </div>
+            </div>
+
+            <!-- Swimming Success Story -->
+            <div style="margin-top: var(--space-xl); padding: var(--space-xl); background: rgba(255,255,255,0.1); border-radius: var(--radius-lg);">
+                <h4 style="color: var(--strath-gold); margin-bottom: var(--space-md);">Recent Success: Evan, Swimming Captain</h4>
+                <div class="stats-grid" style="grid-template-columns: repeat(4, 1fr);">
+                    <div class="stat-item" style="color: var(--strath-white);">
+                        <span class="stat-item__number" style="color: var(--strath-gold);">19</span>
+                        <span class="stat-item__label" style="color: rgba(255,255,255,0.8);">Scottish National Age-Group Golds</span>
+                    </div>
+                    <div class="stat-item" style="color: var(--strath-white);">
+                        <span class="stat-item__number" style="color: var(--strath-gold);">Bronze</span>
+                        <span class="stat-item__label" style="color: rgba(255,255,255,0.8);">Youth Commonwealth Games 2023</span>
+                    </div>
+                    <div class="stat-item" style="color: var(--strath-white);">
+                        <span class="stat-item__number" style="color: var(--strath-gold);">Bronze</span>
+                        <span class="stat-item__label" style="color: rgba(255,255,255,0.8);">European Youth Olympics 2023</span>
+                    </div>
+                    <div class="stat-item" style="color: var(--strath-white);">
+                        <span class="stat-item__number" style="color: var(--strath-gold);">Multiple</span>
+                        <span class="stat-item__label" style="color: rgba(255,255,255,0.8);">Scottish Open Medals</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Additional Swimming Images -->
+            <div class="two-col" style="margin-top: var(--space-xl);">
+                <img src="https://www.strathallan.co.uk/uploads/store/mediaupload/2583/image/xl_limit-3.jpg" alt="Swimming training" class="img-rounded">
+                <img src="https://www.strathallan.co.uk/uploads/store/mediaupload/2885/image/xl_limit-Game-Changing_Education_(67).jpg" alt="Swimming success" class="img-rounded">
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         MODULE: Piping & Drumming
+         ============================================ -->
+    <section class="module module--navy collapsible-section" id="piping_drumming" data-nav-title="Piping & Drumming" data-module="piping_drumming">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-header__badge" style="background: var(--strath-gold); color: var(--strath-navy);">Scottish Heritage</span>
+                <h2 style="color: var(--strath-white);">Piping & Drumming</h2>
+                <p class="lead" style="color: rgba(255,255,255,0.8);">A proud Scottish tradition</p>
+            </div>
+
+            <div class="two-col">
+                <div>
+                    <p style="color: var(--strath-white);">The Strathallan Pipe Band is one of the finest school pipe bands in the world. Whether <span data-field="child_name">your child</span> is a complete beginner or an experienced piper, they'll find expert tuition and countless performance opportunities.</p>
+
+                    <p style="color: rgba(255,255,255,0.8);">Recent highlights:</p>
+                    <ul style="list-style: none; margin: var(--space-md) 0; color: rgba(255,255,255,0.8);">
+                        <li style="padding: var(--space-xs) 0;">• Performing with Skerryvore at Perth Concert Hall</li>
+                        <li style="padding: var(--space-xs) 0;">• Appearing with the Red Hot Chilli Pipers</li>
+                        <li style="padding: var(--space-xs) 0;">• Success in national competitions</li>
+                    </ul>
+                </div>
+                <div>
+                    <!-- Piping Video - The Rise with Skerryvore -->
+                    <div class="video-wrapper">
+                        <iframe
+                            src="https://www.youtube.com/embed/KT6cLnVnlRA?rel=0&modestbranding=1"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         MODULE: Music
+         ============================================ -->
+    <section class="module collapsible-section" id="music" data-nav-title="Music" data-module="music">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-header__badge">Music</span>
+                <h2>Music at Strathallan</h2>
+                <p class="lead">From orchestras to folk bands, music thrives here</p>
+            </div>
+
+            <div class="two-col">
+                <div>
+                    <img src="assets/images/arts/img_25.jpg" alt="Music at Strathallan" class="img-rounded" onerror="this.src='https://via.placeholder.com/600x400?text=Music'">
+                </div>
+                <div>
+                    <p>Music is central to life at Strathallan, with opportunities for all abilities. Whether <span data-field="child_name">your child</span> plays an instrument or wants to learn, they'll find:</p>
+
+                    <ul style="list-style: none; margin: var(--space-md) 0;">
+                        <li style="padding: var(--space-xs) 0;">• Senior and Junior Orchestras</li>
+                        <li style="padding: var(--space-xs) 0;">• Chamber Choir and Chapel Choir</li>
+                        <li style="padding: var(--space-xs) 0;">• Wind Band, Jazz Band, Folk Band</li>
+                        <li style="padding: var(--space-xs) 0;">• Pipe Band and Drum Corps</li>
+                        <li style="padding: var(--space-xs) 0;">• Rock and pop ensembles</li>
+                    </ul>
+
+                    <p>Over 30 visiting music teachers provide individual lessons in everything from piano to bagpipes, harp to drums.</p>
+                </div>
+            </div>
+
+            <!-- Strathallan Studios -->
+            <div style="margin-top: var(--space-2xl); padding: var(--space-xl); background: var(--strath-navy); border-radius: var(--radius-lg);">
+                <div class="two-col">
+                    <div>
+                        <h3 style="color: var(--strath-gold); margin-bottom: var(--space-md);">Strathallan Studios</h3>
+                        <p style="color: var(--strath-white);">Our in-house record label provides creative students with professional recording opportunities. Music scholars who create original material have access to top quality producers and state-of-the-art facilities to record, mix and master their compositions.</p>
+                        <p style="color: rgba(255,255,255,0.8);">Strathallan Studios has already produced several albums of original student work, giving young musicians the experience of professional music production.</p>
+                        <a href="https://strathallanstudios.bandcamp.com" class="btn" style="margin-top: var(--space-md); background: var(--strath-gold); color: var(--strath-navy);">Listen on Bandcamp</a>
+                    </div>
+                    <div>
+                        <img src="https://www.strathallan.co.uk/uploads/store/mediaupload/2967/image/xxl_fit-Game-Changing_Education_-_2024-06-28T075637.576.jpg" alt="Strathallan Studios" class="img-rounded">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         MODULE: Community Video (Take My Hand)
+         ============================================ -->
+    <section class="module module--gold collapsible-section" id="community" data-nav-title="Community" data-module="community">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-header__badge">Our Community</span>
+                <h2>Together at Strathallan</h2>
+                <p class="lead">A school where everyone belongs</p>
+            </div>
+
+            <div class="video-wrapper">
+                <iframe
+                    src="https://www.youtube.com/embed/cw80wuAig-w?rel=0&modestbranding=1"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         MODULE: Art & Art Cafe
+         ============================================ -->
+    <section class="module collapsible-section" id="art" data-nav-title="Art" data-module="art">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-header__badge">Visual Arts</span>
+                <h2>Art at Strathallan</h2>
+            </div>
+
+            <div class="two-col">
+                <div>
+                    <p>The Art department offers excellent facilities for painting, sculpture, printmaking, photography, and digital art.</p>
+
+                    <h4 style="margin: var(--space-lg) 0 var(--space-md);">The Art Cafe</h4>
+                    <p>A unique creative space where students can work on personal projects, socialise, and be inspired by artwork from across the school.</p>
+
+                    <!-- Art Cafe Video -->
+                    <div class="conditional-content" data-video="art" style="margin-top: var(--space-lg);">
+                        <div class="video-wrapper">
+                            <iframe
+                                src="https://www.youtube.com/embed/8gH8BLG40HQ?rel=0&modestbranding=1"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <img src="https://www.strathallan.co.uk/uploads/store/mediaupload/1291/image/xl_limit-Topaz_Walker.JPG" alt="Art at Strathallan" class="img-rounded" onerror="this.src='https://via.placeholder.com/600x400?text=Art'">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         MODULE: Pastoral Care
+         ============================================ -->
+    <section class="module collapsible-section" id="pastoral_care" data-nav-title="Pastoral Care" data-module="pastoral_care">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-header__badge">Health & Wellbeing</span>
+                <h2>Pastoral Care</h2>
+                <p class="lead">Safe, healthy, achieving, nurtured, active, respected, responsible and included</p>
+            </div>
+
+            <div class="two-col">
+                <div>
+                    <img src="assets/images/campus/img_67.jpg" alt="Pastoral Care" class="img-rounded" onerror="this.src='https://via.placeholder.com/600x400?text=Pastoral+Care'">
+                </div>
+                <div>
+                    <p>At Strathallan we maintain an inclusive, caring community aligned with founder Harry Riley's values. Ensuring the mental health and wellbeing of children is something we take very seriously - happy, well-adjusted pupils do better in their studies and are more able to take on life's challenges.</p>
+
+                    <p>Our 2019 Care Inspectorate report noted that <em>"Students told us they felt safe at Strathallan across the whole campus"</em> and praised the <em>"very supportive ethos across the student body."</em></p>
+                </div>
+            </div>
+
+            <!-- Support Network -->
+            <div style="margin-top: var(--space-xl);">
+                <h3 style="margin-bottom: var(--space-lg);">Support Network</h3>
+                <p style="margin-bottom: var(--space-md);"><span data-field="child_name">Your child</span> will be supported by:</p>
+                <div class="checkbox-grid" style="grid-template-columns: repeat(3, 1fr); gap: var(--space-sm);">
+                    <span style="padding: var(--space-sm); background: var(--strath-navy-pale); border-radius: var(--radius-sm); text-align: center;"><strong>Houseparents</strong><br><small>Available 24/7</small></span>
+                    <span style="padding: var(--space-sm); background: var(--strath-navy-pale); border-radius: var(--radius-sm); text-align: center;"><strong>House Tutors</strong><br><small>Academic support</small></span>
+                    <span style="padding: var(--space-sm); background: var(--strath-navy-pale); border-radius: var(--radius-sm); text-align: center;"><strong>School Counsellor</strong><br><small>Confidential support</small></span>
+                    <span style="padding: var(--space-sm); background: var(--strath-navy-pale); border-radius: var(--radius-sm); text-align: center;"><strong>Medical Centre</strong><br><small>On-site healthcare</small></span>
+                    <span style="padding: var(--space-sm); background: var(--strath-navy-pale); border-radius: var(--radius-sm); text-align: center;"><strong>Chaplain</strong><br><small>Spiritual guidance</small></span>
+                    <span style="padding: var(--space-sm); background: var(--strath-navy-pale); border-radius: var(--radius-sm); text-align: center;"><strong>All Staff</strong><br><small>Open door policy</small></span>
+                </div>
+            </div>
+
+            <!-- Health Centre & Healthy Living -->
+            <div class="two-col" style="margin-top: var(--space-xl);">
+                <div style="padding: var(--space-lg); background: var(--strath-navy); border-radius: var(--radius-lg);">
+                    <h4 style="color: var(--strath-gold); margin-bottom: var(--space-md);">Health Centre</h4>
+                    <ul style="list-style: none; margin: 0; color: var(--strath-white);">
+                        <li style="padding: var(--space-xs) 0;">• Two three-bedded wards</li>
+                        <li style="padding: var(--space-xs) 0;">• Consulting & treatment rooms</li>
+                        <li style="padding: var(--space-xs) 0;">• Physiotherapy room</li>
+                        <li style="padding: var(--space-xs) 0;">• Relaxation room</li>
+                        <li style="padding: var(--space-xs) 0;">• Weekly doctor surgeries</li>
+                        <li style="padding: var(--space-xs) 0;">• Close to Perth Royal Infirmary</li>
+                    </ul>
+                </div>
+                <div style="padding: var(--space-lg); background: var(--strath-gold-pale); border-radius: var(--radius-lg);">
+                    <h4 style="color: var(--strath-navy); margin-bottom: var(--space-md);">Healthy Living</h4>
+                    <p style="margin-bottom: var(--space-sm);">We promote physical and mental wellness through:</p>
+                    <ul style="list-style: none; margin: 0;">
+                        <li style="padding: var(--space-xs) 0;">• Nutrition guidance</li>
+                        <li style="padding: var(--space-xs) 0;">• Physical activity programmes</li>
+                        <li style="padding: var(--space-xs) 0;">• Mindfulness practices</li>
+                        <li style="padding: var(--space-xs) 0;">• Relationship education</li>
+                        <li style="padding: var(--space-xs) 0;">• Stress management support</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         MODULE: Campus
+         ============================================ -->
+    <section class="module collapsible-section" id="campus" data-nav-title="Campus" data-module="campus">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-header__badge">153 Acres</span>
+                <h2>Our Campus</h2>
+                <p class="lead">A stunning setting in the heart of Scotland</p>
+            </div>
+
+            <!-- Virtual Tour -->
+            <div class="virtual-tour-wrapper" style="background: var(--strath-navy); border-radius: var(--radius-xl); padding: var(--space-2xl); text-align: center; margin-bottom: var(--space-xl);">
+                <h3 style="color: var(--strath-white); font-size: var(--fs-xl); margin-bottom: var(--space-md);">Explore Our Campus Virtually</h3>
+                <p style="color: var(--strath-white); opacity: 0.9; margin-bottom: var(--space-lg); max-width: 600px; margin-left: auto; margin-right: auto;">Take an interactive 360° tour of our 153-acre estate. Explore our historic buildings, modern facilities, sports grounds, and beautiful Scottish surroundings from anywhere in the world.</p>
+                <a href="https://www.strathallan.co.uk/our-campus" target="_blank" class="btn" style="background: var(--strath-gold); color: var(--strath-navy); padding: var(--space-md) var(--space-xl); font-size: var(--fs-lg); font-weight: 700; display: inline-flex; align-items: center; gap: var(--space-sm);">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polygon points="10,8 16,12 10,16" fill="currentColor"></polygon>
+                    </svg>
+                    Launch Virtual Tour
+                </a>
+                <p style="color: rgba(255,255,255,0.6); font-size: var(--fs-sm); margin-top: var(--space-md);">Opens in a new tab - press F11 for fullscreen</p>
+            </div>
+
+            <!-- Campus Features Grid -->
+            <div class="stats-grid" style="margin-top: var(--space-xl);">
+                <div class="stat-item" style="text-align: center;">
+                    <span class="stat-item__number">153</span>
+                    <span class="stat-item__label" style="color: var(--strath-navy);">Acres of Grounds</span>
+                </div>
+                <div class="stat-item" style="text-align: center;">
+                    <span class="stat-item__number">1913</span>
+                    <span class="stat-item__label" style="color: var(--strath-navy);">Year Established</span>
+                </div>
+                <div class="stat-item" style="text-align: center;">
+                    <span class="stat-item__number">7</span>
+                    <span class="stat-item__label" style="color: var(--strath-navy);">Boarding Houses</span>
+                </div>
+                <div class="stat-item" style="text-align: center;">
+                    <span class="stat-item__number">25m</span>
+                    <span class="stat-item__label" style="color: var(--strath-navy);">Swimming Pool</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         MODULE: Location
+         ============================================ -->
+    <section class="module collapsible-section" id="location" data-nav-title="Location" data-module="location">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-header__badge">Location</span>
+                <h2>Where to Find Us</h2>
+            </div>
+
+            <div class="two-col">
+                <div>
+                    <p><strong>Strathallan School</strong><br>
+                    Forgandenny<br>
+                    Perth PH2 9EG<br>
+                    Scotland</p>
+
+                    <h4 style="margin: var(--space-xl) 0 var(--space-md);">Getting Here:</h4>
+                    <ul style="list-style: none;">
+                        <li style="padding: var(--space-xs) 0;"><strong>From Perth:</strong> 15 minutes by car</li>
+                        <li style="padding: var(--space-xs) 0;"><strong>From Edinburgh:</strong> 1 hour by car</li>
+                        <li style="padding: var(--space-xs) 0;"><strong>From Glasgow:</strong> 1 hour by car</li>
+                        <li style="padding: var(--space-xs) 0;"><strong>From Dundee:</strong> 30 minutes by car</li>
+                    </ul>
+
+                    <p style="margin-top: var(--space-lg);"><strong>Edinburgh Airport:</strong> 45 minutes<br>
+                    <strong>Glasgow Airport:</strong> 1 hour 15 minutes</p>
+                </div>
+                <div>
+                    <div style="background: var(--strath-grey-light); border-radius: var(--radius-xl); height: 400px; display: flex; align-items: center; justify-content: center;">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2217.1234567890123!2d-3.5234567890123456!3d56.32345678901234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4887b5c7c7c7c7c7%3A0x1234567890abcdef!2sStrathallan%20School!5e0!3m2!1sen!2suk!4v1234567890123"
+                            width="100%"
+                            height="100%"
+                            style="border:0; border-radius: var(--radius-xl);"
+                            allowfullscreen=""
+                            loading="lazy">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         MODULE: Scholarships
+         ============================================ -->
+    <section class="module collapsible-section" id="scholarships" data-nav-title="Scholarships" data-module="scholarships">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-header__badge">Scholarships</span>
+                <h2>Scholarships</h2>
+                <p class="lead">Celebrating talent and promoting achievement at every level</p>
+            </div>
+
+            <div class="two-col">
+                <div>
+                    <p>Our scholarship programme is designed to celebrate talent and promote achievement at every level of the School. Each year, we offer a number of scholarship places to exceptionally talented individuals.</p>
+                    <p>Successful candidates are awarded a discount on fees, up to 10%. However, the main purpose of a Strathallan Scholarship is to nurture talent and promote achievement.</p>
+                    <p>Scholars have access to a range of opportunities, like extra support to develop skills in their area of focus. In return, they are expected to contribute to and enhance our academic, musical, sporting and arts programmes.</p>
+                </div>
+                <div>
+                    <img src="https://www.strathallan.co.uk/uploads/store/mediaupload/2583/image/xl_limit-3.jpg" alt="Strathallan Scholar" class="img-rounded">
+                </div>
+            </div>
+
+            <!-- Third Form Scholarships -->
+            <div id="third-form-scholarships" class="scholarship-entry-section" style="margin-top: var(--space-2xl); padding: var(--space-xl); background: var(--strath-navy-pale); border-radius: var(--radius-lg);">
+                <h3 style="color: var(--strath-navy); margin-bottom: var(--space-md);">Third Form Scholarships</h3>
+                <p style="margin-bottom: var(--space-md);">Available to students looking to enter at S2 / Year 9:</p>
+
+                <div class="checkbox-grid" style="grid-template-columns: repeat(4, 1fr); gap: var(--space-sm); margin-bottom: var(--space-lg);">
+                    <span style="padding: var(--space-sm); background: white; border-radius: var(--radius-sm); text-align: center;">Academic</span>
+                    <span style="padding: var(--space-sm); background: white; border-radius: var(--radius-sm); text-align: center;">Sport</span>
+                    <span style="padding: var(--space-sm); background: white; border-radius: var(--radius-sm); text-align: center;">Art</span>
+                    <span style="padding: var(--space-sm); background: white; border-radius: var(--radius-sm); text-align: center;">Music</span>
+                    <span style="padding: var(--space-sm); background: white; border-radius: var(--radius-sm); text-align: center;">Piping & Drumming</span>
+                    <span style="padding: var(--space-sm); background: white; border-radius: var(--radius-sm); text-align: center;">Performing Arts</span>
+                    <span style="padding: var(--space-sm); background: white; border-radius: var(--radius-sm); text-align: center;">Drama</span>
+                </div>
+
+                <div style="background: white; padding: var(--space-md); border-radius: var(--radius-md); margin-bottom: var(--space-md);">
+                    <p style="margin: 0;"><strong>Application Deadline:</strong> Thursday 30 October 2025</p>
+                    <p style="margin: var(--space-xs) 0 0;"><strong>Assessment Week:</strong> Week commencing Monday 24 November 2025</p>
+                </div>
+
+                <p style="font-size: var(--fs-sm);"><strong>Assessment Dates:</strong> Art (Mon 24 Nov) | Music & Piping (Wed 26 Nov) | Academic (Thu 27 Nov) | Sport (Fri 28 Nov)</p>
+
+                <a href="https://www.strathallan.co.uk/scholarships" class="btn btn--primary" style="margin-top: var(--space-md);">Download Third Form Scholarships Brochure</a>
+            </div>
+
+            <!-- Fourth Form Scholarships (same as Third Form for display) -->
+            <div id="fourth-form-scholarships" class="scholarship-entry-section" style="display: none; margin-top: var(--space-2xl); padding: var(--space-xl); background: var(--strath-navy-pale); border-radius: var(--radius-lg);">
+                <h3 style="color: var(--strath-navy); margin-bottom: var(--space-md);">Fourth Form Scholarships</h3>
+                <p style="margin-bottom: var(--space-md);">Available to students looking to enter at S3 / Year 10:</p>
+
+                <div class="checkbox-grid" style="grid-template-columns: repeat(4, 1fr); gap: var(--space-sm); margin-bottom: var(--space-lg);">
+                    <span style="padding: var(--space-sm); background: white; border-radius: var(--radius-sm); text-align: center;">Academic</span>
+                    <span style="padding: var(--space-sm); background: white; border-radius: var(--radius-sm); text-align: center;">Sport</span>
+                    <span style="padding: var(--space-sm); background: white; border-radius: var(--radius-sm); text-align: center;">Art</span>
+                    <span style="padding: var(--space-sm); background: white; border-radius: var(--radius-sm); text-align: center;">Music</span>
+                    <span style="padding: var(--space-sm); background: white; border-radius: var(--radius-sm); text-align: center;">Piping & Drumming</span>
+                    <span style="padding: var(--space-sm); background: white; border-radius: var(--radius-sm); text-align: center;">Performing Arts</span>
+                    <span style="padding: var(--space-sm); background: white; border-radius: var(--radius-sm); text-align: center;">Drama</span>
+                </div>
+
+                <p>Please contact our Admissions team for scholarship assessment dates and application deadlines.</p>
+
+                <a href="mailto:admissions@strathallan.co.uk" class="btn btn--primary" style="margin-top: var(--space-md);">Contact Admissions</a>
+            </div>
+
+            <!-- Sixth Form Scholarships -->
+            <div id="sixth-form-scholarships" class="scholarship-entry-section" style="display: none; margin-top: var(--space-2xl); padding: var(--space-xl); background: var(--strath-gold-pale); border-radius: var(--radius-lg);">
+                <h3 style="color: var(--strath-navy); margin-bottom: var(--space-md);">Sixth Form Scholarships</h3>
+                <p style="margin-bottom: var(--space-md);">Available to those entering at S5 / Year 12:</p>
+
+                <div class="checkbox-grid" style="grid-template-columns: repeat(4, 1fr); gap: var(--space-sm); margin-bottom: var(--space-lg);">
+                    <span style="padding: var(--space-sm); background: white; border-radius: var(--radius-sm); text-align: center;">Academic</span>
+                    <span style="padding: var(--space-sm); background: white; border-radius: var(--radius-sm); text-align: center;">Sport</span>
+                    <span style="padding: var(--space-sm); background: white; border-radius: var(--radius-sm); text-align: center;">Art</span>
+                    <span style="padding: var(--space-sm); background: white; border-radius: var(--radius-sm); text-align: center;">Music</span>
+                    <span style="padding: var(--space-sm); background: white; border-radius: var(--radius-sm); text-align: center;">Piping & Drumming</span>
+                    <span style="padding: var(--space-sm); background: white; border-radius: var(--radius-sm); text-align: center;">Performing Arts</span>
+                    <span style="padding: var(--space-sm); background: white; border-radius: var(--radius-sm); text-align: center;">Drama</span>
+                </div>
+
+                <div style="background: white; padding: var(--space-md); border-radius: var(--radius-md); margin-bottom: var(--space-md);">
+                    <p style="margin: 0;"><strong>Application Deadline:</strong> Thursday 30 October 2025</p>
+                    <p style="margin: var(--space-xs) 0 0;"><strong>Assessment Week:</strong> Week commencing Monday 10 November 2025</p>
+                </div>
+
+                <p style="font-size: var(--fs-sm);"><strong>Assessment Dates:</strong> Art (Mon 10 Nov) | Music & Piping (Wed 12 Nov) | Academic (Thu 13 Nov) | Sport (Fri 14 Nov)</p>
+
+                <a href="https://www.strathallan.co.uk/scholarships" class="btn btn--primary" style="margin-top: var(--space-md);">Download Sixth Form Scholarships Brochure</a>
+            </div>
+
+            <!-- All Rounder Awards -->
+            <div style="margin-top: var(--space-2xl);">
+                <h3 style="color: var(--strath-navy); margin-bottom: var(--space-lg);">All Rounder Awards</h3>
+
+                <div class="two-col">
+                    <div style="padding: var(--space-lg); background: var(--strath-navy); color: white; border-radius: var(--radius-lg);">
+                        <h4 style="color: var(--strath-gold); margin-bottom: var(--space-sm);">The Harry Riley Award</h4>
+                        <p style="color: rgba(255,255,255,0.9);">The Harry Riley Award rewards pupils who display strength and talent in Academics and two further non-academic disciplines. Harry Riley believed in an holistic all-round education and this award continues this ethos at Strathallan to this day.</p>
+                    </div>
+                    <div style="padding: var(--space-lg); background: var(--strath-gold); border-radius: var(--radius-lg);">
+                        <h4 style="color: var(--strath-navy); margin-bottom: var(--space-sm);">The Headmasters Award</h4>
+                        <p style="color: var(--strath-navy);">For students displaying strength and talent in three non-academic disciplines. Holders of this award are selected by the Headmaster following the Scholarship process and reward those pupils who are often participating in non-core activities.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Academic Scholars -->
+            <div style="margin-top: var(--space-2xl);">
+                <div class="two-col">
+                    <div>
+                        <h3 style="color: var(--strath-navy); margin-bottom: var(--space-md);">Academic Scholars</h3>
+                        <p>Academic Scholars are expected to achieve top grades in all their exams and gain entry to the most competitive universities.</p>
+                        <p>Successful scholarship candidates in sport, music and performing arts will normally have achieved at least representative honours and be performing at a standard beyond that expected of a normal school team or group.</p>
+                        <p>In addition, total commitment, an exemplary attitude and high levels of achievement will be expected throughout their school career.</p>
+                    </div>
+                    <div>
+                        <img src="https://www.strathallan.co.uk/uploads/store/mediaupload/2885/image/xl_limit-Game-Changing_Education_(67).jpg" alt="Academic Scholar" class="img-rounded">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact -->
+            <div style="margin-top: var(--space-2xl); text-align: center; padding: var(--space-xl); background: var(--strath-navy-pale); border-radius: var(--radius-lg);">
+                <h4 style="margin-bottom: var(--space-md);">For more information about scholarships</h4>
+                <p style="margin-bottom: var(--space-lg);">Please contact our Admissions team who will be happy to discuss your options.</p>
+                <div style="display: flex; gap: var(--space-md); justify-content: center; flex-wrap: wrap;">
+                    <a href="mailto:admissions@strathallan.co.uk" class="btn btn--primary">Email: admissions@strathallan.co.uk</a>
+                    <a href="tel:+441738812546" class="btn btn--outline">Tel: +44(0) 1738 812546</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         MODULE: Bursaries
+         ============================================ -->
+    <section class="module collapsible-section" id="bursaries" data-nav-title="Bursaries" data-module="bursaries">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-header__badge">Financial Assistance</span>
+                <h2>Bursaries & Help with Fees</h2>
+                <p class="lead">We believe the education we offer should be accessible to all. We provide a number of means-tested bursaries and fee remission policies to make this possible.</p>
+            </div>
+
+            <div class="two-col" style="align-items: start;">
+                <div>
+                    <img src="https://www.strathallan.co.uk/uploads/store/mediaupload/1406/image/xxl_fit-Strathallan_students.jpg" alt="Strathallan Students" class="img-rounded" style="margin-bottom: var(--space-xl);">
+
+                    <p>Anyone considering Strathallan for their son or daughter is welcome to apply for a means-tested bursary. Whilst funds are limited, we are committed to helping as many pupils as possible, from all backgrounds, to experience a Strathallan education.</p>
+
+                    <p>Bursaries are awarded independently of any scholarship or other award, but any pupil who is successfully awarded a scholarship may also apply for a bursary. They are made as a percentage discount of the full fee and are assessed according to the parents' ability to pay full fees, and the availability of bursary funds.</p>
+
+                    <p>The bursary process is separate from admissions and financial background is not taken into account when awarding pupil places.</p>
+
+                    <a href="https://www.strathallan.co.uk/bursaries" target="_blank" class="btn btn--secondary" style="margin-top: var(--space-lg); background: var(--strath-navy); color: var(--strath-white);">Read Our Guide to Bursaries</a>
+                </div>
+                <div>
+                    <!-- How to Apply -->
+                    <div style="background: var(--strath-navy-pale); border-radius: var(--radius-lg); padding: var(--space-xl); margin-bottom: var(--space-xl);">
+                        <h3 style="color: var(--strath-navy); margin-bottom: var(--space-md);">How to Apply</h3>
+                        <p style="margin-bottom: var(--space-md);">Applications for bursaries are made through the Bursar's office but applicants must first engage through <strong>Admissions</strong>, who will send out our Bursary Application Form.</p>
+                        <p style="margin-bottom: var(--space-md);">Completed application forms should be posted to the Bursar at:</p>
+                        <p style="font-weight: 600; color: var(--strath-navy);">Bursar's Office, Strathallan School,<br>Forgandenny, Perth, PH2 9EG<br>Scotland, UK</p>
+                        <div style="margin-top: var(--space-lg); padding: var(--space-md); background: var(--strath-gold); border-radius: var(--radius-md);">
+                            <p style="margin: 0; color: var(--strath-navy); font-weight: 600;">Application Deadline for September 2026 entry:<br><strong style="font-size: var(--fs-lg);">Monday 2 February 2026</strong></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fee Remissions Section -->
+            <div style="margin-top: var(--space-2xl);">
+                <h3 style="color: var(--strath-navy); font-size: var(--fs-xl); margin-bottom: var(--space-lg);">Fee Remissions</h3>
+                <p style="margin-bottom: var(--space-xl);">In addition to bursaries, we've got a number of remission policies offering fee discounts in certain circumstances.</p>
+
+                <div class="feature-grid" style="grid-template-columns: repeat(3, 1fr);">
+                    <!-- Sibling Remissions -->
+                    <div class="feature-card" style="background: var(--strath-white); border: 1px solid var(--border-light);">
+                        <h4 class="feature-card__title" style="color: var(--strath-navy);">Sibling Remissions</h4>
+                        <p class="feature-card__description">Our sibling fee remissions are not means-tested and available to all families at Strathallan. Percentage discounts are applied to a sibling's fees when they join their brothers or sisters at Strathallan.</p>
+                    </div>
+
+                    <!-- Services/FCDO Remission -->
+                    <div class="feature-card" style="background: var(--strath-navy); color: var(--strath-white);">
+                        <h4 class="feature-card__title" style="color: var(--strath-gold);">Services/FCDO Remission</h4>
+                        <p class="feature-card__description" style="color: rgba(255,255,255,0.9);">Currently serving members of HM Forces who are in receipt of the Continuity of Education Allowance (CEA) are eligible for a fee remission, meaning families would only be required to pay the minimum <strong style="color: var(--strath-gold);">10% parental contribution</strong> of the gross full boarding fee.</p>
+                    </div>
+
+                    <!-- Strathallian Remission -->
+                    <div class="feature-card" style="background: var(--strath-gold);">
+                        <h4 class="feature-card__title" style="color: var(--strath-navy);">Strathallian Remission</h4>
+                        <p class="feature-card__description" style="color: var(--strath-navy);">A <strong>5% discount</strong> on fees is available for children of Strathallians (former Strathallan pupils). This celebrates our alumni community and the continuing connection between generations.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CEA Fee Table -->
+            <div style="margin-top: var(--space-2xl); background: var(--strath-navy); border-radius: var(--radius-xl); padding: var(--space-xl); overflow-x: auto;">
+                <h4 style="color: var(--strath-gold); margin-bottom: var(--space-lg); text-align: center;">CEA Parental Contribution Table (Based on 2025 Fees)</h4>
+                <table style="width: 100%; border-collapse: collapse; color: var(--strath-white);">
+                    <thead>
+                        <tr style="background: rgba(255,255,255,0.1);">
+                            <th style="padding: var(--space-md); text-align: left; border-bottom: 2px solid var(--strath-gold);">Year Group</th>
+                            <th style="padding: var(--space-md); text-align: center; border-bottom: 2px solid var(--strath-gold);">Termly Fee<br><small>including VAT</small></th>
+                            <th style="padding: var(--space-md); text-align: center; border-bottom: 2px solid var(--strath-gold);">Continuity of Education<br>Allowance</th>
+                            <th style="padding: var(--space-md); text-align: center; border-bottom: 2px solid var(--strath-gold);">Parental Contribution<br><small>per term</small></th>
+                            <th style="padding: var(--space-md); text-align: center; border-bottom: 2px solid var(--strath-gold);">Parental Contribution<br><small>% of Gross Fee</small></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+                            <td style="padding: var(--space-md);">Years 3 to 4</td>
+                            <td style="padding: var(--space-md); text-align: center;">£11,000</td>
+                            <td style="padding: var(--space-md); text-align: center;">£8,918</td>
+                            <td style="padding: var(--space-md); text-align: center; color: var(--strath-gold); font-weight: 600;">£1,100</td>
+                            <td style="padding: var(--space-md); text-align: center; color: var(--strath-gold); font-weight: 600;">10.0%</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+                            <td style="padding: var(--space-md);">Years 5 to 6,<br>First & Second Form</td>
+                            <td style="padding: var(--space-md); text-align: center;">£12,475</td>
+                            <td style="padding: var(--space-md); text-align: center;">£8,918</td>
+                            <td style="padding: var(--space-md); text-align: center; color: var(--strath-gold); font-weight: 600;">£1,248</td>
+                            <td style="padding: var(--space-md); text-align: center; color: var(--strath-gold); font-weight: 600;">10.0%</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: var(--space-md);">Third Form to Sixth Form</td>
+                            <td style="padding: var(--space-md); text-align: center;">£17,477</td>
+                            <td style="padding: var(--space-md); text-align: center;">£11,130</td>
+                            <td style="padding: var(--space-md); text-align: center; color: var(--strath-gold); font-weight: 600;">£1,748</td>
+                            <td style="padding: var(--space-md); text-align: center; color: var(--strath-gold); font-weight: 600;">10.0%</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p style="color: rgba(255,255,255,0.7); font-size: var(--fs-sm); margin-top: var(--space-md); text-align: center;">Families eligible and in receipt of the full CEA should contact the Bursar's Office to discuss any remission that may apply to their fees.</p>
+            </div>
+
+            <!-- Contact CTA -->
+            <div style="margin-top: var(--space-2xl); text-align: center; padding: var(--space-xl); background: var(--strath-grey-light); border-radius: var(--radius-lg);">
+                <p style="font-size: var(--fs-lg); margin-bottom: var(--space-md);">For a confidential discussion about bursary support or fee remissions, please contact our Admissions team.</p>
+                <a href="mailto:admissions@strathallan.co.uk" class="btn" style="background: var(--strath-navy); color: var(--strath-white);">Contact Admissions</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         MODULE: Military Families
+         ============================================ -->
+    <section class="module module--navy collapsible-section" id="military_families" data-nav-title="Military Families" data-module="military_families">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-header__badge" style="background: var(--strath-gold); color: var(--strath-navy);">HM Forces</span>
+                <h2 style="color: var(--strath-white);">Supporting Military Families</h2>
+                <p class="lead" style="color: rgba(255,255,255,0.85);">Proud to support serving military families with CEA fee remission</p>
+            </div>
+
+            <div class="two-col" style="align-items: start;">
+                <div>
+                    <p style="color: var(--strath-white); font-size: var(--fs-lg); line-height: 1.8;">Strathallan has a long and proud history of educating the children of serving members of the Armed Forces. We understand the unique challenges military families face with frequent postings and deployments.</p>
+
+                    <div style="background: rgba(255,255,255,0.1); border-radius: var(--radius-lg); padding: var(--space-xl); margin: var(--space-xl) 0; border-left: 4px solid var(--strath-gold);">
+                        <h4 style="color: var(--strath-gold); margin-bottom: var(--space-md);">CEA Fee Remission</h4>
+                        <p style="color: var(--strath-white); margin-bottom: var(--space-md);">Families receiving the Continuity of Education Allowance (CEA) can benefit from our fee remission scheme, meaning you pay only <strong style="color: var(--strath-gold);">10% parental contribution</strong> of boarding fees.</p>
+                        <p style="color: rgba(255,255,255,0.85); font-size: var(--fs-sm);">CEA is designed to provide stability in education when service life requires frequent moves. Strathallan is proud to support this by keeping parental contributions as low as possible.</p>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-md); margin-top: var(--space-xl);">
+                        <div style="background: rgba(255,255,255,0.05); padding: var(--space-lg); border-radius: var(--radius-md); text-align: center;">
+                            <span style="font-size: var(--fs-2xl); font-weight: 700; color: var(--strath-gold);">10%</span>
+                            <p style="color: var(--strath-white); font-size: var(--fs-sm); margin-top: var(--space-xs);">Parental Contribution</p>
+                        </div>
+                        <div style="background: rgba(255,255,255,0.05); padding: var(--space-lg); border-radius: var(--radius-md); text-align: center;">
+                            <span style="font-size: var(--fs-2xl); font-weight: 700; color: var(--strath-gold);">CCF</span>
+                            <p style="color: var(--strath-white); font-size: var(--fs-sm); margin-top: var(--space-xs);">Combined Cadet Force</p>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div style="background: rgba(255,255,255,0.1); border-radius: var(--radius-lg); padding: var(--space-xl);">
+                        <h4 style="color: var(--strath-gold); margin-bottom: var(--space-lg);">Why Military Families Choose Strathallan</h4>
+                        <ul style="list-style: none; color: var(--strath-white);">
+                            <li style="padding: var(--space-sm) 0; display: flex; align-items: start; gap: var(--space-sm);">
+                                <span style="color: var(--strath-gold);">&#10003;</span>
+                                <span>Stability during frequent postings</span>
+                            </li>
+                            <li style="padding: var(--space-sm) 0; display: flex; align-items: start; gap: var(--space-sm);">
+                                <span style="color: var(--strath-gold);">&#10003;</span>
+                                <span>Outstanding pastoral care and support</span>
+                            </li>
+                            <li style="padding: var(--space-sm) 0; display: flex; align-items: start; gap: var(--space-sm);">
+                                <span style="color: var(--strath-gold);">&#10003;</span>
+                                <span>Strong community of military families</span>
+                            </li>
+                            <li style="padding: var(--space-sm) 0; display: flex; align-items: start; gap: var(--space-sm);">
+                                <span style="color: var(--strath-gold);">&#10003;</span>
+                                <span>Full and flexi boarding options</span>
+                            </li>
+                            <li style="padding: var(--space-sm) 0; display: flex; align-items: start; gap: var(--space-sm);">
+                                <span style="color: var(--strath-gold);">&#10003;</span>
+                                <span>Excellent airport and transport links</span>
+                            </li>
+                            <li style="padding: var(--space-sm) 0; display: flex; align-items: start; gap: var(--space-sm);">
+                                <span style="color: var(--strath-gold);">&#10003;</span>
+                                <span>Thriving CCF contingent</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div style="margin-top: var(--space-xl); text-align: center;">
+                        <a href="https://www.strathallan.co.uk/forces-families" target="_blank" class="btn" style="background: var(--strath-gold); color: var(--strath-navy); font-weight: 600;">
+                            Learn More About Forces Families
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         MODULE: Visit Us / Next Steps
+         ============================================ -->
+    <section class="module module--navy collapsible-section" id="next_steps" data-nav-title="Next Steps" data-module="next_steps">
+        <div class="container">
+            <div class="section-header">
+                <h2 style="color: var(--strath-white);">Your Next Steps</h2>
+                <p class="lead" style="color: rgba(255,255,255,0.8);">We'd love to welcome the <span data-field="family_name">Family</span> family to Strathallan</p>
+            </div>
+
+            <div class="feature-grid">
+                <div class="feature-card">
+
+                    <h4 class="feature-card__title">Book a Visit</h4>
+                    <p class="feature-card__description">See Strathallan for yourself. Meet our staff and students, tour the campus, and get a feel for school life.</p>
+                    <a href="https://www.strathallan.co.uk/open-days" class="btn" style="margin-top: var(--space-md); background: var(--strath-gold); color: var(--strath-navy);">View Open Days</a>
+                </div>
+                <div class="feature-card">
+
+                    <h4 class="feature-card__title">Speak to Admissions</h4>
+                    <p class="feature-card__description">Our Admissions team can answer any questions and guide you through the process.</p>
+                    <a href="mailto:admissions@strathallan.co.uk" class="btn" style="margin-top: var(--space-md); background: var(--strath-gold); color: var(--strath-navy);">Contact Us</a>
+                </div>
+                <div class="feature-card">
+
+                    <h4 class="feature-card__title">Register Interest</h4>
+                    <p class="feature-card__description">Register <span data-field="child_name">your child</span> to receive information about entry to Strathallan.</p>
+                    <a href="https://www.strathallan.co.uk/make-an-admissions-enquiry" class="btn" style="margin-top: var(--space-md); background: var(--strath-gold); color: var(--strath-navy);">Register Now</a>
+                </div>
+            </div>
+
+            <div class="cta-section" style="margin-top: var(--space-3xl); background: rgba(255,255,255,0.1);">
+                <h3 style="color: var(--strath-white);">Ready to take the next step?</h3>
+                <p style="color: rgba(255,255,255,0.8);">Call us on <strong>+44 (0)1738 812546</strong> or email <strong>admissions@strathallan.co.uk</strong></p>
+            </div>
+        </div>
+    </section>
+
+    </div><!-- End mainContent -->
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <img src="assets/logo/strathallan-logo-white.png" alt="Strathallan School" class="footer__logo" onerror="this.style.display='none'">
+            <p class="footer__address">
+                Strathallan School, Forgandenny, Perth PH2 9EG, Scotland<br>
+                Tel: +44 (0)1738 812546 | Email: info@strathallan.co.uk
+            </p>
+            <div class="footer__links">
+                <a href="https://www.strathallan.co.uk">Website</a>
+                <a href="https://www.strathallan.co.uk/privacy-policy">Privacy Policy</a>
+            </div>
+            <p style="margin-top: var(--space-xl); font-size: var(--fs-xs); opacity: 0.6;">
+                This personalised prospectus was created for the <span data-field="family_name">Family</span> family on <span id="generatedDate">Date</span>
+            </p>
+        </div>
+    </footer>
+
+    <!-- Prospectus JavaScript -->
+    <script src="scripts/prospectus.js"></script>
+
+    <!-- Emily AI Assistant Widget -->
+    <script>
+        // Dynamically load Emily with prospectus context
+        document.addEventListener('DOMContentLoaded', function() {
+            var prospectusData = JSON.parse(localStorage.getItem('strath_prospectus_data') || '{}');
+
+            // Build family context from prospectus data
+            var familyContext = {
+                parent_name: prospectusData.parent ?
+                    (prospectusData.parent.title + ' ' + prospectusData.parent.surname) : 'Family',
+                child_name: prospectusData.child?.first_name || 'Child',
+                entry_point: prospectusData.child?.senior_entry_point || prospectusData.child?.prep_entry_point || 'Fourth Form',
+                interests: prospectusData.interests?.academic || [],
+                sports: prospectusData.interests?.sports || [],
+                creative: prospectusData.interests?.creative || [],
+                accommodation: prospectusData.practical?.accommodation_type || 'boarding',
+                scholarship_interest: prospectusData.practical?.scholarship_types || [],
+                bursary_interest: prospectusData.practical?.bursary_interest || false,
+                military_family: prospectusData.practical?.military_family || false,
+                school_type: prospectusData.school_type || 'senior'
+            };
+
+            // Add Sixth Form specific data
+            if (prospectusData.futures) {
+                familyContext.career_areas = prospectusData.futures.career_areas || [];
+                familyContext.career_details = prospectusData.futures.career_details || '';
+                familyContext.university_aspiration = prospectusData.futures.university_aspiration || '';
+            }
+
+            var familyId = prospectusData.prospectus_id || 'guest';
+
+            // Create and inject the Emily script
+            var emilyScript = document.createElement('script');
+            emilyScript.src = 'https://bsmart-personalised-prospectus.onrender.com/widget/strathallan/emily.js';
+            emilyScript.setAttribute('data-school', 'strathallan');
+            emilyScript.setAttribute('data-family-id', familyId);
+            emilyScript.setAttribute('data-family-context', JSON.stringify(familyContext));
+            emilyScript.defer = true;
+            document.body.appendChild(emilyScript);
+        });
+    </script>
+
+    <!-- Auto-mute videos when scrolled out of view -->
+    <script>
+        // Mute hero video when scrolled out of view using postMessage (doesn't break autoplay)
+        document.addEventListener('DOMContentLoaded', function() {
+            var heroVideo = document.getElementById('heroVideo');
+            if (heroVideo) {
+                var heroMuted = false;
+                var heroObserver = new IntersectionObserver(function(entries) {
+                    entries.forEach(function(entry) {
+                        if (!entry.isIntersecting && !heroMuted) {
+                            // Scrolled away - mute once and stay muted
+                            heroVideo.contentWindow.postMessage('{"event":"command","func":"mute","args":""}', '*');
+                            heroMuted = true;
+                        }
+                    });
+                }, { threshold: 0.1 });
+
+                heroObserver.observe(heroVideo);
+            }
+
+            // For other videos - use simple postMessage approach
+            document.querySelectorAll('iframe[src*="youtube.com/embed"]:not(#heroVideo)').forEach(function(iframe) {
+                var observer = new IntersectionObserver(function(entries) {
+                    entries.forEach(function(entry) {
+                        if (!entry.isIntersecting) {
+                            // Mute when scrolled away
+                            iframe.contentWindow.postMessage('{"event":"command","func":"mute","args":""}', '*');
+                        }
+                    });
+                }, { threshold: 0.1 });
+
+                observer.observe(iframe);
+            });
+        });
+    </script>
+</body>
+</html>

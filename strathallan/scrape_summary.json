@@ -1,0 +1,37 @@
+{
+  "school": "strathallan",
+  "baseUrl": "https://www.strathallan.co.uk",
+  "scrapedAt": "2025-12-17T09:26:55.233Z",
+  "stats": {
+    "pagesScraped": 47,
+    "kbChunks": 189,
+    "pdfsFound": 2,
+    "imagesFound": 107,
+    "videosFound": 5,
+    "errors": 1
+  },
+  "contentTypes": {
+    "admissions": 64,
+    "fees": 16,
+    "academics": 34,
+    "sports": 13,
+    "about": 5,
+    "general": 16,
+    "facilities": 4,
+    "arts": 13,
+    "sixth_form": 2,
+    "faq": 2,
+    "boarding": 9,
+    "staff": 2,
+    "testimonials": 1,
+    "policies": 1,
+    "pastoral": 7
+  },
+  "imageCategories": {
+    "campus": 87,
+    "sports": 9,
+    "arts": 5,
+    "academic": 3,
+    "science": 3
+  }
+}
