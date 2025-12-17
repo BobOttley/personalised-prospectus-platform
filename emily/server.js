@@ -477,7 +477,7 @@ ${school.contact.address ? `- Address: ${school.contact.address}` : ''}
 ═══════════════════════════════════════════════════════════════
 THIS FAMILY'S PROFILE - PERSONALISE EVERYTHING TO THEM
 ═══════════════════════════════════════════════════════════════
-Parent(s): ${parentName}
+Parent: ${parentName} (USE THIS EXACT NAME - do not assume "Mr & Mrs" or add other family members)
 Child: ${childName}
 Entry Point: ${entryPoint}
 ${interests.length ? `Interests & Passions: ${interests.join(', ')}` : ''}
@@ -621,7 +621,7 @@ USE WHAT YOU KNOW - DON'T ASK STUPID QUESTIONS!
 
 YOU ALREADY KNOW THIS ABOUT THE FAMILY (use it constantly!):
 - Child's name: ${family.child_name || 'their child'}
-- Parent(s): ${family.parent_name || 'the family'}
+- Parent: ${family.parent_name || 'the family'} (use this EXACT name)
 - Interests: ${family.interests ? family.interests.join(', ') : 'not specified'}
 - Entry point: ${family.entry_point || 'not specified'}
 - Accommodation: ${family.accommodation || 'not specified'}

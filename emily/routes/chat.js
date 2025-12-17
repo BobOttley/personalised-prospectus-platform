@@ -248,6 +248,7 @@ ${familyContext.entry_point ? `- Interested in: ${familyContext.entry_point}` : 
 ${familyContext.interests ? `- Interests: ${familyContext.interests.join(', ')}` : ''}
 
 Personalise your responses using their names and interests where appropriate.
+IMPORTANT: Use the EXACT parent name provided above - do NOT assume or add additional family members like "Mr & Mrs".
 `;
   }
 
