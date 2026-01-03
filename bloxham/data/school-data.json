@@ -1,0 +1,264 @@
+{
+  "school": {
+    "name": "Bloxham School",
+    "shortName": "Bloxham",
+    "type": "Independent co-educational boarding and day school",
+    "founded": 1860,
+    "motto": "Justorum Semita Lux Splendens",
+    "mottoTranslation": "The path of the just is a shining light",
+    "ageRange": "11-18",
+    "studentCount": "Under 600",
+    "location": {
+      "address": "Banbury Road, Bloxham, Banbury, Oxfordshire OX15 4PE",
+      "town": "Bloxham",
+      "county": "Oxfordshire",
+      "region": "South East England"
+    },
+    "contact": {
+      "phone": "+44 (0) 1295 720 222",
+      "email": "info@bloxhamschool.com",
+      "admissionsEmail": "admissions@bloxhamschool.com",
+      "website": "https://www.bloxhamschool.com"
+    },
+    "affiliation": "Woodard Corporation"
+  },
+  "leadership": {
+    "headmaster": {
+      "name": "Paul Sanderson",
+      "title": "Headmaster",
+      "since": 2013
+    },
+    "chaplain": {
+      "name": "Rev. Alexander Ladds",
+      "title": "School Chaplain"
+    },
+    "safeguardingLead": {
+      "name": "Jacqui Skevington",
+      "title": "Assistant Head (Student Welfare and Pastoral Care)"
+    }
+  },
+  "hallmarks": [
+    "A passion for learning - fostering creativity and capacity for dynamic, independent and critical thought",
+    "A balanced curriculum - challenging academic programme complemented by broader curriculum inspiring curiosity, rigour and ambition",
+    "Christian values - nurturing compassionate spirit so students become force for good",
+    "Gold standard of pastoral care - nurturing wellbeing within boarding community",
+    "Development of character - promoting responsibility, generosity, resilience and imagination"
+  ],
+  "entryPoints": [
+    {"age": 11, "yearGroup": "Year 7", "name": "First Form"},
+    {"age": 13, "yearGroup": "Year 9", "name": "Third Form"},
+    {"age": 16, "yearGroup": "Year 12", "name": "Sixth Form"}
+  ],
+  "fees": {
+    "registrationFee": 240,
+    "acceptanceFee": 1740,
+    "refundableDeposit": 300,
+    "obMembership": 360
+  },
+  "boarding": {
+    "types": ["Full Boarding", "Weekly Boarding", "Day Boarding", "Day"],
+    "houses": {
+      "lowerSchool": [
+        {"name": "Exham House", "type": "Day", "yearGroups": "Years 7-8"},
+        {"name": "Park Close", "type": "Boarding", "yearGroups": "Years 7-8"}
+      ],
+      "seniorSchool": [
+        {"name": "Crake House", "type": "Boarding", "gender": "Boys"},
+        {"name": "Egerton House", "type": "Boarding", "gender": "Boys", "capacity": 60},
+        {"name": "Wilson House", "type": "Boarding", "gender": "Boys"},
+        {"name": "Raymond House", "type": "Boarding", "gender": "Girls", "capacity": 60},
+        {"name": "Wilberforce House", "type": "Boarding", "gender": "Girls", "capacity": 60},
+        {"name": "Stonehill House", "type": "Boarding", "gender": "Girls", "capacity": 30},
+        {"name": "Seymour House", "type": "Boarding", "gender": "Mixed"},
+        {"name": "Merton House", "type": "Day", "gender": "Mixed"}
+      ]
+    }
+  },
+  "academics": {
+    "gcseSubjects": [
+      "English Language", "English Literature", "Mathematics", "French", "Spanish",
+      "Biology", "Chemistry", "Physics", "Art", "Business Studies", "Design & Technology",
+      "Drama", "Geography", "History", "Latin", "Music", "PE", "Photography", "Theology",
+      "Mandarin", "Astronomy"
+    ],
+    "aLevelSubjects": [
+      "Biology", "Business", "Chemistry", "D&T Product Design", "Economics",
+      "English Literature", "French", "Geography", "Government and Politics",
+      "History", "Mathematics", "Further Mathematics", "Music", "Physical Education",
+      "Physics", "Photography", "Psychology", "Religious Studies", "Spanish", "Theatre Studies"
+    ],
+    "btecSubjects": ["Sport Science", "Hospitality"],
+    "ctecSubjects": ["Business"],
+    "results2021": {
+      "aLevelAstarC": 90,
+      "aLevelAstarB": 73,
+      "aLevelAstarA": 50
+    }
+  },
+  "sport": {
+    "facilities": [
+      "Dewey Sports Centre with 4-court sports hall",
+      "2 full-size AstroTurf pitches",
+      "7 rugby pitches",
+      "Swimming pool",
+      "Squash courts",
+      "Climbing wall (9 routes)",
+      "Gym & fitness suite",
+      "Indoor cricket nets",
+      "Hardcourts (tennis/netball)"
+    ],
+    "mainSports": {
+      "michaelmas": {"boys": "Rugby", "girls": "Hockey"},
+      "lent": {"boys": "Hockey", "girls": "Netball"},
+      "summer": {"boys": "Cricket", "girls": "Tennis"}
+    },
+    "sports": {
+      "rugby": {
+        "name": "Rugby",
+        "gender": "Boys",
+        "level": "Academy/Competitive",
+        "achievements": ["National Schools Plate Winners 2018/19", "National Finals 2019/20"],
+        "teams": "15 teams (2021)",
+        "description": "Bloxham's rugby programme is one of the finest in the region. The 1st XV won the National Schools Plate in 2018/19 and reached the final in 2019/20. With 15 teams fielded in 2021, there's a place for every boy regardless of ability, complemented by excellent facilities, strength and conditioning coaches, and a 7-a-side programme."
+      },
+      "hockey": {
+        "name": "Hockey",
+        "gender": "Both",
+        "level": "Competitive",
+        "description": "Hockey is the largest and most popular sport at Bloxham, offering challenging fixtures against well-reputed schools. Boys play in the Lent term while girls compete in Michaelmas. Strong links with Banbury Hockey Club provide additional opportunities, with several hockey specialists on staff."
+      },
+      "cricket": {
+        "name": "Cricket",
+        "gender": "Both",
+        "level": "Competitive",
+        "teams": "5 senior teams",
+        "description": "Cricket is highly popular at Bloxham with five senior teams competing. Professional coaching from George Setterfield ensures pupils develop their skills year-round, with indoor nets in Michaelmas and pre-season coaching in Lent term. Girls' cricket arrived in 2022."
+      },
+      "netball": {
+        "name": "Netball",
+        "gender": "Girls",
+        "level": "Competitive",
+        "teams": "Up to 16 teams",
+        "description": "Netball at Bloxham is a force to be reckoned with, fielding up to 16 teams. As a training hub for Wasps Netball, several Bloxham girls are on the Wasps pathway, benefiting from expert coaching under Head of Netball Lisa Manning."
+      },
+      "swimming": {
+        "name": "Swimming",
+        "gender": "Both",
+        "level": "Recreational/Competitive",
+        "description": "Swimming is a popular option at Bloxham, with opportunities ranging from recreational to competitive. The school pool also supports triathlon training and various aquatic activities including kayaking."
+      },
+      "athletics": {
+        "name": "Athletics",
+        "gender": "Both",
+        "level": "Competitive",
+        "description": "Athletics fixtures are scheduled throughout the summer term, with opportunities for all students to compete and develop their track and field abilities."
+      },
+      "tennis": {
+        "name": "Tennis",
+        "gender": "Both",
+        "level": "Competitive",
+        "description": "Tennis at Bloxham runs year-round with a winter programme in partnership with Banbury West End Tennis Club. Professional coaching and regular fixtures for both boys' and girls' teams ensure continuous development."
+      },
+      "shooting": {
+        "name": "Clay Pigeon Shooting",
+        "gender": "Both",
+        "level": "Elite/Competitive",
+        "achievements": ["National Champions 6 times (1999, 2000, 2001, 2012, 2013, 2022)", "Independent Schools Champions 2022"],
+        "description": "Bloxham has been offering clay pigeon shooting since 1987 and has become a national powerhouse, winning the national championship six times. In 2022, the A Team became Independent School Champions with a combined score of 342."
+      },
+      "equestrian": {
+        "name": "Equestrian",
+        "gender": "Both",
+        "level": "Competitive",
+        "achievements": ["SEG100 Eventing Champions 2021", "NSEA Eventer Challenge 90 Champions 2024"],
+        "description": "The equestrian squad at Bloxham is thriving, welcoming riders of all levels to NSEA and SEG events. Regular qualifiers for National Championships, with training available even for non-horse owners at local riding schools."
+      }
+    }
+  },
+  "music": {
+    "facility": "Sam Kahn Music School",
+    "teacherCount": 17,
+    "weeklyLessons": 200,
+    "annualPerformances": 27,
+    "instruments": [
+      "Piano", "Jazz Piano", "Flute", "Trumpet", "Bagpipes", "Guitar", "Electric Guitar",
+      "Bass Guitar", "Drums", "Clarinet", "Bassoon", "Brass", "Oboe", "Saxophone",
+      "Cello", "Orchestral Percussion", "Voice", "Music Production"
+    ],
+    "ensembles": {
+      "chapelChoir": {
+        "name": "Chapel Choir",
+        "type": "Choir",
+        "description": "The Chapel Choir is at the heart of musical life at Bloxham, performing regularly in the beautiful school chapel and at external engagements. Open to audition, it offers a wonderful opportunity to develop choral skills in a supportive environment."
+      },
+      "exhamChapelChoir": {
+        "name": "Exham Chapel Choir",
+        "type": "Choir",
+        "description": "The Exham Chapel Choir provides an introduction to choral singing for Lower School pupils, building confidence and musicianship from Year 7."
+      },
+      "concertBand": {
+        "name": "Concert Band",
+        "type": "Band",
+        "description": "The Concert Band brings together wind, brass and percussion players for an exciting repertoire ranging from classical arrangements to contemporary pieces."
+      },
+      "jazzBand": {
+        "name": "Jazz Band",
+        "type": "Band",
+        "description": "For students interested in jazz, the Jazz Band offers opportunities to explore improvisation and jazz standards in a relaxed, creative environment."
+      },
+      "stringGroups": {
+        "name": "String Groups",
+        "type": "Ensemble",
+        "description": "Various string ensembles cater to different abilities, from beginners to advanced players, performing a wide repertoire of chamber music."
+      },
+      "brassEnsemble": {
+        "name": "Brass Ensemble",
+        "type": "Ensemble",
+        "description": "The Brass Ensemble provides opportunities for brass players to develop ensemble skills and perform at school events."
+      }
+    },
+    "firstFormScheme": "Musicians of the Future - All First Form pupils learn an instrument for free and join the choir"
+  },
+  "drama": {
+    "venue": "Great Hall",
+    "lamda": true,
+    "productions": "Annual whole-school production (Michaelmas Term)",
+    "description": "Drama at Bloxham is run with energy, focused on building confidence and creativity. The annual inter-house drama competition and whole-school production provide opportunities for all students, while LAMDA exams are available for those seeking formal qualifications."
+  },
+  "outdoorEducation": {
+    "dofe": {
+      "levels": ["Bronze (age 14+)", "Silver (age 15+)", "Gold (age 16+)"],
+      "participants": "Over 160 students",
+      "description": "One of the largest Duke of Edinburgh providers in Oxfordshire"
+    },
+    "ccf": {
+      "participants": "Around 110 students",
+      "eligibility": "Third Form onwards (voluntary)",
+      "description": "Three-quarters of Third Form join the CCF, developing leadership skills through weekly activities and termly overnight exercises."
+    },
+    "activities": ["Climbing", "Kayaking", "Sailing", "Bush craft", "Expeditions"]
+  },
+  "facilities": {
+    "greatHall": "Seats 230, stage and balcony, 7 classrooms, adjacent Jubilee Court",
+    "chapel": "Opened 1871, seats 150, recently updated with flat screen TVs",
+    "vallanceLibrary": "Carnegie Centre of Excellence Gold Status",
+    "whiteLionCentre": "Sixth Form centre with cafe, study spaces, and socialising areas",
+    "samKahnMusicSchool": "State-of-the-art facilities, Recital Room seating 80",
+    "raymondTechnologyCentre": "Design & Technology facilities",
+    "palmerHealthCentre": "On-site medical facility with registered nurses"
+  },
+  "transport": {
+    "minibusRoutes": 9,
+    "coverage": ["Oxfordshire", "Warwickshire", "Buckinghamshire", "Northamptonshire"],
+    "operatingHours": "Morning 7:00am-8:00am, Evening 6:10pm-7:10pm",
+    "londonTrain": "50 minutes from Banbury station"
+  },
+  "brand": {
+    "primaryColor": "#1B365D",
+    "primaryColorDark": "#142847",
+    "secondaryColor": "#8B4513",
+    "accentColor": "#C5A572",
+    "textColor": "#333333",
+    "backgroundColor": "#FFFFFF"
+  }
+}

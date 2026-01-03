@@ -1,0 +1,354 @@
+{
+  "school": {
+    "name": "Bloxham School",
+    "founded": 1860,
+    "founder": "The Reverend Philip Reginald Egerton",
+    "motto": "Justorum Semita Lux Splendens",
+    "mottoTranslation": "The path of the just is a shining light",
+    "type": "Independent co-educational boarding and day school",
+    "ageRange": "11-18",
+    "studentCount": "Under 600",
+    "affiliation": "Woodard Corporation",
+    "inspection": {
+      "body": "Independent Schools Inspectorate (ISI)",
+      "lastInspection": "March 2024",
+      "quote": "Pupils develop into happy, mature, confident individuals with a highly developed sense of responsibility for self and others."
+    }
+  },
+  "location": {
+    "address": "Banbury Road, Bloxham, Banbury, Oxfordshire OX15 4PE",
+    "village": "Bloxham",
+    "county": "Oxfordshire",
+    "nearestTown": "Banbury (2 miles)",
+    "motorway": "M40 (3 miles)",
+    "trainStation": "Banbury (London 50 minutes)",
+    "airports": ["London Heathrow", "Birmingham International"]
+  },
+  "contact": {
+    "phone": "+44 (0) 1295 720 222",
+    "email": "info@bloxhamschool.com",
+    "admissions": "admissions@bloxhamschool.com",
+    "website": "https://www.bloxhamschool.com"
+  },
+  "leadership": {
+    "headmaster": {
+      "name": "Paul Sanderson",
+      "since": 2013,
+      "previousRole": "Deputy Head and Director of Curriculum at Gordonstoun"
+    },
+    "chaplain": {
+      "name": "Rev. Alexander Ladds",
+      "role": "School Chaplain",
+      "note": "Full-time, lives on site"
+    },
+    "safeguardingLead": {
+      "name": "Jacqui Skevington",
+      "role": "Assistant Head (Student Welfare and Pastoral Care)"
+    }
+  },
+  "schoolDay": {
+    "lowerSchool": {
+      "registration": "8:15am",
+      "tutorTime": "8:30am",
+      "lessonsBegin": "8:50am",
+      "dayEnds": "6:00pm",
+      "optionalEvening": "Until 8:15pm (with supper and supervised prep)",
+      "saturday": "Optional Saturday morning sport"
+    },
+    "seniorSchool": {
+      "registration": "8:15am",
+      "tutorTime": "8:30am",
+      "lessonsBegin": "8:50am",
+      "saturday": "Compulsory Saturday afternoon sport",
+      "optionalEvening": "Until 9:00pm (with supper and supervised prep)"
+    },
+    "boarders": {
+      "supper": "6:00pm",
+      "eveningPrep": "6:45pm-9:00pm",
+      "prepEnd": "Third/Fourth Form may finish at 8:30pm if complete",
+      "socialTime": "Until 9:15pm in designated areas"
+    }
+  },
+  "prep": {
+    "lowerSchool": "Approximately 1 hour per evening",
+    "thirdToFifthForm": "Approximately 2 hours per evening",
+    "sixthForm": "Approximately 4 hours per subject per week"
+  },
+  "termDates": {
+    "note": "See term-dates-2024-2025.pdf and term-dates-2025-2026.pdf in documents/practical/"
+  },
+  "admissions": {
+    "entryPoints": [
+      {"age": 11, "yearGroup": "Year 7", "name": "First Form"},
+      {"age": 13, "yearGroup": "Year 9", "name": "Third Form", "mainEntry": true},
+      {"age": 16, "yearGroup": "Year 12", "name": "Sixth Form"}
+    ],
+    "registrationFee": 240,
+    "acceptanceFee": {
+      "total": 1740,
+      "breakdown": {
+        "refundableDeposit": 300,
+        "obMembership": 360,
+        "remainder": 1080
+      }
+    },
+    "overseasPupils": {
+      "acceptanceFee": 1500,
+      "complianceFee": 600,
+      "note": "Non-refundable acceptance fee. Compliance fee included in Overseas Boarder Fee."
+    },
+    "assessmentProcess": {
+      "13plus": ["CAT4 or MidYIS score from current school", "School reference", "Assessment morning (interview, group exercise, 20-minute writing test)"],
+      "sixthForm": ["Application form", "Interview with Headmaster or senior staff", "Minimum 6 GCSEs at grades 9-5 including maths and English", "Grade 6+ for A Level subjects", "Grade 7 for maths and sciences"]
+    }
+  },
+  "fees": {
+    "note": "See fee-schedule-2021-22.pdf in documents/admissions/ for detailed breakdown",
+    "types": ["Full Boarding", "Weekly Boarding", "Day Boarding", "Day"]
+  },
+  "boarding": {
+    "options": {
+      "fullBoarding": "Full 7-day boarding",
+      "weeklyBoarding": "Monday to Friday with weekends at home",
+      "dayBoarding": "Includes 2 nights boarding, supper, supervised prep until 9pm",
+      "day": "Leave by 6pm (Merton House)"
+    },
+    "houses": {
+      "lowerSchool": [
+        {"name": "Exham House", "type": "Day", "yearGroups": "Years 7-8", "hours": "8am-6pm Monday-Friday", "phone": "01295 724337"},
+        {"name": "Park Close", "type": "Boarding", "yearGroups": "Years 7-8", "description": "Short walk from main campus, own gardens and grounds"}
+      ],
+      "seniorSchool": [
+        {"name": "Crake House", "type": "Boarding", "gender": "Boys", "phone": "01295 724308", "description": "Named after school's first chaplain, annexed to Chapel"},
+        {"name": "Egerton House", "type": "Boarding", "gender": "Boys", "capacity": 60, "phone": "01295 724347", "description": "Corner of campus, adjacent to science and maths building"},
+        {"name": "Wilson House", "type": "Boarding", "gender": "Boys", "phone": "01295 724373", "housemaster": "David Bowden"},
+        {"name": "Raymond House", "type": "Boarding", "gender": "Girls", "capacity": 60, "phone": "01295 724317", "description": "Opened October 29, 1971 by Margaret Thatcher"},
+        {"name": "Wilberforce House", "type": "Boarding", "gender": "Girls", "capacity": 60, "phone": "01295 724359", "description": "Heart of campus, beside Great Hall"},
+        {"name": "Stonehill House", "type": "Boarding", "gender": "Girls", "capacity": 30, "phone": "01295 724288", "description": "Heart of village, short walk from main campus"},
+        {"name": "Seymour House", "type": "Boarding", "phone": "01295 724358", "description": "Opened 1981"},
+        {"name": "Merton House", "type": "Day", "phone": "01295 724318", "description": "Opened 2017, relocated 2020. Day pupils leave by 6pm."}
+      ]
+    },
+    "weekendActivities": ["Cinema trips", "Bowling", "Socials in White Lion Cafe", "House Dances", "Ice hockey matches", "Shopping in London", "Trampolining", "Blenheim Christmas lights trail"]
+  },
+  "academics": {
+    "curriculum": {
+      "lowerSchool": {
+        "subjects": ["English", "Mathematics", "Biology", "Chemistry", "Physics", "Geography", "History", "Theology", "French or Spanish", "Latin", "Design and Technology", "Art", "Music", "Drama", "Physical Education", "Digital Learning", "PSHE"],
+        "emphasis": "Solid grounding in core subjects, numeracy, literacy, digital skills"
+      },
+      "gcse": {
+        "compulsory": ["English Language", "English Literature", "Mathematics", "French OR Spanish", "Science"],
+        "scienceOptions": "Set 1: separate GCSEs in Biology, Chemistry, Physics. Sets 2-5: double award science",
+        "optional": ["Art", "Business Studies", "Design & Technology", "Drama", "Geography", "History", "Latin", "Music", "PE", "Photography", "Spanish", "Theology"],
+        "additional": ["Mandarin (via enrichment)", "Astronomy (via enrichment)"],
+        "total": "Most students take 9-10 GCSEs"
+      },
+      "aLevel": {
+        "subjects": ["Biology", "Business", "Chemistry", "D&T Product Design", "Economics", "English Literature", "French", "Geography", "Government and Politics", "History", "Mathematics", "Further Mathematics", "Music", "Physical Education", "Physics", "Photography", "Psychology", "Religious Studies", "Spanish", "Theatre Studies"],
+        "typicalLoad": "Three A Level subjects over two years",
+        "epq": "Extended Project Qualification available (equivalent to half A Level)",
+        "alternatives": ["Mini MBA with University of Buckingham", "Mini-MAPP (Applied Positive Psychology)", "Public Speaking course"]
+      },
+      "btec": ["Sport Science (Level 3)", "Hospitality (Level 3)"],
+      "ctec": ["Business (Level 3)"]
+    },
+    "results": {
+      "aLevel2021": {
+        "aStarC": "90%",
+        "aStarB": "73%",
+        "aStarA": "Nearly 50%"
+      },
+      "btec2021": "Over 80% at Distinction*/Distinction"
+    },
+    "learningSupport": {
+      "head": "Eleanor Russell (AMBDA)",
+      "services": ["Dyslexia support", "Dyspraxia support", "Visual impairments", "Hearing impairments", "EAL (English as Additional Language)"],
+      "dyslexiaSupport": "Literacy support course for up to 6 students per Form"
+    },
+    "eal": {
+      "provision": ["Individual support", "Pair work", "Small groups"],
+      "exams": ["IELTS Academic English (Sixth Form)", "Cambridge B2 First", "Cambridge C1 Advanced"]
+    }
+  },
+  "sport": {
+    "participation": {
+      "represent": "90% of pupils represent school in competitive fixtures",
+      "coached": "100% take part in three coached sessions every week"
+    },
+    "facilities": [
+      "Dewey Sports Centre (4-court sports hall, spring-loaded flooring)",
+      "Climbing wall (9 routes)",
+      "Gym & fitness suite",
+      "Squash courts",
+      "2 full-size AstroTurf pitches",
+      "7 rugby pitches",
+      "Swimming pool",
+      "Indoor cricket nets",
+      "Hardcourts (tennis/netball)"
+    ],
+    "mainSports": {
+      "michaelmas": {"boys": "Rugby", "girls": "Hockey"},
+      "lent": {"boys": "Hockey", "girls": "Netball"},
+      "summer": {"boys": "Cricket", "girls": "Tennis"}
+    },
+    "achievements": {
+      "rugby": ["National Schools Plate Winners 2018/19", "National Finals 2019/20", "15 teams in 2021"],
+      "clayPigeonShooting": ["National Champions 6 times (1999, 2000, 2001, 2012, 2013, 2022)", "Independent School Champions 2022 (342 combined score)"],
+      "equestrian": ["SEG100 Eventing Champions 2021", "NSEA Eventer Challenge 90 Champions 2024"],
+      "netball": ["Up to 16 teams", "Training hub for Wasps Netball"]
+    }
+  },
+  "music": {
+    "facility": "Sam Kahn Music School",
+    "staff": "17 music teachers",
+    "weeklyLessons": "200+",
+    "annualPerformances": "27+",
+    "instruments": ["Piano", "Jazz Piano", "Flute", "Trumpet", "Bagpipes", "Guitar", "Electric Guitar", "Bass Guitar", "Drums", "Clarinet", "Bassoon", "Brass", "Oboe", "Saxophone", "Cello", "Orchestral Percussion", "Voice", "Music Production"],
+    "ensembles": ["Chapel Choir", "Exham Chapel Choir", "Concert Band", "String Groups", "Brass Ensemble", "Jazz Band", "Chamber groups"],
+    "musiciansOfTheFuture": "All First Form pupils learn an instrument for free and join the choir",
+    "lamda": "Speech and Drama exams available (Acting to Musical Theatre, Grade 1 to Gold)",
+    "scholarships": "Music and Organ scholarships at 13+ and 16+"
+  },
+  "drama": {
+    "venue": "Great Hall",
+    "productions": "Annual whole-school production (Michaelmas Term)",
+    "interHouseCompetition": "Annual inter-house drama competition",
+    "lamda": true,
+    "scholarships": "Drama scholarships at 11+, 13+, 16+"
+  },
+  "outdoorEducation": {
+    "dofe": {
+      "levels": ["Bronze (age 14+, Third Form)", "Silver (age 15+, Fourth Form)", "Gold (age 16+, Sixth Form)"],
+      "participants": "Over 160 students",
+      "note": "One of largest providers in Oxfordshire"
+    },
+    "ccf": {
+      "participants": "Around 110 students",
+      "eligibility": "Third Form onwards (voluntary)",
+      "joinRate": "Three-quarters of Third Form join"
+    },
+    "activities": ["Climbing", "Kayaking", "Sailing", "Bush craft", "Expeditions"]
+  },
+  "pastoral": {
+    "peerListeners": "Lower and Upper Sixth Form volunteers trained in confidentiality and listening",
+    "counselling": "Professional practitioner available for one-to-one confidential support",
+    "healthCentre": {
+      "name": "Palmer Health Centre",
+      "staff": ["Registered nurses", "Visiting school medical officer"],
+      "services": "Drop-in surgeries 3x daily"
+    },
+    "chaplain": "Rev. Alexander Ladds - full-time, lives on site"
+  },
+  "transport": {
+    "minibus": {
+      "routes": 9,
+      "coverage": ["Oxfordshire", "Warwickshire", "Buckinghamshire", "Northamptonshire"],
+      "hours": "Morning 7:00am-8:00am, Evening 6:10pm-7:10pm",
+      "contact": "01295 724398 or 07717 858502"
+    },
+    "airportTransfers": "London Heathrow transfers at start/end of each term (included in overseas fees)"
+  },
+  "uniform": {
+    "provider": "Schoolblazer (online)",
+    "peKit": "PlayerLayer",
+    "firstToFifthForm": {
+      "boys": ["School blazer", "Black school jumper", "School shirts", "Charcoal grey trousers"],
+      "girls": ["School blazer", "Black school jumper", "School blouses", "School kilt (near knee) or black trousers"]
+    },
+    "sixthForm": "Business suits with conventional shirts/blouses"
+  },
+  "catering": {
+    "manager": "Patricia Towers",
+    "style": "In-house team, fresh ingredients",
+    "meals": {
+      "breakfast": "Range of cooked and cold options",
+      "lunch": "Minimum 3 main dishes, vegetarian option, salad bar, pasta bar, soup, fruit, desserts",
+      "supper": "Popular Friday burger night"
+    },
+    "dietary": ["Vegetarian always available", "Allergies accommodated"],
+    "houseSnacks": "Healthy snacks, fruit, home-made cakes, sandwiches, toast"
+  },
+  "whiteLionCafe": {
+    "location": "Bloxham High Street (opposite Co-op)",
+    "openTo": "Public",
+    "termTimeHours": "Monday-Friday 9am-4pm, Saturday 9am-2pm",
+    "offerings": "Drinks, sandwiches, cakes, tray bakes"
+  },
+  "scholarships": {
+    "types": ["Academic", "Art", "Design & Technology", "Drama", "Music", "Organ (16+ only)", "Sport (not at 11+)"],
+    "entryLevels": ["11+", "13+", "16+"],
+    "value": "Up to 20% fee remission"
+  },
+  "bursaries": {
+    "program": "Means-tested transformational bursaries",
+    "raymondFund": "Named fund for significant financial assistance",
+    "contact": "development@bloxhamschool.com or 01295 232040"
+  },
+  "faq": {
+    "admissions": {
+      "registrationFee": "240",
+      "deposit": "300 (refundable)",
+      "acceptanceFee": "1,740 total",
+      "assessments": "CAT4/MidYIS score, school reference, assessment morning with interview and writing test",
+      "tasterDay": "Personal tours available to suit families",
+      "midYearEntry": "Possible if spaces available",
+      "siblingDiscount": "Contact admissions for details"
+    },
+    "academic": {
+      "curriculum": "National Curriculum with breadth of subjects",
+      "classSize": "Small classes with individual attention",
+      "homework": "1 hour (Lower School), 2 hours (GCSE), 4 hours per subject per week (Sixth Form)",
+      "setting": "Mathematics sets from First Form",
+      "languages": "French, Spanish, Latin, Mandarin available"
+    },
+    "boarding": {
+      "weeklyBoarding": "Monday to Friday with weekends at home",
+      "weekends": "Trips, socials, activities for full boarders",
+      "roomsPerPupil": "Varies by year group",
+      "personalItems": "Can bring personal items to make room feel like home",
+      "homesickness": "House Parents and tutors provide support"
+    },
+    "sport": {
+      "compulsory": "Yes - all take part in three coached sessions weekly",
+      "notSporty": "Range of activities for all abilities and interests",
+      "teams": "Yes - 90% represent school in competitive fixtures",
+      "swimming": "Yes - pool available"
+    },
+    "music": {
+      "instruments": "Yes - 200+ weekly lessons, 17 teachers",
+      "lessonCost": "Extra to fees",
+      "ensembles": "Chapel Choir, Orchestra, Concert Band, Jazz Band, and more"
+    }
+  },
+  "documents": {
+    "policies": [
+      {"name": "Safeguarding Policy", "file": "safeguarding-policy.pdf"},
+      {"name": "Safeguarding Policy 2024", "file": "safeguarding-policy-2024.pdf"},
+      {"name": "Risk Management Policy", "file": "risk-management-policy.pdf"},
+      {"name": "Careers Access Policy", "file": "careers-access-policy.pdf"},
+      {"name": "Word Processor Policy (Exams)", "file": "word-processor-policy-exams.pdf"}
+    ],
+    "academic": [
+      {"name": "ISI Inspection Report", "file": "isi-inspection-report.pdf"},
+      {"name": "Sixth Form Prospectus 2024", "file": "sixth-form-prospectus-2024.pdf"},
+      {"name": "GCSE Guide 2025-2026", "file": "gcse-guide-2025-2026.pdf"},
+      {"name": "Exam Booklet 2024", "file": "exam-booklet-2024.pdf"},
+      {"name": "A Level Government & Politics", "file": "a-level-government-politics.pdf"},
+      {"name": "Broader Curriculum Costs 2025", "file": "broader-curriculum-costs-2025.pdf"},
+      {"name": "Sample Senior School Timetable", "file": "sample-senior-school-timetable.pdf"}
+    ],
+    "admissions": [
+      {"name": "School Prospectus", "file": "school-prospectus.pdf"},
+      {"name": "Bursary Application Form", "file": "bursary-application-form-2023-2024.pdf"},
+      {"name": "Fee Schedule 2021-22", "file": "fees-schedule-2021-22.pdf"}
+    ],
+    "practical": [
+      {"name": "Parents Handbook 2024", "file": "parents-handbook-2024.pdf"},
+      {"name": "Term Dates 2025-2026", "file": "term-dates-2025-2026.pdf"},
+      {"name": "Term Dates 2024-2025", "file": "term-dates-2024-2025.pdf"},
+      {"name": "Uniform Guidelines 2023", "file": "uniform-guidelines-2023.pdf"},
+      {"name": "Girls Uniform Clarification 2023", "file": "girls-uniform-clarification-2023.pdf"}
+    ]
+  }
+}

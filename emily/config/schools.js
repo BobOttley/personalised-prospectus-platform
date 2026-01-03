@@ -711,6 +711,196 @@ const schools = {
     }
   },
 
+  'bloxham': {
+    id: 'bloxham',
+    name: 'Bloxham School',
+    shortName: 'Bloxham',
+    type: 'co-ed',
+    ageRange: '11-18',
+    prospectusPath: '../bloxham',
+    knowledgeBase: 'bloxham.md',
+    theme: {
+      primary: '#C5A572',      // Bloxham gold (for Emily widget visibility)
+      secondary: '#1B365D',    // Bloxham navy
+      accent: '#C5A572',
+      background: '#FAFAFA',
+      text: '#2D3748'
+    },
+    contact: {
+      email: 'admissions@bloxhamschool.com',
+      phone: '+44 (0)1295 720 222',
+      website: 'www.bloxhamschool.com',
+      address: 'Banbury Road, Bloxham, Banbury, Oxfordshire OX15 4PE'
+    },
+    principal: 'Paul Sanderson',
+    emilyPersonality: {
+      voice: 'coral',
+      accent: 'British',
+      tone: 'warm, welcoming, traditional with Christian values',
+      greeting: "Hello! I'm Emily, your guide to Bloxham School."
+    },
+    quickReplies: [
+      { label: 'Boarding', query: 'Tell me about boarding' },
+      { label: 'Sport', query: 'What sports do you offer?' },
+      { label: 'Fees', query: 'What are the fees?' },
+      { label: 'Apply', query: 'How do I apply?' },
+      { label: 'Visit', query: 'Can I book a visit?' }
+    ],
+    openDaysUrl: 'https://www.bloxhamschool.com/admissions/open-events/',
+    tourJourney: [
+      'welcome',
+      'why_bloxham',
+      'campus',
+      'academics',
+      'sport',
+      'music',
+      'boarding',
+      'pastoral_care',
+      'sixth_form',
+      'next_steps'
+    ],
+    prospectusModules: [
+      'welcome', 'why_bloxham', 'campus', 'academics', 'sport', 'rugby', 'hockey',
+      'cricket', 'netball', 'shooting', 'music', 'drama', 'boarding', 'houses',
+      'pastoral_care', 'sixth_form', 'outdoor_education', 'ccf', 'dofe',
+      'scholarships', 'bursaries', 'admissions', 'visit', 'next_steps'
+    ],
+    sectionMeta: {
+      welcome: {
+        title: 'Welcome to Bloxham',
+        intro: "Let me share the Headmaster's welcome message with you",
+        nextSection: 'why_bloxham',
+        followUp: ['why_bloxham', 'campus']
+      },
+      why_bloxham: {
+        title: 'Why Bloxham',
+        intro: "Here's what makes Bloxham special - our five hallmarks of education",
+        nextSection: 'campus',
+        followUp: ['campus', 'academics']
+      },
+      campus: {
+        title: 'Our Campus',
+        intro: "60 acres of stunning Oxfordshire countryside",
+        nextSection: 'academics',
+        followUp: ['academics', 'boarding']
+      },
+      academics: {
+        title: 'Academic Excellence',
+        intro: "Small class sizes and individual attention for every pupil",
+        nextSection: 'sport',
+        followUp: ['sport', 'sixth_form']
+      },
+      sport: {
+        title: 'Sport at Bloxham',
+        intro: "Sport is central to life here - with national success in rugby, hockey, and shooting",
+        nextSection: 'music',
+        followUp: ['rugby', 'hockey', 'shooting']
+      },
+      rugby: {
+        title: 'Rugby',
+        intro: "Our rugby programme is one of the finest in the region",
+        nextSection: 'hockey',
+        followUp: ['hockey', 'sport']
+      },
+      hockey: {
+        title: 'Hockey',
+        intro: "Hockey is the largest and most popular sport at Bloxham",
+        nextSection: 'shooting',
+        followUp: ['shooting', 'sport']
+      },
+      shooting: {
+        title: 'Clay Pigeon Shooting',
+        intro: "Six-time national champions in clay pigeon shooting",
+        nextSection: 'music',
+        followUp: ['music', 'sport']
+      },
+      music: {
+        title: 'Music',
+        intro: "Music thrives in our Sam Kahn Music School",
+        nextSection: 'boarding',
+        followUp: ['drama', 'boarding']
+      },
+      drama: {
+        title: 'Drama',
+        intro: "Drama builds confidence and creativity",
+        nextSection: 'boarding',
+        followUp: ['music', 'boarding']
+      },
+      boarding: {
+        title: 'Boarding Life',
+        intro: "Boarding at Bloxham is like joining an extended family",
+        nextSection: 'pastoral_care',
+        followUp: ['houses', 'pastoral_care']
+      },
+      houses: {
+        title: 'Our Houses',
+        intro: "We have eight boarding houses, each with its own character",
+        nextSection: 'pastoral_care',
+        followUp: ['pastoral_care', 'boarding']
+      },
+      pastoral_care: {
+        title: 'Pastoral Care',
+        intro: "Gold standard pastoral care - every individual matters",
+        nextSection: 'sixth_form',
+        followUp: ['boarding', 'sixth_form']
+      },
+      sixth_form: {
+        title: 'Sixth Form',
+        intro: "Our White Lion Centre provides an outstanding Sixth Form experience",
+        nextSection: 'next_steps',
+        followUp: ['academics', 'next_steps']
+      },
+      outdoor_education: {
+        title: 'Outdoor Education',
+        intro: "Duke of Edinburgh, CCF, and adventure activities",
+        nextSection: 'next_steps',
+        followUp: ['ccf', 'dofe']
+      },
+      ccf: {
+        title: 'CCF',
+        intro: "Our Combined Cadet Force develops leadership skills",
+        nextSection: 'dofe',
+        followUp: ['dofe', 'outdoor_education']
+      },
+      dofe: {
+        title: 'Duke of Edinburgh',
+        intro: "One of the largest DofE providers in Oxfordshire",
+        nextSection: 'next_steps',
+        followUp: ['ccf', 'outdoor_education']
+      },
+      scholarships: {
+        title: 'Scholarships',
+        intro: "We offer scholarships for academic, sport, music, art, and drama excellence",
+        nextSection: 'bursaries',
+        followUp: ['bursaries', 'admissions']
+      },
+      bursaries: {
+        title: 'Bursaries',
+        intro: "Means-tested bursaries are available",
+        nextSection: 'admissions',
+        followUp: ['scholarships', 'admissions']
+      },
+      admissions: {
+        title: 'How to Apply',
+        intro: "Let me walk you through the application process",
+        nextSection: 'visit',
+        followUp: ['visit', 'next_steps']
+      },
+      visit: {
+        title: 'Visit Us',
+        intro: "Come and experience Bloxham for yourselves",
+        nextSection: 'next_steps',
+        followUp: ['next_steps', 'admissions']
+      },
+      next_steps: {
+        title: 'Next Steps',
+        intro: "Here's what to do next to begin your journey with Bloxham",
+        nextSection: null,
+        followUp: ['admissions', 'visit']
+      }
+    }
+  },
+
   'clifton-college': {
     id: 'clifton-college',
     name: 'Clifton College',
@@ -877,6 +1067,7 @@ function detectSchoolFromUrl(url) {
   if (urlLower.includes('brightoncollege')) return 'brighton-college';
   if (urlLower.includes('cliftoncollege')) return 'clifton-college';
   if (urlLower.includes('strathallan')) return 'strathallan';
+  if (urlLower.includes('bloxham')) return 'bloxham';
 
   return null;
 }

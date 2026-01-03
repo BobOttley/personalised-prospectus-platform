@@ -1,0 +1,396 @@
+{
+  "images": [
+    {
+      "filename": "campus-aerial-view-01.jpg",
+      "category": "campus",
+      "subcategory": "aerial",
+      "tags": ["hero", "outdoor", "grounds", "overview"],
+      "used_in": null
+    },
+    {
+      "filename": "campus-aerial-02.jpg",
+      "category": "campus",
+      "subcategory": "aerial",
+      "tags": ["outdoor", "grounds", "overview"],
+      "used_in": null
+    },
+    {
+      "filename": "campus-drone-view-01.png",
+      "category": "campus",
+      "subcategory": "aerial",
+      "tags": ["hero", "outdoor", "grounds", "drone"],
+      "used_in": null
+    },
+    {
+      "filename": "campus-buildings-01.jpg",
+      "category": "campus",
+      "subcategory": "buildings",
+      "tags": ["architecture", "outdoor", "main"],
+      "used_in": null
+    },
+    {
+      "filename": "campus-buildings-02.jpg",
+      "category": "campus",
+      "subcategory": "buildings",
+      "tags": ["architecture", "outdoor"],
+      "used_in": null
+    },
+    {
+      "filename": "campus-buildings-03.jpg",
+      "category": "campus",
+      "subcategory": "buildings",
+      "tags": ["architecture", "outdoor"],
+      "used_in": null
+    },
+    {
+      "filename": "campus-buildings-04.jpg",
+      "category": "campus",
+      "subcategory": "buildings",
+      "tags": ["architecture", "outdoor"],
+      "used_in": null
+    },
+    {
+      "filename": "campus-facilities-01.jpg",
+      "category": "campus",
+      "subcategory": "facilities",
+      "tags": ["outdoor", "grounds"],
+      "used_in": null
+    },
+    {
+      "filename": "campus-student-welcome-01.jpg",
+      "category": "campus",
+      "subcategory": "welcome",
+      "tags": ["students", "outdoor", "friendly"],
+      "used_in": null
+    },
+    {
+      "filename": "campus-header-01.jpg",
+      "category": "campus",
+      "subcategory": "header",
+      "tags": ["hero", "banner"],
+      "used_in": null
+    },
+    {
+      "filename": "campus-header-02.jpg",
+      "category": "campus",
+      "subcategory": "header",
+      "tags": ["hero", "banner"],
+      "used_in": null
+    },
+    {
+      "filename": "campus-header-03.jpg",
+      "category": "campus",
+      "subcategory": "header",
+      "tags": ["hero", "banner"],
+      "used_in": null
+    },
+    {
+      "filename": "campus-video-frame-01.jpg",
+      "category": "campus",
+      "subcategory": "video",
+      "tags": ["overview"],
+      "used_in": null
+    },
+    {
+      "filename": "campus-logo-01.jpg",
+      "category": "branding",
+      "subcategory": "logo",
+      "tags": ["logo", "crest"],
+      "used_in": null
+    },
+    {
+      "filename": "chapel-building-01.png",
+      "category": "campus",
+      "subcategory": "chapel",
+      "tags": ["architecture", "outdoor", "heritage", "spiritual"],
+      "used_in": null
+    },
+    {
+      "filename": "chapel-interior-01.png",
+      "category": "campus",
+      "subcategory": "chapel",
+      "tags": ["architecture", "indoor", "heritage", "spiritual"],
+      "used_in": null
+    },
+    {
+      "filename": "sport-rugby-01.jpg",
+      "category": "sport",
+      "subcategory": "rugby",
+      "tags": ["boys", "outdoor", "action", "team"],
+      "used_in": null
+    },
+    {
+      "filename": "sport-hockey-01.png",
+      "category": "sport",
+      "subcategory": "hockey",
+      "tags": ["mixed", "outdoor", "action", "team"],
+      "used_in": null
+    },
+    {
+      "filename": "sport-netball-01.png",
+      "category": "sport",
+      "subcategory": "netball",
+      "tags": ["girls", "outdoor", "action", "team"],
+      "used_in": null
+    },
+    {
+      "filename": "sport-swimming-01.png",
+      "category": "sport",
+      "subcategory": "swimming",
+      "tags": ["mixed", "indoor", "pool"],
+      "used_in": null
+    },
+    {
+      "filename": "sport-athletics-01.png",
+      "category": "sport",
+      "subcategory": "athletics",
+      "tags": ["mixed", "outdoor", "track"],
+      "used_in": null
+    },
+    {
+      "filename": "sport-general-01.jpg",
+      "category": "sport",
+      "subcategory": "general",
+      "tags": ["mixed", "action"],
+      "used_in": null
+    },
+    {
+      "filename": "sport-general-02.jpg",
+      "category": "sport",
+      "subcategory": "general",
+      "tags": ["mixed", "action"],
+      "used_in": null
+    },
+    {
+      "filename": "sport-header-01.png",
+      "category": "sport",
+      "subcategory": "header",
+      "tags": ["hero", "banner"],
+      "used_in": null
+    },
+    {
+      "filename": "sport-header-02.jpg",
+      "category": "sport",
+      "subcategory": "header",
+      "tags": ["hero", "banner"],
+      "used_in": null
+    },
+    {
+      "filename": "music-orchestra-01.png",
+      "category": "music",
+      "subcategory": "orchestra",
+      "tags": ["ensemble", "performance", "indoor"],
+      "used_in": null
+    },
+    {
+      "filename": "music-performance-02.png",
+      "category": "music",
+      "subcategory": "performance",
+      "tags": ["concert", "indoor"],
+      "used_in": null
+    },
+    {
+      "filename": "drama-performance-01.png",
+      "category": "drama",
+      "subcategory": "performance",
+      "tags": ["theatre", "production", "stage"],
+      "used_in": null
+    },
+    {
+      "filename": "drama-theatre-01.jpg",
+      "category": "drama",
+      "subcategory": "theatre",
+      "tags": ["production", "performance"],
+      "used_in": null
+    },
+    {
+      "filename": "art-creative-01.jpg",
+      "category": "art",
+      "subcategory": "creative",
+      "tags": ["studio", "practical"],
+      "used_in": null
+    },
+    {
+      "filename": "art-studio-01.png",
+      "category": "art",
+      "subcategory": "studio",
+      "tags": ["workshop", "practical"],
+      "used_in": null
+    },
+    {
+      "filename": "art-dt-01.png",
+      "category": "art",
+      "subcategory": "dt",
+      "tags": ["design", "technology", "workshop"],
+      "used_in": null
+    },
+    {
+      "filename": "boarding-house-01.png",
+      "category": "boarding",
+      "subcategory": "house",
+      "tags": ["exterior", "building"],
+      "used_in": null
+    },
+    {
+      "filename": "boarding-house-02.png",
+      "category": "boarding",
+      "subcategory": "house",
+      "tags": ["exterior", "building"],
+      "used_in": null
+    },
+    {
+      "filename": "boarding-bedroom-01.png",
+      "category": "boarding",
+      "subcategory": "bedroom",
+      "tags": ["interior", "accommodation"],
+      "used_in": null
+    },
+    {
+      "filename": "boarding-common-room-01.png",
+      "category": "boarding",
+      "subcategory": "common-room",
+      "tags": ["interior", "social"],
+      "used_in": null
+    },
+    {
+      "filename": "academic-header-01.png",
+      "category": "academic",
+      "subcategory": "header",
+      "tags": ["hero", "banner"],
+      "used_in": null
+    },
+    {
+      "filename": "academic-learning-01.jpg",
+      "category": "academic",
+      "subcategory": "learning",
+      "tags": ["classroom", "students"],
+      "used_in": null
+    },
+    {
+      "filename": "academic-lab-01.png",
+      "category": "academic",
+      "subcategory": "science",
+      "tags": ["laboratory", "practical"],
+      "used_in": null
+    },
+    {
+      "filename": "academic-library-01.png",
+      "category": "academic",
+      "subcategory": "library",
+      "tags": ["reading", "study"],
+      "used_in": null
+    },
+    {
+      "filename": "sixth-form-students-01.jpg",
+      "category": "sixth-form",
+      "subcategory": "students",
+      "tags": ["senior", "study"],
+      "used_in": null
+    },
+    {
+      "filename": "sixth-form-study-01.jpg",
+      "category": "sixth-form",
+      "subcategory": "study",
+      "tags": ["white-lion", "independent"],
+      "used_in": null
+    },
+    {
+      "filename": "sixth-form-collaboration-01.jpg",
+      "category": "sixth-form",
+      "subcategory": "collaboration",
+      "tags": ["group", "teamwork"],
+      "used_in": null
+    },
+    {
+      "filename": "sixth-form-discussion-01.jpg",
+      "category": "sixth-form",
+      "subcategory": "discussion",
+      "tags": ["debate", "learning"],
+      "used_in": null
+    },
+    {
+      "filename": "sixth-form-lab-01.jpg",
+      "category": "sixth-form",
+      "subcategory": "lab",
+      "tags": ["science", "practical"],
+      "used_in": null
+    },
+    {
+      "filename": "sixth-form-learning-01.jpg",
+      "category": "sixth-form",
+      "subcategory": "learning",
+      "tags": ["classroom", "teaching"],
+      "used_in": null
+    },
+    {
+      "filename": "sixth-form-teaching-01.jpg",
+      "category": "sixth-form",
+      "subcategory": "teaching",
+      "tags": ["classroom", "instruction"],
+      "used_in": null
+    },
+    {
+      "filename": "outdoor-education-01.png",
+      "category": "outdoor",
+      "subcategory": "education",
+      "tags": ["adventure", "nature"],
+      "used_in": null
+    },
+    {
+      "filename": "outdoor-explorers-01.jpg",
+      "category": "outdoor",
+      "subcategory": "explorers",
+      "tags": ["adventure", "expedition"],
+      "used_in": null
+    },
+    {
+      "filename": "outdoor-dofe-01.png",
+      "category": "outdoor",
+      "subcategory": "dofe",
+      "tags": ["duke-of-edinburgh", "expedition"],
+      "used_in": null
+    },
+    {
+      "filename": "outdoor-ccf-01.png",
+      "category": "outdoor",
+      "subcategory": "ccf",
+      "tags": ["cadet", "military"],
+      "used_in": null
+    },
+    {
+      "filename": "outdoor-climbing-01.png",
+      "category": "outdoor",
+      "subcategory": "climbing",
+      "tags": ["adventure", "wall"],
+      "used_in": null
+    },
+    {
+      "filename": "activities-header-01.png",
+      "category": "activities",
+      "subcategory": "header",
+      "tags": ["hero", "banner"],
+      "used_in": null
+    },
+    {
+      "filename": "students-story-01.jpg",
+      "category": "students",
+      "subcategory": "portrait",
+      "tags": ["testimonial", "individual"],
+      "used_in": null
+    },
+    {
+      "filename": "students-story-02.png",
+      "category": "students",
+      "subcategory": "portrait",
+      "tags": ["testimonial", "individual"],
+      "used_in": null
+    },
+    {
+      "filename": "students-story-03.jpg",
+      "category": "students",
+      "subcategory": "portrait",
+      "tags": ["testimonial", "individual"],
+      "used_in": null
+    }
+  ]
+}

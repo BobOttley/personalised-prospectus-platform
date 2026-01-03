@@ -1,0 +1,701 @@
+@import url('variables.css');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+/* Reset & Base */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  color: var(--text-primary);
+  background: var(--bg-white);
+}
+
+/* Sticky Header */
+.prospectus-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: var(--bloxham-navy);
+  color: var(--text-white);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 var(--space-xl);
+  z-index: var(--z-sticky);
+  box-shadow: var(--shadow-lg);
+}
+
+.family-name {
+  font-size: var(--text-sm);
+}
+
+.family-name strong {
+  color: var(--bloxham-gold);
+}
+
+.progress-container {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.progress-text {
+  font-size: var(--text-sm);
+  color: var(--bloxham-gold);
+}
+
+.progress-bar {
+  width: 150px;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: var(--bloxham-gold);
+  width: 0%;
+  transition: width var(--transition-normal);
+}
+
+/* Main Content */
+.prospectus-content {
+  margin-top: 60px;
+}
+
+/* Cover Module */
+.cover-module {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: linear-gradient(135deg, var(--bloxham-navy) 0%, var(--bloxham-navy-dark) 100%);
+  color: var(--text-white);
+  padding: var(--space-3xl);
+  position: relative;
+  overflow: hidden;
+}
+
+.cover-module::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('../assets/images/campus-aerial-view-01.jpg') center/cover;
+  opacity: 0.15;
+}
+
+.cover-content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+}
+
+.cover-subtitle {
+  font-size: var(--text-lg);
+  color: var(--bloxham-gold);
+  margin-bottom: var(--space-lg);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.cover-title {
+  font-family: var(--font-serif);
+  font-size: var(--text-5xl);
+  font-weight: 700;
+  margin-bottom: var(--space-md);
+  line-height: var(--leading-tight);
+}
+
+.cover-child-name {
+  color: var(--bloxham-gold);
+}
+
+.cover-school {
+  font-family: var(--font-serif);
+  font-size: var(--text-3xl);
+  font-weight: 400;
+  margin-bottom: var(--space-xl);
+  opacity: 0.9;
+}
+
+.cover-tagline {
+  font-size: var(--text-lg);
+  opacity: 0.8;
+  margin-bottom: var(--space-3xl);
+}
+
+.cover-crest {
+  width: 120px;
+  height: auto;
+  margin-bottom: var(--space-xl);
+}
+
+.cover-motto {
+  font-style: italic;
+  color: var(--bloxham-gold);
+  font-size: var(--text-lg);
+}
+
+/* Section Modules */
+.module {
+  padding: var(--space-3xl) var(--space-xl);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.module--full-width {
+  max-width: none;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.module--navy {
+  background: var(--bloxham-navy);
+  color: var(--text-white);
+}
+
+.module--cream {
+  background: var(--bloxham-cream);
+}
+
+.module--stone {
+  background: var(--bloxham-stone);
+}
+
+/* Section Headers */
+.section-header {
+  text-align: center;
+  margin-bottom: var(--space-3xl);
+}
+
+.section-label {
+  font-size: var(--text-sm);
+  color: var(--bloxham-gold);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: var(--space-sm);
+}
+
+.section-title {
+  font-family: var(--font-serif);
+  font-size: var(--text-4xl);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.module--navy .section-title {
+  color: var(--text-white);
+}
+
+.section-subtitle {
+  font-size: var(--text-lg);
+  color: var(--text-secondary);
+  margin-top: var(--space-md);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.module--navy .section-subtitle {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Welcome Letter Module */
+.welcome-module {
+  background: var(--bloxham-cream);
+}
+
+.welcome-content {
+  max-width: 800px;
+  margin: 0 auto;
+  background: var(--bg-white);
+  padding: var(--space-3xl);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-xl);
+}
+
+.welcome-greeting {
+  font-family: var(--font-serif);
+  font-size: var(--text-2xl);
+  color: var(--bloxham-navy);
+  margin-bottom: var(--space-xl);
+}
+
+.welcome-text {
+  font-size: var(--text-lg);
+  line-height: var(--leading-relaxed);
+  color: var(--text-secondary);
+  margin-bottom: var(--space-lg);
+}
+
+.welcome-text strong {
+  color: var(--bloxham-navy);
+}
+
+.welcome-signature {
+  margin-top: var(--space-2xl);
+  padding-top: var(--space-xl);
+  border-top: 1px solid var(--bloxham-stone);
+}
+
+.signature-name {
+  font-family: var(--font-serif);
+  font-size: var(--text-xl);
+  color: var(--bloxham-navy);
+  font-weight: 600;
+}
+
+.signature-title {
+  color: var(--text-secondary);
+  font-size: var(--text-sm);
+}
+
+/* Image Grid */
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+  margin: var(--space-2xl) 0;
+}
+
+.image-grid--2col {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.image-grid img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+}
+
+/* Feature Cards */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-xl);
+}
+
+.feature-card {
+  background: var(--bg-white);
+  padding: var(--space-xl);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-xl);
+}
+
+.feature-icon {
+  width: 48px;
+  height: 48px;
+  background: var(--bloxham-navy);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-lg);
+  color: var(--bloxham-gold);
+  font-size: var(--text-2xl);
+}
+
+.feature-title {
+  font-family: var(--font-serif);
+  font-size: var(--text-xl);
+  color: var(--bloxham-navy);
+  margin-bottom: var(--space-sm);
+}
+
+.feature-text {
+  color: var(--text-secondary);
+  font-size: var(--text-sm);
+  line-height: var(--leading-relaxed);
+}
+
+/* Sport Module */
+.sport-module {
+  margin-bottom: var(--space-3xl);
+  padding: var(--space-2xl);
+  background: var(--bg-white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+}
+
+.sport-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+  margin-bottom: var(--space-xl);
+}
+
+.sport-icon {
+  width: 60px;
+  height: 60px;
+  background: var(--bloxham-navy);
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--bloxham-gold);
+  font-size: var(--text-2xl);
+}
+
+.sport-title {
+  font-family: var(--font-serif);
+  font-size: var(--text-2xl);
+  color: var(--bloxham-navy);
+}
+
+.sport-images {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-md);
+  margin-bottom: var(--space-xl);
+}
+
+.sport-images img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+}
+
+.sport-description {
+  font-size: var(--text-base);
+  line-height: var(--leading-relaxed);
+  color: var(--text-secondary);
+}
+
+.sport-achievements {
+  margin-top: var(--space-lg);
+  padding: var(--space-lg);
+  background: var(--bloxham-cream);
+  border-radius: var(--radius-md);
+  border-left: 4px solid var(--bloxham-gold);
+}
+
+.sport-achievements h4 {
+  color: var(--bloxham-navy);
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: var(--space-sm);
+}
+
+.sport-achievements ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sport-achievements li {
+  padding: var(--space-xs) 0;
+  color: var(--text-secondary);
+  font-size: var(--text-sm);
+}
+
+.sport-achievements li::before {
+  content: '\2022';
+  color: var(--bloxham-gold);
+  font-weight: bold;
+  margin-right: var(--space-sm);
+}
+
+/* Music Module */
+.music-ensemble {
+  background: var(--bg-white);
+  padding: var(--space-2xl);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  margin-bottom: var(--space-xl);
+}
+
+.ensemble-title {
+  font-family: var(--font-serif);
+  font-size: var(--text-xl);
+  color: var(--bloxham-navy);
+  margin-bottom: var(--space-md);
+}
+
+.ensemble-description {
+  color: var(--text-secondary);
+  line-height: var(--leading-relaxed);
+}
+
+/* Boarding Module */
+.boarding-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-xl);
+}
+
+.boarding-card {
+  background: var(--bg-white);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+}
+
+.boarding-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.boarding-card-content {
+  padding: var(--space-xl);
+}
+
+.boarding-card-title {
+  font-family: var(--font-serif);
+  font-size: var(--text-xl);
+  color: var(--bloxham-navy);
+  margin-bottom: var(--space-sm);
+}
+
+.boarding-card-text {
+  color: var(--text-secondary);
+  font-size: var(--text-sm);
+}
+
+/* Quote Block */
+.quote-block {
+  background: var(--bloxham-navy);
+  color: var(--text-white);
+  padding: var(--space-3xl);
+  text-align: center;
+  margin: var(--space-3xl) 0;
+}
+
+.quote-text {
+  font-family: var(--font-serif);
+  font-size: var(--text-2xl);
+  font-style: italic;
+  max-width: 800px;
+  margin: 0 auto var(--space-xl);
+  line-height: var(--leading-relaxed);
+}
+
+.quote-attribution {
+  color: var(--bloxham-gold);
+  font-size: var(--text-base);
+}
+
+/* CTA Section */
+.cta-section {
+  background: linear-gradient(135deg, var(--bloxham-navy) 0%, var(--bloxham-navy-dark) 100%);
+  color: var(--text-white);
+  text-align: center;
+  padding: var(--space-3xl);
+}
+
+.cta-title {
+  font-family: var(--font-serif);
+  font-size: var(--text-3xl);
+  margin-bottom: var(--space-md);
+}
+
+.cta-text {
+  font-size: var(--text-lg);
+  opacity: 0.9;
+  margin-bottom: var(--space-xl);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cta-button {
+  display: inline-block;
+  background: var(--bloxham-gold);
+  color: var(--bloxham-navy);
+  padding: var(--space-md) var(--space-2xl);
+  border-radius: var(--radius-full);
+  font-weight: 600;
+  text-decoration: none;
+  transition: all var(--transition-normal);
+}
+
+.cta-button:hover {
+  background: var(--bloxham-gold-light);
+  transform: translateY(-2px);
+}
+
+/* Hallmarks Grid */
+.hallmarks-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--space-xl);
+}
+
+.hallmark-item {
+  text-align: center;
+  padding: var(--space-xl);
+}
+
+.hallmark-number {
+  width: 48px;
+  height: 48px;
+  background: var(--bloxham-gold);
+  color: var(--bloxham-navy);
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: var(--text-lg);
+  margin: 0 auto var(--space-lg);
+}
+
+.hallmark-title {
+  font-family: var(--font-serif);
+  font-size: var(--text-lg);
+  color: var(--bloxham-navy);
+  margin-bottom: var(--space-sm);
+}
+
+.module--navy .hallmark-title {
+  color: var(--text-white);
+}
+
+.hallmark-text {
+  color: var(--text-secondary);
+  font-size: var(--text-sm);
+}
+
+.module--navy .hallmark-text {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Contact Info */
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--space-xl);
+}
+
+.contact-card {
+  background: var(--bg-white);
+  padding: var(--space-xl);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  text-align: center;
+}
+
+.contact-icon {
+  width: 48px;
+  height: 48px;
+  background: var(--bloxham-cream);
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto var(--space-md);
+  color: var(--bloxham-navy);
+  font-size: var(--text-xl);
+}
+
+.contact-label {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  margin-bottom: var(--space-xs);
+}
+
+.contact-value {
+  font-weight: 600;
+  color: var(--bloxham-navy);
+}
+
+.contact-value a {
+  color: var(--bloxham-navy);
+  text-decoration: none;
+}
+
+.contact-value a:hover {
+  color: var(--bloxham-gold);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .prospectus-header {
+    padding: 0 var(--space-md);
+  }
+
+  .progress-bar {
+    width: 100px;
+  }
+
+  .cover-title {
+    font-size: var(--text-3xl);
+  }
+
+  .cover-school {
+    font-size: var(--text-xl);
+  }
+
+  .module {
+    padding: var(--space-2xl) var(--space-md);
+  }
+
+  .section-title {
+    font-size: var(--text-2xl);
+  }
+
+  .image-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .boarding-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sport-images {
+    grid-template-columns: 1fr;
+  }
+
+  .welcome-content {
+    padding: var(--space-xl);
+  }
+}
+
+/* Print Styles */
+@media print {
+  .prospectus-header {
+    position: static;
+    background: var(--bloxham-navy);
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .prospectus-content {
+    margin-top: 0;
+  }
+
+  .module {
+    page-break-inside: avoid;
+  }
+
+  .cover-module {
+    min-height: auto;
+    padding: var(--space-3xl);
+  }
+}

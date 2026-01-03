@@ -6,9 +6,9 @@ services:
   - type: web
     name: emily
     env: node
-    rootDir: emily
-    buildCommand: npm install
-    startCommand: npm start
+    rootDir: .
+    buildCommand: cd emily && npm install
+    startCommand: cd emily && npm start
     healthCheckPath: /api/health
     envVars:
       - key: OPENAI_API_KEY

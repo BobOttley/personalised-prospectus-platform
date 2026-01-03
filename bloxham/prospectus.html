@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Personalised Prospectus | Bloxham School</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/prospectus.css">
+</head>
+<body>
+  <!-- Sticky Header -->
+  <header class="prospectus-header">
+    <div class="family-name">
+      Prepared for the <strong><span data-field="family_name">Ashworth</span></strong> Family
+    </div>
+    <div class="progress-container">
+      <span class="progress-text"><span id="progress-percent">0</span>% read</span>
+      <div class="progress-bar">
+        <div class="progress-fill" id="progress-fill"></div>
+      </div>
+    </div>
+  </header>
+
+  <main class="prospectus-content">
+    <!-- Cover Module -->
+    <section class="cover-module">
+      <div class="cover-content">
+        <img src="assets/images/campus-logo-01.jpg" alt="Bloxham School Crest" class="cover-crest">
+        <p class="cover-subtitle">A Personalised Prospectus</p>
+        <h1 class="cover-title">
+          Welcome, <span class="cover-child-name" data-field="child_name">Henry</span>
+        </h1>
+        <p class="cover-school">Bloxham School</p>
+        <p class="cover-tagline">Where <span data-field="child_name">Henry</span> will discover <span data-field="pronoun_possessive">his</span> passions and shape <span data-field="pronoun_possessive">his</span> future</p>
+        <p class="cover-motto">"Justorum Semita Lux Splendens"<br><em>The path of the just is a shining light</em></p>
+      </div>
+    </section>
+
+    <!-- Welcome Letter -->
+    <section class="module welcome-module">
+      <div class="section-header">
+        <span class="section-label">From the Headmaster</span>
+        <h2 class="section-title">A Personal Welcome</h2>
+      </div>
+      <div class="welcome-content">
+        <p class="welcome-greeting">Dear <span data-field="parent_title">Mr and Mrs Ashworth</span>,</p>
+
+        <p class="welcome-text">
+          Thank you for your interest in Bloxham School. It gives me great pleasure to share this personalised prospectus, created especially for <strong><span data-field="child_name">Henry</span></strong> and your family.
+        </p>
+
+        <p class="welcome-text">
+          At Bloxham, we believe that the individual matters. With fewer than 600 students, we are small enough to ensure that <span data-field="child_name">Henry</span> receives the personal attention <span data-field="pronoun_subject">he</span> deserves, yet large enough to offer every opportunity a school twice our size could provide.
+        </p>
+
+        <p class="welcome-text">
+          Founded in 1860, Bloxham has been nurturing young people for over 160 years. Our five hallmarks of education - a passion for learning, a balanced curriculum, Christian values, gold standard pastoral care, and character development - provide the foundation for <span data-field="child_name">Henry</span> to flourish both academically and personally.
+        </p>
+
+        <p class="welcome-text">
+          I would be delighted to welcome you and <span data-field="child_name">Henry</span> to experience Bloxham for yourselves. Whether through a personal visit or one of our Open Morning events, I am confident you will feel the warmth and sense of community that makes our school so special.
+        </p>
+
+        <div class="welcome-signature">
+          <p class="signature-name">Paul Sanderson</p>
+          <p class="signature-title">Headmaster</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Bloxham -->
+    <section class="module module--navy">
+      <div class="section-header">
+        <span class="section-label">Why Choose Us</span>
+        <h2 class="section-title">Why Bloxham for <span data-field="child_name">Henry</span>?</h2>
+        <p class="section-subtitle">Five hallmarks that will shape <span data-field="pronoun_possessive">his</span> education</p>
+      </div>
+
+      <div class="hallmarks-grid">
+        <div class="hallmark-item">
+          <div class="hallmark-number">1</div>
+          <h3 class="hallmark-title">A Passion for Learning</h3>
+          <p class="hallmark-text">Fostering creativity and capacity for dynamic, independent and critical thought in <span data-field="child_name">Henry</span>.</p>
+        </div>
+        <div class="hallmark-item">
+          <div class="hallmark-number">2</div>
+          <h3 class="hallmark-title">A Balanced Curriculum</h3>
+          <p class="hallmark-text">Challenging academics complemented by a broader curriculum inspiring curiosity, rigour and ambition.</p>
+        </div>
+        <div class="hallmark-item">
+          <div class="hallmark-number">3</div>
+          <h3 class="hallmark-title">Christian Values</h3>
+          <p class="hallmark-text">Nurturing a compassionate spirit so <span data-field="child_name">Henry</span> becomes a force for good in the world.</p>
+        </div>
+        <div class="hallmark-item">
+          <div class="hallmark-number">4</div>
+          <h3 class="hallmark-title">Gold Standard Pastoral Care</h3>
+          <p class="hallmark-text">Nurturing wellbeing within our supportive boarding community where every individual matters.</p>
+        </div>
+        <div class="hallmark-item">
+          <div class="hallmark-number">5</div>
+          <h3 class="hallmark-title">Development of Character</h3>
+          <p class="hallmark-text">Promoting responsibility, generosity, resilience and imagination in all <span data-field="child_name">Henry</span> does.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Campus & Facilities -->
+    <section class="module">
+      <div class="section-header">
+        <span class="section-label">Our Home</span>
+        <h2 class="section-title">A Beautiful Setting</h2>
+        <p class="section-subtitle">60 acres of stunning Oxfordshire countryside</p>
+      </div>
+
+      <div class="image-grid">
+        <img src="assets/images/campus-drone-view-01.png" alt="Bloxham School aerial view">
+        <img src="assets/images/chapel-building-01.png" alt="Bloxham School Chapel">
+        <img src="assets/images/campus-buildings-01.jpg" alt="Bloxham School buildings">
+      </div>
+
+      <div class="features-grid" style="margin-top: 2rem;">
+        <div class="feature-card">
+          <div class="feature-icon">&#9962;</div>
+          <h3 class="feature-title">Historic Chapel</h3>
+          <p class="feature-text">Our beautiful chapel, opened in 1871, sits at the heart of school life, hosting services, concerts, and special events.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">&#127979;</div>
+          <h3 class="feature-title">Great Hall</h3>
+          <p class="feature-text">Seating 230, our Great Hall hosts assemblies, performances, and major school events with stage and balcony facilities.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">&#128218;</div>
+          <h3 class="feature-title">Vallance Library</h3>
+          <p class="feature-text">Carnegie Centre of Excellence Gold Status - a hub for independent learning and research.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Academic Excellence -->
+    <section class="module module--cream">
+      <div class="section-header">
+        <span class="section-label">Academics</span>
+        <h2 class="section-title"><span data-field="child_name">Henry</span>'s Academic Journey</h2>
+        <p class="section-subtitle">Excellence in teaching, small class sizes, and individual attention</p>
+      </div>
+
+      <div class="image-grid image-grid--2col">
+        <img src="assets/images/academic-lab-01.png" alt="Science laboratory">
+        <img src="assets/images/academic-library-01.png" alt="Library and study">
+      </div>
+
+      <div class="features-grid" style="margin-top: 2rem;">
+        <div class="feature-card">
+          <h3 class="feature-title">Year 9 Curriculum</h3>
+          <p class="feature-text">As <span data-field="child_name">Henry</span> joins in Year 9, <span data-field="pronoun_subject">he</span> will experience a wide-ranging course providing foundations, skills, and experiences to prepare for GCSE choices.</p>
+        </div>
+        <div class="feature-card">
+          <h3 class="feature-title">GCSE Excellence</h3>
+          <p class="feature-text">Most students take 9-10 GCSEs including English, Mathematics, Sciences, and Modern Languages, with options including Art, Drama, Music, and more.</p>
+        </div>
+        <div class="feature-card">
+          <h3 class="feature-title">Outstanding Results</h3>
+          <p class="feature-text">90% A*-C at A Level (2021), with 73% achieving A*-B grades. Our pupils secure places at leading universities.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sport Section -->
+    <section class="module" data-show-if="interest:sport">
+      <div class="section-header">
+        <span class="section-label">Sport</span>
+        <h2 class="section-title"><span data-field="child_name">Henry</span> and Sport at Bloxham</h2>
+        <p class="section-subtitle">Where passion meets excellence on the playing fields</p>
+      </div>
+
+      <div id="sport-modules">
+        <!-- Rugby Module -->
+        <div class="sport-module" data-sport="rugby">
+          <div class="sport-header">
+            <div class="sport-icon">&#127944;</div>
+            <h3 class="sport-title"><span data-field="child_name">Henry</span> and Rugby</h3>
+          </div>
+          <div class="sport-images">
+            <img src="assets/images/sport-rugby-01.jpg" alt="Rugby at Bloxham">
+            <img src="assets/images/sport-header-02.jpg" alt="Rugby match">
+          </div>
+          <p class="sport-description">
+            Bloxham's rugby programme is one of the finest in the region. With 15 teams fielded across all age groups, <span data-field="child_name">Henry</span> will find <span data-field="pronoun_possessive">his</span> place regardless of ability. Excellent facilities, dedicated strength and conditioning coaches, and a 7-a-side programme in the Lent term ensure comprehensive development for every player.
+          </p>
+          <div class="sport-achievements">
+            <h4>Recent Achievements</h4>
+            <ul>
+              <li>National Schools Plate Winners 2018/19</li>
+              <li>National Finals 2019/20</li>
+              <li>15 teams fielded in 2021</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Hockey Module -->
+        <div class="sport-module" data-sport="hockey">
+          <div class="sport-header">
+            <div class="sport-icon">&#127954;</div>
+            <h3 class="sport-title"><span data-field="child_name">Henry</span> and Hockey</h3>
+          </div>
+          <div class="sport-images">
+            <img src="assets/images/sport-hockey-01.png" alt="Hockey at Bloxham">
+            <img src="assets/images/sport-header-01.png" alt="Hockey match">
+          </div>
+          <p class="sport-description">
+            Hockey is the largest and most popular sport at Bloxham, offering challenging fixtures against well-reputed schools. Boys play in the Lent term on our two full-size AstroTurf pitches. Strong links with Banbury Hockey Club provide additional opportunities, with several hockey specialists on staff to develop <span data-field="child_name">Henry</span>'s skills.
+          </p>
+        </div>
+
+        <!-- Cricket Module -->
+        <div class="sport-module" data-sport="cricket">
+          <div class="sport-header">
+            <div class="sport-icon">&#127951;</div>
+            <h3 class="sport-title"><span data-field="child_name">Henry</span> and Cricket</h3>
+          </div>
+          <div class="sport-images">
+            <img src="assets/images/sport-general-01.jpg" alt="Cricket at Bloxham">
+            <img src="assets/images/sport-general-02.jpg" alt="Cricket match">
+          </div>
+          <p class="sport-description">
+            Cricket is highly popular at Bloxham with five senior teams competing in the summer term. Professional coaching from George Setterfield ensures <span data-field="child_name">Henry</span> can develop <span data-field="pronoun_possessive">his</span> skills year-round, with indoor nets available in Michaelmas and pre-season coaching in Lent term. Our excellent grass pitches and indoor facilities provide the perfect environment for players at all levels.
+          </p>
+        </div>
+      </div>
+
+      <!-- Sport Facilities -->
+      <div class="features-grid" style="margin-top: 3rem;">
+        <div class="feature-card">
+          <h3 class="feature-title">Dewey Sports Centre</h3>
+          <p class="feature-text">4-court sports hall with spring-loaded flooring, fitness suite, and climbing wall with 9 routes.</p>
+        </div>
+        <div class="feature-card">
+          <h3 class="feature-title">Playing Fields</h3>
+          <p class="feature-text">2 full-size AstroTurf pitches, 7 rugby pitches, and extensive grass playing fields.</p>
+        </div>
+        <div class="feature-card">
+          <h3 class="feature-title">Swimming Pool</h3>
+          <p class="feature-text">Indoor swimming pool supporting competitive swimming, triathlon training, and recreational use.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Music Section -->
+    <section class="module module--cream" data-show-if="interest:music">
+      <div class="section-header">
+        <span class="section-label">Music</span>
+        <h2 class="section-title"><span data-field="child_name">Henry</span> and Music at Bloxham</h2>
+        <p class="section-subtitle">A thriving musical community with 200+ weekly lessons</p>
+      </div>
+
+      <div class="image-grid image-grid--2col">
+        <img src="assets/images/music-orchestra-01.png" alt="Orchestra performance">
+        <img src="assets/images/music-performance-02.png" alt="Music concert">
+      </div>
+
+      <!-- Chapel Choir -->
+      <div class="music-ensemble" id="ensemble-chapel-choir">
+        <h3 class="ensemble-title">Chapel Choir</h3>
+        <p class="ensemble-description">
+          The Chapel Choir is at the heart of musical life at Bloxham, performing regularly in our beautiful chapel and at external engagements. As a member, <span data-field="child_name">Henry</span> would develop <span data-field="pronoun_possessive">his</span> choral skills in a supportive environment, with opportunities to perform at concerts, services, and special events throughout the year.
+        </p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <h3 class="feature-title">Sam Kahn Music School</h3>
+          <p class="feature-text">State-of-the-art facilities including practice rooms and an intimate Recital Room seating 80.</p>
+        </div>
+        <div class="feature-card">
+          <h3 class="feature-title">17 Music Teachers</h3>
+          <p class="feature-text">Expert tuition across all instruments from piano and strings to brass, woodwind, and voice.</p>
+        </div>
+        <div class="feature-card">
+          <h3 class="feature-title">Musicians of the Future</h3>
+          <p class="feature-text">All First Form pupils learn an instrument for free and join the choir as part of this special scheme.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Boarding Section -->
+    <section class="module" data-show-if="entry_type:boarding">
+      <div class="section-header">
+        <span class="section-label">Boarding Life</span>
+        <h2 class="section-title"><span data-field="child_name">Henry</span>'s Home from Home</h2>
+        <p class="section-subtitle">Weekly boarding at Bloxham - the best of both worlds</p>
+      </div>
+
+      <div class="boarding-grid">
+        <div class="boarding-card">
+          <img src="assets/images/boarding-bedroom-01.png" alt="Boarding bedroom">
+          <div class="boarding-card-content">
+            <h3 class="boarding-card-title">Comfortable Accommodation</h3>
+            <p class="boarding-card-text">Modern, well-appointed rooms where <span data-field="child_name">Henry</span> can relax, study, and make lasting friendships.</p>
+          </div>
+        </div>
+        <div class="boarding-card">
+          <img src="assets/images/boarding-common-room-01.png" alt="Common room">
+          <div class="boarding-card-content">
+            <h3 class="boarding-card-title">House Community</h3>
+            <p class="boarding-card-text">Each house has dedicated House Parents, matrons, and tutors creating a supportive family atmosphere.</p>
+          </div>
+        </div>
+        <div class="boarding-card">
+          <img src="assets/images/boarding-house-01.png" alt="Boarding house exterior">
+          <div class="boarding-card-content">
+            <h3 class="boarding-card-title">Weekly Boarding</h3>
+            <p class="boarding-card-text">The perfect balance - full engagement during the week with weekends at home with family.</p>
+          </div>
+        </div>
+        <div class="boarding-card">
+          <img src="assets/images/boarding-house-02.png" alt="House life">
+          <div class="boarding-card-content">
+            <h3 class="boarding-card-title">Weekend Activities</h3>
+            <p class="boarding-card-text">For those staying, trips to London, Oxford, cinema outings, and house socials create memorable experiences.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="quote-block" style="margin-top: 3rem;">
+        <p class="quote-text">"Pupils develop into happy, mature, confident individuals with a highly developed sense of responsibility for self and others."</p>
+        <p class="quote-attribution">ISI Inspection Report 2024</p>
+      </div>
+    </section>
+
+    <!-- Outdoor Education -->
+    <section class="module module--navy">
+      <div class="section-header">
+        <span class="section-label">Beyond the Classroom</span>
+        <h2 class="section-title">Adventure & Leadership</h2>
+        <p class="section-subtitle">Over 100 activities to inspire <span data-field="child_name">Henry</span></p>
+      </div>
+
+      <div class="image-grid">
+        <img src="assets/images/outdoor-dofe-01.png" alt="Duke of Edinburgh">
+        <img src="assets/images/outdoor-ccf-01.png" alt="CCF activities">
+        <img src="assets/images/outdoor-climbing-01.png" alt="Climbing wall">
+      </div>
+
+      <div class="features-grid" style="margin-top: 2rem;">
+        <div class="feature-card">
+          <h3 class="feature-title">Duke of Edinburgh</h3>
+          <p class="feature-text">One of the largest DofE providers in Oxfordshire, with over 160 students working towards Bronze, Silver and Gold awards.</p>
+        </div>
+        <div class="feature-card">
+          <h3 class="feature-title">Combined Cadet Force</h3>
+          <p class="feature-text">Around 110 students develop leadership skills through weekly CCF activities and termly field exercises.</p>
+        </div>
+        <div class="feature-card">
+          <h3 class="feature-title">Outdoor Pursuits</h3>
+          <p class="feature-text">Climbing, kayaking, sailing, and expeditions to wild areas in the UK and beyond.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pastoral Care -->
+    <section class="module">
+      <div class="section-header">
+        <span class="section-label">Wellbeing</span>
+        <h2 class="section-title">Supporting <span data-field="child_name">Henry</span></h2>
+        <p class="section-subtitle">Gold standard pastoral care at the heart of everything we do</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">&#128101;</div>
+          <h3 class="feature-title">House System</h3>
+          <p class="feature-text">A familiar, friendly, supportive base for <span data-field="child_name">Henry</span> with dedicated House Parents and tutors.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">&#128153;</div>
+          <h3 class="feature-title">Peer Listeners</h3>
+          <p class="feature-text">Trained Sixth Formers available to listen and support students of all ages informally.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">&#127973;</div>
+          <h3 class="feature-title">Palmer Health Centre</h3>
+          <p class="feature-text">On-site medical facility with registered nurses and visiting medical officer for routine health needs.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">&#128591;</div>
+          <h3 class="feature-title">School Chaplain</h3>
+          <p class="feature-text">Rev. Alexander Ladds provides spiritual support and guidance for all members of our community.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Next Steps CTA -->
+    <section class="cta-section">
+      <h2 class="cta-title">Ready to Discover Bloxham?</h2>
+      <p class="cta-text">We would love to welcome <span data-field="child_name">Henry</span> and your family to experience our community first-hand.</p>
+      <a href="https://www.bloxhamschool.com/admissions/" class="cta-button" target="_blank">Book a Visit</a>
+    </section>
+
+    <!-- Contact Information -->
+    <section class="module">
+      <div class="section-header">
+        <span class="section-label">Get in Touch</span>
+        <h2 class="section-title">Contact Us</h2>
+        <p class="section-subtitle">We're here to answer any questions</p>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-card">
+          <div class="contact-icon">&#128222;</div>
+          <p class="contact-label">Telephone</p>
+          <p class="contact-value"><a href="tel:+441295720222">+44 (0) 1295 720 222</a></p>
+        </div>
+        <div class="contact-card">
+          <div class="contact-icon">&#128231;</div>
+          <p class="contact-label">Admissions Email</p>
+          <p class="contact-value"><a href="mailto:admissions@bloxhamschool.com">admissions@bloxhamschool.com</a></p>
+        </div>
+        <div class="contact-card">
+          <div class="contact-icon">&#128205;</div>
+          <p class="contact-label">Address</p>
+          <p class="contact-value">Banbury Road, Bloxham<br>Oxfordshire OX15 4PE</p>
+        </div>
+        <div class="contact-card">
+          <div class="contact-icon">&#127760;</div>
+          <p class="contact-label">Website</p>
+          <p class="contact-value"><a href="https://www.bloxhamschool.com" target="_blank">bloxhamschool.com</a></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="background: var(--bloxham-navy); color: white; text-align: center; padding: 2rem;">
+      <p style="opacity: 0.8; font-size: 0.9rem;">
+        This prospectus was created personally for the <span data-field="family_name">Ashworth</span> family.<br>
+        Bloxham School | Founded 1860 | A Woodard School
+      </p>
+    </footer>
+  </main>
+
+  <script src="scripts/personalisation.js"></script>
+  <script src="scripts/progress-tracker.js"></script>
+  <script src="scripts/module-visibility.js"></script>
+  <script>
+    // Initialize with demo data if no session data
+    document.addEventListener('DOMContentLoaded', function() {
+      let data = sessionStorage.getItem('prospectusData');
+
+      if (!data) {
+        // Demo data for Henry Ashworth
+        data = {
+          child_first_name: 'Henry',
+          child_surname: 'Ashworth',
+          child_gender: 'boy',
+          parent_title: 'Mr and Mrs Ashworth',
+          parent_surname: 'Ashworth',
+          entry_year: 'year9',
+          boarding_type: 'weekly_boarding',
+          sports: ['rugby', 'hockey', 'cricket'],
+          music: ['chapel_choir'],
+          activities: ['dofe', 'ccf']
+        };
+        sessionStorage.setItem('prospectusData', JSON.stringify(data));
+      } else {
+        data = JSON.parse(data);
+      }
+
+      // Initialize personalisation
+      personalise(data);
+      showRelevantModules(data);
+      showRelevantSports(data);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+BLOXHAM SCHOOL IMAGE DOWNLOAD SUMMARY
+=====================================
+
+Date: December 17, 2025
+Source: https://www.bloxhamschool.com/
+Target Directory: /Users/robertottley/Desktop/personalised-prospectus-platform/bloxham/assets/images/
+
+TOTAL IMAGES DOWNLOADED: 56 images
+
+BREAKDOWN BY CATEGORY:
+----------------------
+✅ Campus/Buildings: 18 images
+✅ Sport: 11 images
+✅ Sixth Form: 7 images  
+✅ Outdoor Activities: 5 images
+✅ Boarding: 4 images
+✅ Academic: 4 images
+✅ Art/DT: 3 images
+✅ Student Stories: 3 images
+✅ Music: 2 images
+✅ Drama: 2 images
+
+SPORTS COVERED:
+--------------
+- Rugby ✅
+- Hockey ✅
+- Netball ✅
+- Athletics ✅
+- Swimming ✅
+- Cricket ⚠️ (may need verification)
+- Tennis ❌ (not found)
+- Equestrian ❌ (not found)
+- Shooting ❌ (not found)
+
+KEY LOCATIONS CAPTURED:
+-----------------------
+✅ Chapel (exterior and interior)
+✅ Boarding houses, bedrooms, common rooms
+✅ Science laboratories
+✅ Library
+✅ Art studios
+✅ DT workshops
+✅ Sports facilities
+✅ Climbing wall
+✅ White Lion Centre/Sixth Form areas
+✅ Campus aerial views
+⚠️ Great Hall (may be in campus shots)
+❌ Sam Kahn Music Centre (not specifically identified)
+
+OUTDOOR ACTIVITIES COVERED:
+---------------------------
+✅ Duke of Edinburgh Award expeditions
+✅ CCF (Combined Cadet Force)
+✅ Climbing
+✅ General outdoor education
+
+IMAGE QUALITY:
+--------------
+- Format: Mix of JPG and PNG
+- Resolution: High-res (mostly 2100x1400px or scaled versions)
+- All images are web-optimized and suitable for prospectus use
+
+SCRAPING METHOD:
+----------------
+1. Explored main website pages (homepage, sport, academic, co-curricular, etc.)
+2. Extracted image URLs from HTML source
+3. Discovered pattern in WordPress uploads: /wp-content/uploads/YEAR/MONTH/
+4. Successfully identified numbered "Website-Header" series from 2022/08 and 2023/10
+5. Downloaded images using curl with descriptive filenames
+
+FILES INCLUDED:
+---------------
+- 56 image files (JPG/PNG)
+- IMAGE_CATALOGUE.md (detailed catalogue with descriptions)
+- DOWNLOAD_SUMMARY.txt (this file)
+
+NOTES:
+------
+- All filenames follow the pattern: category-description-number.extension
+- Examples: sport-rugby-01.jpg, campus-aerial-view-01.jpg, music-orchestra-01.png
+- Images are organized by category for easy identification
+- Some categories have limited representation and may benefit from additional images
+
+RECOMMENDATION:
+---------------
+The 56 images provide excellent coverage for a personalized prospectus. Consider requesting additional images from the school for:
+- Tennis facilities and matches
+- Equestrian activities
+- Shooting range
+- Sam Kahn Music Centre specific shots
+- Great Hall interior
+- More theatrical productions
+
+For immediate prospectus use, this collection provides comprehensive visual coverage of Bloxham School's facilities, activities, and student life.

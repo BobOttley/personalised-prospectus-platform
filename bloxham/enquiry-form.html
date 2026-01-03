@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Request Your Personalised Prospectus | Bloxham School</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bloxham-navy: #1B365D;
+      --bloxham-navy-dark: #142847;
+      --bloxham-navy-light: #2A4A7A;
+      --bloxham-brown: #8B4513;
+      --bloxham-gold: #C5A572;
+      --bloxham-gold-light: #D4BC92;
+      --bloxham-cream: #F5F0E6;
+      --bloxham-stone: #E8E0D5;
+      --text-primary: #1B365D;
+      --text-secondary: #4A5568;
+      --bg-white: #FFFFFF;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bloxham-cream);
+      min-height: 100vh;
+      color: var(--text-primary);
+    }
+
+    .form-header {
+      background: linear-gradient(135deg, var(--bloxham-navy) 0%, var(--bloxham-navy-dark) 100%);
+      color: white;
+      padding: 3rem 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .form-header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('assets/images/campus-aerial-view-01.jpg') center/cover;
+      opacity: 0.1;
+    }
+
+    .header-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .school-crest {
+      width: 80px;
+      height: auto;
+      margin-bottom: 1rem;
+    }
+
+    .form-header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .form-header p {
+      opacity: 0.9;
+      font-size: 1.1rem;
+    }
+
+    .form-container {
+      max-width: 800px;
+      margin: -2rem auto 3rem;
+      padding: 0 1.5rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .form-card {
+      background: var(--bg-white);
+      border-radius: 1rem;
+      box-shadow: 0 10px 40px rgba(27, 54, 93, 0.15);
+      overflow: hidden;
+    }
+
+    .progress-bar {
+      height: 4px;
+      background: var(--bloxham-stone);
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: var(--bloxham-gold);
+      width: 0%;
+      transition: width 0.3s ease;
+    }
+
+    .form-section {
+      padding: 2.5rem;
+      border-bottom: 1px solid var(--bloxham-stone);
+      display: none;
+    }
+
+    .form-section.active {
+      display: block;
+    }
+
+    .section-header {
+      margin-bottom: 2rem;
+    }
+
+    .section-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      background: var(--bloxham-navy);
+      color: var(--bloxham-gold);
+      border-radius: 50%;
+      font-weight: 600;
+      font-size: 0.875rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      color: var(--bloxham-navy);
+      margin-bottom: 0.5rem;
+    }
+
+    .section-subtitle {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+
+    label {
+      display: block;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+      color: var(--text-primary);
+      font-size: 0.95rem;
+    }
+
+    label .required {
+      color: #e53e3e;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="date"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 0.875rem 1rem;
+      border: 2px solid var(--bloxham-stone);
+      border-radius: 0.5rem;
+      font-size: 1rem;
+      font-family: inherit;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      background: var(--bg-white);
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      outline: none;
+      border-color: var(--bloxham-navy);
+      box-shadow: 0 0 0 3px rgba(27, 54, 93, 0.1);
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    .radio-group,
+    .checkbox-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .radio-option,
+    .checkbox-option {
+      flex: 1;
+      min-width: 150px;
+    }
+
+    .radio-option input,
+    .checkbox-option input {
+      display: none;
+    }
+
+    .radio-option label,
+    .checkbox-option label {
+      display: flex;
+      align-items: center;
+      padding: 1rem;
+      border: 2px solid var(--bloxham-stone);
+      border-radius: 0.5rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-weight: 400;
+    }
+
+    .radio-option input:checked + label,
+    .checkbox-option input:checked + label {
+      border-color: var(--bloxham-navy);
+      background: rgba(27, 54, 93, 0.05);
+    }
+
+    .radio-option label::before {
+      content: '';
+      width: 20px;
+      height: 20px;
+      border: 2px solid var(--bloxham-stone);
+      border-radius: 50%;
+      margin-right: 0.75rem;
+      transition: all 0.2s;
+    }
+
+    .radio-option input:checked + label::before {
+      border-color: var(--bloxham-navy);
+      background: var(--bloxham-navy);
+      box-shadow: inset 0 0 0 4px var(--bg-white);
+    }
+
+    .checkbox-option label::before {
+      content: '';
+      width: 20px;
+      height: 20px;
+      border: 2px solid var(--bloxham-stone);
+      border-radius: 4px;
+      margin-right: 0.75rem;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .checkbox-option input:checked + label::before {
+      border-color: var(--bloxham-navy);
+      background: var(--bloxham-navy);
+      content: '\2713';
+      color: white;
+      font-size: 14px;
+    }
+
+    .sports-grid,
+    .music-grid,
+    .activities-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 0.75rem;
+    }
+
+    .sports-grid .checkbox-option,
+    .music-grid .checkbox-option,
+    .activities-grid .checkbox-option {
+      min-width: auto;
+    }
+
+    .sports-grid .checkbox-option label,
+    .music-grid .checkbox-option label,
+    .activities-grid .checkbox-option label {
+      padding: 0.75rem;
+      font-size: 0.9rem;
+    }
+
+    .selection-limit {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      margin-bottom: 1rem;
+    }
+
+    .form-navigation {
+      display: flex;
+      justify-content: space-between;
+      padding: 1.5rem 2.5rem;
+      background: var(--bloxham-cream);
+    }
+
+    .btn {
+      padding: 0.875rem 2rem;
+      border-radius: 2rem;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      border: none;
+      font-family: inherit;
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--bloxham-navy);
+      border: 2px solid var(--bloxham-navy);
+    }
+
+    .btn-secondary:hover {
+      background: var(--bloxham-navy);
+      color: white;
+    }
+
+    .btn-primary {
+      background: var(--bloxham-navy);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: var(--bloxham-navy-dark);
+    }
+
+    .btn-gold {
+      background: var(--bloxham-gold);
+      color: var(--bloxham-navy);
+    }
+
+    .btn-gold:hover {
+      background: var(--bloxham-gold-light);
+    }
+
+    .btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    .step-indicators {
+      display: flex;
+      justify-content: center;
+      padding: 1.5rem;
+      gap: 0.5rem;
+      background: var(--bloxham-cream);
+    }
+
+    .step-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--bloxham-stone);
+      transition: all 0.2s;
+    }
+
+    .step-dot.active {
+      background: var(--bloxham-navy);
+      transform: scale(1.2);
+    }
+
+    .step-dot.completed {
+      background: var(--bloxham-gold);
+    }
+
+    .consent-text {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .consent-text a {
+      color: var(--bloxham-navy);
+    }
+
+    @media (max-width: 600px) {
+      .form-header h1 {
+        font-size: 1.75rem;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .form-section {
+        padding: 1.5rem;
+      }
+
+      .form-navigation {
+        padding: 1rem 1.5rem;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .btn {
+        width: 100%;
+        text-align: center;
+      }
+
+      .radio-group {
+        flex-direction: column;
+      }
+
+      .radio-option {
+        min-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="form-header">
+    <div class="header-content">
+      <img src="assets/images/campus-logo-01.jpg" alt="Bloxham School Crest" class="school-crest">
+      <h1>Your Personalised Prospectus</h1>
+      <p>Tell us about your family and we'll create a prospectus just for you</p>
+    </div>
+  </header>
+
+  <div class="form-container">
+    <form id="enquiry-form" class="form-card">
+      <div class="progress-bar">
+        <div class="progress-fill" id="progress-fill"></div>
+      </div>
+
+      <!-- Section 1: About Your Child -->
+      <div class="form-section active" data-section="1">
+        <div class="section-header">
+          <div class="section-number">1</div>
+          <h2 class="section-title">About Your Child</h2>
+          <p class="section-subtitle">Let's start with some basic information</p>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="child_first_name">Child's First Name <span class="required">*</span></label>
+            <input type="text" id="child_first_name" name="child_first_name" required placeholder="e.g., Henry">
+          </div>
+          <div class="form-group">
+            <label for="child_surname">Child's Surname <span class="required">*</span></label>
+            <input type="text" id="child_surname" name="child_surname" required placeholder="e.g., Ashworth">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Child's Gender <span class="required">*</span></label>
+          <div class="radio-group">
+            <div class="radio-option">
+              <input type="radio" id="gender_boy" name="child_gender" value="boy" required>
+              <label for="gender_boy">Boy</label>
+            </div>
+            <div class="radio-option">
+              <input type="radio" id="gender_girl" name="child_gender" value="girl">
+              <label for="gender_girl">Girl</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="child_dob">Date of Birth</label>
+          <input type="date" id="child_dob" name="child_dob">
+        </div>
+      </div>
+
+      <!-- Section 2: Entry Point -->
+      <div class="form-section" data-section="2">
+        <div class="section-header">
+          <div class="section-number">2</div>
+          <h2 class="section-title">Entry Point</h2>
+          <p class="section-subtitle">When would your child join Bloxham?</p>
+        </div>
+
+        <div class="form-group">
+          <label for="entry_year">Entry Year Group <span class="required">*</span></label>
+          <select id="entry_year" name="entry_year" required>
+            <option value="">Select year group...</option>
+            <option value="year7">Year 7 (Age 11) - First Form</option>
+            <option value="year8">Year 8 (Age 12) - Second Form</option>
+            <option value="year9">Year 9 (Age 13) - Third Form</option>
+            <option value="year10">Year 10 (Age 14) - Fourth Form</option>
+            <option value="year11">Year 11 (Age 15) - Fifth Form</option>
+            <option value="year12">Year 12 (Age 16) - Lower Sixth</option>
+            <option value="year13">Year 13 (Age 17) - Upper Sixth</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="entry_date">Intended Start Date <span class="required">*</span></label>
+          <select id="entry_date" name="entry_date" required>
+            <option value="">Select start date...</option>
+            <option value="september2025">September 2025</option>
+            <option value="january2026">January 2026</option>
+            <option value="september2026">September 2026</option>
+            <option value="september2027">September 2027</option>
+            <option value="september2028">September 2028</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Day or Boarding? <span class="required">*</span></label>
+          <div class="radio-group">
+            <div class="radio-option">
+              <input type="radio" id="boarding_full" name="boarding_type" value="full_boarding" required>
+              <label for="boarding_full">Full Boarding</label>
+            </div>
+            <div class="radio-option">
+              <input type="radio" id="boarding_weekly" name="boarding_type" value="weekly_boarding">
+              <label for="boarding_weekly">Weekly Boarding</label>
+            </div>
+            <div class="radio-option">
+              <input type="radio" id="boarding_day" name="boarding_type" value="day_boarding">
+              <label for="boarding_day">Day Boarding</label>
+            </div>
+            <div class="radio-option">
+              <input type="radio" id="boarding_day_only" name="boarding_type" value="day">
+              <label for="boarding_day_only">Day Only</label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 3: Interests - Sport -->
+      <div class="form-section" data-section="3">
+        <div class="section-header">
+          <div class="section-number">3</div>
+          <h2 class="section-title">Sports Interests</h2>
+          <p class="section-subtitle">Select your child's top 3 sports</p>
+        </div>
+
+        <p class="selection-limit">Please select up to 3 sports that interest your child most</p>
+
+        <div class="sports-grid">
+          <div class="checkbox-option">
+            <input type="checkbox" id="sport_rugby" name="sports" value="rugby" data-max="3">
+            <label for="sport_rugby">Rugby</label>
+          </div>
+          <div class="checkbox-option">
+            <input type="checkbox" id="sport_hockey" name="sports" value="hockey" data-max="3">
+            <label for="sport_hockey">Hockey</label>
+          </div>
+          <div class="checkbox-option">
+            <input type="checkbox" id="sport_cricket" name="sports" value="cricket" data-max="3">
+            <label for="sport_cricket">Cricket</label>
+          </div>
+          <div class="checkbox-option">
+            <input type="checkbox" id="sport_netball" name="sports" value="netball" data-max="3">
+            <label for="sport_netball">Netball</label>
+          </div>
+          <div class="checkbox-option">
+            <input type="checkbox" id="sport_tennis" name="sports" value="tennis" data-max="3">
+            <label for="sport_tennis">Tennis</label>
+          </div>
+          <div class="checkbox-option">
+            <input type="checkbox" id="sport_swimming" name="sports" value="swimming" data-max="3">
+            <label for="sport_swimming">Swimming</label>
+          </div>
+          <div class="checkbox-option">
+            <input type="checkbox" id="sport_athletics" name="sports" value="athletics" data-max="3">
+            <label for="sport_athletics">Athletics</label>
+          </div>
+          <div class="checkbox-option">
+            <input type="checkbox" id="sport_shooting" name="sports" value="shooting" data-max="3">
+            <label for="sport_shooting">Clay Shooting</label>
+          </div>
+          <div class="checkbox-option">
+            <input type="checkbox" id="sport_equestrian" name="sports" value="equestrian" data-max="3">
+            <label for="sport_equestrian">Equestrian</label>
+          </div>
+          <div class="checkbox-option">
+            <input type="checkbox" id="sport_golf" name="sports" value="golf" data-max="3">
+            <label for="sport_golf">Golf</label>
+          </div>
+          <div class="checkbox-option">
+            <input type="checkbox" id="sport_squash" name="sports" value="squash" data-max="3">
+            <label for="sport_squash">Squash</label>
+          </div>
+          <div class="checkbox-option">
+            <input type="checkbox" id="sport_badminton" name="sports" value="badminton" data-max="3">
+            <label for="sport_badminton">Badminton</label>
+          </div>
+          <div class="checkbox-option">
+            <input type="checkbox" id="sport_basketball" name="sports" value="basketball" data-max="3">
+            <label for="sport_basketball">Basketball</label>
+          </div>
+          <div class="checkbox-option">
+            <input type="checkbox" id="sport_fives" name="sports" value="fives" data-max="3">
+            <label for="sport_fives">Fives</label>
+          </div>
+          <div class="checkbox-option">
+            <input type="checkbox" id="sport_cross_country" name="sports" value="cross_country" data-max="3">
+            <label for="sport_cross_country">Cross Country</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 4: Interests - Music -->
+      <div class="form-section" data-section="4">
+        <div class="section-header">
+          <div class="section-number">4</div>
+          <h2 class="section-title">Music Interests</h2>
+          <p class="section-subtitle">Does your child have musical interests?</p>
+        </div>
+
+        <div class="form-group">
+          <label>Select any musical interests</label>
+          <div class="music-grid">
+            <div class="checkbox-option">
+              <input type="checkbox" id="music_chapel_choir" name="music" value="chapel_choir">
+              <label for="music_chapel_choir">Chapel Choir</label>
+            </div>
+            <div class="checkbox-option">
+              <input type="checkbox" id="music_orchestra" name="music" value="orchestra">
+              <label for="music_orchestra">Orchestra</label>
+            </div>
+            <div class="checkbox-option">
+              <input type="checkbox" id="music_concert_band" name="music" value="concert_band">
+              <label for="music_concert_band">Concert Band</label>
+            </div>
+            <div class="checkbox-option">
+              <input type="checkbox" id="music_jazz" name="music" value="jazz_band">
+              <label for="music_jazz">Jazz Band</label>
+            </div>
+            <div class="checkbox-option">
+              <input type="checkbox" id="music_strings" name="music" value="strings">
+              <label for="music_strings">String Groups</label>
+            </div>
+            <div class="checkbox-option">
+              <input type="checkbox" id="music_brass" name="music" value="brass">
+              <label for="music_brass">Brass Ensemble</label>
+            </div>
+            <div class="checkbox-option">
+              <input type="checkbox" id="music_rock" name="music" value="rock_band">
+              <label for="music_rock">Rock/Pop Band</label>
+            </div>
+            <div class="checkbox-option">
+              <input type="checkbox" id="music_lessons" name="music" value="individual_lessons">
+              <label for="music_lessons">Individual Lessons</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="instruments">Instruments played (if any)</label>
+          <input type="text" id="instruments" name="instruments" placeholder="e.g., Piano, Violin, Guitar">
+        </div>
+
+        <div class="form-group">
+          <label>Interest in Drama?</label>
+          <div class="radio-group">
+            <div class="radio-option">
+              <input type="radio" id="drama_yes" name="drama_interest" value="yes">
+              <label for="drama_yes">Yes</label>
+            </div>
+            <div class="radio-option">
+              <input type="radio" id="drama_no" name="drama_interest" value="no">
+              <label for="drama_no">No</label>
+            </div>
+            <div class="radio-option">
+              <input type="radio" id="drama_maybe" name="drama_interest" value="maybe">
+              <label for="drama_maybe">Maybe</label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 5: Activities -->
+      <div class="form-section" data-section="5">
+        <div class="section-header">
+          <div class="section-number">5</div>
+          <h2 class="section-title">Activities & Clubs</h2>
+          <p class="section-subtitle">What other activities interest your child?</p>
+        </div>
+
+        <p class="selection-limit">Select up to 5 activities</p>
+
+        <div class="activities-grid">
+          <div class="checkbox-option">
+            <input type="checkbox" id="activity_dofe" name="activities" value="dofe" data-max="5">
+            <label for="activity_dofe">Duke of Edinburgh</label>
+          </div>
+          <div class="checkbox-option">
+            <input type="checkbox" id="activity_ccf" name="activities" value="ccf" data-max="5">
+            <label for="activity_ccf">CCF</label>
+          </div>
+          <div class="checkbox-option">
+            <input type="checkbox" id="activity_climbing" name="activities" value="climbing" data-max="5">
+            <label for="activity_climbing">Climbing</label>
+          </div>
+          <div class="checkbox-option">
+            <input type="checkbox" id="activity_kayaking" name="activities" value="kayaking" data-max="5">
+            <label for="activity_kayaking">Kayaking</label>
+          </div>
+          <div class="checkbox-option">
+            <input type="checkbox" id="activity_sailing" name="activities" value="sailing" data-max="5">
+            <label for="activity_sailing">Sailing</label>
+          </div>
+          <div class="checkbox-option">
+            <input type="checkbox" id="activity_debating" name="activities" value="debating" data-max="5">
+            <label for="activity_debating">Debating</label>
+          </div>
+          <div class="checkbox-option">
+            <input type="checkbox" id="activity_chess" name="activities" value="chess" data-max="5">
+            <label for="activity_chess">Chess</label>
+          </div>
+          <div class="checkbox-option">
+            <input type="checkbox" id="activity_art" name="activities" value="art_club" data-max="5">
+            <label for="activity_art">Art Club</label>
+          </div>
+          <div class="checkbox-option">
+            <input type="checkbox" id="activity_photography" name="activities" value="photography" data-max="5">
+            <label for="activity_photography">Photography</label>
+          </div>
+          <div class="checkbox-option">
+            <input type="checkbox" id="activity_cooking" name="activities" value="cooking" data-max="5">
+            <label for="activity_cooking">Cooking</label>
+          </div>
+          <div class="checkbox-option">
+            <input type="checkbox" id="activity_stem" name="activities" value="stem" data-max="5">
+            <label for="activity_stem">STEM Club</label>
+          </div>
+          <div class="checkbox-option">
+            <input type="checkbox" id="activity_young_enterprise" name="activities" value="young_enterprise" data-max="5">
+            <label for="activity_young_enterprise">Young Enterprise</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 6: Parent Details -->
+      <div class="form-section" data-section="6">
+        <div class="section-header">
+          <div class="section-number">6</div>
+          <h2 class="section-title">Your Details</h2>
+          <p class="section-subtitle">So we can create your personalised prospectus</p>
+        </div>
+
+        <div class="form-group">
+          <label for="parent_title">How should we address you? <span class="required">*</span></label>
+          <input type="text" id="parent_title" name="parent_title" required placeholder="e.g., Mr and Mrs Ashworth">
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="parent_first_name">Your First Name <span class="required">*</span></label>
+            <input type="text" id="parent_first_name" name="parent_first_name" required placeholder="e.g., James">
+          </div>
+          <div class="form-group">
+            <label for="parent_surname">Your Surname <span class="required">*</span></label>
+            <input type="text" id="parent_surname" name="parent_surname" required placeholder="e.g., Ashworth">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="parent_email">Email Address <span class="required">*</span></label>
+            <input type="email" id="parent_email" name="parent_email" required placeholder="your@email.com">
+          </div>
+          <div class="form-group">
+            <label for="parent_phone">Phone Number</label>
+            <input type="tel" id="parent_phone" name="parent_phone" placeholder="+44 7123 456789">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="location">Your Location</label>
+          <input type="text" id="location" name="location" placeholder="e.g., Oxford, London, International">
+        </div>
+      </div>
+
+      <!-- Section 7: Final -->
+      <div class="form-section" data-section="7">
+        <div class="section-header">
+          <div class="section-number">7</div>
+          <h2 class="section-title">Almost There!</h2>
+          <p class="section-subtitle">Just a few final questions</p>
+        </div>
+
+        <div class="form-group">
+          <label for="how_heard">How did you hear about Bloxham?</label>
+          <select id="how_heard" name="how_heard">
+            <option value="">Select an option...</option>
+            <option value="website">School Website</option>
+            <option value="search">Google/Search Engine</option>
+            <option value="recommendation">Friend/Family Recommendation</option>
+            <option value="school_guide">School Guide/Publication</option>
+            <option value="open_day">Open Day/Event</option>
+            <option value="social_media">Social Media</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Are you interested in scholarships?</label>
+          <div class="checkbox-group" style="flex-direction: column;">
+            <div class="checkbox-option">
+              <input type="checkbox" id="scholarship_academic" name="scholarships" value="academic">
+              <label for="scholarship_academic">Academic Scholarship</label>
+            </div>
+            <div class="checkbox-option">
+              <input type="checkbox" id="scholarship_music" name="scholarships" value="music">
+              <label for="scholarship_music">Music Scholarship</label>
+            </div>
+            <div class="checkbox-option">
+              <input type="checkbox" id="scholarship_sport" name="scholarships" value="sport">
+              <label for="scholarship_sport">Sport Scholarship</label>
+            </div>
+            <div class="checkbox-option">
+              <input type="checkbox" id="scholarship_art" name="scholarships" value="art">
+              <label for="scholarship_art">Art Scholarship</label>
+            </div>
+            <div class="checkbox-option">
+              <input type="checkbox" id="scholarship_drama" name="scholarships" value="drama">
+              <label for="scholarship_drama">Drama Scholarship</label>
+            </div>
+            <div class="checkbox-option">
+              <input type="checkbox" id="scholarship_dt" name="scholarships" value="dt">
+              <label for="scholarship_dt">Design & Technology Scholarship</label>
+            </div>
+            <div class="checkbox-option">
+              <input type="checkbox" id="bursary" name="scholarships" value="bursary">
+              <label for="bursary">Means-Tested Bursary Information</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="additional_info">Anything else you'd like us to know?</label>
+          <textarea id="additional_info" name="additional_info" placeholder="Special interests, specific questions, or any other information..."></textarea>
+        </div>
+
+        <div class="form-group">
+          <div class="checkbox-option" style="min-width: 100%;">
+            <input type="checkbox" id="consent_privacy" name="consent_privacy" required>
+            <label for="consent_privacy">
+              <span class="consent-text">I agree to Bloxham School's <a href="#" target="_blank">Privacy Policy</a> and consent to my data being processed for admissions purposes. <span class="required">*</span></span>
+            </label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="checkbox-option" style="min-width: 100%;">
+            <input type="checkbox" id="consent_marketing" name="consent_marketing">
+            <label for="consent_marketing">
+              <span class="consent-text">I would like to receive news and updates from Bloxham School</span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="step-indicators">
+        <div class="step-dot active" data-step="1"></div>
+        <div class="step-dot" data-step="2"></div>
+        <div class="step-dot" data-step="3"></div>
+        <div class="step-dot" data-step="4"></div>
+        <div class="step-dot" data-step="5"></div>
+        <div class="step-dot" data-step="6"></div>
+        <div class="step-dot" data-step="7"></div>
+      </div>
+
+      <div class="form-navigation">
+        <button type="button" class="btn btn-secondary" id="prev-btn" style="visibility: hidden;">Back</button>
+        <button type="button" class="btn btn-primary" id="next-btn">Continue</button>
+        <button type="submit" class="btn btn-gold" id="submit-btn" style="display: none;">View Your Prospectus</button>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    const form = document.getElementById('enquiry-form');
+    const sections = document.querySelectorAll('.form-section');
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
+    const submitBtn = document.getElementById('submit-btn');
+    const progressFill = document.getElementById('progress-fill');
+    const stepDots = document.querySelectorAll('.step-dot');
+
+    let currentSection = 1;
+    const totalSections = sections.length;
+
+    function updateProgress() {
+      const progress = ((currentSection - 1) / (totalSections - 1)) * 100;
+      progressFill.style.width = progress + '%';
+
+      stepDots.forEach((dot, index) => {
+        dot.classList.remove('active', 'completed');
+        if (index + 1 === currentSection) {
+          dot.classList.add('active');
+        } else if (index + 1 < currentSection) {
+          dot.classList.add('completed');
+        }
+      });
+    }
+
+    function showSection(sectionNum) {
+      sections.forEach(section => {
+        section.classList.remove('active');
+        if (parseInt(section.dataset.section) === sectionNum) {
+          section.classList.add('active');
+        }
+      });
+
+      prevBtn.style.visibility = sectionNum === 1 ? 'hidden' : 'visible';
+
+      if (sectionNum === totalSections) {
+        nextBtn.style.display = 'none';
+        submitBtn.style.display = 'block';
+      } else {
+        nextBtn.style.display = 'block';
+        submitBtn.style.display = 'none';
+      }
+
+      updateProgress();
+    }
+
+    prevBtn.addEventListener('click', () => {
+      if (currentSection > 1) {
+        currentSection--;
+        showSection(currentSection);
+      }
+    });
+
+    nextBtn.addEventListener('click', () => {
+      // Basic validation for current section
+      const activeSection = document.querySelector('.form-section.active');
+      const requiredFields = activeSection.querySelectorAll('[required]');
+      let valid = true;
+
+      requiredFields.forEach(field => {
+        if (!field.value && field.type !== 'radio') {
+          valid = false;
+          field.style.borderColor = '#e53e3e';
+        } else if (field.type === 'radio') {
+          const radioGroup = activeSection.querySelectorAll(`[name="${field.name}"]`);
+          const checked = Array.from(radioGroup).some(r => r.checked);
+          if (!checked) {
+            valid = false;
+          }
+        } else {
+          field.style.borderColor = '';
+        }
+      });
+
+      if (valid && currentSection < totalSections) {
+        currentSection++;
+        showSection(currentSection);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    });
+
+    // Limit checkbox selections
+    const sportsCheckboxes = document.querySelectorAll('input[name="sports"]');
+    const activitiesCheckboxes = document.querySelectorAll('input[name="activities"]');
+
+    function limitCheckboxes(checkboxes, max) {
+      checkboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', () => {
+          const checked = document.querySelectorAll(`input[name="${checkbox.name}"]:checked`);
+          if (checked.length > max) {
+            checkbox.checked = false;
+          }
+        });
+      });
+    }
+
+    limitCheckboxes(sportsCheckboxes, 3);
+    limitCheckboxes(activitiesCheckboxes, 5);
+
+    // Form submission
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const formData = new FormData(form);
+      const data = {};
+
+      formData.forEach((value, key) => {
+        if (data[key]) {
+          if (Array.isArray(data[key])) {
+            data[key].push(value);
+          } else {
+            data[key] = [data[key], value];
+          }
+        } else {
+          data[key] = value;
+        }
+      });
+
+      // Store in sessionStorage
+      sessionStorage.setItem('prospectusData', JSON.stringify(data));
+
+      // Redirect to prospectus
+      window.location.href = 'prospectus.html';
+    });
+
+    // Initialize
+    showSection(1);
+  </script>
+</body>
+</html>

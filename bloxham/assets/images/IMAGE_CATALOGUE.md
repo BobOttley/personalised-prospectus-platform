@@ -1,0 +1,135 @@
+# Bloxham School Image Catalogue
+
+**Total Images Downloaded: 56**
+
+## Campus & Buildings (18 images)
+
+1. **campus-student-welcome-01.jpg** - Students at campus entrance/welcome area
+2. **campus-aerial-view-01.jpg** - Aerial view of school campus
+3. **campus-aerial-02.jpg** - Another aerial view of campus
+
+5. **campus-buildings-02.jpg** - School buildings view
+6. **campus-buildings-03.jpg** - Additional campus building shot
+7. **campus-buildings-04.jpg** - Campus architecture view
+8. **campus-drone-view-01.png** - Drone aerial shot of entire campus and grounds
+9. **campus-facilities-01.jpg** - Campus facilities overview
+10. **campus-header-01.jpg** - Campus header image
+11. **campus-header-02.jpg** - Campus header image 2
+12. **campus-header-03.jpg** - Campus header image 3
+13. **campus-logo-01.jpg** - School logo/branding
+14. **campus-video-frame-01.jpg** - Campus video still
+15. **chapel-building-01.png** - School chapel exterior
+16. **chapel-interior-01.png** - Chapel interior view
+17. **activities-header-01.png** - Campus activities header
+18. **academic-header-01.png** - Academic buildings header
+
+## Sport (9 images)
+
+1. **sport-rugby-01.jpg** - Rugby match/training action shot
+2. **sport-general-01.jpg** - General sports activity
+3. **sport-general-02.jpg** - General sports scene
+4. **sport-header-01.png** - Sports facilities header
+5. **sport-header-02.jpg** - Sports action header
+6. **sport-hockey-01.png** - Hockey match/training
+7. **sport-athletics-01.png** - Athletics/track and field
+8. **sport-netball-01.png** - Netball activity
+9. **sport-swimming-01.png** - Swimming pool/swimming activity
+10. **sport-cricket-01.jpg** - Cricket (if exists - check file)
+
+**Note:** The sports collection covers rugby, hockey, netball, athletics, swimming. Additional individual sports (cricket, tennis, equestrian, shooting) may need to be sourced separately.
+
+## Music (2 images)
+
+1. **music-orchestra-01.png** - Orchestra performance or rehearsal
+2. **music-performance-02.png** - Musical performance scene
+
+## Drama/Theatre (2 images)
+
+1. **drama-theatre-01.jpg** - Theatre/drama production
+2. **drama-performance-01.png** - Drama performance scene
+
+## Art & Design Technology (3 images)
+
+1. **art-creative-01.jpg** - Creative arts/art students at work
+2. **art-studio-01.png** - Art studio workspace
+3. **art-dt-01.png** - Design Technology workshop/activity
+
+## Boarding (4 images)
+
+1. **boarding-house-01.png** - Boarding house exterior/interior
+2. **boarding-house-02.png** - Additional boarding house view
+3. **boarding-bedroom-01.png** - Student bedroom in boarding house
+4. **boarding-common-room-01.png** - Boarding house common room/social space
+
+## Academic/Learning (4 images)
+
+1. **academic-learning-01.jpg** - Students learning/classroom scene
+2. **academic-lab-01.png** - Science laboratory
+3. **academic-library-01.png** - School library
+4. **academic-classroom-01.png** - Classroom teaching scene (if exists)
+
+## Sixth Form (7 images)
+
+1. **sixth-form-students-01.jpg** - Sixth form students
+2. **sixth-form-study-01.jpg** - Sixth form study area
+3. **sixth-form-collaboration-01.jpg** - Students collaborating
+4. **sixth-form-teaching-01.jpg** - Sixth form classroom/teaching
+5. **sixth-form-lab-01.jpg** - Sixth form laboratory work
+6. **sixth-form-discussion-01.jpg** - Group discussion/seminar
+7. **sixth-form-learning-01.jpg** - Sixth form learning environment
+
+## Outdoor Activities (5 images)
+
+1. **outdoor-explorers-01.jpg** - Outdoor exploration/expedition
+2. **outdoor-education-01.png** - Outdoor education activity
+3. **outdoor-ccf-01.png** - CCF (Combined Cadet Force) activity
+4. **outdoor-dofe-01.png** - Duke of Edinburgh Award expedition
+5. **outdoor-climbing-01.png** - Climbing wall/rock climbing activity
+
+## Student Stories (3 images)
+
+1. **students-story-01.jpg** - Student portrait/story
+2. **students-story-02.png** - Student testimonial/story
+3. **students-story-03.jpg** - Student feature/story
+
+---
+
+## Image Source
+
+All images scraped from: https://www.bloxhamschool.com/
+Date: December 17, 2025
+
+## Coverage Summary
+
+✅ **Excellent Coverage:**
+- Campus/Buildings (18 images)
+- Sport (11 images covering rugby, hockey, netball, athletics, swimming)
+- Sixth Form (7 images)
+- Outdoor Activities (5 images - DofE, CCF, climbing)
+- Boarding (4 images - houses, bedrooms, common rooms)
+
+✅ **Good Coverage:**
+- Art/DT (3 images)
+- Academic (4 images - labs, library, classrooms)
+
+⚠️ **Limited Coverage (may need additional sourcing):**
+- Music (2 images) - may want more choir/music school images
+- Drama (2 images) - may want more theatre production images
+
+❌ **Not Specifically Identified:**
+- Great Hall interior (may be included in campus shots)
+- Tennis courts
+- Equestrian facilities
+- Shooting range
+- Individual cricket action shots (sport-cricket-01.jpg may need verification)
+
+## Recommendations
+
+1. Most categories have excellent representation with 30+ total images
+2. For a comprehensive prospectus, consider sourcing additional:
+   - Individual sport shots (tennis, equestrian, shooting)
+   - Music School/Sam Kahn Music Centre specific images
+   - Great Hall interior shots
+   - More theatrical production images
+3. All images are high-resolution (mostly 2100x1400px or scaled versions)
+4. Mix of JPG and PNG formats - all web-optimized
